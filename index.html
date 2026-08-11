@@ -3,76 +3,1434 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Current Affairs Command Center 2026 — Framework v3.1</title>
-  <meta name="description" content="Interactive Current Affairs Command Center for Banking, Regulatory, and Civil Services Exams.">
-  <link rel="stylesheet" href="ca_app/styles.css">
+  <title>CogniGraph — First-Principles Knowledge Engine & Retention System</title>
+  <meta name="description" content="A first-principles note-taking, cross-linking, and spaced repetition platform backed by GitHub.">
+  
+  <!-- Google Fonts & Marked Markdown Parser -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(99, 102, 241, 0.3);
+      
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+
+      --accent-indigo: #6366f1;
+      --accent-cyan: #06b6d4;
+      --accent-rose: #f43f5e;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-purple: #a855f7;
+
+      --font-heading: 'Outfit', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-code: 'Fira Code', monospace;
+
+      --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
+      --glass-blur: blur(16px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(6, 214, 160, 0.08) 0%, transparent 40%);
+    }
+
+    /* App Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .brand-title h1 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #ffffff, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-title p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      gap: 4px;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.25));
+      color: #fff;
+      border: 1px solid var(--border-accent);
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      display: flex;
+      position: relative;
+      height: calc(100vh - 65px);
+      overflow: hidden;
+    }
+
+    .view-panel {
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .view-panel.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- View 1: Knowledge Graph --- */
+    #graphView {
+      padding: 0;
+      position: relative;
+      background: #060911;
+    }
+
+    #graphCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .graph-controls {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--bg-card);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      border-radius: 12px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .graph-legend {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border-color);
+      padding: 14px 18px;
+      border-radius: 12px;
+      z-index: 10;
+    }
+
+    .legend-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* --- View 2: Note Editor & Notes Grid --- */
+    .editor-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 20px;
+      height: 100%;
+    }
+
+    .notes-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .sidebar-search {
+      padding: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-indigo);
+    }
+
+    .notes-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .note-card-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      padding: 12px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .note-card-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border-accent);
+    }
+
+    .note-card-item.active {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: var(--accent-indigo);
+    }
+
+    .note-card-title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .note-card-truth {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .editor-main {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .feynman-box {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid var(--accent-indigo);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .feynman-title {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      color: var(--accent-indigo);
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--accent-indigo);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 180px;
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    .tag-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    .chip-eco { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .chip-hist { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .chip-sci { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+    .chip-cult { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+
+    /* --- View 3: Active Recall Spaced Repetition --- */
+    .recall-container {
+      max-width: 680px;
+      margin: 40px auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .flashcard {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 32px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-prompt {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin: 20px 0;
+      color: #fff;
+    }
+
+    .card-answer {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px dashed var(--accent-indigo);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .card-answer.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .recall-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .btn-recall {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-hard { background: rgba(244, 63, 94, 0.2); color: #fda4af; border: 1px solid var(--accent-rose); }
+    .btn-good { background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid var(--accent-amber); }
+    .btn-easy { background: rgba(16, 185, 129, 0.2); color: #a7f3d0; border: 1px solid var(--accent-emerald); }
+
+    .btn-recall:hover { transform: translateY(-2px); filter: brightness(1.2); }
+
+    /* --- View 4: Dual-Mode Reader --- */
+    .mode-toggle-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      padding: 14px 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+
+    .reader-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .reader-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .reader-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .reader-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* --- View 5: GitHub Sync Settings --- */
+    .settings-card {
+      max-width: 600px;
+      margin: 20px auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Modal / Popups */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-accent);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 650px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- App Header -->
   <header>
-    <div class="header-container">
-      <div class="logo-group">
-        <div class="logo-icon">🎯</div>
-        <div class="logo-text">
-          <h1>Current Affairs Command Center</h1>
-          <p>Framework v3.1 | Cognitive Retrievability & Delayed Recall</p>
-        </div>
+    <div class="brand">
+      <div class="brand-icon">🧬</div>
+      <div class="brand-title">
+        <h1>CogniGraph</h1>
+        <p>First-Principles Knowledge & Spaced Retention System</p>
       </div>
-      <div class="header-controls">
-        <button id="toggleRecallBtn" class="toggle-chip">
-          👁️ Active Recall: OFF
-        </button>
-        <div class="badge-count" style="font-size: 0.85rem; padding: 6px 12px; background: rgba(6, 214, 160, 0.15); color: var(--accent-emerald);">
-          🔴 Core Zone (Aug 2026)
-        </div>
-      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-btn active" data-target="graphView">
+        <span>🕸️</span> Graph Visualizer
+      </button>
+      <button class="nav-btn" data-target="editorView">
+        <span>📝</span> First-Principles Editor
+      </button>
+      <button class="nav-btn" data-target="recallView">
+        <span>🎴</span> Active Recall Deck
+      </button>
+      <button class="nav-btn" data-target="dualModeView">
+        <span>⚖️</span> Dual Reader
+      </button>
+      <button class="nav-btn" data-target="syncView">
+        <span>⚡</span> GitHub Sync
+      </button>
+    </nav>
+
+    <div class="header-actions">
+      <button id="quickCreateBtn" class="btn btn-primary">
+        <span>+</span> New Note
+      </button>
     </div>
   </header>
 
-  <!-- Main Grid Layout -->
-  <main class="main-layout">
-    
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-      <div class="glass-panel filter-box">
-        <div class="filter-title">
-          <span>Locked Sections</span>
-          <span class="badge-count">11</span>
-        </div>
-        <ul id="sectionNavList" class="section-nav-list">
-          <!-- Populated dynamically by app.js -->
-        </ul>
-      </div>
-    </aside>
+  <!-- Main View Container -->
+  <main>
 
-    <!-- Content Feed Area -->
-    <section class="content-area">
+    <!-- 1. Knowledge Graph View -->
+    <section id="graphView" class="view-panel active">
+      <canvas id="graphCanvas"></canvas>
       
-      <!-- Search & Mode Toolbar -->
-      <div class="glass-panel search-mode-bar">
-        <div class="search-input-wrapper">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" class="search-input" placeholder="Search headlines, numbers, acts, or static GK...">
+      <div class="graph-legend">
+        <div class="legend-title">Disciplines</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> Economics</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> History</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#06b6d4;"></div> Science / Systems</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#a855f7;"></div> Culture & Society</div>
+      </div>
+
+      <div class="graph-controls">
+        <button id="resetGraphBtn" class="btn">Center Graph</button>
+        <button id="filterExamGraphBtn" class="btn">Toggle Exam Links</button>
+      </div>
+    </section>
+
+    <!-- 2. First-Principles Editor View -->
+    <section id="editorView" class="view-panel">
+      <div class="editor-layout">
+        
+        <!-- Sidebar Note List -->
+        <div class="notes-sidebar">
+          <div class="sidebar-search">
+            <input type="text" id="editorSearch" class="search-input" placeholder="Search notes by concept, domain...">
+          </div>
+          <div id="notesList" class="notes-list">
+            <!-- Populated dynamically -->
+          </div>
         </div>
-        <div id="activeCount" class="badge-count" style="font-size: 0.88rem; padding: 8px 14px;">
-          <!-- Count updated by app.js -->
+
+        <!-- Note Form -->
+        <div class="editor-main">
+          <div class="form-group">
+            <label class="form-label">Concept Title</label>
+            <input type="text" id="noteTitle" class="form-input" placeholder="e.g. Inflation & Monetary Scarcity">
+          </div>
+
+          <div class="feynman-box">
+            <div class="feynman-title">⚡ The Feynman Filter (First-Principle Truth)</div>
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">
+              Explain the fundamental core truth in 1 sentence. If you can't state it simply, you haven't understood it yet.
+            </p>
+            <textarea id="noteTruth" class="form-textarea" style="min-height: 70px;" placeholder="e.g. Money is a medium of exchange; when its supply expands faster than goods produced, individual units command fewer real goods."></textarea>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">Domain Discipline</label>
+              <select id="noteDomain" class="form-select">
+                <option value="Economics">Economics</option>
+                <option value="History">History</option>
+                <option value="Science">Science / Systems</option>
+                <option value="Culture">Culture & Society</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Exam Tags (Comma separated)</label>
+              <input type="text" id="noteExamTags" class="form-input" placeholder="e.g. RBI Grade B, Monetary Policy, UPSC GS3">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Cross-Linked Concepts (Hold Ctrl/Cmd to multi-select)</label>
+            <select id="noteCrossLinks" class="form-select" multiple style="height: 90px;"></select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Deep Learning Body (Markdown)</label>
+            <textarea id="noteBody" class="form-textarea" placeholder="Detailed analysis, mathematical proofs, historical context, key takeaways..."></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button id="deleteNoteBtn" class="btn" style="color: var(--accent-rose); border-color: rgba(244,63,94,0.3);">Delete Note</button>
+            <button id="saveNoteBtn" class="btn btn-primary">Save & Connect Note</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Active Recall Spaced Repetition View -->
+    <section id="recallView" class="view-panel">
+      <div class="recall-container">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">Spaced Retention Queue</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Active recall tests your first-principles summaries to lock knowledge into long-term memory.</p>
+          </div>
+          <div id="queueCountBadge" class="chip chip-sci" style="font-size: 0.9rem; padding: 6px 14px;">0 Cards Due</div>
+        </div>
+
+        <div id="flashcardBox" class="flashcard">
+          <div class="card-meta">
+            <span id="cardDomainChip" class="chip chip-eco">Economics</span>
+            <span id="cardInterval" style="font-size: 0.78rem; color: var(--text-muted);">Review Interval: 1 day</span>
+          </div>
+
+          <div id="cardPrompt" class="card-prompt">
+            What is the first-principle definition of Inflation & Monetary Scarcity?
+          </div>
+
+          <button id="revealAnswerBtn" class="btn" style="width: 100%;">Click to Reveal First-Principle Truth</button>
+
+          <div id="cardAnswer" class="card-answer">
+            <div style="font-weight: 700; color: var(--accent-indigo); margin-bottom: 6px;">Fundamental Truth:</div>
+            <div id="cardAnswerText" style="font-size: 0.95rem; line-height: 1.5;"></div>
+          </div>
+
+          <div id="recallRatingButtons" class="recall-buttons" style="display: none;">
+            <button class="btn-recall btn-hard" onclick="rateCard('hard')">Hard (1 Day)</button>
+            <button class="btn-recall btn-good" onclick="rateCard('good')">Good (3 Days)</button>
+            <button class="btn-recall btn-easy" onclick="rateCard('easy')">Easy (7 Days)</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Dual-Mode Reader View -->
+    <section id="dualModeView" class="view-panel">
+      <div class="mode-toggle-bar">
+        <div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff;">Dual-Mode Perspective Reader</h2>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Switch between Exam Syllabus Facts and First-Principles Mental Models.</p>
+        </div>
+        <div class="nav-tabs">
+          <button id="modeExamBtn" class="nav-btn active">📝 Exam Cram View</button>
+          <button id="modeDeepBtn" class="nav-btn">🧠 Mental Models View</button>
         </div>
       </div>
 
-      <!-- Notes Feed -->
-      <div id="notesFeed" class="notes-feed">
-        <!-- Rendered dynamically by app.js -->
+      <div id="readerGrid" class="reader-grid">
+        <!-- Populated dynamically -->
       </div>
+    </section>
 
-      <!-- Section Drill Area (Rendered when specific section is selected) -->
-      <div id="drillContainer"></div>
+    <!-- 5. GitHub Sync View -->
+    <section id="syncView" class="view-panel">
+      <div class="settings-card">
+        <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff;">GitHub Repository Sync</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+          Connect CogniGraph to your GitHub repository to automatically commit every note as a clean Markdown (`.md`) file. You maintain 100% data ownership.
+        </p>
 
+        <div class="form-group">
+          <label class="form-label">GitHub Personal Access Token (PAT)</label>
+          <input type="password" id="githubToken" class="form-input" placeholder="github_pat_...">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Repository Owner / Username</label>
+          <input type="text" id="githubOwner" class="form-input" value="vishallssingh">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Repository Name</label>
+          <input type="text" id="githubRepo" class="form-input" value="cognigraph">
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 10px;">
+          <button id="saveSyncConfigBtn" class="btn btn-primary" style="flex: 1;">Save Configuration</button>
+          <button id="exportBackupBtn" class="btn" style="flex: 1;">Export JSON Backup</button>
+        </div>
+        
+        <div id="syncStatus" style="font-size: 0.85rem; color: var(--accent-emerald); margin-top: 10px;"></div>
+      </div>
     </section>
 
   </main>
 
-  <script src="ca_app/data.js"></script>
-  <script src="ca_app/app.js"></script>
+  <!-- Note Detail Modal -->
+  <div id="noteModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeNoteModal()">&times;</button>
+      <div id="modalDomainChip" class="chip chip-eco" style="margin-bottom: 12px; display: inline-block;">Economics</div>
+      <h2 id="modalTitle" style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff; margin-bottom: 14px;"></h2>
+      
+      <div class="feynman-box" style="margin-bottom: 20px;">
+        <div class="feynman-title">⚡ First-Principle Truth</div>
+        <div id="modalTruthText" style="font-size: 0.95rem; line-height: 1.5; color: #fff;"></div>
+      </div>
+
+      <div id="modalExamTags" class="tag-chips" style="margin-bottom: 20px;"></div>
+
+      <div id="modalBody" style="line-height: 1.7; color: var(--text-main); margin-bottom: 24px;"></div>
+
+      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
+        <div class="legend-title">Connected Concepts</div>
+        <div id="modalLinks" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Initial Seed Data (Foundational Notes) ---
+    const defaultNotes = [
+      {
+        id: "note-1",
+        title: "Inflation & Monetary Scarcity",
+        domain: "Economics",
+        truth: "Money is a medium of exchange; when its total quantity expands faster than real economic output, individual monetary units command fewer physical goods.",
+        examTags: ["RBI Grade B", "Monetary Policy", "Macroeconomics"],
+        crossLinks: ["note-2", "note-3"],
+        body: "### Core Analysis\nInflation is fundamentally a monetary phenomenon driven by scarcity dynamics.\n\n* **Quantity Theory of Money:** $M \\times V = P \\times Y$\n* When money supply ($M$) increases while velocity ($V$) and output ($Y$) remain constant, price level ($P$) must rise.\n* **Exam Focus:** RBI uses Repo Rate hikes to absorb excess liquidity.",
+        intervalDays: 1,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
+        id: "note-2",
+        title: "The Great Depression & Trade Collapse (1929)",
+        domain: "History",
+        truth: "Systemic economic collapses occur when financial liquidity dries up and nations enact protectionist trade barriers, transforming localized distress into global panic.",
+        examTags: ["World History", "Interwar Crisis", "UPSC GS1"],
+        crossLinks: ["note-1", "note-3"],
+        body: "### Historical Context\nFollowing the Wall Street crash of 1929, the Smoot-Hawley Tariff Act raised US tariffs, triggering retaliation worldwide.\n\n* Global trade volume shrank by 66% between 1929 and 1934.\n* **Lesson:** Protectionism during liquidity crises accelerates systemic failure.",
+        intervalDays: 3,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
+        id: "note-3",
+        title: "Positive Feedback Loops & System Cascades",
+        domain: "Science",
+        truth: "When output of a system feeds directly back into its input, growth or decay accelerates exponentially until a hard constraint or shock intervenes.",
+        examTags: ["Systems Science", "Environmental Physics", "Cybernetics"],
+        crossLinks: ["note-1", "note-2", "note-4"],
+        body: "### Scientific Mechanics\nIn a positive feedback loop: $\\Delta Y_{t+1} = k \\cdot Y_t$.\n\nExamples:\n1. **Economics:** Bank run panic (withdrawal → mistrust → more withdrawals).\n2. **Climate:** Ice albedo feedback (melting ice → darker sea → more heat absorbed).",
+        intervalDays: 7,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
+        id: "note-4",
+        title: "Cultural Memory & Oral Transmission",
+        domain: "Culture",
+        truth: "Information survives across centuries of noise when compressed into memorable rhythmic narratives, metaphors, and community rituals.",
+        examTags: ["Art & Culture", "Anthropology", "Ancient History"],
+        crossLinks: ["note-3"],
+        body: "### Anthropological Insight\nBefore written scripts, human cultures preserved astronomy, agriculture, and law through poetic meters (e.g. Vedic Chants, Homeric Epics).\n\n* Metaphor acts as an error-correcting code for human memory.",
+        intervalDays: 5,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      }
+    ];
+
+    // App State
+    let notes = JSON.parse(localStorage.getItem('cognigraph_notes')) || defaultNotes;
+    let activeNoteId = notes[0]?.id || null;
+    let currentMode = 'exam'; // 'exam' or 'deep'
+
+    // --- DOM Elements ---
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const viewPanels = document.querySelectorAll('.view-panel');
+    const notesListEl = document.getElementById('notesList');
+    const editorSearchInput = document.getElementById('editorSearch');
+    
+    // Editor Form Inputs
+    const noteTitleInput = document.getElementById('noteTitle');
+    const noteTruthInput = document.getElementById('noteTruth');
+    const noteDomainSelect = document.getElementById('noteDomain');
+    const noteExamTagsInput = document.getElementById('noteExamTags');
+    const noteCrossLinksSelect = document.getElementById('noteCrossLinks');
+    const noteBodyInput = document.getElementById('noteBody');
+    const saveNoteBtn = document.getElementById('saveNoteBtn');
+    const deleteNoteBtn = document.getElementById('deleteNoteBtn');
+
+    // --- Navigation Logic ---
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+        if (!target) return;
+
+        navButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        viewPanels.forEach(panel => {
+          if (panel.id === target) {
+            panel.classList.add('active');
+          } else {
+            panel.classList.remove('active');
+          }
+        });
+
+        if (target === 'graphView') renderGraph();
+        if (target === 'recallView') loadFlashcardQueue();
+        if (target === 'dualModeView') renderDualReader();
+      });
+    });
+
+    // Quick New Note Button
+    document.getElementById('quickCreateBtn').addEventListener('click', () => {
+      activeNoteId = null;
+      resetEditorForm();
+      // Switch to editor
+      document.querySelector('[data-target="editorView"]').click();
+    });
+
+    // --- Editor Logic ---
+    function renderNotesList(filterText = '') {
+      notesListEl.innerHTML = '';
+      const filtered = notes.filter(n => 
+        n.title.toLowerCase().includes(filterText.toLowerCase()) || 
+        n.domain.toLowerCase().includes(filterText.toLowerCase()) ||
+        n.truth.toLowerCase().includes(filterText.toLowerCase())
+      );
+
+      filtered.forEach(note => {
+        const item = document.createElement('div');
+        item.className = `note-card-item ${note.id === activeNoteId ? 'active' : ''}`;
+        item.onclick = () => loadNoteIntoEditor(note.id);
+
+        item.innerHTML = `
+          <div class="note-card-title">${note.title}</div>
+          <div class="note-card-truth">${note.truth}</div>
+          <div style="margin-top: 6px;">
+            <span class="chip ${getDomainChipClass(note.domain)}">${note.domain}</span>
+          </div>
+        `;
+        notesListEl.appendChild(item);
+      });
+    }
+
+    function getDomainChipClass(domain) {
+      if (domain === 'Economics') return 'chip-eco';
+      if (domain === 'History') return 'chip-hist';
+      if (domain === 'Science') return 'chip-sci';
+      return 'chip-cult';
+    }
+
+    function populateCrossLinksSelect() {
+      noteCrossLinksSelect.innerHTML = '';
+      notes.forEach(note => {
+        if (note.id !== activeNoteId) {
+          const opt = document.createElement('option');
+          opt.value = note.id;
+          opt.textContent = `${note.domain}: ${note.title}`;
+          noteCrossLinksSelect.appendChild(opt);
+        }
+      });
+    }
+
+    function loadNoteIntoEditor(id) {
+      activeNoteId = id;
+      const note = notes.find(n => n.id === id);
+      if (!note) return;
+
+      noteTitleInput.value = note.title;
+      noteTruthInput.value = note.truth;
+      noteDomainSelect.value = note.domain;
+      noteExamTagsInput.value = note.examTags.join(', ');
+      noteBodyInput.value = note.body;
+
+      populateCrossLinksSelect();
+      Array.from(noteCrossLinksSelect.options).forEach(opt => {
+        opt.selected = note.crossLinks && note.crossLinks.includes(opt.value);
+      });
+
+      renderNotesList(editorSearchInput.value);
+    }
+
+    function resetEditorForm() {
+      noteTitleInput.value = '';
+      noteTruthInput.value = '';
+      noteDomainSelect.value = 'Economics';
+      noteExamTagsInput.value = '';
+      noteBodyInput.value = '';
+      populateCrossLinksSelect();
+      renderNotesList();
+    }
+
+    saveNoteBtn.addEventListener('click', () => {
+      const title = noteTitleInput.value.trim();
+      const truth = noteTruthInput.value.trim();
+      if (!title || !truth) {
+        alert("Please provide both a Concept Title and a Feynman First-Principle Truth!");
+        return;
+      }
+
+      const selectedLinks = Array.from(noteCrossLinksSelect.selectedOptions).map(o => o.value);
+      const tags = noteExamTagsInput.value.split(',').map(t => t.trim()).filter(Boolean);
+
+      if (activeNoteId) {
+        // Update existing
+        const note = notes.find(n => n.id === activeNoteId);
+        if (note) {
+          note.title = title;
+          note.truth = truth;
+          note.domain = noteDomainSelect.value;
+          note.examTags = tags;
+          note.crossLinks = selectedLinks;
+          note.body = noteBodyInput.value;
+        }
+      } else {
+        // Create new
+        const newNote = {
+          id: 'note-' + Date.now(),
+          title,
+          truth,
+          domain: noteDomainSelect.value,
+          examTags: tags,
+          crossLinks: selectedLinks,
+          body: noteBodyInput.value,
+          intervalDays: 1,
+          nextReviewDate: new Date().toISOString().split('T')[0]
+        };
+        notes.push(newNote);
+        activeNoteId = newNote.id;
+      }
+
+      saveNotesState();
+      renderNotesList();
+      alert("Note connected & saved successfully!");
+    });
+
+    deleteNoteBtn.addEventListener('click', () => {
+      if (!activeNoteId) return;
+      if (confirm("Are you sure you want to delete this concept note?")) {
+        notes = notes.filter(n => n.id !== activeNoteId);
+        activeNoteId = notes[0]?.id || null;
+        saveNotesState();
+        if (activeNoteId) loadNoteIntoEditor(activeNoteId);
+        else resetEditorForm();
+      }
+    });
+
+    editorSearchInput.addEventListener('input', (e) => {
+      renderNotesList(e.target.value);
+    });
+
+    function saveNotesState() {
+      localStorage.setItem('cognigraph_notes', JSON.stringify(notes));
+    }
+
+    // --- Interactive Knowledge Graph (Canvas Physics Engine) ---
+    const canvas = document.getElementById('graphCanvas');
+    const ctx = canvas.getContext('2d');
+    let graphNodes = [];
+    let graphEdges = [];
+    let animFrame = null;
+
+    function initGraphData() {
+      const width = canvas.width;
+      const height = canvas.height;
+
+      graphNodes = notes.map((n, i) => {
+        const angle = (i / notes.length) * Math.PI * 2;
+        const radius = Math.min(width, height) * 0.25;
+        return {
+          id: n.id,
+          title: n.title,
+          domain: n.domain,
+          truth: n.truth,
+          x: width / 2 + Math.cos(angle) * radius,
+          y: height / 2 + Math.sin(angle) * radius,
+          vx: 0,
+          vy: 0,
+          radius: 20
+        };
+      });
+
+      graphEdges = [];
+      notes.forEach(n => {
+        if (n.crossLinks) {
+          n.crossLinks.forEach(targetId => {
+            if (notes.some(x => x.id === targetId)) {
+              graphEdges.push({ source: n.id, target: targetId });
+            }
+          });
+        }
+      });
+    }
+
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+      initGraphData();
+    }
+
+    window.addEventListener('resize', () => {
+      if (document.getElementById('graphView').classList.contains('active')) {
+        resizeCanvas();
+      }
+    });
+
+    function renderGraph() {
+      resizeCanvas();
+      if (animFrame) cancelAnimationFrame(animFrame);
+
+      function step() {
+        // Apply force physics
+        const k = 0.005; // spring constant
+        const repulsion = 4000;
+
+        // Repulsion between nodes
+        for (let i = 0; i < graphNodes.length; i++) {
+          for (let j = i + 1; j < graphNodes.length; j++) {
+            const n1 = graphNodes[i];
+            const n2 = graphNodes[j];
+            const dx = n2.x - n1.x;
+            const dy = n2.y - n1.y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            const force = repulsion / (dist * dist);
+            const fx = (dx / dist) * force;
+            const fy = (dy / dist) * force;
+
+            n1.vx -= fx;
+            n1.vy -= fy;
+            n2.vx += fx;
+            n2.vy += fy;
+          }
+        }
+
+        // Attraction along edges
+        graphEdges.forEach(e => {
+          const n1 = graphNodes.find(n => n.id === e.source);
+          const n2 = graphNodes.find(n => n.id === e.target);
+          if (n1 && n2) {
+            const dx = n2.x - n1.x;
+            const dy = n2.y - n1.y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            const force = (dist - 150) * k;
+            const fx = (dx / dist) * force;
+            const fy = (dy / dist) * force;
+
+            n1.vx += fx;
+            n1.vy += fy;
+            n2.vx -= fx;
+            n2.vy -= fy;
+          }
+        });
+
+        // Center gravity
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        graphNodes.forEach(n => {
+          n.vx += (cx - n.x) * 0.001;
+          n.vy += (cy - n.y) * 0.001;
+
+          // Damping & position update
+          n.vx *= 0.85;
+          n.vy *= 0.85;
+          n.x += n.vx;
+          n.y += n.vy;
+        });
+
+        // Draw Canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw Edges
+        ctx.lineWidth = 2;
+        graphEdges.forEach(e => {
+          const n1 = graphNodes.find(n => n.id === e.source);
+          const n2 = graphNodes.find(n => n.id === e.target);
+          if (n1 && n2) {
+            const grad = ctx.createLinearGradient(n1.x, n1.y, n2.x, n2.y);
+            grad.addColorStop(0, getDomainColor(n1.domain));
+            grad.addColorStop(1, getDomainColor(n2.domain));
+            ctx.strokeStyle = grad;
+            ctx.globalAlpha = 0.4;
+
+            ctx.beginPath();
+            ctx.moveTo(n1.x, n1.y);
+            ctx.lineTo(n2.x, n2.y);
+            ctx.stroke();
+          }
+        });
+        ctx.globalAlpha = 1.0;
+
+        // Draw Nodes
+        graphNodes.forEach(n => {
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = getDomainColor(n.domain);
+
+          ctx.fillStyle = getDomainColor(n.domain);
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = '#ffffff';
+          ctx.font = '600 12px Outfit, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(n.title, n.x, n.y + n.radius + 16);
+        });
+
+        animFrame = requestAnimationFrame(step);
+      }
+
+      step();
+    }
+
+    function getDomainColor(domain) {
+      if (domain === 'Economics') return '#10b981';
+      if (domain === 'History') return '#f59e0b';
+      if (domain === 'Science') return '#06b6d4';
+      return '#a855f7';
+    }
+
+    // Node click to view modal
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+
+      const clickedNode = graphNodes.find(n => {
+        const dx = n.x - mx;
+        const dy = n.y - my;
+        return Math.sqrt(dx * dx + dy * dy) <= n.radius + 5;
+      });
+
+      if (clickedNode) {
+        openNoteModal(clickedNode.id);
+      }
+    });
+
+    document.getElementById('resetGraphBtn').addEventListener('click', () => renderGraph());
+
+    // --- Modal Logic ---
+    function openNoteModal(id) {
+      const note = notes.find(n => n.id === id);
+      if (!note) return;
+
+      document.getElementById('modalTitle').textContent = note.title;
+      document.getElementById('modalTruthText').textContent = note.truth;
+      document.getElementById('modalDomainChip').textContent = note.domain;
+      document.getElementById('modalDomainChip').className = `chip ${getDomainChipClass(note.domain)}`;
+
+      const tagsEl = document.getElementById('modalExamTags');
+      tagsEl.innerHTML = note.examTags.map(t => `<span class="chip">${t}</span>`).join('');
+
+      document.getElementById('modalBody').innerHTML = marked.parse(note.body || '');
+
+      const linksEl = document.getElementById('modalLinks');
+      linksEl.innerHTML = '';
+      if (note.crossLinks && note.crossLinks.length) {
+        note.crossLinks.forEach(linkId => {
+          const linked = notes.find(x => x.id === linkId);
+          if (linked) {
+            const btn = document.createElement('button');
+            btn.className = `btn`;
+            btn.style.fontSize = '0.78rem';
+            btn.textContent = `🔗 ${linked.title}`;
+            btn.onclick = () => openNoteModal(linked.id);
+            linksEl.appendChild(btn);
+          }
+        });
+      } else {
+        linksEl.innerHTML = '<span style="font-size:0.8rem; color:var(--text-muted);">No cross-links yet.</span>';
+      }
+
+      document.getElementById('noteModal').classList.add('active');
+    }
+
+    function closeNoteModal() {
+      document.getElementById('noteModal').classList.remove('active');
+    }
+
+    // --- Active Recall Spaced Repetition Engine ---
+    let currentRecallCardIndex = 0;
+
+    function loadFlashcardQueue() {
+      currentRecallCardIndex = 0;
+      document.getElementById('queueCountBadge').textContent = `${notes.length} Cards in Deck`;
+      showFlashcard(currentRecallCardIndex);
+    }
+
+    function showFlashcard(index) {
+      if (!notes.length) return;
+      const note = notes[index % notes.length];
+
+      document.getElementById('cardDomainChip').textContent = note.domain;
+      document.getElementById('cardDomainChip').className = `chip ${getDomainChipClass(note.domain)}`;
+      document.getElementById('cardInterval').textContent = `Review Interval: ${note.intervalDays || 1} day(s)`;
+
+      document.getElementById('cardPrompt').textContent = `What is the First-Principle Truth of: "${note.title}"?`;
+      document.getElementById('cardAnswerText').textContent = note.truth;
+
+      document.getElementById('cardAnswer').classList.remove('show');
+      document.getElementById('recallRatingButtons').style.display = 'none';
+      document.getElementById('revealAnswerBtn').style.display = 'block';
+    }
+
+    document.getElementById('revealAnswerBtn').addEventListener('click', () => {
+      document.getElementById('cardAnswer').classList.add('show');
+      document.getElementById('revealAnswerBtn').style.display = 'none';
+      document.getElementById('recallRatingButtons').style.display = 'grid';
+    });
+
+    function rateCard(rating) {
+      const note = notes[currentRecallCardIndex % notes.length];
+      if (rating === 'easy') note.intervalDays = (note.intervalDays || 1) * 2 + 1;
+      else if (rating === 'good') note.intervalDays = (note.intervalDays || 1) + 2;
+      else note.intervalDays = 1;
+
+      saveNotesState();
+      currentRecallCardIndex++;
+      showFlashcard(currentRecallCardIndex);
+    }
+
+    // --- Dual Mode Reader ---
+    function renderDualReader() {
+      const grid = document.getElementById('readerGrid');
+      grid.innerHTML = '';
+
+      notes.forEach(note => {
+        const card = document.createElement('div');
+        card.className = 'reader-card';
+
+        if (currentMode === 'exam') {
+          card.innerHTML = `
+            <div>
+              <span class="chip ${getDomainChipClass(note.domain)}">${note.domain}</span>
+              <div class="reader-card-title" style="margin-top:8px;">${note.title}</div>
+            </div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">
+              <strong>Syllabus / Exam Tags:</strong>
+              <div class="tag-chips" style="margin-top:6px;">
+                ${note.examTags.map(t => `<span class="chip">${t}</span>`).join('')}
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="openNoteModal('${note.id}')" style="width:100%;">View High-Yield Summary</button>
+          `;
+        } else {
+          card.innerHTML = `
+            <div>
+              <span class="chip ${getDomainChipClass(note.domain)}">${note.domain} Mental Model</span>
+              <div class="reader-card-title" style="margin-top:8px;">${note.title}</div>
+            </div>
+            <div class="feynman-box" style="padding:10px; font-size:0.82rem;">
+              <strong>First-Principle Truth:</strong><br>${note.truth}
+            </div>
+            <button class="btn" onclick="openNoteModal('${note.id}')" style="width:100%;">Explore Mental Model</button>
+          `;
+        }
+        grid.appendChild(card);
+      });
+    }
+
+    document.getElementById('modeExamBtn').addEventListener('click', () => {
+      currentMode = 'exam';
+      document.getElementById('modeExamBtn').classList.add('active');
+      document.getElementById('modeDeepBtn').classList.remove('active');
+      renderDualReader();
+    });
+
+    document.getElementById('modeDeepBtn').addEventListener('click', () => {
+      currentMode = 'deep';
+      document.getElementById('modeDeepBtn').classList.add('active');
+      document.getElementById('modeExamBtn').classList.remove('active');
+      renderDualReader();
+    });
+
+    // --- GitHub Sync Settings ---
+    document.getElementById('saveSyncConfigBtn').addEventListener('click', () => {
+      const token = document.getElementById('githubToken').value.trim();
+      const owner = document.getElementById('githubOwner').value.trim();
+      const repo = document.getElementById('githubRepo').value.trim();
+
+      localStorage.setItem('cognigraph_gh_token', token);
+      localStorage.setItem('cognigraph_gh_owner', owner);
+      localStorage.setItem('cognigraph_gh_repo', repo);
+
+      document.getElementById('syncStatus').textContent = "✓ GitHub settings saved! Notes will sync automatically.";
+    });
+
+    document.getElementById('exportBackupBtn').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(notes, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `cognigraph_backup_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+    });
+
+    // --- App Init ---
+    loadNoteIntoEditor(notes[0]?.id);
+    renderNotesList();
+    renderGraph();
+  </script>
 </body>
 </html>
