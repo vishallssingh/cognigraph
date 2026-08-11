@@ -12,3 +12,5 @@ Thumbs.db
 # IDE / Editor
 .vscode/
 .idea/
+
+ca_app/
