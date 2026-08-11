@@ -853,12 +853,67 @@
     // --- Initial Seed Data (Foundational Notes) ---
     const defaultNotes = [
       {
+        id: "note-econ-1",
+        title: "Resource Scarcity & Problem of Choice",
+        domain: "Economics",
+        truth: "Human desires are infinite, but physical resources are finite; therefore, every economy is forced to solve a continuous optimization problem of what, how, and for whom to allocate resources.",
+        examTags: ["Micro vs Macro", "Central Problems", "Free Market vs Mixed Economy", "UPSC GS3", "RBI Grade B"],
+        crossLinks: ["note-econ-2", "note-econ-5", "note-1"],
+        body: "### First-Principles Analysis\nAn economy cannot produce infinite goods. Producing more consumer goods (food/clothing) increases immediate survival, while producing capital goods (machinery/tools) increases future production capacity.\n\n* **Microeconomics:** Studies individual decision-makers (consumer utility & producer behavior).\n* **Macroeconomics:** Studies aggregate economy (Inflation, National Income, Unemployment, Money Supply).\n* **3 Central Problems:** What to produce? How to produce? (Labor vs Capital intensive) For whom to produce?",
+        intervalDays: 1,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
+        id: "note-econ-2",
+        title: "Circular Flow & Factor Income",
+        domain: "Economics",
+        truth: "Every rupee spent by a consumer is a rupee earned by a producer; production automatically generates equal factor income across Land, Labor, Capital, and Entrepreneurship.",
+        examTags: ["Factors of Production", "Factor Income", "Circular Flow", "National Output"],
+        crossLinks: ["note-econ-1", "note-econ-3", "note-econ-4"],
+        body: "### Factor Income Mechanics\nProduction requires 4 inputs. Every output is resolved into payments to these 4 inputs:\n1. **Land** → Rent\n2. **Labor** → Wages / Compensation of Employees\n3. **Capital** → Interest\n4. **Entrepreneurship** → Profit\n\n* **3 Calculation Methods:** Value Added / Product Method, Income Method ($NDP_{FC}$), Expenditure Method ($Y = C + I + G + X - M$).\n* **Transfer Payments:** Unilateral payments (unemployment allowance, pensions, grants) are **excluded** from GDP because no new economic activity occurred.",
+        intervalDays: 2,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
+        id: "note-econ-3",
+        title: "GDP vs GNP & NFIA Mechanics",
+        domain: "Economics",
+        truth: "GDP measures output produced inside a geographic boundary regardless of owner citizenship; GNP measures output produced by a nation's citizens regardless of where they are located.",
+        examTags: ["GDP vs GNP", "NDP vs NNP", "NFIA", "Domestic Territory", "RBI Grade B"],
+        crossLinks: ["note-econ-2", "note-econ-4"],
+        body: "### Geographic vs Ownership Principle\n* **Honda Plant in US Case Study:** Produced in US → included in US GDP. Profits go to Japanese owners → included in Japan's GNP (not US GNP). US worker wages → included in US GNP.\n\n$$\\text{GNP} = \\text{GDP} + \\text{NFIA (Net Factor Income from Abroad)}$$\n$$\\text{NDP} = \\text{GDP} - \\text{Depreciation (Consumption of Fixed Capital)}$$\n$$\\text{NNP}_{FC} = \\text{National Income}$$",
+        intervalDays: 3,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
+        id: "note-econ-4",
+        title: "Market Price vs Factor Cost & GVA",
+        domain: "Economics",
+        truth: "Factor Cost is what it costs to produce at the factory gate; Market Price is what consumers pay after government taxes and subsidies distort the price.",
+        examTags: ["GVA Basic Prices", "GDP at MP vs FC", "Net Indirect Taxes", "CSO/NSO/MoSPI"],
+        crossLinks: ["note-econ-2", "note-econ-3"],
+        body: "### Price Distortion Mechanics\nIndirect taxes artificially raise market prices; government subsidies artificially lower market prices.\n\n* **GDP vs GVA:** GDP gives a demand-side view of final output. GVA (Gross Value Added) reflects the supply-side sectoral contribution (Agriculture, Industry, Services).\n* **2015 Indian Revision:** CSO shifted sector estimates to **GVA at Basic Prices**.\n* **Institutional Architecture:** CSO + NSSO merged into **NSO (National Statistical Office)** under MoSPI, advised by the **National Statistical Commission (NSC)** (Dr. C. Rangarajan Committee).",
+        intervalDays: 4,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
+        id: "note-econ-5",
+        title: "Real vs Nominal GDP & Green GDP",
+        domain: "Science",
+        truth: "GDP measures money spent, not human welfare; nominal GDP can rise purely from price inflation without a single extra good being produced, and ignores environmental degradation.",
+        examTags: ["Real vs Nominal GDP", "GDP Deflator", "Green GDP", "World Bank Atlas Method", "Externalities"],
+        crossLinks: ["note-econ-1", "note-econ-3", "note-3"],
+        body: "### Inflation & Environmental Limits\n* **GDP Deflator:** $\\text{GDP Deflator} = \\frac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100$\n* **Green GDP:** Accounts for environmental costs, biodiversity loss, and resource depletion (Partha Dasgupta Expert Group 2011).\n* **Limitations of Traditional GDP:** Excludes non-market housework/childcare, ignores income distribution inequality, misses informal/parallel black economy, and ignores negative externalities (pollution).",
+        intervalDays: 5,
+        nextReviewDate: new Date().toISOString().split('T')[0]
+      },
+      {
         id: "note-1",
         title: "Inflation & Monetary Scarcity",
         domain: "Economics",
         truth: "Money is a medium of exchange; when its total quantity expands faster than real economic output, individual monetary units command fewer physical goods.",
         examTags: ["RBI Grade B", "Monetary Policy", "Macroeconomics"],
-        crossLinks: ["note-2", "note-3"],
+        crossLinks: ["note-2", "note-3", "note-econ-1"],
         body: "### Core Analysis\nInflation is fundamentally a monetary phenomenon driven by scarcity dynamics.\n\n* **Quantity Theory of Money:** $M \\times V = P \\times Y$\n* When money supply ($M$) increases while velocity ($V$) and output ($Y$) remain constant, price level ($P$) must rise.\n* **Exam Focus:** RBI uses Repo Rate hikes to absorb excess liquidity.",
         intervalDays: 1,
         nextReviewDate: new Date().toISOString().split('T')[0]
@@ -869,7 +924,7 @@
         domain: "History",
         truth: "Systemic economic collapses occur when financial liquidity dries up and nations enact protectionist trade barriers, transforming localized distress into global panic.",
         examTags: ["World History", "Interwar Crisis", "UPSC GS1"],
-        crossLinks: ["note-1", "note-3"],
+        crossLinks: ["note-1", "note-3", "note-econ-3"],
         body: "### Historical Context\nFollowing the Wall Street crash of 1929, the Smoot-Hawley Tariff Act raised US tariffs, triggering retaliation worldwide.\n\n* Global trade volume shrank by 66% between 1929 and 1934.\n* **Lesson:** Protectionism during liquidity crises accelerates systemic failure.",
         intervalDays: 3,
         nextReviewDate: new Date().toISOString().split('T')[0]
@@ -880,7 +935,7 @@
         domain: "Science",
         truth: "When output of a system feeds directly back into its input, growth or decay accelerates exponentially until a hard constraint or shock intervenes.",
         examTags: ["Systems Science", "Environmental Physics", "Cybernetics"],
-        crossLinks: ["note-1", "note-2", "note-4"],
+        crossLinks: ["note-1", "note-2", "note-4", "note-econ-5"],
         body: "### Scientific Mechanics\nIn a positive feedback loop: $\\Delta Y_{t+1} = k \\cdot Y_t$.\n\nExamples:\n1. **Economics:** Bank run panic (withdrawal → mistrust → more withdrawals).\n2. **Climate:** Ice albedo feedback (melting ice → darker sea → more heat absorbed).",
         intervalDays: 7,
         nextReviewDate: new Date().toISOString().split('T')[0]
