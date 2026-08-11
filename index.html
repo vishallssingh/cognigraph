@@ -3,40 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniGraph — First-Principles Knowledge Engine & Retention System</title>
-  <meta name="description" content="A first-principles note-taking, cross-linking, and spaced repetition platform backed by GitHub.">
+  <title>CogniGraph Kindle Reader — Economics: National Income & Growth</title>
+  <meta name="description" content="A distraction-free Kindle-style eBook reader for Economics with first-principles summaries and active recall retention.">
   
-  <!-- Google Fonts & Marked Markdown Parser -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <style>
     :root {
-      --bg-dark: #090d16;
-      --bg-card: rgba(17, 24, 39, 0.75);
-      --bg-card-hover: rgba(30, 41, 59, 0.85);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(99, 102, 241, 0.3);
-      
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --text-dim: #6b7280;
+      /* Theme 1: Sepia (Default Kindle Warm Paper) */
+      --bg-page: #fbf0d9;
+      --bg-sidebar: #f2e3c6;
+      --bg-card: #f5e7cc;
+      --bg-highlight: #eed8b0;
+      --text-main: #2c221e;
+      --text-muted: #6e5d53;
+      --border-color: rgba(44, 34, 30, 0.12);
+      --accent-brand: #8b4513;
+      --accent-glow: rgba(139, 69, 19, 0.15);
 
-      --accent-indigo: #6366f1;
-      --accent-cyan: #06b6d4;
-      --accent-rose: #f43f5e;
-      --accent-emerald: #10b981;
-      --accent-amber: #f59e0b;
-      --accent-purple: #a855f7;
+      --font-reader: 'Merriweather', 'Lora', Georgia, serif;
+      --font-ui: 'Outfit', 'Inter', -apple-system, sans-serif;
+      --reader-font-size: 1.12rem;
+      --reader-line-height: 1.85;
+    }
 
-      --font-heading: 'Outfit', -apple-system, sans-serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
-      --font-code: 'Fira Code', monospace;
+    /* Theme Variations */
+    body.theme-white {
+      --bg-page: #faf9f6;
+      --bg-sidebar: #efede7;
+      --bg-card: #f3f1eb;
+      --bg-highlight: #e5e2d8;
+      --text-main: #1a1a1a;
+      --text-muted: #555555;
+      --border-color: rgba(0, 0, 0, 0.12);
+      --accent-brand: #2b5797;
+      --accent-glow: rgba(43, 87, 151, 0.12);
+    }
 
-      --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
-      --glass-blur: blur(16px);
+    body.theme-night {
+      --bg-page: #121212;
+      --bg-sidebar: #1a1a1a;
+      --bg-card: #222222;
+      --bg-highlight: #2c2c2c;
+      --text-main: #e0e0e0;
+      --text-muted: #9e9e9e;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --accent-brand: #bb86fc;
+      --accent-glow: rgba(187, 134, 252, 0.15);
     }
 
     * {
@@ -46,58 +63,44 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-page);
       color: var(--text-main);
-      font-family: var(--font-body);
+      font-family: var(--font-reader);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(6, 214, 160, 0.08) 0%, transparent 40%);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* App Header */
+    /* Header Bar */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: var(--glass-blur);
+      background: var(--bg-sidebar);
       border-bottom: 1px solid var(--border-color);
-      padding: 12px 24px;
+      padding: 10px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-family: var(--font-ui);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      box-shadow: var(--shadow-glow);
+      font-size: 1.4rem;
     }
 
     .brand-title h1 {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
-      background: linear-gradient(90deg, #ffffff, #a5b4fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text-main);
     }
 
     .brand-title p {
@@ -105,1387 +108,811 @@
       color: var(--text-muted);
     }
 
-    /* Navigation Tabs */
-    .nav-tabs {
+    .toolbar-controls {
       display: flex;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 4px;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      gap: 4px;
+      align-items: center;
+      gap: 16px;
     }
 
-    .nav-btn {
+    .theme-selector {
+      display: flex;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 3px;
+      border-radius: 8px;
+      gap: 3px;
+      border: 1px solid var(--border-color);
+    }
+
+    .theme-btn {
       background: transparent;
       border: none;
-      color: var(--text-muted);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      border-radius: 6px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-
-    .nav-btn:hover {
-      color: var(--text-main);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .nav-btn.active {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.25));
-      color: #fff;
-      border: 1px solid var(--border-accent);
+      font-family: var(--font-ui);
       font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.2s;
     }
 
-    .header-actions {
+    .theme-btn.active {
+      background: var(--bg-page);
+      color: var(--text-main);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .font-size-controls {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
     }
 
-    .btn {
-      background: var(--bg-card);
+    .font-btn {
+      background: transparent;
+      border: none;
+      width: 28px;
+      height: 28px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--text-main);
+      font-family: var(--font-ui);
+    }
+
+    .font-btn:hover {
+      background: var(--bg-page);
+    }
+
+    .btn-ui {
+      background: var(--bg-page);
       border: 1px solid var(--border-color);
       color: var(--text-main);
-      padding: 8px 14px;
+      padding: 6px 14px;
       border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
-      border: none;
-      color: #fff;
+      font-size: 0.82rem;
       font-weight: 600;
-      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+      cursor: pointer;
+      font-family: var(--font-ui);
+      transition: all 0.2s;
     }
 
-    .btn-primary:hover {
-      opacity: 0.95;
-      box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+    .btn-ui:hover {
+      border-color: var(--accent-brand);
+      background: var(--bg-card);
     }
 
-    /* Main Container */
-    main {
+    /* Main App Layout */
+    .app-container {
       flex: 1;
       display: flex;
-      position: relative;
-      height: calc(100vh - 65px);
+      height: calc(100vh - 57px);
       overflow: hidden;
     }
 
-    .view-panel {
-      display: none;
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      padding: 24px;
-    }
-
-    .view-panel.active {
+    /* Table of Contents Sidebar */
+    aside.toc-sidebar {
+      width: 320px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
+      overflow-y: auto;
+      font-family: var(--font-ui);
+      transition: all 0.3s ease;
     }
 
-    /* --- View 1: Knowledge Graph --- */
-    #graphView {
-      padding: 0;
-      position: relative;
-      background: #060911;
-    }
-
-    #graphCanvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .graph-controls {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      background: var(--bg-card);
-      backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--border-color);
-      padding: 12px;
-      border-radius: 12px;
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-
-    .graph-legend {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      background: var(--bg-card);
-      backdrop-filter: var(--glass-blur);
-      border: 1px solid var(--border-color);
-      padding: 14px 18px;
-      border-radius: 12px;
-      z-index: 10;
-    }
-
-    .legend-title {
-      font-size: 0.75rem;
+    .toc-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-muted);
-      margin-bottom: 8px;
-      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .legend-item {
+    .toc-list {
+      list-style: none;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .toc-book-section {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-brand);
+      margin: 14px 8px 6px 8px;
+    }
+
+    .toc-item {
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: all 0.2s;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.8rem;
-      margin-top: 6px;
+      line-height: 1.4;
     }
 
-    .legend-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+    .toc-item:hover {
+      background: var(--bg-highlight);
     }
 
-    /* --- View 2: Note Editor & Notes Grid --- */
-    .editor-layout {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 20px;
-      height: 100%;
-    }
-
-    .notes-sidebar {
+    .toc-item.active {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      border-left: 4px solid var(--accent-brand);
+      font-weight: 700;
     }
 
-    .sidebar-search {
-      padding: 14px;
-      border-bottom: 1px solid var(--border-color);
+    .toc-num {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      min-width: 20px;
     }
 
-    .search-input {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-color);
-      padding: 10px 14px;
-      border-radius: 8px;
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-    }
-
-    .search-input:focus {
-      outline: none;
-      border-color: var(--accent-indigo);
-    }
-
-    .notes-list {
+    /* Kindle Reading Pane */
+    main.reader-pane {
       flex: 1;
       overflow-y: auto;
-      padding: 10px;
+      padding: 40px 20px 80px 20px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      align-items: center;
+      scroll-behavior: smooth;
     }
 
-    .note-card-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      padding: 12px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .note-card-item:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: var(--border-accent);
-    }
-
-    .note-card-item.active {
-      background: rgba(99, 102, 241, 0.15);
-      border-color: var(--accent-indigo);
-    }
-
-    .note-card-title {
-      font-family: var(--font-heading);
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: #fff;
-    }
-
-    .note-card-truth {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .editor-main {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 24px;
+    .kindle-screen {
+      max-width: 740px;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      overflow-y: auto;
+      gap: 32px;
     }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    /* Chapter Header */
+    .chapter-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 20px;
     }
 
-    .form-label {
+    .chapter-book-label {
+      font-family: var(--font-ui);
       font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .feynman-box {
-      background: rgba(99, 102, 241, 0.08);
-      border: 1px solid var(--accent-indigo);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .feynman-title {
-      font-family: var(--font-heading);
-      font-size: 0.85rem;
-      color: var(--accent-indigo);
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-brand);
+      margin-bottom: 8px;
+    }
+
+    .chapter-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .reading-meta {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Feynman First-Principle Banner */
+    .feynman-banner {
+      background: var(--bg-card);
+      border-left: 4px solid var(--accent-brand);
+      padding: 18px 22px;
+      border-radius: 0 12px 12px 0;
+      margin: 10px 0;
+      box-shadow: var(--accent-glow);
+    }
+
+    .feynman-banner-label {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-brand);
       margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .form-input, .form-textarea, .form-select {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-color);
-      padding: 10px 14px;
-      border-radius: 8px;
-      color: #fff;
-      font-family: var(--font-body);
+    .feynman-truth {
+      font-size: 1.08rem;
+      font-weight: 600;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Reading Body Markdown Styling */
+    .chapter-content {
+      font-size: var(--reader-font-size);
+      line-height: var(--reader-line-height);
+      color: var(--text-main);
+    }
+
+    .chapter-content p {
+      margin-bottom: 22px;
+      text-indent: 1.5em;
+    }
+
+    .chapter-content h2, .chapter-content h3 {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      margin: 32px 0 14px 0;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .chapter-content h2 { font-size: 1.45rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+    .chapter-content h3 { font-size: 1.2rem; }
+
+    .chapter-content ul, .chapter-content ol {
+      margin: 16px 0 22px 28px;
+    }
+
+    .chapter-content li {
+      margin-bottom: 8px;
+    }
+
+    .chapter-content blockquote {
+      border-left: 3px solid var(--text-muted);
+      padding-left: 18px;
+      margin: 20px 0;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .exam-highlight-box {
+      background: var(--bg-highlight);
+      border: 1px dashed var(--accent-brand);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-family: var(--font-ui);
       font-size: 0.9rem;
     }
 
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      outline: none;
-      border-color: var(--accent-indigo);
+    .exam-highlight-box h4 {
+      font-weight: 700;
+      color: var(--accent-brand);
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .form-textarea {
-      resize: vertical;
-      min-height: 180px;
-      font-family: var(--font-body);
-      line-height: 1.6;
-    }
-
-    .tag-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .chip {
-      font-size: 0.72rem;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-    }
-
-    .chip-eco { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-    .chip-hist { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-    .chip-sci { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
-    .chip-cult { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
-
-    /* --- View 3: Active Recall Spaced Repetition --- */
-    .recall-container {
-      max-width: 680px;
-      margin: 40px auto;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .flashcard {
+    /* Chapter End Active Recall Card */
+    .chapter-recall-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-accent);
-      border-radius: 20px;
-      padding: 32px;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      box-shadow: var(--shadow-glow);
-      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 40px;
+      font-family: var(--font-ui);
+      text-align: center;
     }
 
-    .card-meta {
+    .recall-card-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-brand);
+      margin-bottom: 8px;
+    }
+
+    .recall-card-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .recall-card-answer {
+      background: var(--bg-page);
+      border: 1px dashed var(--accent-brand);
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-top: 14px;
+      display: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .recall-card-answer.show {
+      display: block;
+    }
+
+    /* Chapter Navigation Buttons */
+    .chapter-nav-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      font-family: var(--font-ui);
     }
 
-    .card-prompt {
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-weight: 700;
-      line-height: 1.4;
-      margin: 20px 0;
-      color: #fff;
-    }
-
-    .card-answer {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px dashed var(--accent-indigo);
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 16px;
-      display: none;
-    }
-
-    .card-answer.show {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .recall-buttons {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .btn-recall {
-      padding: 12px;
+    .nav-btn-chapter {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 20px;
       border-radius: 10px;
-      border: none;
-      font-weight: 700;
+      font-weight: 600;
+      font-size: 0.9rem;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       transition: all 0.2s;
     }
 
-    .btn-hard { background: rgba(244, 63, 94, 0.2); color: #fda4af; border: 1px solid var(--accent-rose); }
-    .btn-good { background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid var(--accent-amber); }
-    .btn-easy { background: rgba(16, 185, 129, 0.2); color: #a7f3d0; border: 1px solid var(--accent-emerald); }
-
-    .btn-recall:hover { transform: translateY(-2px); filter: brightness(1.2); }
-
-    /* --- View 4: Dual-Mode Reader --- */
-    .mode-toggle-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--bg-card);
-      padding: 14px 20px;
-      border-radius: 14px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 20px;
+    .nav-btn-chapter:hover {
+      border-color: var(--accent-brand);
+      transform: translateY(-1px);
     }
 
-    .reader-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-    }
-
-    .reader-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 14px;
-      transition: all 0.2s ease;
-    }
-
-    .reader-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-2px);
-    }
-
-    .reader-card-title {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    /* --- View 5: GitHub Sync Settings --- */
-    .settings-card {
-      max-width: 600px;
-      margin: 20px auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    /* Modal / Popups */
-    .modal-overlay {
+    /* Bottom Reading Progress Bar */
+    .progress-bar-container {
       position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      z-index: 200;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 100;
     }
 
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: var(--bg-dark);
-      border: 1px solid var(--border-accent);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 650px;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 28px;
-      box-shadow: var(--shadow-glow);
-      position: relative;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent-brand);
+      width: 0%;
+      transition: width 0.2s;
     }
   </style>
 </head>
-<body>
+<body class="theme-sepia">
 
-  <!-- App Header -->
+  <!-- Header Toolbar -->
   <header>
     <div class="brand">
-      <div class="brand-icon">🧬</div>
+      <span class="brand-icon">📖</span>
       <div class="brand-title">
-        <h1>CogniGraph</h1>
-        <p>First-Principles Knowledge & Spaced Retention System</p>
+        <h1>CogniGraph Kindle Reader</h1>
+        <p>Economics — National Income & Economic Growth</p>
       </div>
     </div>
 
-    <!-- Navigation Tabs -->
-    <nav class="nav-tabs">
-      <button class="nav-btn active" data-target="graphView">
-        <span>🕸️</span> Graph Visualizer
-      </button>
-      <button class="nav-btn" data-target="editorView">
-        <span>📝</span> First-Principles Editor
-      </button>
-      <button class="nav-btn" data-target="recallView">
-        <span>🎴</span> Active Recall Deck
-      </button>
-      <button class="nav-btn" data-target="dualModeView">
-        <span>⚖️</span> Dual Reader
-      </button>
-      <button class="nav-btn" data-target="syncView">
-        <span>⚡</span> GitHub Sync
-      </button>
-    </nav>
+    <div class="toolbar-controls">
+      <!-- Font Size Controls -->
+      <div class="font-size-controls">
+        <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
+        <button class="font-btn" onclick="adjustFontSize(1)">A+</button>
+      </div>
 
-    <div class="header-actions">
-      <button id="quickCreateBtn" class="btn btn-primary">
-        <span>+</span> New Note
-      </button>
+      <!-- Theme Selector -->
+      <div class="theme-selector">
+        <button class="theme-btn active" onclick="setTheme('sepia')">☀️ Sepia</button>
+        <button class="theme-btn" onclick="setTheme('white')">📄 Paper</button>
+        <button class="theme-btn" onclick="setTheme('night')">🌙 Night</button>
+      </div>
+
+      <button id="toggleTocBtn" class="btn-ui" onclick="toggleToc()">☰ Table of Contents</button>
     </div>
   </header>
 
-  <!-- Main View Container -->
-  <main>
+  <!-- App Container -->
+  <div class="app-container">
 
-    <!-- 1. Knowledge Graph View -->
-    <section id="graphView" class="view-panel active">
-      <canvas id="graphCanvas"></canvas>
-      
-      <div class="graph-legend">
-        <div class="legend-title">Disciplines</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> Economics</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> History</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#06b6d4;"></div> Science / Systems</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#a855f7;"></div> Culture & Society</div>
+    <!-- Table of Contents Sidebar -->
+    <aside id="tocSidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <span>Table of Contents</span>
+        <span id="chapterCountBadge" style="font-weight: 600;">7 Chapters</span>
       </div>
-
-      <div class="graph-controls">
-        <button id="resetGraphBtn" class="btn">Center Graph</button>
-        <button id="filterExamGraphBtn" class="btn">Toggle Exam Links</button>
-      </div>
-    </section>
-
-    <!-- 2. First-Principles Editor View -->
-    <section id="editorView" class="view-panel">
-      <div class="editor-layout">
-        
-        <!-- Sidebar Note List -->
-        <div class="notes-sidebar">
-          <div class="sidebar-search">
-            <input type="text" id="editorSearch" class="search-input" placeholder="Search notes by concept, domain...">
-          </div>
-          <div id="notesList" class="notes-list">
-            <!-- Populated dynamically -->
-          </div>
-        </div>
-
-        <!-- Note Form -->
-        <div class="editor-main">
-          <div class="form-group">
-            <label class="form-label">Concept Title</label>
-            <input type="text" id="noteTitle" class="form-input" placeholder="e.g. Inflation & Monetary Scarcity">
-          </div>
-
-          <div class="feynman-box">
-            <div class="feynman-title">⚡ The Feynman Filter (First-Principle Truth)</div>
-            <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">
-              Explain the fundamental core truth in 1 sentence. If you can't state it simply, you haven't understood it yet.
-            </p>
-            <textarea id="noteTruth" class="form-textarea" style="min-height: 70px;" placeholder="e.g. Money is a medium of exchange; when its supply expands faster than goods produced, individual units command fewer real goods."></textarea>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-            <div class="form-group">
-              <label class="form-label">Domain Discipline</label>
-              <select id="noteDomain" class="form-select">
-                <option value="Economics">Economics</option>
-                <option value="History">History</option>
-                <option value="Science">Science / Systems</option>
-                <option value="Culture">Culture & Society</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Exam Tags (Comma separated)</label>
-              <input type="text" id="noteExamTags" class="form-input" placeholder="e.g. RBI Grade B, Monetary Policy, UPSC GS3">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Cross-Linked Concepts (Hold Ctrl/Cmd to multi-select)</label>
-            <select id="noteCrossLinks" class="form-select" multiple style="height: 90px;"></select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Deep Learning Body (Markdown)</label>
-            <textarea id="noteBody" class="form-textarea" placeholder="Detailed analysis, mathematical proofs, historical context, key takeaways..."></textarea>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <button id="deleteNoteBtn" class="btn" style="color: var(--accent-rose); border-color: rgba(244,63,94,0.3);">Delete Note</button>
-            <button id="saveNoteBtn" class="btn btn-primary">Save & Connect Note</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 3. Active Recall Spaced Repetition View -->
-    <section id="recallView" class="view-panel">
-      <div class="recall-container">
-        
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <div>
-            <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">Spaced Retention Queue</h2>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Active recall tests your first-principles summaries to lock knowledge into long-term memory.</p>
-          </div>
-          <div id="queueCountBadge" class="chip chip-sci" style="font-size: 0.9rem; padding: 6px 14px;">0 Cards Due</div>
-        </div>
-
-        <div id="flashcardBox" class="flashcard">
-          <div class="card-meta">
-            <span id="cardDomainChip" class="chip chip-eco">Economics</span>
-            <span id="cardInterval" style="font-size: 0.78rem; color: var(--text-muted);">Review Interval: 1 day</span>
-          </div>
-
-          <div id="cardPrompt" class="card-prompt">
-            What is the first-principle definition of Inflation & Monetary Scarcity?
-          </div>
-
-          <button id="revealAnswerBtn" class="btn" style="width: 100%;">Click to Reveal First-Principle Truth</button>
-
-          <div id="cardAnswer" class="card-answer">
-            <div style="font-weight: 700; color: var(--accent-indigo); margin-bottom: 6px;">Fundamental Truth:</div>
-            <div id="cardAnswerText" style="font-size: 0.95rem; line-height: 1.5;"></div>
-          </div>
-
-          <div id="recallRatingButtons" class="recall-buttons" style="display: none;">
-            <button class="btn-recall btn-hard" onclick="rateCard('hard')">Hard (1 Day)</button>
-            <button class="btn-recall btn-good" onclick="rateCard('good')">Good (3 Days)</button>
-            <button class="btn-recall btn-easy" onclick="rateCard('easy')">Easy (7 Days)</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 4. Dual-Mode Reader View -->
-    <section id="dualModeView" class="view-panel">
-      <div class="mode-toggle-bar">
-        <div>
-          <h2 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff;">Dual-Mode Perspective Reader</h2>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Switch between Exam Syllabus Facts and First-Principles Mental Models.</p>
-        </div>
-        <div class="nav-tabs">
-          <button id="modeExamBtn" class="nav-btn active">📝 Exam Cram View</button>
-          <button id="modeDeepBtn" class="nav-btn">🧠 Mental Models View</button>
-        </div>
-      </div>
-
-      <div id="readerGrid" class="reader-grid">
+      <ul id="tocList" class="toc-list">
         <!-- Populated dynamically -->
-      </div>
-    </section>
+      </ul>
+    </aside>
 
-    <!-- 5. GitHub Sync View -->
-    <section id="syncView" class="view-panel">
-      <div class="settings-card">
-        <h2 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff;">GitHub Repository Sync</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-          Connect CogniGraph to your GitHub repository to automatically commit every note as a clean Markdown (`.md`) file. You maintain 100% data ownership.
-        </p>
-
-        <div class="form-group">
-          <label class="form-label">GitHub Personal Access Token (PAT)</label>
-          <input type="password" id="githubToken" class="form-input" placeholder="github_pat_...">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Repository Owner / Username</label>
-          <input type="text" id="githubOwner" class="form-input" value="vishallssingh">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Repository Name</label>
-          <input type="text" id="githubRepo" class="form-input" value="cognigraph">
-        </div>
-
-        <div style="display: flex; gap: 12px; margin-top: 10px;">
-          <button id="saveSyncConfigBtn" class="btn btn-primary" style="flex: 1;">Save Configuration</button>
-          <button id="exportBackupBtn" class="btn" style="flex: 1;">Export JSON Backup</button>
-        </div>
+    <!-- Reader Pane -->
+    <main id="readerPane" class="reader-pane">
+      <div class="kindle-screen">
         
-        <div id="syncStatus" style="font-size: 0.85rem; color: var(--accent-emerald); margin-top: 10px;"></div>
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+          <div id="bookLabel" class="chapter-book-label">Book I: Foundations of Economics</div>
+          <h1 id="chapterTitle" class="chapter-title">What is Economics? Scarcity & Choice</h1>
+          <div class="reading-meta">
+            <span id="readTimeLabel">⏱️ 4 min read</span>
+            <span id="examTagLabel">🏷️ Micro vs Macro, Scarcity</span>
+          </div>
+        </div>
+
+        <!-- Feynman First-Principle Callout -->
+        <div class="feynman-banner">
+          <div class="feynman-banner-label">⚡ First-Principle Truth</div>
+          <div id="feynmanTruth" class="feynman-truth">
+            Human desires are infinite, but physical resources are finite; therefore, every economy is forced to solve a continuous optimization problem of what, how, and for whom to allocate resources.
+          </div>
+        </div>
+
+        <!-- Reading Content (Markdown Rendered) -->
+        <div id="chapterContent" class="chapter-content">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Chapter Active Recall Card -->
+        <div class="chapter-recall-card">
+          <div class="recall-card-title">🎴 Chapter Retention Test</div>
+          <div id="recallQuestion" class="recall-card-question">
+            Can you state the fundamental core truth of this chapter in 1 simple sentence?
+          </div>
+          <button id="revealRecallBtn" class="btn-ui" style="padding: 8px 18px;" onclick="revealRecallAnswer()">Click to Reveal First-Principle Answer</button>
+          <div id="recallAnswer" class="recall-card-answer">
+            <div id="recallAnswerText"></div>
+          </div>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav-bar">
+          <button id="prevChapterBtn" class="nav-btn-chapter" onclick="navigateChapter(-1)">← Previous Chapter</button>
+          <span id="chapterProgressLabel" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Chapter 1 of 7</span>
+          <button id="nextChapterBtn" class="nav-btn-chapter" onclick="navigateChapter(1)">Next Chapter →</button>
+        </div>
+
       </div>
-    </section>
+    </main>
 
-  </main>
+  </div>
 
-  <!-- Note Detail Modal -->
-  <div id="noteModal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="close-modal" onclick="closeNoteModal()">&times;</button>
-      <div id="modalDomainChip" class="chip chip-eco" style="margin-bottom: 12px; display: inline-block;">Economics</div>
-      <h2 id="modalTitle" style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff; margin-bottom: 14px;"></h2>
-      
-      <div class="feynman-box" style="margin-bottom: 20px;">
-        <div class="feynman-title">⚡ First-Principle Truth</div>
-        <div id="modalTruthText" style="font-size: 0.95rem; line-height: 1.5; color: #fff;"></div>
-      </div>
-
-      <div id="modalExamTags" class="tag-chips" style="margin-bottom: 20px;"></div>
-
-      <div id="modalBody" style="line-height: 1.7; color: var(--text-main); margin-bottom: 24px;"></div>
-
-      <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
-        <div class="legend-title">Connected Concepts</div>
-        <div id="modalLinks" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;"></div>
-      </div>
-    </div>
+  <!-- Bottom Reading Progress Bar -->
+  <div class="progress-bar-container">
+    <div id="progressBarFill" class="progress-bar-fill"></div>
   </div>
 
   <script>
-    // --- Initial Seed Data (Foundational Notes) ---
-    const defaultNotes = [
+    // --- Book Chapters Dataset (National Income & Economics) ---
+    const bookData = [
       {
-        id: "note-econ-1",
-        title: "Resource Scarcity & Problem of Choice",
-        domain: "Economics",
+        id: "ch-1",
+        book: "Book I: Foundations of Economics",
+        title: "1. What is Economics? Scarcity & Choice",
+        readTime: "3 min read",
+        examTags: "Micro vs Macro, Scarcity, Adam Smith",
         truth: "Human desires are infinite, but physical resources are finite; therefore, every economy is forced to solve a continuous optimization problem of what, how, and for whom to allocate resources.",
-        examTags: ["Micro vs Macro", "Central Problems", "Free Market vs Mixed Economy", "UPSC GS3", "RBI Grade B"],
-        crossLinks: ["note-econ-2", "note-econ-5", "note-1"],
-        body: "### First-Principles Analysis\nAn economy cannot produce infinite goods. Producing more consumer goods (food/clothing) increases immediate survival, while producing capital goods (machinery/tools) increases future production capacity.\n\n* **Microeconomics:** Studies individual decision-makers (consumer utility & producer behavior).\n* **Macroeconomics:** Studies aggregate economy (Inflation, National Income, Unemployment, Money Supply).\n* **3 Central Problems:** What to produce? How to produce? (Labor vs Capital intensive) For whom to produce?",
-        intervalDays: 1,
-        nextReviewDate: new Date().toISOString().split('T')[0]
+        body: `
+The subject matter of Economics focuses on the **rational management of scarce resources** so that limited resources can be optimally transformed into valuable goods to maximize economic welfare.
+
+### According to Adam Smith:
+The subject matter of economics can be broadly classified into two groups:
+
+1. **Microeconomics:** When economic models are applied to individual units like a consumer or a producer (e.g. Consumer Behavior, Producer Behavior theories).
+2. **Macroeconomics:** When economic models are applied at the aggregate national level (e.g. Inflation, National Income determination, Money supply, Unemployment, Poverty).
+
+<div class="exam-highlight-box">
+  <h4>💡 Economics vs. Economy</h4>
+  <strong>Economics</strong> is the body of theories and study of how society chooses to allocate scarce resources.<br>
+  <strong>Economy</strong> is the practical system where all these theories and models are applied to determine output levels and solve economic issues.
+</div>
+        `
       },
       {
-        id: "note-econ-2",
-        title: "Circular Flow & Factor Income",
-        domain: "Economics",
+        id: "ch-2",
+        book: "Book I: Foundations of Economics",
+        title: "2. The 3 Central Problems of an Economy",
+        readTime: "4 min read",
+        examTags: "Capital vs Consumer Goods, Production Techniques",
+        truth: "The dearth of resources with multiple alternative uses forces every society to make fundamental trade-offs between immediate consumption and future industrial capital.",
+        body: `
+Availability of resources does not automatically translate into economic growth. The scarcity of resources with alternative uses poses the **Problem of Choice**.
+
+### The 3 Central Problems:
+
+1. **What to Produce?**
+   - Every economy faces a trade-off: whether to produce more **consumer goods** (food, clothing, appliances for immediate survival) or **capital goods** (machinery, raw materials for future industrial production).
+
+2. **How to Produce?**
+   - Choice of production technique to optimize resources:
+   - **Labor-Intensive Technique:** Suitable for populous countries with abundant labor.
+   - **Capital-Intensive Technique:** Adopted by countries with abundant capital equipment.
+
+3. **For Whom to Produce?**
+   - Deals with the distribution of goods, services, and proceeds generated. Ensures reduction in inequality, optimum resource allocation, and overall social well-being.
+        `
+      },
+      {
+        id: "ch-3",
+        book: "Book I: Foundations of Economics",
+        title: "3. Types of Market Systems & Economies",
+        readTime: "4 min read",
+        examTags: "Laissez-Faire, Centrally Planned, Mixed Economy",
+        truth: "Economies organize resource allocation along a spectrum ranging from purely decentralized market price signals to centralized state planning.",
+        body: `
+Every economy has its own arrangement for resource allocation, classified into 3 major types:
+
+1. **Laissez-Faire / Free Market Economy:**
+   - Solutions to central problems are determined by market forces of **Demand and Supply**.
+   - State control is minimal; profit motive dominates (e.g. Singapore, Netherlands, Hong Kong).
+
+2. **Centrally Planned Economy:**
+   - Factors of production are majorly owned by the state.
+   - Social welfare is prioritized over profit maximization (e.g. Cuba).
+
+3. **Mixed Economy:**
+   - Blends free market freedom with government regulation (e.g. India).
+   - Strategic industries like **Atomic Energy, Space, and Defense** are reserved for state control while private enterprise operates in consumer sectors.
+
+<div class="exam-highlight-box">
+  <h4>📌 Note on Contemporary Economies</h4>
+  Modern economies are rarely purely capitalist or socialist. Globalization and multinational supply chains have blurred strict ideological boundaries into hybrid mixed systems.
+</div>
+        `
+      },
+      {
+        id: "ch-4",
+        book: "Book II: National Income & Aggregates",
+        title: "4. The Four Sectors & Circular Flow of Income",
+        readTime: "5 min read",
+        examTags: "Factors of Production, Factor Payments, Circular Flow",
         truth: "Every rupee spent by a consumer is a rupee earned by a producer; production automatically generates equal factor income across Land, Labor, Capital, and Entrepreneurship.",
-        examTags: ["Factors of Production", "Factor Income", "Circular Flow", "National Output"],
-        crossLinks: ["note-econ-1", "note-econ-3", "note-econ-4"],
-        body: "### Factor Income Mechanics\nProduction requires 4 inputs. Every output is resolved into payments to these 4 inputs:\n1. **Land** → Rent\n2. **Labor** → Wages / Compensation of Employees\n3. **Capital** → Interest\n4. **Entrepreneurship** → Profit\n\n* **3 Calculation Methods:** Value Added / Product Method, Income Method ($NDP_{FC}$), Expenditure Method ($Y = C + I + G + X - M$).\n* **Transfer Payments:** Unilateral payments (unemployment allowance, pensions, grants) are **excluded** from GDP because no new economic activity occurred.",
-        intervalDays: 2,
-        nextReviewDate: new Date().toISOString().split('T')[0]
+        body: `
+An economy consists of 4 interacting sectors:
+1. **Household Sector:** Consumers of goods and suppliers of factors of production.
+2. **Producer Sector:** Manufacturing and producing units.
+3. **Government Sector:** Consumer, producer, and regulator ensuring public welfare.
+4. **External Sector:** Import/export trade and international financial flows.
+
+### The 4 Factors of Production & Factor Income:
+Every output is resolved into payments to 4 fundamental inputs:
+- **Land** $\\rightarrow$ **Rent**
+- **Labor** $\\rightarrow$ **Wages / Compensation of Employees**
+- **Capital** $\\rightarrow$ **Interest**
+- **Entrepreneurship** $\\rightarrow$ **Profit**
+
+<div class="exam-highlight-box">
+  <h4>🔄 Circular Flow Principle</h4>
+  Real goods and services flow in a clockwise direction, while factor money payments flow in a counter-clockwise direction. Total Output Produced = Total Factor Income Generated = Total Expenditure Incurred.
+</div>
+        `
       },
       {
-        id: "note-econ-3",
-        title: "GDP vs GNP & NFIA Mechanics",
-        domain: "Economics",
-        truth: "GDP measures output produced inside a geographic boundary regardless of owner citizenship; GNP measures output produced by a nation's citizens regardless of where they are located.",
-        examTags: ["GDP vs GNP", "NDP vs NNP", "NFIA", "Domestic Territory", "RBI Grade B"],
-        crossLinks: ["note-econ-2", "note-econ-4"],
-        body: "### Geographic vs Ownership Principle\n* **Honda Plant in US Case Study:** Produced in US → included in US GDP. Profits go to Japanese owners → included in Japan's GNP (not US GNP). US worker wages → included in US GNP.\n\n$$\\text{GNP} = \\text{GDP} + \\text{NFIA (Net Factor Income from Abroad)}$$\n$$\\text{NDP} = \\text{GDP} - \\text{Depreciation (Consumption of Fixed Capital)}$$\n$$\\text{NNP}_{FC} = \\text{National Income}$$",
-        intervalDays: 3,
-        nextReviewDate: new Date().toISOString().split('T')[0]
+        id: "ch-5",
+        book: "Book II: National Income & Aggregates",
+        title: "5. GDP, NDP, GNP & NNP Mechanics",
+        readTime: "6 min read",
+        examTags: "GDP vs GNP, NDP vs NNP, NFIA, Domestic Territory",
+        truth: "GDP measures output produced inside a geographic boundary regardless of owner citizenship; GNP measures output produced by a nation's citizens regardless of where they are in the world.",
+        body: `
+### Key National Income Definitions:
+
+- **Gross Domestic Product (GDP):** Total market value of all final goods and services produced within the domestic territory of a country within an accounting year.
+- **Net Domestic Product (NDP):** GDP minus Depreciation (Consumption of Fixed Capital).
+- **Gross National Product (GNP):** GDP plus Net Factor Income from Abroad (NFIA).
+- **Net National Product at Factor Cost (NNP_FC):** True **National Income**.
+
+<div class="exam-highlight-box">
+  <h4>🚗 The Honda US Plant Case Study</h4>
+  Consider a Honda manufacturing plant in the U.S. owned by a Japanese corporation:
+  <ul>
+    <li>Plant output is included in <strong>U.S. GDP</strong> (produced within U.S. territory).</li>
+    <li>Profits belong to <strong>Japan's GNP</strong> (earned by Japanese capital).</li>
+    <li>U.S. workers' wages are in <strong>U.S. GNP</strong>.</li>
+  </ul>
+</div>
+
+### Resident Status Rule (India):
+A taxpayer qualifies as a resident of India if:
+1. Stay in India is **182 days or more** in previous year, OR
+2. Stay in India is **365 days or more** over preceding 4 years + **60 days or more** in relevant financial year.
+        `
       },
       {
-        id: "note-econ-4",
-        title: "Market Price vs Factor Cost & GVA",
-        domain: "Economics",
+        id: "ch-6",
+        book: "Book III: Prices, GVA & Institutions",
+        title: "6. Factor Cost, Market Price & GVA at Basic Prices",
+        readTime: "5 min read",
+        examTags: "GVA Basic Prices, Net Indirect Taxes, CSO/NSO Merger",
         truth: "Factor Cost is what it costs to produce at the factory gate; Market Price is what consumers pay after government taxes and subsidies distort the price.",
-        examTags: ["GVA Basic Prices", "GDP at MP vs FC", "Net Indirect Taxes", "CSO/NSO/MoSPI"],
-        crossLinks: ["note-econ-2", "note-econ-3"],
-        body: "### Price Distortion Mechanics\nIndirect taxes artificially raise market prices; government subsidies artificially lower market prices.\n\n* **GDP vs GVA:** GDP gives a demand-side view of final output. GVA (Gross Value Added) reflects the supply-side sectoral contribution (Agriculture, Industry, Services).\n* **2015 Indian Revision:** CSO shifted sector estimates to **GVA at Basic Prices**.\n* **Institutional Architecture:** CSO + NSSO merged into **NSO (National Statistical Office)** under MoSPI, advised by the **National Statistical Commission (NSC)** (Dr. C. Rangarajan Committee).",
-        intervalDays: 4,
-        nextReviewDate: new Date().toISOString().split('T')[0]
+        body: `
+### Price Distortions:
+- **Net Indirect Taxes (NIT):** Indirect Taxes minus Subsidies.
+- $\\text{GDP}_{MP} = \\text{GDP}_{FC} + \\text{Net Indirect Taxes}$
+
+### GVA (Supply Side) vs. GDP (Demand Side):
+- **GVA (Gross Value Added):** Measures sectoral contributions (Agriculture, Industry, Services) at producer basic prices.
+- In January 2015, Central Statistics Office (CSO) revised National Accounts to report sector estimates at **GVA at Basic Prices**:
+$$\\text{GVA at Basic Prices} = \\text{GVA at FC} + \\text{Production Taxes} - \\text{Production Subsidies}$$
+
+### Indian Institutional Framework:
+- **NSO (National Statistical Office):** Formed by merging **CSO** (Central Statistics Office) and **NSSO** (National Sample Survey Office) under MoSPI.
+- **NSC (National Statistical Commission):** Created on Dr. C. Rangarajan Committee recommendations, headed by Chief Statistician of India (CSI).
+        `
       },
       {
-        id: "note-econ-5",
-        title: "Real vs Nominal GDP & Green GDP",
-        domain: "Science",
+        id: "ch-7",
+        book: "Book IV: Real Output & Sustainable Growth",
+        title: "7. Real vs Nominal GDP, GDP Deflator & Green GDP",
+        readTime: "5 min read",
+        examTags: "GDP Deflator, Green GDP, Externalities, World Bank Atlas",
         truth: "GDP measures money spent, not human welfare; nominal GDP can rise purely from price inflation without a single extra good being produced, and ignores environmental degradation.",
-        examTags: ["Real vs Nominal GDP", "GDP Deflator", "Green GDP", "World Bank Atlas Method", "Externalities"],
-        crossLinks: ["note-econ-1", "note-econ-3", "note-3"],
-        body: "### Inflation & Environmental Limits\n* **GDP Deflator:** $\\text{GDP Deflator} = \\frac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100$\n* **Green GDP:** Accounts for environmental costs, biodiversity loss, and resource depletion (Partha Dasgupta Expert Group 2011).\n* **Limitations of Traditional GDP:** Excludes non-market housework/childcare, ignores income distribution inequality, misses informal/parallel black economy, and ignores negative externalities (pollution).",
-        intervalDays: 5,
-        nextReviewDate: new Date().toISOString().split('T')[0]
-      },
-      {
-        id: "note-1",
-        title: "Inflation & Monetary Scarcity",
-        domain: "Economics",
-        truth: "Money is a medium of exchange; when its total quantity expands faster than real economic output, individual monetary units command fewer physical goods.",
-        examTags: ["RBI Grade B", "Monetary Policy", "Macroeconomics"],
-        crossLinks: ["note-2", "note-3", "note-econ-1"],
-        body: "### Core Analysis\nInflation is fundamentally a monetary phenomenon driven by scarcity dynamics.\n\n* **Quantity Theory of Money:** $M \\times V = P \\times Y$\n* When money supply ($M$) increases while velocity ($V$) and output ($Y$) remain constant, price level ($P$) must rise.\n* **Exam Focus:** RBI uses Repo Rate hikes to absorb excess liquidity.",
-        intervalDays: 1,
-        nextReviewDate: new Date().toISOString().split('T')[0]
-      },
-      {
-        id: "note-2",
-        title: "The Great Depression & Trade Collapse (1929)",
-        domain: "History",
-        truth: "Systemic economic collapses occur when financial liquidity dries up and nations enact protectionist trade barriers, transforming localized distress into global panic.",
-        examTags: ["World History", "Interwar Crisis", "UPSC GS1"],
-        crossLinks: ["note-1", "note-3", "note-econ-3"],
-        body: "### Historical Context\nFollowing the Wall Street crash of 1929, the Smoot-Hawley Tariff Act raised US tariffs, triggering retaliation worldwide.\n\n* Global trade volume shrank by 66% between 1929 and 1934.\n* **Lesson:** Protectionism during liquidity crises accelerates systemic failure.",
-        intervalDays: 3,
-        nextReviewDate: new Date().toISOString().split('T')[0]
-      },
-      {
-        id: "note-3",
-        title: "Positive Feedback Loops & System Cascades",
-        domain: "Science",
-        truth: "When output of a system feeds directly back into its input, growth or decay accelerates exponentially until a hard constraint or shock intervenes.",
-        examTags: ["Systems Science", "Environmental Physics", "Cybernetics"],
-        crossLinks: ["note-1", "note-2", "note-4", "note-econ-5"],
-        body: "### Scientific Mechanics\nIn a positive feedback loop: $\\Delta Y_{t+1} = k \\cdot Y_t$.\n\nExamples:\n1. **Economics:** Bank run panic (withdrawal → mistrust → more withdrawals).\n2. **Climate:** Ice albedo feedback (melting ice → darker sea → more heat absorbed).",
-        intervalDays: 7,
-        nextReviewDate: new Date().toISOString().split('T')[0]
-      },
-      {
-        id: "note-4",
-        title: "Cultural Memory & Oral Transmission",
-        domain: "Culture",
-        truth: "Information survives across centuries of noise when compressed into memorable rhythmic narratives, metaphors, and community rituals.",
-        examTags: ["Art & Culture", "Anthropology", "Ancient History"],
-        crossLinks: ["note-3"],
-        body: "### Anthropological Insight\nBefore written scripts, human cultures preserved astronomy, agriculture, and law through poetic meters (e.g. Vedic Chants, Homeric Epics).\n\n* Metaphor acts as an error-correcting code for human memory.",
-        intervalDays: 5,
-        nextReviewDate: new Date().toISOString().split('T')[0]
+        body: `
+### Nominal vs Real GDP:
+- **Nominal GDP:** Measured at current ongoing market prices ($P_{\text{current}} \\times Q$).
+- **Real GDP:** Measured at constant base year prices ($P_{\text{base}} \\times Q$). Base year in India is **2011-12** (Govt planning update to 2022-23 base year).
+
+### GDP Deflator (Implicit Price Deflator):
+$$\\text{GDP Deflator} = \\frac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100$$
+
+### Limitations of GDP & Green GDP:
+1. Excludes non-market household work / domestic labor.
+2. Fails to measure income distribution & wealth inequality.
+3. Misses informal / parallel black economy transactions.
+4. Ignores negative externalities (pollution, river degradation).
+- **Green GDP:** Monetizes environmental damage and biodiversity loss (Partha Dasgupta Expert Group 2011).
+
+<div class="exam-highlight-box">
+  <h4>🌐 World Bank & IMF Classification</h4>
+  <strong>World Bank (Atlas Method):** Classifies economies into Low, Lower-Middle, Upper-Middle, and High income. India is in the <strong>Lower-Middle Income</strong> category.<br>
+  <strong>IMF (WEO):** Classifies economies into Advanced vs. Emerging Market & Developing Economies. India is an <strong>Emerging Market & Developing Economy</strong>.
+</div>
+        `
       }
     ];
 
-    // App State
-    let notes = JSON.parse(localStorage.getItem('cognigraph_notes')) || defaultNotes;
-    let activeNoteId = notes[0]?.id || null;
-    let currentMode = 'exam'; // 'exam' or 'deep'
+    // State Variables
+    let currentChapterIndex = 0;
+    let currentTheme = localStorage.getItem('kindle_theme') || 'sepia';
+    let currentFontSize = parseInt(localStorage.getItem('kindle_font_size')) || 1.12;
 
-    // --- DOM Elements ---
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const viewPanels = document.querySelectorAll('.view-panel');
-    const notesListEl = document.getElementById('notesList');
-    const editorSearchInput = document.getElementById('editorSearch');
-    
-    // Editor Form Inputs
-    const noteTitleInput = document.getElementById('noteTitle');
-    const noteTruthInput = document.getElementById('noteTruth');
-    const noteDomainSelect = document.getElementById('noteDomain');
-    const noteExamTagsInput = document.getElementById('noteExamTags');
-    const noteCrossLinksSelect = document.getElementById('noteCrossLinks');
-    const noteBodyInput = document.getElementById('noteBody');
-    const saveNoteBtn = document.getElementById('saveNoteBtn');
-    const deleteNoteBtn = document.getElementById('deleteNoteBtn');
+    // --- DOM References ---
+    const tocListEl = document.getElementById('tocList');
+    const chapterTitleEl = document.getElementById('chapterTitle');
+    const bookLabelEl = document.getElementById('bookLabel');
+    const readTimeLabelEl = document.getElementById('readTimeLabel');
+    const examTagLabelEl = document.getElementById('examTagLabel');
+    const feynmanTruthEl = document.getElementById('feynmanTruth');
+    const chapterContentEl = document.getElementById('chapterContent');
+    const recallQuestionEl = document.getElementById('recallQuestion');
+    const recallAnswerTextEl = document.getElementById('recallAnswerText');
+    const recallAnswerEl = document.getElementById('recallAnswer');
+    const revealRecallBtn = document.getElementById('revealRecallBtn');
+    const chapterProgressLabelEl = document.getElementById('chapterProgressLabel');
+    const progressBarFillEl = document.getElementById('progressBarFill');
+    const readerPaneEl = document.getElementById('readerPane');
 
-    // --- Navigation Logic ---
-    navButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-target');
-        if (!target) return;
+    // --- Theme & Font Management ---
+    function setTheme(theme) {
+      currentTheme = theme;
+      document.body.className = `theme-${theme}`;
+      localStorage.setItem('kindle_theme', theme);
 
-        navButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        viewPanels.forEach(panel => {
-          if (panel.id === target) {
-            panel.classList.add('active');
-          } else {
-            panel.classList.remove('active');
-          }
-        });
-
-        if (target === 'graphView') renderGraph();
-        if (target === 'recallView') loadFlashcardQueue();
-        if (target === 'dualModeView') renderDualReader();
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(theme));
       });
-    });
+    }
 
-    // Quick New Note Button
-    document.getElementById('quickCreateBtn').addEventListener('click', () => {
-      activeNoteId = null;
-      resetEditorForm();
-      // Switch to editor
-      document.querySelector('[data-target="editorView"]').click();
-    });
+    function adjustFontSize(delta) {
+      currentFontSize = Math.max(0.9, Math.min(1.45, currentFontSize + delta * 0.06));
+      document.documentElement.style.setProperty('--reader-font-size', `${currentFontSize}rem`);
+      localStorage.setItem('kindle_font_size', currentFontSize);
+    }
 
-    // --- Editor Logic ---
-    function renderNotesList(filterText = '') {
-      notesListEl.innerHTML = '';
-      const filtered = notes.filter(n => 
-        n.title.toLowerCase().includes(filterText.toLowerCase()) || 
-        n.domain.toLowerCase().includes(filterText.toLowerCase()) ||
-        n.truth.toLowerCase().includes(filterText.toLowerCase())
-      );
+    function toggleToc() {
+      const sidebar = document.getElementById('tocSidebar');
+      if (sidebar.style.display === 'none') {
+        sidebar.style.display = 'flex';
+      } else {
+        sidebar.style.display = 'none';
+      }
+    }
 
-      filtered.forEach(note => {
-        const item = document.createElement('div');
-        item.className = `note-card-item ${note.id === activeNoteId ? 'active' : ''}`;
-        item.onclick = () => loadNoteIntoEditor(note.id);
+    // --- Render Table of Contents ---
+    function renderToc() {
+      tocListEl.innerHTML = '';
+      let currentBook = '';
 
+      bookData.forEach((ch, idx) => {
+        if (ch.book !== currentBook) {
+          currentBook = ch.book;
+          const bookHeader = document.createElement('li');
+          bookHeader.className = 'toc-book-section';
+          bookHeader.textContent = currentBook;
+          tocListEl.appendChild(bookHeader);
+        }
+
+        const item = document.createElement('li');
+        item.className = `toc-item ${idx === currentChapterIndex ? 'active' : ''}`;
+        item.onclick = () => loadChapter(idx);
         item.innerHTML = `
-          <div class="note-card-title">${note.title}</div>
-          <div class="note-card-truth">${note.truth}</div>
-          <div style="margin-top: 6px;">
-            <span class="chip ${getDomainChipClass(note.domain)}">${note.domain}</span>
-          </div>
+          <span class="toc-num">${idx + 1}.</span>
+          <span>${ch.title.split('. ')[1] || ch.title}</span>
         `;
-        notesListEl.appendChild(item);
+        tocListEl.appendChild(item);
       });
     }
 
-    function getDomainChipClass(domain) {
-      if (domain === 'Economics') return 'chip-eco';
-      if (domain === 'History') return 'chip-hist';
-      if (domain === 'Science') return 'chip-sci';
-      return 'chip-cult';
+    // --- Load Chapter Content ---
+    function loadChapter(index) {
+      if (index < 0 || index >= bookData.length) return;
+      currentChapterIndex = index;
+
+      const ch = bookData[index];
+      bookLabelEl.textContent = ch.book;
+      chapterTitleEl.textContent = ch.title;
+      readTimeLabelEl.textContent = `⏱️ ${ch.readTime}`;
+      examTagLabelEl.textContent = `🏷️ ${ch.examTags}`;
+      feynmanTruthEl.textContent = ch.truth;
+      chapterContentEl.innerHTML = marked.parse(ch.body);
+
+      // Active Recall Card
+      recallQuestionEl.textContent = `What is the First-Principle Truth of: "${ch.title}"?`;
+      recallAnswerTextEl.textContent = ch.truth;
+      recallAnswerEl.classList.remove('show');
+      revealRecallBtn.style.display = 'inline-block';
+
+      // Navigation & Progress Labels
+      chapterProgressLabelEl.textContent = `Chapter ${index + 1} of ${bookData.length}`;
+      const progressPct = ((index + 1) / bookData.length) * 100;
+      progressBarFillEl.style.width = `${progressPct}%`;
+
+      document.getElementById('prevChapterBtn').disabled = (index === 0);
+      document.getElementById('nextChapterBtn').disabled = (index === bookData.length - 1);
+
+      renderToc();
+      readerPaneEl.scrollTop = 0;
     }
 
-    function populateCrossLinksSelect() {
-      noteCrossLinksSelect.innerHTML = '';
-      notes.forEach(note => {
-        if (note.id !== activeNoteId) {
-          const opt = document.createElement('option');
-          opt.value = note.id;
-          opt.textContent = `${note.domain}: ${note.title}`;
-          noteCrossLinksSelect.appendChild(opt);
-        }
-      });
+    function navigateChapter(direction) {
+      loadChapter(currentChapterIndex + direction);
     }
 
-    function loadNoteIntoEditor(id) {
-      activeNoteId = id;
-      const note = notes.find(n => n.id === id);
-      if (!note) return;
-
-      noteTitleInput.value = note.title;
-      noteTruthInput.value = note.truth;
-      noteDomainSelect.value = note.domain;
-      noteExamTagsInput.value = note.examTags.join(', ');
-      noteBodyInput.value = note.body;
-
-      populateCrossLinksSelect();
-      Array.from(noteCrossLinksSelect.options).forEach(opt => {
-        opt.selected = note.crossLinks && note.crossLinks.includes(opt.value);
-      });
-
-      renderNotesList(editorSearchInput.value);
+    function revealRecallAnswer() {
+      recallAnswerEl.classList.add('show');
+      revealRecallBtn.style.display = 'none';
     }
 
-    function resetEditorForm() {
-      noteTitleInput.value = '';
-      noteTruthInput.value = '';
-      noteDomainSelect.value = 'Economics';
-      noteExamTagsInput.value = '';
-      noteBodyInput.value = '';
-      populateCrossLinksSelect();
-      renderNotesList();
-    }
-
-    saveNoteBtn.addEventListener('click', () => {
-      const title = noteTitleInput.value.trim();
-      const truth = noteTruthInput.value.trim();
-      if (!title || !truth) {
-        alert("Please provide both a Concept Title and a Feynman First-Principle Truth!");
-        return;
-      }
-
-      const selectedLinks = Array.from(noteCrossLinksSelect.selectedOptions).map(o => o.value);
-      const tags = noteExamTagsInput.value.split(',').map(t => t.trim()).filter(Boolean);
-
-      if (activeNoteId) {
-        // Update existing
-        const note = notes.find(n => n.id === activeNoteId);
-        if (note) {
-          note.title = title;
-          note.truth = truth;
-          note.domain = noteDomainSelect.value;
-          note.examTags = tags;
-          note.crossLinks = selectedLinks;
-          note.body = noteBodyInput.value;
-        }
-      } else {
-        // Create new
-        const newNote = {
-          id: 'note-' + Date.now(),
-          title,
-          truth,
-          domain: noteDomainSelect.value,
-          examTags: tags,
-          crossLinks: selectedLinks,
-          body: noteBodyInput.value,
-          intervalDays: 1,
-          nextReviewDate: new Date().toISOString().split('T')[0]
-        };
-        notes.push(newNote);
-        activeNoteId = newNote.id;
-      }
-
-      saveNotesState();
-      renderNotesList();
-      alert("Note connected & saved successfully!");
-    });
-
-    deleteNoteBtn.addEventListener('click', () => {
-      if (!activeNoteId) return;
-      if (confirm("Are you sure you want to delete this concept note?")) {
-        notes = notes.filter(n => n.id !== activeNoteId);
-        activeNoteId = notes[0]?.id || null;
-        saveNotesState();
-        if (activeNoteId) loadNoteIntoEditor(activeNoteId);
-        else resetEditorForm();
+    // --- Reader Scroll Progress ---
+    readerPaneEl.addEventListener('scroll', () => {
+      const scrollTop = readerPaneEl.scrollTop;
+      const scrollHeight = readerPaneEl.scrollHeight - readerPaneEl.clientHeight;
+      if (scrollHeight > 0) {
+        const pct = (scrollTop / scrollHeight) * 100;
+        progressBarFillEl.style.width = `${pct}%`;
       }
     });
 
-    editorSearchInput.addEventListener('input', (e) => {
-      renderNotesList(e.target.value);
-    });
-
-    function saveNotesState() {
-      localStorage.setItem('cognigraph_notes', JSON.stringify(notes));
-    }
-
-    // --- Interactive Knowledge Graph (Canvas Physics Engine) ---
-    const canvas = document.getElementById('graphCanvas');
-    const ctx = canvas.getContext('2d');
-    let graphNodes = [];
-    let graphEdges = [];
-    let animFrame = null;
-
-    function initGraphData() {
-      const width = canvas.width;
-      const height = canvas.height;
-
-      graphNodes = notes.map((n, i) => {
-        const angle = (i / notes.length) * Math.PI * 2;
-        const radius = Math.min(width, height) * 0.25;
-        return {
-          id: n.id,
-          title: n.title,
-          domain: n.domain,
-          truth: n.truth,
-          x: width / 2 + Math.cos(angle) * radius,
-          y: height / 2 + Math.sin(angle) * radius,
-          vx: 0,
-          vy: 0,
-          radius: 20
-        };
-      });
-
-      graphEdges = [];
-      notes.forEach(n => {
-        if (n.crossLinks) {
-          n.crossLinks.forEach(targetId => {
-            if (notes.some(x => x.id === targetId)) {
-              graphEdges.push({ source: n.id, target: targetId });
-            }
-          });
-        }
-      });
-    }
-
-    function resizeCanvas() {
-      canvas.width = canvas.parentElement.clientWidth;
-      canvas.height = canvas.parentElement.clientHeight;
-      initGraphData();
-    }
-
-    window.addEventListener('resize', () => {
-      if (document.getElementById('graphView').classList.contains('active')) {
-        resizeCanvas();
-      }
-    });
-
-    function renderGraph() {
-      resizeCanvas();
-      if (animFrame) cancelAnimationFrame(animFrame);
-
-      function step() {
-        // Apply force physics
-        const k = 0.005; // spring constant
-        const repulsion = 4000;
-
-        // Repulsion between nodes
-        for (let i = 0; i < graphNodes.length; i++) {
-          for (let j = i + 1; j < graphNodes.length; j++) {
-            const n1 = graphNodes[i];
-            const n2 = graphNodes[j];
-            const dx = n2.x - n1.x;
-            const dy = n2.y - n1.y;
-            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-            const force = repulsion / (dist * dist);
-            const fx = (dx / dist) * force;
-            const fy = (dy / dist) * force;
-
-            n1.vx -= fx;
-            n1.vy -= fy;
-            n2.vx += fx;
-            n2.vy += fy;
-          }
-        }
-
-        // Attraction along edges
-        graphEdges.forEach(e => {
-          const n1 = graphNodes.find(n => n.id === e.source);
-          const n2 = graphNodes.find(n => n.id === e.target);
-          if (n1 && n2) {
-            const dx = n2.x - n1.x;
-            const dy = n2.y - n1.y;
-            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-            const force = (dist - 150) * k;
-            const fx = (dx / dist) * force;
-            const fy = (dy / dist) * force;
-
-            n1.vx += fx;
-            n1.vy += fy;
-            n2.vx -= fx;
-            n2.vy -= fy;
-          }
-        });
-
-        // Center gravity
-        const cx = canvas.width / 2;
-        const cy = canvas.height / 2;
-        graphNodes.forEach(n => {
-          n.vx += (cx - n.x) * 0.001;
-          n.vy += (cy - n.y) * 0.001;
-
-          // Damping & position update
-          n.vx *= 0.85;
-          n.vy *= 0.85;
-          n.x += n.vx;
-          n.y += n.vy;
-        });
-
-        // Draw Canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw Edges
-        ctx.lineWidth = 2;
-        graphEdges.forEach(e => {
-          const n1 = graphNodes.find(n => n.id === e.source);
-          const n2 = graphNodes.find(n => n.id === e.target);
-          if (n1 && n2) {
-            const grad = ctx.createLinearGradient(n1.x, n1.y, n2.x, n2.y);
-            grad.addColorStop(0, getDomainColor(n1.domain));
-            grad.addColorStop(1, getDomainColor(n2.domain));
-            ctx.strokeStyle = grad;
-            ctx.globalAlpha = 0.4;
-
-            ctx.beginPath();
-            ctx.moveTo(n1.x, n1.y);
-            ctx.lineTo(n2.x, n2.y);
-            ctx.stroke();
-          }
-        });
-        ctx.globalAlpha = 1.0;
-
-        // Draw Nodes
-        graphNodes.forEach(n => {
-          ctx.shadowBlur = 15;
-          ctx.shadowColor = getDomainColor(n.domain);
-
-          ctx.fillStyle = getDomainColor(n.domain);
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-          ctx.fill();
-
-          ctx.shadowBlur = 0;
-          ctx.fillStyle = '#ffffff';
-          ctx.font = '600 12px Outfit, sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText(n.title, n.x, n.y + n.radius + 16);
-        });
-
-        animFrame = requestAnimationFrame(step);
-      }
-
-      step();
-    }
-
-    function getDomainColor(domain) {
-      if (domain === 'Economics') return '#10b981';
-      if (domain === 'History') return '#f59e0b';
-      if (domain === 'Science') return '#06b6d4';
-      return '#a855f7';
-    }
-
-    // Node click to view modal
-    canvas.addEventListener('click', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      const clickedNode = graphNodes.find(n => {
-        const dx = n.x - mx;
-        const dy = n.y - my;
-        return Math.sqrt(dx * dx + dy * dy) <= n.radius + 5;
-      });
-
-      if (clickedNode) {
-        openNoteModal(clickedNode.id);
-      }
-    });
-
-    document.getElementById('resetGraphBtn').addEventListener('click', () => renderGraph());
-
-    // --- Modal Logic ---
-    function openNoteModal(id) {
-      const note = notes.find(n => n.id === id);
-      if (!note) return;
-
-      document.getElementById('modalTitle').textContent = note.title;
-      document.getElementById('modalTruthText').textContent = note.truth;
-      document.getElementById('modalDomainChip').textContent = note.domain;
-      document.getElementById('modalDomainChip').className = `chip ${getDomainChipClass(note.domain)}`;
-
-      const tagsEl = document.getElementById('modalExamTags');
-      tagsEl.innerHTML = note.examTags.map(t => `<span class="chip">${t}</span>`).join('');
-
-      document.getElementById('modalBody').innerHTML = marked.parse(note.body || '');
-
-      const linksEl = document.getElementById('modalLinks');
-      linksEl.innerHTML = '';
-      if (note.crossLinks && note.crossLinks.length) {
-        note.crossLinks.forEach(linkId => {
-          const linked = notes.find(x => x.id === linkId);
-          if (linked) {
-            const btn = document.createElement('button');
-            btn.className = `btn`;
-            btn.style.fontSize = '0.78rem';
-            btn.textContent = `🔗 ${linked.title}`;
-            btn.onclick = () => openNoteModal(linked.id);
-            linksEl.appendChild(btn);
-          }
-        });
-      } else {
-        linksEl.innerHTML = '<span style="font-size:0.8rem; color:var(--text-muted);">No cross-links yet.</span>';
-      }
-
-      document.getElementById('noteModal').classList.add('active');
-    }
-
-    function closeNoteModal() {
-      document.getElementById('noteModal').classList.remove('active');
-    }
-
-    // --- Active Recall Spaced Repetition Engine ---
-    let currentRecallCardIndex = 0;
-
-    function loadFlashcardQueue() {
-      currentRecallCardIndex = 0;
-      document.getElementById('queueCountBadge').textContent = `${notes.length} Cards in Deck`;
-      showFlashcard(currentRecallCardIndex);
-    }
-
-    function showFlashcard(index) {
-      if (!notes.length) return;
-      const note = notes[index % notes.length];
-
-      document.getElementById('cardDomainChip').textContent = note.domain;
-      document.getElementById('cardDomainChip').className = `chip ${getDomainChipClass(note.domain)}`;
-      document.getElementById('cardInterval').textContent = `Review Interval: ${note.intervalDays || 1} day(s)`;
-
-      document.getElementById('cardPrompt').textContent = `What is the First-Principle Truth of: "${note.title}"?`;
-      document.getElementById('cardAnswerText').textContent = note.truth;
-
-      document.getElementById('cardAnswer').classList.remove('show');
-      document.getElementById('recallRatingButtons').style.display = 'none';
-      document.getElementById('revealAnswerBtn').style.display = 'block';
-    }
-
-    document.getElementById('revealAnswerBtn').addEventListener('click', () => {
-      document.getElementById('cardAnswer').classList.add('show');
-      document.getElementById('revealAnswerBtn').style.display = 'none';
-      document.getElementById('recallRatingButtons').style.display = 'grid';
-    });
-
-    function rateCard(rating) {
-      const note = notes[currentRecallCardIndex % notes.length];
-      if (rating === 'easy') note.intervalDays = (note.intervalDays || 1) * 2 + 1;
-      else if (rating === 'good') note.intervalDays = (note.intervalDays || 1) + 2;
-      else note.intervalDays = 1;
-
-      saveNotesState();
-      currentRecallCardIndex++;
-      showFlashcard(currentRecallCardIndex);
-    }
-
-    // --- Dual Mode Reader ---
-    function renderDualReader() {
-      const grid = document.getElementById('readerGrid');
-      grid.innerHTML = '';
-
-      notes.forEach(note => {
-        const card = document.createElement('div');
-        card.className = 'reader-card';
-
-        if (currentMode === 'exam') {
-          card.innerHTML = `
-            <div>
-              <span class="chip ${getDomainChipClass(note.domain)}">${note.domain}</span>
-              <div class="reader-card-title" style="margin-top:8px;">${note.title}</div>
-            </div>
-            <div style="font-size:0.85rem; color:var(--text-muted);">
-              <strong>Syllabus / Exam Tags:</strong>
-              <div class="tag-chips" style="margin-top:6px;">
-                ${note.examTags.map(t => `<span class="chip">${t}</span>`).join('')}
-              </div>
-            </div>
-            <button class="btn btn-primary" onclick="openNoteModal('${note.id}')" style="width:100%;">View High-Yield Summary</button>
-          `;
-        } else {
-          card.innerHTML = `
-            <div>
-              <span class="chip ${getDomainChipClass(note.domain)}">${note.domain} Mental Model</span>
-              <div class="reader-card-title" style="margin-top:8px;">${note.title}</div>
-            </div>
-            <div class="feynman-box" style="padding:10px; font-size:0.82rem;">
-              <strong>First-Principle Truth:</strong><br>${note.truth}
-            </div>
-            <button class="btn" onclick="openNoteModal('${note.id}')" style="width:100%;">Explore Mental Model</button>
-          `;
-        }
-        grid.appendChild(card);
-      });
-    }
-
-    document.getElementById('modeExamBtn').addEventListener('click', () => {
-      currentMode = 'exam';
-      document.getElementById('modeExamBtn').classList.add('active');
-      document.getElementById('modeDeepBtn').classList.remove('active');
-      renderDualReader();
-    });
-
-    document.getElementById('modeDeepBtn').addEventListener('click', () => {
-      currentMode = 'deep';
-      document.getElementById('modeDeepBtn').classList.add('active');
-      document.getElementById('modeExamBtn').classList.remove('active');
-      renderDualReader();
-    });
-
-    // --- GitHub Sync Settings ---
-    document.getElementById('saveSyncConfigBtn').addEventListener('click', () => {
-      const token = document.getElementById('githubToken').value.trim();
-      const owner = document.getElementById('githubOwner').value.trim();
-      const repo = document.getElementById('githubRepo').value.trim();
-
-      localStorage.setItem('cognigraph_gh_token', token);
-      localStorage.setItem('cognigraph_gh_owner', owner);
-      localStorage.setItem('cognigraph_gh_repo', repo);
-
-      document.getElementById('syncStatus').textContent = "✓ GitHub settings saved! Notes will sync automatically.";
-    });
-
-    document.getElementById('exportBackupBtn').addEventListener('click', () => {
-      const blob = new Blob([JSON.stringify(notes, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `cognigraph_backup_${new Date().toISOString().split('T')[0]}.json`;
-      a.click();
-    });
-
-    // --- App Init ---
-    loadNoteIntoEditor(notes[0]?.id);
-    renderNotesList();
-    renderGraph();
+    // --- Initialization ---
+    setTheme(currentTheme);
+    document.documentElement.style.setProperty('--reader-font-size', `${currentFontSize}rem`);
+    loadChapter(0);
   </script>
 </body>
 </html>
