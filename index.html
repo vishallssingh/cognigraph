@@ -10,7 +10,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Markdown Parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- MathJax Configuration & Engine for LaTeX Formula Rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
     :root {
@@ -403,6 +421,17 @@
       color: var(--text-muted);
     }
 
+    .formula-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      text-align: center;
+    }
+
     .exam-highlight-box {
       background: var(--bg-highlight);
       border: 1px dashed var(--accent-brand);
@@ -543,7 +572,7 @@
   </div>
 
   <script>
-    // --- Master Book Chapters Dataset (25 Chapters) ---
+    // --- Master Book Chapters Dataset (Cleaned Equations & Formatting) ---
     const bookData = [
       {
         id: "ch-1",
@@ -597,10 +626,10 @@ The subject matter of Economics focuses on the **rational management of scarce r
 An economy consists of 4 interacting sectors: **Household, Producer, Government, and External (Rest of World)**.
 
 ### Factors of Production & Factor Income:
-- **Land** $\\rightarrow$ **Rent**
-- **Labor** $\\rightarrow$ **Wages / Compensation of Employees**
-- **Capital** $\\rightarrow$ **Interest**
-- **Entrepreneurship** $\\rightarrow$ **Profit**
+- **Land** → **Rent**
+- **Labor** → **Wages / Compensation of Employees**
+- **Capital** → **Interest**
+- **Entrepreneurship** → **Profit**
 
 <div class="exam-highlight-box">
   <h4>🔄 Circular Flow Rule</h4>
@@ -618,16 +647,16 @@ An economy consists of 4 interacting sectors: **Household, Producer, Government,
         body: `
 ### The Aggregate Ladder:
 - **Gross Domestic Product (GDP):** Total market value of all final goods and services produced within the domestic territory of a country within an accounting year.
-- **Net Domestic Product (NDP):** $\\text{GDP} - \\text{Depreciation}$
-- **Gross National Product (GNP):** $\\text{GDP} + \\text{NFIA (Net Factor Income from Abroad)}$
+- **Net Domestic Product (NDP):** NDP = GDP − Depreciation
+- **Gross National Product (GNP):** GNP = GDP + NFIA (Net Factor Income from Abroad)
 - **Net National Product at Factor Cost (NNP_FC):** True **National Income**.
 
 <div class="exam-highlight-box">
   <h4>🚗 The Honda US Plant Case Study</h4>
   A Honda manufacturing plant in the U.S. owned by a Japanese corporation:
-  - Output $\\rightarrow$ counted in **U.S. GDP** (produced within U.S. territory).
-  - Wages to U.S. workers $\\rightarrow$ counted in **U.S. GNP**.
-  - Profits $\\rightarrow$ go to Japanese owner $\\rightarrow$ counted in **Japan's GNP**.
+  - Output → counted in <strong>U.S. GDP</strong> (produced within U.S. territory).
+  - Wages to U.S. workers → counted in <strong>U.S. GNP</strong>.
+  - Profits → go to Japanese owner → counted in <strong>Japan's GNP</strong>.
 </div>
         `
       },
@@ -640,12 +669,13 @@ An economy consists of 4 interacting sectors: **Household, Producer, Government,
         truth: "Factor Cost is what it costs to produce at the factory gate; Market Price is what consumers pay after government taxes and subsidies distort the price.",
         body: `
 ### Market Price vs. Factor Cost:
-- $\\text{Market Price (MP)} = \\text{Factor Cost (FC)} + \\text{Net Indirect Taxes (NIT)}$
-- $\\text{Net Indirect Taxes} = \\text{Indirect Taxes} - \\text{Subsidies}$
+- Market Price (MP) = Factor Cost (FC) + Net Indirect Taxes (NIT)
+- Net Indirect Taxes = Indirect Taxes − Subsidies
 
-### GVA at Basic Prices (Post-2015 CSO Revision):
-$$\\text{GVA at Basic Prices} = \\text{GVA at Factor Cost} + \\text{Production Taxes} - \\text{Production Subsidies}$$
-$$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} + \\text{Product Taxes} - \\text{Product Subsidies}$$
+<div class="formula-box">
+  GVA at Basic Prices = GVA at Factor Cost + Production Taxes − Production Subsidies<br>
+  GDP at Market Prices = GVA at Basic Prices + Product Taxes − Product Subsidies
+</div>
 
 <div class="exam-highlight-box">
   <h4>✅ 2026 Verified Update</h4>
@@ -662,15 +692,15 @@ $$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} + \\text{Product Ta
         truth: "National income can be calculated through three interlinked phases of economic activity: Production (Value Added), Income (Factor Payments), and Expenditure (Final Purchases).",
         body: `
 ### 1. Value-Added / Product Method:
-- $\\text{Value Added} = \\text{Value of Output} - \\text{Intermediate Consumption}$
+- Value Added = Value of Output − Intermediate Consumption
 - Sum of value added across all producing firms equals Gross Value Added (GVA).
 
 ### 2. Expenditure Method:
-- $Y = C + I + G + (X - M)$
+- Y = C + I + G + (X − M)
 - Gives GDP at Market Price ($GDP_{MP}$).
 
 ### 3. Income Method:
-- $NDP_{FC} = \\text{Compensation of Employees} + \\text{Operating Surplus} + \\text{Mixed Income}$
+- NDP(FC) = Compensation of Employees + Operating Surplus + Mixed Income
 - **Operating Surplus:** Dividends + Corporate Profit Tax + Undistributed Profits.
 - **Mixed Income:** Income of self-employed persons using their own land/labor/capital.
         `
@@ -684,11 +714,12 @@ $$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} + \\text{Product Ta
         truth: "GDP measures money spent, not human welfare; nominal GDP can rise purely from price inflation without a single extra good being produced, and ignores environmental degradation.",
         body: `
 ### Real vs. Nominal GDP:
-- **Nominal GDP:** Measured at current prices ($P_{\\text{current}} \\times Q$).
-- **Real GDP:** Measured at constant base year prices ($P_{\\text{base}} \\times Q$).
+- **Nominal GDP:** Measured at current prices ($P_{\text{current}} \times Q$).
+- **Real GDP:** Measured at constant base year prices ($P_{\text{base}} \times Q$).
 
-### GDP Deflator:
-$$\\text{GDP Deflator} = \\frac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100$$
+<div class="formula-box">
+  GDP Deflator = (Nominal GDP / Real GDP) × 100
+</div>
 
 ### Green GDP:
 Accounts for environmental degradation, biodiversity loss, and resource depletion (Partha Dasgupta Expert Group Report 2013).
@@ -721,15 +752,14 @@ Accounts for environmental degradation, biodiversity loss, and resource depletio
         truth: "Absolute poverty counts who lacks basic physical survival needs; Relative poverty measures systemic inequality comparing individuals across a societal distribution.",
         body: `
 ### Absolute vs. Relative Poverty:
-- **Absolute Poverty:** Chronic lack of basic survival needs. Measured by Headcount Ratio:
-  $$\\text{HCR} = \\frac{H}{N}$$
+- **Absolute Poverty:** Chronic lack of basic survival needs. Measured by Headcount Ratio: HCR = H / N
 - **Relative Poverty:** Measured via Lorenz Curve and Gini Coefficient.
 
 <div class="exam-highlight-box">
   <h4>📊 Gini Coefficient & Lorenz Curve</h4>
   • <strong>Lorenz Curve:</strong> Graphical cumulative distribution of income vs population.<br>
-  • <strong>Gini Coefficient ($G$):** Ratio $G = \\frac{A}{A+B}$ (0 = equality, 1 = inequality).<br>
-  • <strong>Gini Index:** $G \\times 100$.
+  • <strong>Gini Coefficient (G):</strong> Ratio G = A / (A+B) (0 = equality, 1 = inequality).<br>
+  • <strong>Gini Index:</strong> Gini Coefficient × 100.
 </div>
         `
       },
@@ -747,7 +777,7 @@ Accounts for environmental degradation, biodiversity loss, and resource depletio
 
 ### Poverty Types by Duration:
 - **Transitory / Situational:** Temporary shock (disaster, illness).
-- **Chronic / Generational:** Inherited across $\\ge 2$ generations.
+- **Chronic / Generational:** Inherited across ≥2 generations.
         `
       },
       {
@@ -792,9 +822,9 @@ Accounts for environmental degradation, biodiversity loss, and resource depletio
         body: `
 ### Core Indicators:
 - **Labour Force:** Employed + Unemployed actively seeking work.
-- **LFPR:** $\\frac{\\text{Employed} + \\text{Unemployed}}{\\text{Total Population (15+)}} \\times 100$.
-- **WPR:** $\\frac{\\text{Employed}}{\\text{Total Population}} \\times 100$.
-- **Unemployment Rate (UR):** $\\frac{\\text{Unemployed}}{\\text{Total Labour Force}} \\times 100$.
+- **LFPR:** (Employed + Unemployed) / Total Population (15+) × 100.
+- **WPR:** Employed / Total Population × 100.
+- **Unemployment Rate (UR):** Unemployed / Total Labour Force × 100.
         `
       },
       {
@@ -823,11 +853,11 @@ Accounts for environmental degradation, biodiversity loss, and resource depletio
 1. **Structural:** Skill/technology mismatch (Industry 4.0).
 2. **Cyclical:** Business cycle downturns.
 3. **Frictional:** Job transition (always present at full employment).
-4. **Disguised:** Marginal product of labor is zero ($\\frac{\\partial Y}{\\partial L} = 0$, agriculture).
+4. **Disguised:** Marginal product of labor is zero ($\Delta Y / \Delta L = 0$, agriculture).
 5. **Seasonal, Voluntary, Underemployment.**
 
 ### The Phillips Curve (1958):
-Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{Wage Growth} \\uparrow \\implies \\text{Inflation} \\uparrow$.
+Short-run inverse trade-off: Unemployment ↓ ⇒ Wage Growth ↑ ⇒ Inflation ↑.
         `
       },
       {
@@ -839,8 +869,8 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
         truth: "Fiscal policy uses government spending and taxation to smooth business cycles; deficit financing covers spending gaps through borrowing or monetization.",
         body: `
 ### Policy Stances:
-- **Expansionary:** $\\uparrow$ Spend, $\\downarrow$ Tax (Pump priming in recession).
-- **Contractionary:** $\\downarrow$ Spend, $\\uparrow$ Tax (Fight inflation).
+- **Expansionary:** ↑ Spend, ↓ Tax (Pump priming in recession).
+- **Contractionary:** ↓ Spend, ↑ Tax (Fight inflation).
 - **Countercyclical:** Works against business cycle to stabilize.
 
 ### Deficit Financing & Monetization:
@@ -935,12 +965,12 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
         body: `
 ### CPSE Ratna Categories:
 - **Maharatna:** Navratna status, listed, avg turnover >Rs 25,000 cr, net worth >Rs 15,000 cr, net profit >Rs 5,000 cr (3-yr avg).
-- **Navratna:** Miniratna-I, Schedule A, score $\\ge 60/100$ across 6 financial parameters.
+- **Navratna:** Miniratna-I, Schedule A, score ≥ 60/100 across 6 financial parameters.
 
 ### MSME Classification (Unified since 2020):
-- **Micro:** Investment $\\le$ Rs 2.5 cr | Turnover $\\le$ Rs 10 cr.
-- **Small:** Investment $\\le$ Rs 25 cr | Turnover $\\le$ Rs 100 cr.
-- **Medium:** Investment $\\le$ Rs 125 cr | Turnover $\\le$ Rs 500 cr.
+- **Micro:** Investment ≤ Rs 2.5 cr | Turnover ≤ Rs 10 cr.
+- **Small:** Investment ≤ Rs 25 cr | Turnover ≤ Rs 100 cr.
+- **Medium:** Investment ≤ Rs 125 cr | Turnover ≤ Rs 500 cr.
 - **Registration:** **Udyam Registration** (19-digit URN, replacing obsolete Udyog Aadhaar).
         `
       },
@@ -958,7 +988,7 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
 ### 3 Reform Directions:
 1. **Liberalization:** Dismantled license-permit raj, freed interest rates, raised SSI limits.
 2. **Privatization:** Disinvestment of PSE shares (Budget 2026-27 miscellaneous capital receipts target: **Rs 80,000 crore**).
-3. **Globalization:** Lowered tariffs, partial rupee convertibility (1993/94), GATT Marrakesh Agreement (1994) $\\rightarrow$ **WTO (1 Jan 1995)**.
+3. **Globalization:** Lowered tariffs, partial rupee convertibility (1993/94), GATT Marrakesh Agreement (1994) → **WTO (1 Jan 1995)**.
         `
       },
       {
@@ -1098,6 +1128,11 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
 
         bookStreamEl.appendChild(chapterSection);
       });
+
+      // Typeset equations with MathJax if available
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
     }
 
     function toggleAnswer(idx) {
