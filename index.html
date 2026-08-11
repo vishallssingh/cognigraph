@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniGraph Kindle Reader — Economics: National Income & Growth</title>
-  <meta name="description" content="A distraction-free Kindle-style eBook reader for Economics with first-principles summaries and active recall retention.">
+  <title>CogniGraph Kindle Master Reader — Economics & Social Issues</title>
+  <meta name="description" content="Master Kindle eBook Reader for Economics, National Income, Poverty, Unemployment, Fiscal Policy, Planning, NITI Aayog, Industrial Policy, and Global Institutions.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -196,7 +196,7 @@
 
     /* Table of Contents Sidebar */
     aside.toc-sidebar {
-      width: 320px;
+      width: 340px;
       background: var(--bg-sidebar);
       border-right: 1px solid var(--border-color);
       display: flex;
@@ -240,7 +240,7 @@
       padding: 10px 12px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-main);
       transition: all 0.2s;
@@ -264,7 +264,7 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 600;
-      min-width: 20px;
+      min-width: 22px;
     }
 
     /* Kindle Reading Pane */
@@ -279,7 +279,7 @@
     }
 
     .kindle-screen {
-      max-width: 740px;
+      max-width: 760px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -359,7 +359,7 @@
       text-indent: 1.5em;
     }
 
-    .chapter-content h2, .chapter-content h3 {
+    .chapter-content h2, .chapter-content h3, .chapter-content h4 {
       font-family: var(--font-ui);
       font-weight: 700;
       margin: 32px 0 14px 0;
@@ -506,7 +506,7 @@
       <span class="brand-icon">📖</span>
       <div class="brand-title">
         <h1>CogniGraph Kindle Reader</h1>
-        <p>Economics & Social Issues — National Income, Growth, Poverty & Unemployment</p>
+        <p>Economics & Social Issues Master Corpus (25 Chapters)</p>
       </div>
     </div>
 
@@ -535,7 +535,7 @@
     <aside id="tocSidebar" class="toc-sidebar">
       <div class="toc-header">
         <span>Table of Contents</span>
-        <span id="chapterCountBadge" style="font-weight: 600;">7 Chapters</span>
+        <span id="chapterCountBadge" style="font-weight: 600;">25 Chapters</span>
       </div>
       <ul id="tocList" class="toc-list">
         <!-- Populated dynamically -->
@@ -584,7 +584,7 @@
         <!-- Chapter Navigation -->
         <div class="chapter-nav-bar">
           <button id="prevChapterBtn" class="nav-btn-chapter" onclick="navigateChapter(-1)">← Previous Chapter</button>
-          <span id="chapterProgressLabel" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Chapter 1 of 7</span>
+          <span id="chapterProgressLabel" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Chapter 1 of 25</span>
           <button id="nextChapterBtn" class="nav-btn-chapter" onclick="navigateChapter(1)">Next Chapter →</button>
         </div>
 
@@ -599,11 +599,11 @@
   </div>
 
   <script>
-    // --- Book Chapters Dataset (National Income & Economics) ---
+    // --- Master Book Chapters Dataset (25 Chapters) ---
     const bookData = [
       {
         id: "ch-1",
-        book: "Book I: Foundations of Economics",
+        book: "Book I: Foundations of Economics & National Income",
         title: "1. What is Economics? Scarcity & Choice",
         readTime: "3 min read",
         examTags: "Micro vs Macro, Scarcity, Adam Smith",
@@ -612,428 +612,445 @@
 The subject matter of Economics focuses on the **rational management of scarce resources** so that limited resources can be optimally transformed into valuable goods to maximize economic welfare.
 
 ### According to Adam Smith:
-The subject matter of economics can be broadly classified into two groups:
-
-1. **Microeconomics:** When economic models are applied to individual units like a consumer or a producer (e.g. Consumer Behavior, Producer Behavior theories).
-2. **Macroeconomics:** When economic models are applied at the aggregate national level (e.g. Inflation, National Income determination, Money supply, Unemployment, Poverty).
+1. **Microeconomics:** When economic models are applied to individual units like a consumer or a producer (gives rise to Consumer & Producer behavior theories).
+2. **Macroeconomics:** When economic models are applied at the aggregate level (Inflation, National Income, Money Supply, Unemployment, Poverty).
 
 <div class="exam-highlight-box">
   <h4>💡 Economics vs. Economy</h4>
-  <strong>Economics</strong> is the body of theories and study of how society chooses to allocate scarce resources.<br>
-  <strong>Economy</strong> is the practical system where all these theories and models are applied to determine output levels and solve economic issues.
+  <strong>Economics</strong> is the body of theories studying resource allocation.<br>
+  <strong>Economy</strong> is the practical system where these theories are applied to determine output levels and solve real-world problems.
 </div>
         `
       },
       {
         id: "ch-2",
-        book: "Book I: Foundations of Economics",
-        title: "2. The 3 Central Problems of an Economy",
+        book: "Book I: Foundations of Economics & National Income",
+        title: "2. The 3 Central Problems & Goods Classification",
         readTime: "4 min read",
-        examTags: "Capital vs Consumer Goods, Production Techniques",
-        truth: "The dearth of resources with multiple alternative uses forces every society to make fundamental trade-offs between immediate consumption and future industrial capital.",
+        examTags: "Consumer vs Capital Goods, Intermediate vs Final Goods",
+        truth: "Classification of goods depends on end-use rather than physical nature; an AC in a home is a consumer good, while the same AC in a factory is a capital good.",
         body: `
-Availability of resources does not automatically translate into economic growth. The scarcity of resources with alternative uses poses the **Problem of Choice**.
-
 ### The 3 Central Problems:
+1. **What to produce?** (Consumer goods vs. Capital goods allocation).
+2. **How to produce?** (Labor-intensive vs. Capital-intensive technique based on factor abundance).
+3. **For whom to produce?** (Distribution, equity, and optimum allocation).
 
-1. **What to Produce?**
-   - Every economy faces a trade-off: whether to produce more **consumer goods** (food, clothing, appliances for immediate survival) or **capital goods** (machinery, raw materials for future industrial production).
-
-2. **How to Produce?**
-   - Choice of production technique to optimize resources:
-   - **Labor-Intensive Technique:** Suitable for populous countries with abundant labor.
-   - **Capital-Intensive Technique:** Adopted by countries with abundant capital equipment.
-
-3. **For Whom to Produce?**
-   - Deals with the distribution of goods, services, and proceeds generated. Ensures reduction in inequality, optimum resource allocation, and overall social well-being.
+### Goods Classification (Classic Exam Traps):
+- **Intermediate Goods:** Still in the value-addition process / raw materials (e.g. wheat flour in a bakery).
+- **Final Goods:** Ready for final consumption or investment; no further value addition required.
+- **Consumer Goods:** Consumed for direct utility maximization (Durables, Semi-durables, Non-durables).
+- **Capital Goods:** Used in production to generate wealth (machinery, factory buildings).
         `
       },
       {
         id: "ch-3",
-        book: "Book I: Foundations of Economics",
-        title: "3. Types of Market Systems & Economies",
-        readTime: "4 min read",
-        examTags: "Laissez-Faire, Centrally Planned, Mixed Economy",
-        truth: "Economies organize resource allocation along a spectrum ranging from purely decentralized market price signals to centralized state planning.",
-        body: `
-Every economy has its own arrangement for resource allocation, classified into 3 major types:
-
-1. **Laissez-Faire / Free Market Economy:**
-   - Solutions to central problems are determined by market forces of **Demand and Supply**.
-   - State control is minimal; profit motive dominates (e.g. Singapore, Netherlands, Hong Kong).
-
-2. **Centrally Planned Economy:**
-   - Factors of production are majorly owned by the state.
-   - Social welfare is prioritized over profit maximization (e.g. Cuba).
-
-3. **Mixed Economy:**
-   - Blends free market freedom with government regulation (e.g. India).
-   - Strategic industries like **Atomic Energy, Space, and Defense** are reserved for state control while private enterprise operates in consumer sectors.
-
-<div class="exam-highlight-box">
-  <h4>📌 Note on Contemporary Economies</h4>
-  Modern economies are rarely purely capitalist or socialist. Globalization and multinational supply chains have blurred strict ideological boundaries into hybrid mixed systems.
-</div>
-        `
-      },
-      {
-        id: "ch-4",
-        book: "Book II: National Income & Aggregates",
-        title: "4. The Four Sectors & Circular Flow of Income",
+        book: "Book I: Foundations of Economics & National Income",
+        title: "3. Circular Flow of Income & Factor Payments",
         readTime: "5 min read",
         examTags: "Factors of Production, Factor Payments, Circular Flow",
         truth: "Every rupee spent by a consumer is a rupee earned by a producer; production automatically generates equal factor income across Land, Labor, Capital, and Entrepreneurship.",
         body: `
-An economy consists of 4 interacting sectors:
-1. **Household Sector:** Consumers of goods and suppliers of factors of production.
-2. **Producer Sector:** Manufacturing and producing units.
-3. **Government Sector:** Consumer, producer, and regulator ensuring public welfare.
-4. **External Sector:** Import/export trade and international financial flows.
+An economy consists of 4 interacting sectors: **Household, Producer, Government, and External (Rest of World)**.
 
-### The 4 Factors of Production & Factor Income:
-Every output is resolved into payments to 4 fundamental inputs:
+### Factors of Production & Factor Income:
 - **Land** $\\rightarrow$ **Rent**
 - **Labor** $\\rightarrow$ **Wages / Compensation of Employees**
 - **Capital** $\\rightarrow$ **Interest**
 - **Entrepreneurship** $\\rightarrow$ **Profit**
 
 <div class="exam-highlight-box">
-  <h4>🔄 Circular Flow Principle</h4>
-  Real goods and services flow in a clockwise direction, while factor money payments flow in a counter-clockwise direction. Total Output Produced = Total Factor Income Generated = Total Expenditure Incurred.
+  <h4>🔄 Circular Flow Rule</h4>
+  Real goods and services flow clockwise, while factor money payments flow counter-clockwise. Total Output Produced = Total Factor Income Generated = Total Expenditure Incurred.
+</div>
+        `
+      },
+      {
+        id: "ch-4",
+        book: "Book I: Foundations of Economics & National Income",
+        title: "4. GDP, NDP, GNP & NNP Aggregate Ladder",
+        readTime: "6 min read",
+        examTags: "GDP vs GNP, NDP vs NNP, NFIA, Domestic Territory",
+        truth: "GDP measures output produced inside a geographic boundary regardless of owner citizenship; GNP measures output produced by a nation's citizens regardless of where they are located.",
+        body: `
+### The Aggregate Ladder:
+- **Gross Domestic Product (GDP):** Total market value of all final goods and services produced within the domestic territory of a country within an accounting year.
+- **Net Domestic Product (NDP):** $\\text{GDP} - \\text{Depreciation}$
+- **Gross National Product (GNP):** $\\text{GDP} + \\text{NFIA (Net Factor Income from Abroad)}$
+- **Net National Product at Factor Cost (NNP_FC):** True **National Income**.
+
+<div class="exam-highlight-box">
+  <h4>🚗 The Honda US Plant Case Study</h4>
+  A Honda manufacturing plant in the U.S. owned by a Japanese corporation:
+  - Output $\\rightarrow$ counted in **U.S. GDP** (produced within U.S. territory).
+  - Wages to U.S. workers $\\rightarrow$ counted in **U.S. GNP**.
+  - Profits $\\rightarrow$ go to Japanese owner $\\rightarrow$ counted in **Japan's GNP**.
 </div>
         `
       },
       {
         id: "ch-5",
-        book: "Book II: National Income & Aggregates",
-        title: "5. GDP, NDP, GNP & NNP Mechanics",
-        readTime: "6 min read",
-        examTags: "GDP vs GNP, NDP vs NNP, NFIA, Domestic Territory",
-        truth: "GDP measures output produced inside a geographic boundary regardless of owner citizenship; GNP measures output produced by a nation's citizens regardless of where they are in the world.",
+        book: "Book I: Foundations of Economics & National Income",
+        title: "5. Factor Cost, Market Price & GVA at Basic Prices",
+        readTime: "5 min read",
+        examTags: "GVA Basic Prices, Net Indirect Taxes, 2026 Base Year Update",
+        truth: "Factor Cost is what it costs to produce at the factory gate; Market Price is what consumers pay after government taxes and subsidies distort the price.",
         body: `
-### Key National Income Definitions:
+### Market Price vs. Factor Cost:
+- $\\text{Market Price (MP)} = \\text{Factor Cost (FC)} + \\text{Net Indirect Taxes (NIT)}$
+- $\\text{Net Indirect Taxes} = \\text{Indirect Taxes} - \\text{Subsidies}$
 
-- **Gross Domestic Product (GDP):** Total market value of all final goods and services produced within the domestic territory of a country within an accounting year.
-- **Net Domestic Product (NDP):** GDP minus Depreciation (Consumption of Fixed Capital).
-- **Gross National Product (GNP):** GDP plus Net Factor Income from Abroad (NFIA).
-- **Net National Product at Factor Cost (NNP_FC):** True **National Income**.
+### GVA at Basic Prices (Post-2015 CSO Revision):
+$$\\text{GVA at Basic Prices} = \\text{GVA at Factor Cost} + \\text{Production Taxes} - \\text{Production Subsidies}$$
+$$\\text{GDP at Market Prices} = \\text{GVA at Basic Prices} + \\text{Product Taxes} - \\text{Product Subsidies}$$
 
 <div class="exam-highlight-box">
-  <h4>🚗 The Honda US Plant Case Study</h4>
-  Consider a Honda manufacturing plant in the U.S. owned by a Japanese corporation:
-  <ul>
-    <li>Plant output is included in <strong>U.S. GDP</strong> (produced within U.S. territory).</li>
-    <li>Profits belong to <strong>Japan's GNP</strong> (earned by Japanese capital).</li>
-    <li>U.S. workers' wages are in <strong>U.S. GNP</strong>.</li>
-  </ul>
+  <h4>✅ 2026 Verified Update</h4>
+  NSO released the revised GDP series with base year <strong>2022-23</strong> (replacing 2011-12) on 27 February 2026 — the 8th base-year revision in India's history.
 </div>
-
-### Resident Status Rule (India):
-A taxpayer qualifies as a resident of India if:
-1. Stay in India is **182 days or more** in previous year, OR
-2. Stay in India is **365 days or more** over preceding 4 years + **60 days or more** in relevant financial year.
         `
       },
       {
         id: "ch-6",
-        book: "Book III: Prices, GVA & Institutions",
-        title: "6. Factor Cost, Market Price & GVA at Basic Prices",
+        book: "Book I: Foundations of Economics & National Income",
+        title: "6. Methods of Calculating National Income",
         readTime: "5 min read",
-        examTags: "GVA Basic Prices, Net Indirect Taxes, CSO/NSO Merger",
-        truth: "Factor Cost is what it costs to produce at the factory gate; Market Price is what consumers pay after government taxes and subsidies distort the price.",
+        examTags: "Product Method, Income Method, Expenditure Method",
+        truth: "National income can be calculated through three interlinked phases of economic activity: Production (Value Added), Income (Factor Payments), and Expenditure (Final Purchases).",
         body: `
-### Price Distortions:
-- **Net Indirect Taxes (NIT):** Indirect Taxes minus Subsidies.
-- $\\text{GDP}_{MP} = \\text{GDP}_{FC} + \\text{Net Indirect Taxes}$
+### 1. Value-Added / Product Method:
+- $\\text{Value Added} = \\text{Value of Output} - \\text{Intermediate Consumption}$
+- Sum of value added across all producing firms equals Gross Value Added (GVA).
 
-### GVA (Supply Side) vs. GDP (Demand Side):
-- **GVA (Gross Value Added):** Measures sectoral contributions (Agriculture, Industry, Services) at producer basic prices.
-- In January 2015, Central Statistics Office (CSO) revised National Accounts to report sector estimates at **GVA at Basic Prices**:
-$$\\text{GVA at Basic Prices} = \\text{GVA at FC} + \\text{Production Taxes} - \\text{Production Subsidies}$$
+### 2. Expenditure Method:
+- $Y = C + I + G + (X - M)$
+- Gives GDP at Market Price ($GDP_{MP}$).
 
-### Indian Institutional Framework:
-- **NSO (National Statistical Office):** Formed by merging **CSO** (Central Statistics Office) and **NSSO** (National Sample Survey Office) under MoSPI.
-- **NSC (National Statistical Commission):** Created on Dr. C. Rangarajan Committee recommendations, headed by Chief Statistician of India (CSI).
+### 3. Income Method:
+- $NDP_{FC} = \\text{Compensation of Employees} + \\text{Operating Surplus} + \\text{Mixed Income}$
+- **Operating Surplus:** Dividends + Corporate Profit Tax + Undistributed Profits.
+- **Mixed Income:** Income of self-employed persons using their own land/labor/capital.
         `
       },
       {
         id: "ch-7",
-        book: "Book IV: Real Output & Sustainable Growth",
+        book: "Book I: Foundations of Economics & National Income",
         title: "7. Real vs Nominal GDP, GDP Deflator & Green GDP",
         readTime: "5 min read",
-        examTags: "GDP Deflator, Green GDP, Externalities, World Bank Atlas",
+        examTags: "GDP Deflator, Green GDP, Partha Dasgupta Report",
         truth: "GDP measures money spent, not human welfare; nominal GDP can rise purely from price inflation without a single extra good being produced, and ignores environmental degradation.",
         body: `
-### Nominal vs Real GDP:
-- **Nominal GDP:** Measured at current ongoing market prices ($P_{\text{current}} \\times Q$).
-- **Real GDP:** Measured at constant base year prices ($P_{\text{base}} \\times Q$). Base year in India is **2011-12** (Govt planning update to 2022-23 base year).
+### Real vs. Nominal GDP:
+- **Nominal GDP:** Measured at current prices ($P_{\\text{current}} \\times Q$).
+- **Real GDP:** Measured at constant base year prices ($P_{\\text{base}} \\times Q$).
 
-### GDP Deflator (Implicit Price Deflator):
+### GDP Deflator:
 $$\\text{GDP Deflator} = \\frac{\\text{Nominal GDP}}{\\text{Real GDP}} \\times 100$$
 
-### Limitations of GDP & Green GDP:
-1. Excludes non-market household work / domestic labor.
-2. Fails to measure income distribution & wealth inequality.
-3. Misses informal / parallel black economy transactions.
-4. Ignores negative externalities (pollution, river degradation).
-- **Green GDP:** Monetizes environmental damage and biodiversity loss (Partha Dasgupta Expert Group 2011).
-
-<div class="exam-highlight-box">
-  <h4>🌐 World Bank & IMF Classification</h4>
-  <strong>World Bank (Atlas Method):** Classifies economies into Low, Lower-Middle, Upper-Middle, and High income. India is in the <strong>Lower-Middle Income</strong> category.<br>
-  <strong>IMF (WEO):** Classifies economies into Advanced vs. Emerging Market & Developing Economies. India is an <strong>Emerging Market & Developing Economy</strong>.
-</div>
+### Green GDP:
+Accounts for environmental degradation, biodiversity loss, and resource depletion (Partha Dasgupta Expert Group Report 2013).
         `
       },
       {
         id: "ch-8",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "8. What is Poverty? Dimensions & SDG Targets",
+        book: "Book II: Poverty & Inequality",
+        title: "8. What is Poverty? Dimensions & SDG Linkage",
         readTime: "4 min read",
-        examTags: "UN Definition, SDG 1 & 2, Multidimensional Poverty",
-        truth: "Poverty entails more than the lack of income; it is the pronounced deprivation of well-being, capabilities, and freedom to participate in society.",
+        examTags: "UN Definition, SDG 1 & 2, World Bank Definition",
+        truth: "Poverty entails more than the lack of income; it is the pronounced deprivation of human well-being, capabilities, and freedom to participate in society.",
         body: `
-### United Nations Definition of Poverty:
-Poverty entails more than the lack of income and productive resources to ensure sustainable livelihoods. Its manifestations include **hunger, malnutrition, limited access to education and basic services, social exclusion, and lack of participation in decision-making**.
+### Definitions:
+- **UN Definition:** Poverty entails hunger, malnutrition, limited education/services, social exclusion, and lack of participation.
+- **World Bank Definition:** "Pronounced deprivation in well-being" below a minimum threshold.
+- **SDGs:** **SDG 1 (No Poverty)** & **SDG 2 (Zero Hunger)** born at Rio+20 (2012).
 
-<div class="exam-highlight-box">
-  <h4>🎯 Sustainable Development Goals (SDGs)</h4>
-  Born at the UN Rio+20 Conference (2012):<br>
-  • <strong>SDG 1:</strong> No Poverty (End poverty in all forms everywhere).<br>
-  • <strong>SDG 2:</strong> Zero Hunger (End hunger, achieve food security & improved nutrition).
-</div>
-
-### Correlation: Poverty, Inequality & Vulnerability
-- **Inequality:** Focuses on the distribution of income or consumption across the population.
-- **Vulnerability:** The risk of falling into poverty in the future (due to natural disasters, crop failure, health shocks), even if not currently poor.
-- **World Bank Definition:** Poverty is *"pronounced deprivation in well-being"* below an adequate minimum threshold.
+### Poverty, Inequality & Vulnerability:
+- **Inequality:** Distribution of income/consumption across population.
+- **Vulnerability:** Risk of falling into poverty in future (calamities, health shocks).
         `
       },
       {
         id: "ch-9",
-        book: "Book V: Poverty Alleviation & Unemployment",
+        book: "Book II: Poverty & Inequality",
         title: "9. Absolute vs Relative Poverty & Gini Coefficient",
         readTime: "5 min read",
-        examTags: "Headcount Ratio, Lorenz Curve, Gini Coefficient, Gini Index",
+        examTags: "Headcount Ratio, Lorenz Curve, Gini Index",
         truth: "Absolute poverty counts who lacks basic physical survival needs; Relative poverty measures systemic inequality comparing individuals across a societal distribution.",
         body: `
-### Dimensions of Poverty:
-
-1. **Absolute Poverty:**
-   - Chronic lack of basic food, clean water, healthcare, and housing.
-   - Measures the percentage of population living below a fixed physical threshold (Poverty Line).
-   - **Head-Count Ratio (HCR):** 
-     $$\\text{HCR} = \\frac{H}{N}$$
-     *(Where $H$ is the number of poor below poverty line, and $N$ is total population).*
-
-2. **Relative Poverty:**
-   - Measures poverty in relation to societal income distribution. Reflects income inequality rather than pure physical deprivation.
+### Absolute vs. Relative Poverty:
+- **Absolute Poverty:** Chronic lack of basic survival needs. Measured by Headcount Ratio:
+  $$\\text{HCR} = \\frac{H}{N}$$
+- **Relative Poverty:** Measured via Lorenz Curve and Gini Coefficient.
 
 <div class="exam-highlight-box">
-  <h4>📊 The Lorenz Curve & Gini Coefficient</h4>
-  • <strong>Lorenz Curve:</strong> Graphical representation of cumulative income distribution vs. cumulative population.<br>
-  • <strong>Gini Coefficient ($G$):** Ratio of area between 45° line of equality and Lorenz curve ($A$) divided by total area under line of equality ($A+B$):
-  $$G = \\frac{A}{A+B}$$
-  • <strong>0</strong> = Perfect equality (everyone has equal income).<br>
-  • <strong>1</strong> = Perfect inequality (one person has all income).<br>
-  • <strong>Gini Index:** $\\text{Gini Coefficient} \\times 100$.
+  <h4>📊 Gini Coefficient & Lorenz Curve</h4>
+  • <strong>Lorenz Curve:</strong> Graphical cumulative distribution of income vs population.<br>
+  • <strong>Gini Coefficient ($G$):** Ratio $G = \\frac{A}{A+B}$ (0 = equality, 1 = inequality).<br>
+  • <strong>Gini Index:** $G \\times 100$.
 </div>
         `
       },
       {
         id: "ch-10",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "10. Amartya Sen's Capability Approach & Poverty Types",
+        book: "Book II: Poverty & Inequality",
+        title: "10. Amartya Sen's Capability Approach",
         readTime: "4 min read",
-        examTags: "Amartya Sen, Functionings & Capabilities, Transitory vs Chronic",
+        examTags: "Amartya Sen, Functionings & Capabilities",
         truth: "Development should expand human capabilities ('real freedoms to achieve valuable beings and doings'), rather than just maximizing GDP growth or calorie intake.",
         body: `
-### Poverty Classifications:
-- **Transitory / Situational Poverty:** Temporary poverty caused by sudden crisis or shock (environmental disaster, illness, job loss).
-- **Chronic / Generational Poverty:** Handed down across two or more generations where families lack tools to break out.
+### Functionings vs. Capabilities:
+- **Functionings:** The valuable 'beings' and 'doings' a person has reason to value (being educated, healthy, nourished).
+- **Capabilities:** The *real freedoms* and opportunities to achieve those functionings.
 
-### Amartya Sen's Capability Approach:
-Nobel Laureate Amartya Sen argued that poverty and well-being should be evaluated in terms of **Functionings** and **Capabilities**:
-- **Functionings:** The valuable 'beings' and 'doings' a person has reason to value (e.g. being well-nourished, educated, healthy).
-- **Capabilities:** The *real freedoms* and opportunities a person possesses to achieve those functionings.
-
-<div class="exam-highlight-box">
-  <h4>📐 Poverty Line Basket (PLB)</h4>
-  The minimum basket of goods and services necessary to satisfy basic human needs. The minimum expenditure to purchase the PLB is called the <strong>Poverty Line</strong>.
-</div>
+### Poverty Types by Duration:
+- **Transitory / Situational:** Temporary shock (disaster, illness).
+- **Chronic / Generational:** Inherited across $\\ge 2$ generations.
         `
       },
       {
         id: "ch-11",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "11. Global Poverty Lines & Poverty Gap",
-        readTime: "4 min read",
-        examTags: "International Poverty Line, Poverty Gap Index, World Bank",
-        truth: "The Poverty Gap measures the intensity and depth of poverty by calculating how far the average poor person falls below the poverty line.",
+        book: "Book II: Poverty & Inequality",
+        title: "11. Evolution of Indian Poverty Lines (1867–1993)",
+        readTime: "6 min read",
+        examTags: "Naoroji, Alagh 1979, Lakdawala 1993",
+        truth: "Indian poverty estimation evolved from historical subsistence diets to quantitative calorie intake targets and state-specific CPI inflation indices.",
         body: `
-### International Poverty Line (IPL):
-- **World Bank Updated Global Line:** **$3.00 per person per day** (at 2021 PPP prices), updated from $2.15 per day (2017 prices).
-- **Lower Middle-Income Poverty Line:** **$4.20 per day**.
-- **Upper Middle-Income Poverty Line:** **$8.30 per day**.
-
-### The Poverty Gap Index:
-Traditional Headcount Ratio only counts *how many* people are poor. **Poverty Gap measures the intensity of poverty**:
-$$\\text{Poverty Gap Ratio} = \\frac{\\text{Poverty Line} - \\text{Average Income of Poor}}{\\text{Poverty Line}} \\times 100$$
-It quantifies the mean shortfall from the poverty line across the population.
+### Timeline:
+1. **Dadabhai Naoroji (1867-68):** Subsistence diet (Rs 16–35/year).
+2. **National Planning Committee (1938):** Rs 15–20/month.
+3. **Working Group (1962):** Rs 20 rural / Rs 25 urban per month.
+4. **Y.K. Alagh Task Force (1979):** Calorie norms — **2400 kcal (rural, Rs 49.09)** / **2100 kcal (urban, Rs 56.64)**.
+5. **Lakdawala Group (1993):** Introduced State-specific poverty lines updated via CPI-IW (urban) and CPI-AL (rural).
         `
       },
       {
         id: "ch-12",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "12. Evolution of Indian Poverty Lines (1867–1993)",
-        readTime: "6 min read",
-        examTags: "Dadabhai Naoroji, YK Alagh 1979, Lakdawala 1993",
-        truth: "Indian poverty estimation evolved from historical subsistence diets to quantitative calorie intake targets and state-specific CPI inflation indices.",
+        book: "Book II: Poverty & Inequality",
+        title: "12. Tendulkar vs Rangarajan & NITI Aayog National MPI",
+        readTime: "7 min read",
+        examTags: "Tendulkar 2005, Rangarajan 2012, National MPI",
+        truth: "Tendulkar shifted poverty estimation from calories to overall consumption expenditure, while Rangarajan restored multi-nutritional norms and household expenditure units.",
         body: `
-### Chronological Evolution:
+### Committee Comparison:
+- **Tendulkar (2005):** Dropped calorie norms, used MRP (1-year/30-day recall). Lines (2011-12): **Rs 816 (rural)** / **Rs 1000 (urban)**. Total BPL: **27 crore (21.9%)**.
+- **Rangarajan (2012):** Household of 5 unit. Calories + Protein + Fat. Lines (2011-12): **Rs 972 (rural)** / **Rs 1407 (urban)**. Total BPL: **36.3 crore (29.5%)**.
 
-1. **Dadabhai Naoroji (1867-68):**
-   - Book: *Poverty and the Un-British Rule in India*.
-   - Formulated subsistence diet poverty line of **Rs 16 to Rs 35 per capita per year** (rice/flour, dhal, ghee, salt).
-
-2. **National Planning Committee (1938):**
-   - Estimated poverty line of **Rs 15 to Rs 20 per capita per month**.
-   - **Bombay Plan (1944):** Suggested **Rs 75 per capita per year**.
-
-3. **Working Group of 1962:**
-   - National minimum consumption expenditure of **Rs 20/month (rural)** and **Rs 25/month (urban)** per person. Excluded health/education assuming state provision.
-
-4. **Y.K. Alagh Task Force (1979):**
-   - Report: *Projections of Minimum Needs and Effective Consumption Demand*.
-   - First to define **Calorie-Based Poverty Basket**:
-     - **Rural:** **2400 kcal/day** $\\rightarrow$ **Rs 49.09/month** (1973-74 prices).
-     - **Urban:** **2100 kcal/day** $\\rightarrow$ **Rs 56.64/month**.
-
-5. **Lakdawala Expert Group (1993):**
-   - Retained Alagh calorie norms but introduced **State-specific Poverty Lines**.
-   - Updated lines using **CPI-IW** (Industrial Workers) for urban areas and **CPI-AL** (Agricultural Labourers) for rural areas.
-   - Relied heavily on **NSSO household quinquennial surveys**.
+### NITI Aayog National MPI (2021):
+- 3 Dimensions: Health (1/3), Education (1/3), Standard of Living (1/3) across **12 Indicators**.
         `
       },
       {
         id: "ch-13",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "13. Tendulkar vs Rangarajan Committee & National MPI",
-        readTime: "7 min read",
-        examTags: "Tendulkar 2005, Rangarajan 2012, NITI Aayog National MPI, 12 Indicators",
-        truth: "Tendulkar shifted poverty estimation from calories to overall consumption expenditure, while Rangarajan restored multi-nutritional norms and household expenditure units.",
+        book: "Book III: Unemployment & Labor Market",
+        title: "13. What is Unemployment? LFPR, WPR & UR Indicators",
+        readTime: "4 min read",
+        examTags: "LFPR, WPR, Unemployment Rate (UR), 15+ Age Group",
+        truth: "Unemployment measures only those in the working-age population who are actively willing and able to work but cannot find suitable employment.",
         body: `
-### Tendulkar Committee (2005, Report 2009):
-- **Major Shifts:** Shifted away from calorie norms to overall consumption; uniform Poverty Line Basket (PLB) across rural and urban India; incorporated private health & education expenditure.
-- **Reference Period:** Shifted from Uniform Reference Period (URP 30 days) to **Mixed Reference Period (MRP)** (1-year recall for 5 non-food items: clothing, footwear, durables, health, education; 30-day for food).
-- **Poverty Lines (2011-12):** **Rs 816/month (Rural)** (~Rs 27/day) | **Rs 1000/month (Urban)** (~Rs 33/day). Total BPL: **27 crore (21.9%)**.
-
-### Rangarajan Committee (2012, Report 2014):
-- **Household Unit:** Used **Monthly Expenditure of Household of 5** (Rs 4860 rural / Rs 7035 urban) arguing expenses like rent/electricity are shared.
-- **Nutritional Norms:** **2155 kcal (rural) / 2090 kcal (urban)** + Protein (48g rural / 50g urban) + Fat (26g rural / 28g urban).
-- **Poverty Lines (2011-12):** **Rs 972/month (Rural)** (~Rs 32/day) | **Rs 1407/month (Urban)** (~Rs 47/day). Total BPL: **36.3 crore (29.5%)**.
-
-<div class="exam-highlight-box">
-  <h4>🏛️ NITI Aayog National Multidimensional Poverty Index (MPI)</h4>
-  Released in 2021 (based on NFHS data). 3 equally weighted dimensions with <strong>12 Indicators</strong>:<br>
-  1. <strong>Health (1/3):</strong> Nutrition (1/6), Child Mortality (1/12), Maternal Health (1/12).<br>
-  2. <strong>Education (1/3):</strong> Years of Schooling (1/6), School Attendance (1/6).<br>
-  3. <strong>Standard of Living (1/3):</strong> Cooking Fuel, Sanitation, Drinking Water, Housing, Electricity, Assets, Bank Account (each 1/21).
-</div>
+### Core Indicators:
+- **Labour Force:** Employed + Unemployed actively seeking work.
+- **LFPR:** $\\frac{\\text{Employed} + \\text{Unemployed}}{\\text{Total Population (15+)}} \\times 100$.
+- **WPR:** $\\frac{\\text{Employed}}{\\text{Total Population}} \\times 100$.
+- **Unemployment Rate (UR):** $\\frac{\\text{Unemployed}}{\\text{Total Labour Force}} \\times 100$.
         `
       },
       {
         id: "ch-14",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "14. What is Unemployment? LFPR, WPR & UR Indicators",
-        readTime: "4 min read",
-        examTags: "LFPR, WPR, Unemployment Rate (UR), 15-64 Age Group",
-        truth: "Unemployment measures only those in the working-age population who are actively willing and able to work but cannot find suitable employment.",
+        book: "Book III: Unemployment & Labor Market",
+        title: "14. PLFS Survey & Activity Statuses (ps+ss vs CWS)",
+        readTime: "5 min read",
+        examTags: "PLFS 2017, Usual Status (ps+ss), Current Weekly Status",
+        truth: "Employment measurement requires distinguishing between long-term principal activity (365 days) and short-term weekly activity (7 days).",
         body: `
-### Definition of Unemployment:
-When people who are **able to work** (in working-age group 15–64) and **willing to work** at prevailing wages are **not getting suitable work**. Students, housewives, and persons above age 64 are excluded from the labor force.
-
-### Major Labor Market Indicators:
-
-1. **Labour Force (Economically Active):** Includes both the **employed** and the **unemployed** (those actively seeking jobs).
-2. **Labour Force Participation Rate (LFPR):**
-   $$\\text{LFPR} = \\frac{\\text{No. of Employed} + \\text{No. of Unemployed}}{\\text{Total Population}} \\times 100$$
-   *(In India, age group taken to measure LFPR is **15–64 years**).*
-
-3. **Worker Population Ratio (WPR):**
-   $$\\text{WPR} = \\frac{\\text{No. of Employed Persons}}{\\text{Total Population}} \\times 100$$
-
-4. **Proportion Unemployed (PU):**
-   $$\\text{PU} = \\frac{\\text{No. of Unemployed Persons}}{\\text{Total Population}} \\times 100$$
-
-5. **Unemployment Rate (UR):**
-   $$\\text{UR} = \\frac{\\text{No. of Unemployed Persons}}{\\text{Total Labor Force (Employed + Unemployed)}} \\times 100$$
+### PLFS (Launched April 2017 by NSO):
+- **Urban (Quarterly):** Current Weekly Status (CWS - 7 days).
+- **Rural & Urban (Annual):** Usual Status (ps+ss - 365 days / 30 days) & CWS.
+- **PLFS 2025 Calendar-Year Shift:** Shifted to Jan–Dec calendar year cycle.
         `
       },
       {
         id: "ch-15",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "15. Periodic Labour Force Survey (PLFS) & Activity Status",
-        readTime: "5 min read",
-        examTags: "PLFS 2017, Usual Status (ps+ss), Current Weekly Status (CWS)",
-        truth: "Employment measurement requires distinguishing between long-term principal activity (365 days) and short-term weekly activity (7 days).",
+        book: "Book III: Unemployment & Labor Market",
+        title: "15. Types of Unemployment & The Phillips Curve",
+        readTime: "6 min read",
+        examTags: "Disguised Unemployment, Structural, Phillips Curve",
+        truth: "Disguised unemployment occurs when additional workers add zero marginal output; Structural unemployment occurs when worker skills do not match market technology.",
         body: `
-### Periodic Labour Force Survey (PLFS):
-Launched in **April 2017** by NSSO (under NSO / MoSPI). Primary objectives are two-fold:
-1. **Urban Areas (Short Interval):** Estimate key indicators (WPR, LFPR, UR) every 3 months under **Current Weekly Status (CWS)**.
-2. **Rural & Urban Areas (Annual):** Estimate employment indicators annually under both **Usual Status (ps+ss)** and **CWS**.
+### 7 Types of Unemployment:
+1. **Structural:** Skill/technology mismatch (Industry 4.0).
+2. **Cyclical:** Business cycle downturns.
+3. **Frictional:** Job transition (always present at full employment).
+4. **Disguised:** Marginal product of labor is zero ($\\frac{\\partial Y}{\\partial L} = 0$, agriculture).
+5. **Seasonal, Voluntary, Underemployment.**
 
-### Activity Status Framework:
-- **Usual Principal Activity Status (ps):** Activity on which a person spent relatively long time (major time criterion) during preceding 365 days.
-- **Subsidiary Economic Activity Status (ss):** Secondary economic activity performed for **30 days or more** in preceding 365 days.
-- **Usual Status (ps+ss):** Combines principal and subsidiary workers.
-- **Current Weekly Status (CWS):** Activity status determined over preceding **7 days**.
+### The Phillips Curve (1958):
+Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{Wage Growth} \\uparrow \\implies \\text{Inflation} \\uparrow$.
         `
       },
       {
         id: "ch-16",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "16. Types of Unemployment: Structural, Disguised & Frictional",
-        readTime: "6 min read",
-        examTags: "Disguised Unemployment (Zero Marginal Productivity), Structural Mismatch, Frictional",
-        truth: "Disguised unemployment occurs when additional workers add zero marginal output; Structural unemployment occurs when worker skills do not match market technology.",
+        book: "Book IV: Fiscal Policy & Debt Glide Path",
+        title: "16. Fiscal Policy Stances & Deficit Financing",
+        readTime: "5 min read",
+        examTags: "Expansionary vs Contractionary, Countercyclical, WMA",
+        truth: "Fiscal policy uses government spending and taxation to smooth business cycles; deficit financing covers spending gaps through borrowing or monetization.",
         body: `
-### Major Types of Unemployment:
+### Policy Stances:
+- **Expansionary:** $\\uparrow$ Spend, $\\downarrow$ Tax (Pump priming in recession).
+- **Contractionary:** $\\downarrow$ Spend, $\\uparrow$ Tax (Fight inflation).
+- **Countercyclical:** Works against business cycle to stabilize.
 
-1. **Structural Unemployment:**
-   - Long-lasting mismatch between job requirements and worker skills (e.g. Industry 4.0 automation requiring new skills vs Industry 3.0 workforce).
-
-2. **Cyclical Unemployment:**
-   - Rises during economic downturns/recessions (low GDP growth) and falls during business cycle peaks when aggregate demand is high.
-
-3. **Frictional / Transitional Unemployment:**
-   - Temporary period when workers move between jobs, careers, or locations. **Always present in any economy, even at full employment**.
-
-4. **Disguised / Hidden Unemployment:**
-   - Part of labor force works in a redundant manner such that **marginal productivity of labor is zero** ($\\frac{\\partial Y}{\\partial L} = 0$). Highly prevalent in Indian agriculture.
-
-5. **Seasonal Unemployment:** Occurs in seasonal industries (tourism, farming, sugar mills).
-6. **Voluntary Unemployment:** Workers choosing not to work at current equilibrium wage rate.
-7. **Underemployment:** Employed below skill level, qualification, or desired full-time hours.
+### Deficit Financing & Monetization:
+- **Pre-1997:** Direct monetization via ad hoc Treasury Bills.
+- **Post-1997:** Replaced by **Ways and Means Advances (WMA)** for temporary cash mismatches. RBI operates via secondary market **Open Market Operations (OMOs)**.
         `
       },
       {
         id: "ch-17",
-        book: "Book V: Poverty Alleviation & Unemployment",
-        title: "17. The Phillips Curve: Inflation vs Unemployment Trade-Off",
-        readTime: "4 min read",
-        examTags: "Phillips Curve, Inflation vs Unemployment, Wage Pressure",
-        truth: "In the short run, lower unemployment drives up labor wages and aggregate demand, resulting in higher inflation.",
+        book: "Book IV: Fiscal Policy & Debt Glide Path",
+        title: "17. FRBM Act & FY27 Debt-Anchored Framework",
+        readTime: "6 min read",
+        examTags: "FRBM Act 2003, NK Singh Committee, FY27 Debt Anchor",
+        truth: "India's fiscal framework has shifted from a fixed annual fiscal deficit target to a declining debt-to-GDP anchor targeting ~50% Central Debt by FY31.",
         body: `
-### Economic Mechanics of the Phillips Curve:
-Developed by economist A. W. Phillips (1958), the **Phillips Curve** states that **inflation and unemployment have a stable, inverse relationship**.
+### Legislative History:
+- **FRBM Act 2003:** Original 3% fiscal deficit target.
+- **N.K. Singh Committee (2017):** Recommended 60% combined debt-to-GDP ceiling (40% Centre / 20% States) + formal Escape Clause (0.5% relaxation).
+- **Post-COVID Glide Path:** Target fiscal deficit below 4.5% of GDP by FY26 (Met on schedule at 4.4% in FY26).
+- **FY27 Debt Anchor Shift:** From Budget 2026-27 onward, Centre targets a declining Central Debt-to-GDP ratio (~50% by FY31 down from 55.6% in FY27).
+        `
+      },
+      {
+        id: "ch-18",
+        book: "Book V: Planning in India & NITI Aayog",
+        title: "18. Pre-Independence Planning to 12th Five-Year Plan",
+        readTime: "6 min read",
+        examTags: "Harrod-Domar, Mahalanobis Plan, 12th FYP (Last Plan)",
+        truth: "India's Five-Year Plan system ran from 1951 to 2017; the 12th Plan (2012–17) was India's final Five-Year Plan before NITI Aayog's structural shift.",
+        body: `
+### Pre-Independence Efforts:
+- National Planning Committee (1938), Bombay Plan & Gandhian Plan (1944), People's Plan (1945), Sarvodaya Plan (1950).
 
-$$\\text{Unemployment} \\downarrow \\implies \\text{Wage Growth} \\uparrow \\implies \\text{Inflation} \\uparrow$$
+### Key Five-Year Plans:
+- **1st Plan (1951-56):** Harrod-Domar Model (Agriculture focus).
+- **2nd Plan (1956-61):** Mahalanobis Model (Heavy basic industries).
+- **3rd Plan (1961-66):** Aimed at take-off; disrupted by 1962/1965 wars.
+- **12th Plan (2012-17):** "Faster, Sustainable and More Inclusive Growth". **India's last Five-Year Plan**.
+        `
+      },
+      {
+        id: "ch-19",
+        book: "Book V: Planning in India & NITI Aayog",
+        title: "19. NITI Aayog Architecture & Viksit Bharat @2047",
+        readTime: "5 min read",
+        examTags: "NITI Aayog (1 Jan 2015), Advisory Think Tank, Viksit Bharat",
+        truth: "NITI Aayog replaced allocative fund-distribution planning with a 15-year Vision, 7-year Strategy, and 3-year Action Agenda focused on cooperative federalism.",
+        body: `
+### NITI Aayog Basics:
+- Formed **1 January 2015** by Cabinet resolution replacing Planning Commission.
+- Premier policy **think tank** (advisory, non-allocative).
+- **Chairperson:** Prime Minister.
+- **7 Pillars of Governance:** Pro-People, Pro-Activity, Participation, Empowering, Inclusion of All, Equality, Transparency.
+- **Viksit Bharat @2047:** Long-horizon vision for developed nation status by 2047.
+        `
+      },
+      {
+        id: "ch-20",
+        book: "Book V: Planning in India & NITI Aayog",
+        title: "20. Atal Innovation Mission (AIM) & Aspirational Programs",
+        readTime: "5 min read",
+        examTags: "Atal Tinkering Labs, Aspirational Districts & Blocks",
+        truth: "Targeted development programs use real-time KPI monitoring (Champions of Change) to drive convergence across lagging districts and blocks.",
+        body: `
+### Key NITI Aayog Initiatives:
+- **Atal Innovation Mission (AIM):** Over **10,000 Atal Tinkering Labs (ATLs)** established reaching 1.1+ crore students; Budget 2025-26 targeted 50,000 more ATLs.
+- **Aspirational Districts Programme (ADP 2018):** 112 districts across 28 states monitored on 49 KPIs.
+- **Aspirational Blocks Programme (ABP 2023):** 500 blocks across 27 states & 4 UTs selected on population (25%) and per-capita GDP (75%).
+        `
+      },
+      {
+        id: "ch-21",
+        book: "Book VI: Industrial Policy, MSME & LPG Reforms",
+        title: "21. Industrial Policy Resolutions (IPR 1948, 1956 & 1991)",
+        readTime: "6 min read",
+        examTags: "IPR 1948, IPR 1956 Schedule A/B/C, NIP 1991 Delicensing",
+        truth: "Industrial policy evolved from socialist state-monopoly reservations (IPR 1956) to delicensing, de-reservation, and market liberalization under NIP 1991.",
+        body: `
+### Evolution:
+- **IPR 1948:** Introduced mixed economy model; state monopoly in 3 fields (Arms, Atomic Energy, Rail).
+- **IPR 1956:** "Economic Constitution of India". Divided industries into Schedule A (State monopoly), Schedule B (Mixed), Schedule C (Private).
+- **New Industrial Policy 1991:** Dismantled licensing, de-reserved public sector, amended MRTP Act (replaced by **Competition Act 2002**), and raised automatic FDI limit to 51% (34 Appendix I industries).
+        `
+      },
+      {
+        id: "ch-22",
+        book: "Book VI: Industrial Policy, MSME & LPG Reforms",
+        title: "22. PSUs Ratna Status & MSME Udyam Registration",
+        readTime: "5 min read",
+        examTags: "Maharatna/Navratna, MSME Udyam Registration (2020), Disinvestment",
+        truth: "Udyog Aadhaar is obsolete; Udyam Registration is the sole Aadhaar/PAN-integrated digital registration for MSMEs under 2020 unified criteria.",
+        body: `
+### CPSE Ratna Categories:
+- **Maharatna:** Navratna status, listed, avg turnover >Rs 25,000 cr, net worth >Rs 15,000 cr, net profit >Rs 5,000 cr (3-yr avg).
+- **Navratna:** Miniratna-I, Schedule A, score $\\ge 60/100$ across 6 financial parameters.
 
-<div class="exam-highlight-box">
-  <h4>📈 Short-Run Trade-off</h4>
-  When economic growth is strong, firms hire more workers, driving down unemployment. As labor becomes scarce, wages rise rapidly, leading to cost-push and demand-pull inflation across the economy.
-</div>
+### MSME Classification (Unified since 2020):
+- **Micro:** Investment $\\le$ Rs 2.5 cr | Turnover $\\le$ Rs 10 cr.
+- **Small:** Investment $\\le$ Rs 25 cr | Turnover $\\le$ Rs 100 cr.
+- **Medium:** Investment $\\le$ Rs 125 cr | Turnover $\\le$ Rs 500 cr.
+- **Registration:** **Udyam Registration** (19-digit URN, replacing obsolete Udyog Aadhaar).
+        `
+      },
+      {
+        id: "ch-23",
+        book: "Book VI: Industrial Policy, MSME & LPG Reforms",
+        title: "23. LPG Reforms 1991: Liberalization & Privatization",
+        readTime: "5 min read",
+        examTags: "LPG 1991 Crisis, Delicensing, Disinvestment Target",
+        truth: "The 1991 LPG reforms were triggered by a severe BoP and fiscal crisis (forex reserves down to $1.2B), forcing structural deregulation.",
+        body: `
+### 1991 Crisis Backdrop:
+- Gross fiscal deficit at **12.1% of GDP**; Forex reserves at **$1.2 Billion** (barely 2 weeks of imports); Inflation at **13.87%**.
+
+### 3 Reform Directions:
+1. **Liberalization:** Dismantled license-permit raj, freed interest rates, raised SSI limits.
+2. **Privatization:** Disinvestment of PSE shares (Budget 2026-27 miscellaneous capital receipts target: **Rs 80,000 crore**).
+3. **Globalization:** Lowered tariffs, partial rupee convertibility (1993/94), GATT Marrakesh Agreement (1994) $\\rightarrow$ **WTO (1 Jan 1995)**.
+        `
+      },
+      {
+        id: "ch-24",
+        book: "Book VII: Global Economic Institutions",
+        title: "24. International Monetary Fund (IMF) Quotas & SDRs",
+        readTime: "6 min read",
+        examTags: "IMF 1945, SDR Basket, Quota Formula, WEO/GFSR Reports",
+        truth: "The IMF monitors exchange rates and provides BoP liquidity support; voting power is determined by quotas where 85% supermajority gives US veto power.",
+        body: `
+### IMF Basics:
+- Formed Dec 1945 at Bretton Woods (1944). HQ: Washington D.C. 191 Members (Liechtenstein 191st).
+- **Special Drawing Rights (SDR):** "Paper gold" reserve asset. Basket: USD (43.38%), EUR (29.31%), RMB (12.28%), JPY (7.59%), GBP (7.44%).
+- **IMF Reports:** World Economic Outlook (WEO), Global Financial Stability Report (GFSR), Fiscal Monitor.
+        `
+      },
+      {
+        id: "ch-25",
+        book: "Book VII: Global Economic Institutions",
+        title: "25. World Bank Group, WTO, NDB & Regional Blocs",
+        readTime: "7 min read",
+        examTags: "IBRD, IDA, IFC, MIGA, ICSID, B-READY, WTO, NDB, AIIB",
+        truth: "Multilateral institutions complement global trade and infrastructure finance: World Bank (development), WTO (trade rules), NDB & AIIB (emerging market infra).",
+        body: `
+### World Bank Group (5 Institutions):
+1. **IBRD (1944):** Middle-income country loans (India 7th largest shareholder).
+2. **IDA (1960):** "Soft window" concessional grants to poorest nations.
+3. **IFC (1956):** Private sector arm.
+4. **MIGA (1988):** Political risk insurance.
+5. **ICSID (1966):** Investor-State dispute settlement (**India is NOT a member**).
+- **B-READY Report:** Replaced discontinued *Ease of Doing Business* report in 2024.
+
+### WTO & Regional Blocs:
+- **WTO (1 Jan 1995):** Born via Marrakesh Agreement (1994) replacing GATT. Principles: MFN, National Treatment. Agreement on Agriculture (AoA: Green, Amber, Blue boxes).
+- **NDB (BRICS Bank, Shanghai):** Equal one-nation-one-vote (Fortaleza 2014).
+- **AIIB (Beijing, 2016):** 110 members (India founding member & 2nd largest shareholder).
         `
       }
     ];
