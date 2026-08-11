@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniGraph Kindle Master Reader — Economics & Social Issues</title>
-  <meta name="description" content="Master Kindle eBook Reader for Economics, National Income, Poverty, Unemployment, Fiscal Policy, Planning, NITI Aayog, Industrial Policy, and Global Institutions.">
+  <title>CogniGraph Kindle Reader — Economics Master Corpus</title>
+  <meta name="description" content="A distraction-free Kindle-style eBook reader for Economics with continuous vertical scrolling, first-principles summaries, and active recall retention.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -217,6 +217,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      background: var(--bg-sidebar);
+      z-index: 10;
     }
 
     .toc-list {
@@ -267,29 +271,42 @@
       min-width: 22px;
     }
 
-    /* Kindle Reading Pane */
+    /* Kindle Continuous Reader Pane */
     main.reader-pane {
       flex: 1;
       overflow-y: auto;
-      padding: 40px 20px 80px 20px;
+      padding: 40px 20px 120px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       scroll-behavior: smooth;
     }
 
-    .kindle-screen {
+    .continuous-book-stream {
       max-width: 760px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 64px;
+    }
+
+    .kindle-screen-chapter {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-bottom: 48px;
+      border-bottom: 2px dashed var(--border-color);
+      scroll-margin-top: 30px;
+    }
+
+    .kindle-screen-chapter:last-child {
+      border-bottom: none;
     }
 
     /* Chapter Header */
     .chapter-header {
       border-bottom: 2px solid var(--border-color);
-      padding-bottom: 20px;
+      padding-bottom: 18px;
     }
 
     .chapter-book-label {
@@ -411,7 +428,7 @@
       border: 1px solid var(--border-color);
       border-radius: 14px;
       padding: 24px;
-      margin-top: 40px;
+      margin-top: 30px;
       font-family: var(--font-ui);
       text-align: center;
     }
@@ -448,37 +465,6 @@
       display: block;
     }
 
-    /* Chapter Navigation Buttons */
-    .chapter-nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-color);
-      font-family: var(--font-ui);
-    }
-
-    .nav-btn-chapter {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-
-    .nav-btn-chapter:hover {
-      border-color: var(--accent-brand);
-      transform: translateY(-1px);
-    }
-
     /* Bottom Reading Progress Bar */
     .progress-bar-container {
       position: fixed;
@@ -506,7 +492,7 @@
       <span class="brand-icon">📖</span>
       <div class="brand-title">
         <h1>CogniGraph Kindle Reader</h1>
-        <p>Economics & Social Issues Master Corpus (25 Chapters)</p>
+        <p id="headerSubtitle">Economics & Social Issues Master Corpus (25 Chapters)</p>
       </div>
     </div>
 
@@ -542,52 +528,10 @@
       </ul>
     </aside>
 
-    <!-- Reader Pane -->
+    <!-- Continuous Reader Pane -->
     <main id="readerPane" class="reader-pane">
-      <div class="kindle-screen">
-        
-        <!-- Chapter Header -->
-        <div class="chapter-header">
-          <div id="bookLabel" class="chapter-book-label">Book I: Foundations of Economics</div>
-          <h1 id="chapterTitle" class="chapter-title">What is Economics? Scarcity & Choice</h1>
-          <div class="reading-meta">
-            <span id="readTimeLabel">⏱️ 4 min read</span>
-            <span id="examTagLabel">🏷️ Micro vs Macro, Scarcity</span>
-          </div>
-        </div>
-
-        <!-- Feynman First-Principle Callout -->
-        <div class="feynman-banner">
-          <div class="feynman-banner-label">⚡ First-Principle Truth</div>
-          <div id="feynmanTruth" class="feynman-truth">
-            Human desires are infinite, but physical resources are finite; therefore, every economy is forced to solve a continuous optimization problem of what, how, and for whom to allocate resources.
-          </div>
-        </div>
-
-        <!-- Reading Content (Markdown Rendered) -->
-        <div id="chapterContent" class="chapter-content">
-          <!-- Rendered dynamically -->
-        </div>
-
-        <!-- Chapter Active Recall Card -->
-        <div class="chapter-recall-card">
-          <div class="recall-card-title">🎴 Chapter Retention Test</div>
-          <div id="recallQuestion" class="recall-card-question">
-            Can you state the fundamental core truth of this chapter in 1 simple sentence?
-          </div>
-          <button id="revealRecallBtn" class="btn-ui" style="padding: 8px 18px;" onclick="revealRecallAnswer()">Click to Reveal First-Principle Answer</button>
-          <div id="recallAnswer" class="recall-card-answer">
-            <div id="recallAnswerText"></div>
-          </div>
-        </div>
-
-        <!-- Chapter Navigation -->
-        <div class="chapter-nav-bar">
-          <button id="prevChapterBtn" class="nav-btn-chapter" onclick="navigateChapter(-1)">← Previous Chapter</button>
-          <span id="chapterProgressLabel" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Chapter 1 of 25</span>
-          <button id="nextChapterBtn" class="nav-btn-chapter" onclick="navigateChapter(1)">Next Chapter →</button>
-        </div>
-
+      <div id="bookStream" class="continuous-book-stream">
+        <!-- All Chapters Rendered Continuously Here -->
       </div>
     </main>
 
@@ -1062,19 +1006,9 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
 
     // --- DOM References ---
     const tocListEl = document.getElementById('tocList');
-    const chapterTitleEl = document.getElementById('chapterTitle');
-    const bookLabelEl = document.getElementById('bookLabel');
-    const readTimeLabelEl = document.getElementById('readTimeLabel');
-    const examTagLabelEl = document.getElementById('examTagLabel');
-    const feynmanTruthEl = document.getElementById('feynmanTruth');
-    const chapterContentEl = document.getElementById('chapterContent');
-    const recallQuestionEl = document.getElementById('recallQuestion');
-    const recallAnswerTextEl = document.getElementById('recallAnswerText');
-    const recallAnswerEl = document.getElementById('recallAnswer');
-    const revealRecallBtn = document.getElementById('revealRecallBtn');
-    const chapterProgressLabelEl = document.getElementById('chapterProgressLabel');
-    const progressBarFillEl = document.getElementById('progressBarFill');
+    const bookStreamEl = document.getElementById('bookStream');
     const readerPaneEl = document.getElementById('readerPane');
+    const progressBarFillEl = document.getElementById('progressBarFill');
 
     // --- Theme & Font Management ---
     function setTheme(theme) {
@@ -1095,11 +1029,7 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
 
     function toggleToc() {
       const sidebar = document.getElementById('tocSidebar');
-      if (sidebar.style.display === 'none') {
-        sidebar.style.display = 'flex';
-      } else {
-        sidebar.style.display = 'none';
-      }
+      sidebar.style.display = (sidebar.style.display === 'none') ? 'flex' : 'none';
     }
 
     // --- Render Table of Contents ---
@@ -1117,8 +1047,9 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
         }
 
         const item = document.createElement('li');
+        item.id = `toc-item-${idx}`;
         item.className = `toc-item ${idx === currentChapterIndex ? 'active' : ''}`;
-        item.onclick = () => loadChapter(idx);
+        item.onclick = () => scrollToChapter(idx);
         item.innerHTML = `
           <span class="toc-num">${idx + 1}.</span>
           <span>${ch.title.split('. ')[1] || ch.title}</span>
@@ -1127,60 +1058,107 @@ Short-run inverse trade-off: $\\text{Unemployment} \\downarrow \\implies \\text{
       });
     }
 
-    // --- Load Chapter Content ---
-    function loadChapter(index) {
-      if (index < 0 || index >= bookData.length) return;
-      currentChapterIndex = index;
+    // --- Render Continuous Book Stream ---
+    function renderBookStream() {
+      bookStreamEl.innerHTML = '';
 
-      const ch = bookData[index];
-      bookLabelEl.textContent = ch.book;
-      chapterTitleEl.textContent = ch.title;
-      readTimeLabelEl.textContent = `⏱️ ${ch.readTime}`;
-      examTagLabelEl.textContent = `🏷️ ${ch.examTags}`;
-      feynmanTruthEl.textContent = ch.truth;
-      chapterContentEl.innerHTML = marked.parse(ch.body);
+      bookData.forEach((ch, idx) => {
+        const chapterSection = document.createElement('section');
+        chapterSection.id = `chapter-section-${idx}`;
+        chapterSection.className = 'kindle-screen-chapter';
 
-      // Active Recall Card
-      recallQuestionEl.textContent = `What is the First-Principle Truth of: "${ch.title}"?`;
-      recallAnswerTextEl.textContent = ch.truth;
-      recallAnswerEl.classList.remove('show');
-      revealRecallBtn.style.display = 'inline-block';
+        chapterSection.innerHTML = `
+          <div class="chapter-header">
+            <div class="chapter-book-label">${ch.book}</div>
+            <h1 class="chapter-title">${ch.title}</h1>
+            <div class="reading-meta">
+              <span>⏱️ ${ch.readTime}</span>
+              <span>🏷️ ${ch.examTags}</span>
+            </div>
+          </div>
 
-      // Navigation & Progress Labels
-      chapterProgressLabelEl.textContent = `Chapter ${index + 1} of ${bookData.length}`;
-      const progressPct = ((index + 1) / bookData.length) * 100;
-      progressBarFillEl.style.width = `${progressPct}%`;
+          <div class="feynman-banner">
+            <div class="feynman-banner-label">⚡ First-Principle Truth</div>
+            <div class="feynman-truth">${ch.truth}</div>
+          </div>
 
-      document.getElementById('prevChapterBtn').disabled = (index === 0);
-      document.getElementById('nextChapterBtn').disabled = (index === bookData.length - 1);
+          <div class="chapter-content">
+            ${marked.parse(ch.body)}
+          </div>
 
-      renderToc();
-      readerPaneEl.scrollTop = 0;
+          <div class="chapter-recall-card">
+            <div class="recall-card-title">🎴 Chapter Retention Test</div>
+            <div class="recall-card-question">Can you state the fundamental core truth of this chapter in 1 simple sentence?</div>
+            <button class="btn-ui" style="padding: 8px 18px;" onclick="toggleAnswer(${idx})">Click to Reveal First-Principle Answer</button>
+            <div id="recall-answer-${idx}" class="recall-card-answer">
+              <div>${ch.truth}</div>
+            </div>
+          </div>
+        `;
+
+        bookStreamEl.appendChild(chapterSection);
+      });
     }
 
-    function navigateChapter(direction) {
-      loadChapter(currentChapterIndex + direction);
+    function toggleAnswer(idx) {
+      const el = document.getElementById(`recall-answer-${idx}`);
+      if (el) el.classList.toggle('show');
     }
 
-    function revealRecallAnswer() {
-      recallAnswerEl.classList.add('show');
-      revealRecallBtn.style.display = 'none';
-    }
-
-    // --- Reader Scroll Progress ---
-    readerPaneEl.addEventListener('scroll', () => {
-      const scrollTop = readerPaneEl.scrollTop;
-      const scrollHeight = readerPaneEl.scrollHeight - readerPaneEl.clientHeight;
-      if (scrollHeight > 0) {
-        const pct = (scrollTop / scrollHeight) * 100;
-        progressBarFillEl.style.width = `${pct}%`;
+    function scrollToChapter(index) {
+      const el = document.getElementById(`chapter-section-${index}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        highlightTocItem(index);
       }
-    });
+    }
+
+    function highlightTocItem(index) {
+      currentChapterIndex = index;
+      document.querySelectorAll('.toc-item').forEach((item, idx) => {
+        item.classList.toggle('active', idx === index);
+      });
+    }
+
+    // --- Scroll & Intersection Observer for Continuous Infinite Scroll ---
+    function setupScrollObserver() {
+      const observerOptions = {
+        root: readerPaneEl,
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = parseInt(entry.target.id.replace('chapter-section-', ''));
+            if (!isNaN(idx)) {
+              highlightTocItem(idx);
+            }
+          }
+        });
+      }, observerOptions);
+
+      bookData.forEach((_, idx) => {
+        const el = document.getElementById(`chapter-section-${idx}`);
+        if (el) observer.observe(el);
+      });
+
+      readerPaneEl.addEventListener('scroll', () => {
+        const scrollTop = readerPaneEl.scrollTop;
+        const scrollHeight = readerPaneEl.scrollHeight - readerPaneEl.clientHeight;
+        if (scrollHeight > 0) {
+          const pct = (scrollTop / scrollHeight) * 100;
+          progressBarFillEl.style.width = `${pct}%`;
+        }
+      });
+    }
 
     // --- Initialization ---
     setTheme(currentTheme);
     document.documentElement.style.setProperty('--reader-font-size', `${currentFontSize}rem`);
-    loadChapter(0);
+    renderBookStream();
+    renderToc();
+    setupScrollObserver();
   </script>
 </body>
 </html>
