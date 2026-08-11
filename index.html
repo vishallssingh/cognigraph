@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Affairs Command Center 2026 — Framework v3.1</title>
+  <meta name="description" content="Interactive Current Affairs Command Center for Banking, Regulatory, and Civil Services Exams.">
+  <link rel="stylesheet" href="ca_app/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-group">
+        <div class="logo-icon">🎯</div>
+        <div class="logo-text">
+          <h1>Current Affairs Command Center</h1>
+          <p>Framework v3.1 | Cognitive Retrievability & Delayed Recall</p>
+        </div>
+      </div>
+      <div class="header-controls">
+        <button id="toggleRecallBtn" class="toggle-chip">
+          👁️ Active Recall: OFF
+        </button>
+        <div class="badge-count" style="font-size: 0.85rem; padding: 6px 12px; background: rgba(6, 214, 160, 0.15); color: var(--accent-emerald);">
+          🔴 Core Zone (Aug 2026)
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <main class="main-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="glass-panel filter-box">
+        <div class="filter-title">
+          <span>Locked Sections</span>
+          <span class="badge-count">11</span>
+        </div>
+        <ul id="sectionNavList" class="section-nav-list">
+          <!-- Populated dynamically by app.js -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Content Feed Area -->
+    <section class="content-area">
+      
+      <!-- Search & Mode Toolbar -->
+      <div class="glass-panel search-mode-bar">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search headlines, numbers, acts, or static GK...">
+        </div>
+        <div id="activeCount" class="badge-count" style="font-size: 0.88rem; padding: 8px 14px;">
+          <!-- Count updated by app.js -->
+        </div>
+      </div>
+
+      <!-- Notes Feed -->
+      <div id="notesFeed" class="notes-feed">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Section Drill Area (Rendered when specific section is selected) -->
+      <div id="drillContainer"></div>
+
+    </section>
+
+  </main>
+
+  <script src="ca_app/data.js"></script>
+  <script src="ca_app/app.js"></script>
+</body>
+</html>

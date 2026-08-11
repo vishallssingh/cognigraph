@@ -1,0 +1,2337 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Affairs Command Center 2026 — Framework v3.1</title>
+  <meta name="description" content="Interactive Current Affairs Command Center for Banking, Regulatory, and Civil Services Exams.">
+  <style>
+/* Current Affairs Command Center 2026 — Kindle E-Book Reader Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+:root {
+  /* Kindle Warm Sepia Palette */
+  --bg-primary: #f4ecd8;         /* Warm Kindle Sepia Paper */
+  --bg-card: #fcf8ee;            /* Warm Cream Card */
+  --bg-sidebar: #eae0c9;         /* Soft Sepia Sidebar */
+  --bg-input: #f3ebda;           /* Input Field Background */
+  
+  --text-main: #2d2623;          /* Deep Ink Black */
+  --text-muted: #6e645a;         /* Muted Sepia Charcoal */
+  --text-headline: #1c1714;      /* Deep Ink Headline */
+  
+  --border-subtle: #dbcfb9;      /* Delicate Book Page Border */
+  --border-focus: #9e6038;       /* Warm Terracotta Focus */
+  
+  --accent-warm: #a65228;        /* Terracotta Ink Accent */
+  --accent-green: #3b6b4c;       /* Vintage Sage Green */
+  --accent-gold: #b37418;        /* Warm Sepia Gold */
+  
+  --font-serif: 'Merriweather', 'Bookerly', 'Georgia', 'Crimson Pro', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base Reset & Reader Layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Minimalist E-Reader Header */
+header {
+  background-color: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 18px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  font-size: 1.4rem;
+}
+
+.logo-text h1 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-headline);
+  letter-spacing: -0.01em;
+}
+
+.logo-text p {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-chip:hover {
+  border-color: var(--accent-warm);
+  color: var(--accent-warm);
+}
+
+.toggle-chip.active {
+  background: var(--accent-warm);
+  color: #fff;
+  border-color: var(--accent-warm);
+}
+
+/* Main E-Reader Grid Layout */
+.main-layout {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 32px;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-box {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.filter-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item-btn {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.15s ease;
+}
+
+.nav-item-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.nav-item-btn.active {
+  background: var(--bg-card);
+  color: var(--accent-warm);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.badge-count {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Content Feed & Toolbar */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-mode-bar {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.search-icon {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-main);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Book Paper Note Cards */
+.notes-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.note-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s ease;
+}
+
+.note-card:hover {
+  border-color: #cbbba3;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.note-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-headline);
+  line-height: 1.5;
+}
+
+.btn-bookmark {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.btn-bookmark:hover {
+  transform: scale(1.15);
+  color: var(--accent-gold);
+}
+
+.btn-bookmark.bookmarked {
+  color: var(--accent-gold);
+}
+
+.note-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-muted);
+}
+
+.tag-tier-a {
+  background: rgba(166, 82, 40, 0.08);
+  color: var(--accent-warm);
+  font-weight: 600;
+}
+
+.tag-tier-b {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-muted);
+}
+
+.hook-box {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  padding-left: 12px;
+  border-left: 2px solid var(--accent-warm);
+}
+
+.bullets-list {
+  padding-left: 20px;
+  margin-bottom: 14px;
+  color: var(--text-main);
+}
+
+.bullets-list li {
+  margin-bottom: 8px;
+}
+
+.static-gk-box {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  background: #ede3d0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #4a4037;
+  margin-top: 12px;
+}
+
+.trap-box {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  background: #f7e8e1;
+  border-left: 3px solid var(--accent-warm);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  color: #6b2e11;
+  margin-top: 10px;
+}
+
+.interview-box {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  background: #e8efe9;
+  border-left: 3px solid var(--accent-green);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  color: #1e452a;
+  margin-top: 10px;
+}
+
+/* Active Recall Figure Masking (Ink Mask) */
+.masked-figure {
+  background: #e2d5c1;
+  color: transparent;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 5px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.masked-figure.revealed {
+  background: transparent;
+  color: var(--accent-warm);
+  text-shadow: none;
+  font-weight: 700;
+}
+
+/* Section Drill Panel (Kindle End-of-Chapter Style) */
+.drill-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-top: 12px;
+}
+
+.drill-header {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-warm);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.quiz-q-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.quiz-q-item {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.answer-toggle-btn {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.answer-box {
+  display: none;
+  background: #eae0c9;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  color: var(--text-main);
+}
+
+.answer-box.show {
+  display: block;
+}
+
+/* Responsive Rules for Mobile & Tablet */
+@media (max-width: 850px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  
+  header {
+    padding: 14px 16px;
+  }
+  
+  .note-card {
+    padding: 18px 20px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-group">
+        <div class="logo-icon">🎯</div>
+        <div class="logo-text">
+          <h1>Current Affairs Command Center</h1>
+          <p>Framework v3.1 | Cognitive Retrievability & Delayed Recall</p>
+        </div>
+      </div>
+      <div class="header-controls">
+        <button id="toggleRecallBtn" class="toggle-chip">
+          👁️ Active Recall: OFF
+        </button>
+        <div class="badge-count" style="font-size: 0.85rem; padding: 6px 12px; background: rgba(6, 214, 160, 0.15); color: var(--accent-emerald);">
+          🔴 Core Zone (Aug 2026)
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <main class="main-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="glass-panel filter-box">
+        <div class="filter-title">
+          <span>Locked Sections</span>
+          <span class="badge-count">11</span>
+        </div>
+        <ul id="sectionNavList" class="section-nav-list">
+          <!-- Populated dynamically by app.js -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Content Feed Area -->
+    <section class="content-area">
+      
+      <!-- Search & Mode Toolbar -->
+      <div class="glass-panel search-mode-bar">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search headlines, numbers, acts, or static GK...">
+        </div>
+        <div id="activeCount" class="badge-count" style="font-size: 0.88rem; padding: 8px 14px;">
+          <!-- Count updated by app.js -->
+        </div>
+      </div>
+
+      <!-- Notes Feed -->
+      <div id="notesFeed" class="notes-feed">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Section Drill Area (Rendered when specific section is selected) -->
+      <div id="drillContainer"></div>
+
+    </section>
+
+  </main>
+
+  
+  <script>
+// Current Affairs Command Center 2026 — 100% Zero-Redundancy Dataset (99 Items)
+
+const CA_SECTIONS = [
+  { id: "sec1", title: "1. 💰 ESI, FINANCE & BUSINESS NEWS", emoji: "💰" },
+  { id: "sec2", title: "2. 🏛️ REGULATORY BODIES NEWS", emoji: "🏛️" },
+  { id: "sec3", title: "3. 🏦 BANKING & INSURANCE NEWS", emoji: "🏦" },
+  { id: "sec4", title: "4. 🌐 NATIONAL, STATE & INTERNATIONAL NEWS", emoji: "🌐" },
+  { id: "sec5", title: "5. 🤝 MoUs, CONFERENCES & APPOINTMENTS", emoji: "🤝" },
+  { id: "sec6", title: "6. 🔬 SCIENCE, TECHNOLOGY, DEFENCE & SPORTS", emoji: "🔬" },
+  { id: "sec7", title: "7. 🏆 AWARDS, BOOKS, INDICES & RANKINGS", emoji: "🏆" },
+  { id: "sec8", title: "8. 📅 IMPORTANT DAYS & PERSONS IN NEWS", emoji: "📅" },
+  { id: "sec9", title: "9. 📋 PIB, CIRCULARS & NOTIFICATIONS", emoji: "📋" },
+  { id: "sec10", title: "10. 📌 MISCELLANEOUS — GOVT SCHEMES & STATIC", emoji: "📌" },
+  { id: "sec11", title: "11. 🧠 REVISION", emoji: "🧠" }
+];
+
+const CA_NOTES_DATA = [
+  {
+    "secId": "sec1",
+    "trap": "Do not confuse Gross GST collection (before refunds) with Net GST collection (tax retained post-refunds).",
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Growth was driven primarily by higher mop-up from **domestic transactions** as well as **import of goods**.",
+      ],
+    "id": "note-sec1-1",
+    "title": "Gross GST Collections Surge 15.4% to ₹2.11 Trillion in July 2026",
+    "tier": "Tier A",
+    "hook": "GST collections serve as India's primary high-frequency indicator of indirect tax efficiency and macroeconomic health.",
+    "staticGk": "GST introduced July 1, 2017 via 101st Constitutional Amendment Act, 2016 (Article 279A)."
+  },
+  {
+    "secId": "sec1",
+    "trap": "Small MFI limit (<₹500 cr AUM) vs Medium MFI limit (₹500–₹2,000 cr AUM) vs 15% bank lending pool quota.",
+    "date": "2026-08-05",
+    "interviewQ": "*\"Why did NCGTC increase mandatory bank lending allocation for small/mid MFIs to 15%?\"*",
+    "bullets": [
+      "**Mandatory Bank Allocation:** Commercial banks must lend at least **15%** of their total ₹20,000 crore corpus to **small- and mid-size MFIs** (up from 5% and 10%).",
+      "**Sanction Cap:** Maximum bank loan capped at **20% of AUM** of NBFC-MFIs and MFIs.",
+      "**Lender Size Caps:** Max loan capped at **₹100 crore** (small MFIs), **₹200 crore** (medium MFIs), and **₹1,000 crore** (large MFIs).",
+      "**MFI Classification by AUM:** Small MFI (<₹500 crore AUM), Medium MFI (₹500–₹2,000 crore AUM), Large MFI (>₹2,000 crore AUM).",
+      "**Scheme Corpus:** Guarantees loans up to **₹20,000 crore** (wholly owned by Govt of India)."
+    ],
+    "id": "note-sec1-2",
+    "title": "NCGTC Tweaks MFI Credit Guarantee Norms (CGSMFI 2.0) to Boost Scheme Utilisation",
+    "tier": "Tier A",
+    "hook": "Restructured rules ensure credit guarantee cover reaches lower-tier microfinance institutions.",
+    "staticGk": "NCGTC established in 2014 by Ministry of Finance | HQ: Mumbai."
+  },
+  {
+    "secId": "sec1",
+    "trap": "Ethanol interest subvention (6% p.a. or 50% of interest for 5 yrs) vs priority sector short-term crop loan subvention (capped at 3%).",
+    "date": "2026-08-01",
+    "interviewQ": "*\"What role does NABARD play as the nodal agency for ethanol interest subventions?\"*",
+    "bullets": [
+      "**Nodal Agency:** **NABARD** serves as the nodal disbursing agency (**₹2,075 crore** released since FY23).",
+      "**Subvention Terms:** Interest subvention of **6% per annum or 50% of interest charged** (whichever lower) for **5 years**.",
+      "Policy Alignment: Boosts grain-based and sugar-based distilleries under Ethanol Blended Petrol (EBP) program."
+    ],
+    "id": "note-sec1-3",
+    "title": "Government Approves ₹4,687 Crore Interest Subsidies for Ethanol Projects via NABARD",
+    "tier": "Tier A",
+    "hook": "Expanding ethanol production capacity accelerates India's E20 target (20% ethanol blending by 2025-26).",
+    "staticGk": "NABARD established July 12, 1982 (B. Sivaraman Committee) | HQ: Mumbai."
+  },
+  {
+    "secId": "sec1",
+    "trap": "Extended sunset year for electronics capital goods tax exemption (**March 31, 2041**) vs earlier sunset year (**March 31, 2031**).",
+    "date": "2026-08-05",
+    "interviewQ": "*\"Why is the government proposing enabling provisions for MDR on digital payments like UPI?\"*",
+    "bullets": [
+      "Government introduced **Taxation and Other Laws (Amendment) Bill, 2026** amending Payment & Settlement Systems Act 2007, Income-tax Act 2025, and Finance Act 2026.",
+      "**Electronics Exemption Extension:** Extends tax exemption for foreign companies supplying capital goods/tooling to Indian contract manufacturers for electronic goods until **March 31, 2041** (extended from earlier sunset of 2030-31).",
+      "**UPI MDR Proposal:** Amends Payment & Settlement Systems Act 2007 to permit Merchant Discount Rate (MDR) on non-negative list electronic payment modes including UPI.",
+      "Current Baseline: Credit card MDR ~1.5%, debit card up to 0.9%, UPI currently 0% for merchants."
+    ],
+    "id": "note-sec1-4",
+    "title": "Taxation and Other Laws (Amendment) Bill, 2026 Introduced (2041 Sunset & UPI MDR)",
+    "tier": "Tier A",
+    "hook": "Extending tax exemptions for capital equipment foreign suppliers provides long-term stability to domestic electronics manufacturers.",
+    "staticGk": "Payment and Settlement Systems Act, 2007 empowers RBI to regulate payment systems."
+  },
+  {
+    "secId": "sec1",
+    "trap": "Target fiscal year: **FY29 / 2028-29** (exact projected GDP of $5.1 trillion).",
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Data Source: IMF World Economic Outlook database (April 2026 edition).",
+      "Projected Nominal GDP: India's GDP projected to reach **USD 5.1 trillion by FY 2028-29**."
+    ],
+    "id": "note-sec1-5",
+    "title": "IMF Estimates Indian Economy Will Cross $5 Trillion Mark in FY29",
+    "tier": "Tier A",
+    "hook": "Multilateral economic projections validate India's structural growth trajectory toward becoming the world's 3rd largest economy.",
+    "staticGk": "IMF established 1944 at Bretton Woods | HQ: Washington D.C. | MD: Kristalina Georgieva."
+  },
+  {
+    "secId": "sec1",
+    "trap": "BigTech financial risk (platform network scale risk) vs FinTech risk (niche digital startup operational risk).",
+    "date": "2026-08-05",
+    "interviewQ": "*\"Why are central banks and the IMF concerned about BigTech entry into payments?\"*",
+    "bullets": [
+      "Definition: BigTech defined as large technology companies using platform-based business models and data-driven network effects to scale credit and payments.",
+      "Policy Mandate: Recommends activity-based central bank regulation to prevent shadow banking risks."
+    ],
+    "id": "note-sec1-6",
+    "title": "IMF Flags Financial Stability Risks from BigTech Expansion in Payments",
+    "tier": "Tier A",
+    "hook": "Platform-based tech conglomerates expanding into payments create systemic financial stability and concentration risks.",
+    "staticGk": "IMF HQ: Washington D.C."
+  },
+  {
+    "secId": "sec1",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Disinvestment of **2.5% base equity** with an additional **4% greenshoe option** (total up to 6.5%).",
+      "Floor price fixed at **₹382 per share**.",
+      "Centre currently holds 96.5% stake in LIC."
+    ],
+    "id": "note-sec1-7",
+    "title": "Government to Offload up to 6.5% Stake in LIC via Offer for Sale (OFS)",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": "LIC founded 1st September 1956 under LIC Act, 1956 | HQ: Mumbai."
+  },
+  {
+    "secId": "sec1",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Moody's Ratings assigned a first-time rating of **Baa2 / P-2** with 'Stable' outlook to RBL Bank.",
+      "Incorporates 2-notch uplift for affiliate support from Emirates NBD Bank."
+    ],
+    "id": "note-sec1-8",
+    "title": "Moody's Assigns First-Time Investment-Grade 'Baa2' Rating to RBL Bank",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": "RBL Bank (HQ: Mumbai | Tagline: \"Apno Ka Bank\")."
+  },
+  {
+    "secId": "sec1",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "HSBC India Manufacturing PMI registered **53.5 in July 2026** (above 50 signals manufacturing expansion)."
+    ],
+    "id": "note-sec1-9",
+    "title": "HSBC India Manufacturing PMI Reaches 53.5 in July 2026",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec1",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "HSBC India Services PMI Business Activity Index fell to **53.3 in July 2026** (down from 57.4 in June)."
+    ],
+    "id": "note-sec1-10",
+    "title": "HSBC India Services PMI Business Activity Index Reaches 53.3 in July 2026",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec1",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "OPEC+ agreed to increase crude oil production by **188,000 barrels per day (bpd)** starting September 2026 (HQ: Vienna, Austria)."
+    ],
+    "id": "note-sec1-11",
+    "title": "OPEC+ Agrees to Increase Crude Oil Production by 188,000 Barrels per Day",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec1",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "India expanded its crude oil sourcing base to **41 countries** (up from 27 countries earlier) to enhance energy import security.",
+      "*Gross GST July 2026 grew 15.4% to reach ₹2.11 trillion.*",
+      "*CGSMFI 2.0 mandates banks to lend at least 15% of corpus to small/mid MFIs.*",
+      "*Taxation Bill 2026 extends electronics capital goods tax exemption sunset to March 31, 2041.*"
+    ],
+    "id": "note-sec1-12",
+    "title": "India Expands Crude Oil Sourcing Base to 41 Countries",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec2",
+    "trap": "Master Directions (ongoing rulebook) vs Master Circulars (annual snapshot compilations).",
+    "date": "2026-08-01",
+    "interviewQ": "*\"Why is RBI consolidating circulars into Master Directions?\"*",
+    "bullets": [
+      "Consolidates **628 existing circulars** across **11 categories of Regulated Entities (REs)**."
+    ],
+    "id": "note-sec2-13",
+    "title": "RBI Streamlines Supervisory Framework by Consolidating 64 Master Directions",
+    "tier": "Tier A",
+    "hook": "Consolidates fragmented circulars into unified directions to reduce compliance friction for banks.",
+    "staticGk": "RBI established April 1, 1935 under RBI Act, 1934 | HQ: Mumbai."
+  },
+  {
+    "secId": "sec2",
+    "trap": "Returning or destroying a fake note is illegal — banks must impound it and issue an acknowledgement receipt.",
+    "date": "2026-08-05",
+    "interviewQ": "*\"Can a bank branch return a suspected counterfeit note to a customer?\"*",
+    "bullets": [
+      "Note authentication and sorting machines mandatory in all bank branches in **districts sharing international borders**.",
+      "**100% of received banknotes** must be machine-examined for authenticity.",
+      "**Impounding Mandate:** Counterfeit notes **must be impounded immediately** — returning or destroying fake notes at the bank is strictly illegal."
+    ],
+    "id": "note-sec2-14",
+    "title": "RBI Mandates Machine Authentication & Impounding of Fake Currency in Border Branches",
+    "tier": "Tier A",
+    "hook": "Counters cross-border Fake Indian Currency Notes (FICN) smuggling and preserves cash integrity.",
+    "staticGk": "Note printing presses at Mysuru, Salboni, Dewas, Nashik | Mints at Mumbai, Hyderabad, Kolkata, Noida."
+  },
+  {
+    "secId": "sec2",
+    "trap": "200 buyers limit per FY for secondary unlisted share deals vs 200 private placement limit under Sec 42 Companies Act 2013.",
+    "date": "2026-08-01",
+    "interviewQ": "*\"Why did SEBI set a 200-buyer cap per FY for secondary unlisted share deals?\"*",
+    "bullets": [
+      "Secondary transfer of unlisted company shares by an existing shareholder to **≤200 buyers in a FY** is **NOT** treated as a public issue.",
+      "Contractual rights like **Right of First Refusal (ROFR)** can be honored.",
+      "Exceeding **200 buyers per FY** automatically converts the transaction into a **Deemed Public Issue**."
+    ],
+    "id": "note-sec2-15",
+    "title": "SEBI Clarifies Rules for Private Share Transfers in Unlisted Companies",
+    "tier": "Tier A",
+    "hook": "Prevents illegal public offerings disguised as private secondary share sales.",
+    "staticGk": "SEBI established 1988, statutory powers in 1992 via SEBI Act, 1992 | HQ: Mumbai."
+  },
+  {
+    "secId": "sec2",
+    "trap": "AIF/VCF cap for Life Insurers (3%) vs General Insurers (5%).",
+    "date": "2026-08-05",
+    "interviewQ": "*\"How do IRDAI's revised investment norms impact infrastructure financing?\"*",
+    "bullets": [
+      "**Intermediary Registration Validity:** Certificate valid perpetually subject to **annual non-refundable fee** (higher of **₹10,000 or 0.04% commission**).",
+      "**IMF Training Mandate:** Principal officers & salespersons must complete **≥25 hours of training once every 3 years**.",
+      "**SPV Investment Cap:** Insurers allowed to invest up to **20%** in operational Infra SPVs rated **AA or above**.",
+      "**AIF/VCF Investment Caps:** Combined exposure capped at **3% for life insurers** and **5% for general insurers**.",
+      "**Promoter & Repo Caps:** Promoter group exposure capped at **5% of investment assets**; Repo/G-Sec lending capped at lower of **25% of available securities or ₹10,000 crore**."
+    ],
+    "id": "note-sec2-16",
+    "title": "IRDAI Tightens Intermediary Oversight and Relaxes Insurer Investment Norms",
+    "tier": "Tier A",
+    "hook": "Frees up insurer capital for infrastructure while enforcing training standards on agents.",
+    "staticGk": "IRDAI established under IRDA Act, 1999 (Malhotra Committee) | HQ: Hyderabad."
+  },
+  {
+    "secId": "sec2",
+    "trap": "MuleHunter.AI (RBI AI tool) vs I4C (MHA national cyber crime coordination portal).",
+    "date": "2026-08-01",
+    "interviewQ": "*\"How do SOPs and tools like MuleHunter.AI assist banks in countering cyber fraud?\"*",
+    "bullets": [
+      "Supreme Court directed **RBI** to circulate SOP for dealing with **mule accounts** linked to cyber fraud.",
+      "RBI combating tools: Uses **MuleHunter.AI** in collaboration with **I4C** (Indian Cyber Crime Coordination Centre under MHA).",
+      "SC directed Central Govt & **IRDAI** to pilot **Automatic Number Plate Recognition (ANPR)**-based insurance verification at fuel stations to deny fuel sales to uninsured vehicles."
+    ],
+    "id": "note-sec2-17",
+    "title": "SC Directs RBI on Mule Accounts SOP & IRDAI on ANPR Motor Insurance Verification",
+    "tier": "Tier A",
+    "hook": "Judicial directives accelerate inter-regulatory SOPs to freeze cyber-fraud accounts and enforce motor insurance.",
+    "staticGk": "I4C under MHA (New Delhi) | IRDAI under IRDA Act 1999 (HQ Hyderabad) | Motor Vehicles Act 1988 mandates third-party motor insurance."
+  },
+  {
+    "secId": "sec2",
+    "trap": "DPDPA penalty for security failure (up to ₹250 crore) vs breach notification failure (up to ₹200 crore).",
+    "date": "2026-08-05",
+    "interviewQ": "*\"Why do financial entities face overlapping cybersecurity regulations like DPDPA, RBI IT, and SEBI CSCRF?\"*",
+    "bullets": [
+      "**RBI Penalties:** RBI imposed **₹54.78 crore in penalties across 353 cases** in FY25 for IT/cybersecurity lapses.",
+      "**DPDPA 2023 Penalties:** Statutory penalties up to **₹250 crore** for security failures and **₹200 crore** for breach notification failures.",
+      "**RBI IT Governance & 2FA:** IT Governance Directions (effective April 2024); Authentication Directions 2025 mandate **2FA with at least one dynamic factor** for domestic digital transactions.",
+      "**SEBI CSCRF 2024:** Applies to **22 types of regulated entities** across a **5-tier model** (exchanges, depositories, brokers, AMCs)."
+    ],
+    "id": "note-sec2-18",
+    "title": "Cybersecurity Benchmarks: DPDPA 2023, RBI IT Governance & SEBI CSCRF",
+    "tier": "Tier A",
+    "hook": "Multi-regulatory frameworks enforce operational resilience and heavy statutory penalties across India's digital ecosystem.",
+    "staticGk": "DPDPA 2023 enacted under MeitY."
+  },
+  {
+    "secId": "sec2",
+    "trap": "Real GDP Growth projection (6.7%) vs CPI Inflation projection (5.0%) for FY27.",
+    "date": "2026-08-01",
+    "interviewQ": "*\"What factors guided the MPC's decision to hold repo rate at 5.25%?\"*",
+    "bullets": [
+      "MPC held 62nd meeting from August 3 to 5, 2026 | Chairmanship: **Sanjay Malhotra** (RBI Governor).",
+      "**Repo Rate:** Kept unchanged at **5.25%**.",
+      "**Real GDP Growth Projection (FY 2026-27):** Projected at **6.7%** (Q1 7.0%, Q2 6.4%, Q3 6.5%, Q4 6.8%).",
+      "**CPI Inflation Projection (FY 2026-27):** Lowered to **5.0%** (earlier 5.1%) (Q2 4.7%, Q3 5.9%, Q4 5.5%). Core inflation projected at **4.3%**.",
+      "Macro Buffers: Gross FDI inflows at **US$ 30.7 billion** in Q1 FY27; Forex reserves import cover **over 10 months**."
+    ],
+    "id": "note-sec2-19",
+    "title": "RBI Monetary Policy Statement 2026-27 (62nd MPC Meeting Highlights)",
+    "tier": "Tier A",
+    "hook": "The MPC balances inflation control with economic growth momentum, setting benchmark interest rates for FY27.",
+    "staticGk": "MPC constituted under Sec 45ZB of RBI Act, 1934 | 6 members | Inflation target: 4% (+/- 2%)."
+  },
+  {
+    "secId": "sec2",
+    "trap": "CAS Order Entry I (3:20–3:25 PM, modification allowed) vs CAS Order Entry II (3:25–3:30 PM, modification prohibited).",
+    "date": "2026-08-05",
+    "interviewQ": "*\"Why did SEBI introduce a Closing Auction Session (CAS) for F&O stocks?\"*",
+    "bullets": [
+      "Introduces **Closing Auction Session (CAS)** for F&O-eligible (Category I) cash equity stocks.",
+      "**F&O Stock Timings:** Regular trading ends **3:15 PM**; Transition **3:15–3:20 PM**; CAS Order Entry I **3:20–3:25 PM**; CAS Order Entry II **3:25–3:30 PM** (market orders **cannot** be modified/cancelled); Order matching **3:30–3:35 PM**.",
+      "**Pre-Open Timings:** Order entry **9:00–9:07 AM**; Matching **9:07–9:15 AM**; Market opens **9:15 AM**."
+    ],
+    "id": "note-sec2-20",
+    "title": "SEBI Closing Auction Session (CAS) Takes Effect August 3, 2026",
+    "tier": "Tier A",
+    "hook": "Introducing a Closing Auction Session for derivatives-eligible stocks prevents closing price manipulation.",
+    "staticGk": "SEBI HQ: Mumbai | Established 1988, Statutory 1992."
+  },
+  {
+    "secId": "sec2",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "RBI published draft guidelines proposing to harmonise and standardise the regulatory framework on **interest rates on advances** across all Regulated Entities (banks, NBFCs, UCBs, AIFIs) to ensure transparent rate resets."
+    ],
+    "id": "note-sec2-21",
+    "title": "RBI Proposes Harmonised Regulatory Framework on Interest Rates on Advances",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec2",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Markets regulator SEBI proposed allowing REITs and InvITs to issue Depository Receipts (DRs) in foreign jurisdictions to attract foreign capital."
+    ],
+    "id": "note-sec2-22",
+    "title": "SEBI Mulls Depository Receipts (DRs) Against REIT and InvIT Units",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec2",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "SEBI imposed total ₹1.48 cr penalty on ZEEL, Punit Goenka, and Subhash Chandra; 1-year market bar on promoters."
+    ],
+    "id": "note-sec2-23",
+    "title": "SEBI Imposes ₹1.48 Crore Penalty & 1-Year Market Bar on ZEEL Promoters",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec2",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "K Rajaraman granted extension as Chairman of IFSCA beyond July 31, 2026 till age 65 (HQ: GIFT City)."
+    ],
+    "id": "note-sec2-24",
+    "title": "K Rajaraman Granted Extension as Chairman of IFSCA",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec2",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Monisha Chakraborty appointed ED at RBI overseeing Foreign Exchange Dept & Financial Markets Regulation Dept."
+    ],
+    "id": "note-sec2-25",
+    "title": "RBI Appoints Monisha Chakraborty as Executive Director Overseeing Forex & Financial Markets",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec2",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Prasanta Mahapatra appointed Executive Director at markets regulator SEBI."
+    ],
+    "id": "note-sec2-26",
+    "title": "SEBI Appoints Prasanta Mahapatra as Executive Director",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec2",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "TRAI launched revamped MyCall app for 1-5 star call quality ratings and call drop reporting.",
+      "*RBI consolidated 628 circulars into 64 Master Directions.*",
+      "*DPDPA 2023 caps security failure penalties at ₹250 crore.*",
+      "*RBI maintained repo rate at 5.25% and projected FY27 GDP growth at 6.7%.*",
+      "*SEBI CAS Order Entry II runs from 3:25 PM to 3:30 PM.*"
+    ],
+    "id": "note-sec2-27",
+    "title": "TRAI Launches Revamped Version of MyCall App",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": "Maldives' instant payment system Favara vs Singapore's PayNow vs UAE's AANI/Jaywan vs Sri Lanka's LankaPay.",
+    "date": "2026-08-05",
+    "interviewQ": "*\"What strategic advantages does NIPL achieve by linking UPI with systems like Favara?\"*",
+    "bullets": [
+      "Maldives integrated instant payment system **'Favara'** with India's **Unified Payments Interface (UPI)**.",
+      "Transfer Flow: Transferred in **Maldivian Rufiyaa (MVR)** and credited directly in **Indian Rupees (INR)** to UPI bank accounts.",
+      "Implementation: Partnership between **Maldives Monetary Authority (MMA)**, **RBI**, and **NIPL**."
+    ],
+    "id": "note-sec3-28",
+    "title": "India-Maldives Real-Time Payment Corridor Goes Live via Favara and UPI Integration",
+    "tier": "Tier A",
+    "hook": "Expands India's digital public infrastructure internationally, reducing cross-border remittance costs.",
+    "staticGk": "NIPL established April 2020 as international subsidiary of NPCI | Maldives Currency: Maldivian Rufiyaa | Capital: Malé."
+  },
+  {
+    "secId": "sec3",
+    "trap": "Bank liability for negligence (capped at 100x annual rent) vs natural calamities/Acts of God (banks NOT liable).",
+    "date": "2026-08-01",
+    "interviewQ": "*\"What is the compensation cap under RBI guidelines when locker loss occurs due to bank negligence?\"*",
+    "bullets": [
+      "PSBs reported **zero (0) locker theft cases in FY26 (2025-26)** (down from 40 cases between FY22-FY25).",
+      "Active Lockers: **11,111,077** (1.11 crore) operational lockers across PSBs as on March 31, 2026.",
+      "**RBI Security Guidelines:** CCTV cameras mandatory at strong room entry/exit; footage preserved for **at least 180 days**.",
+      "**Bank Liability Cap:** Compensation for loss due to bank negligence capped at **100 times prevailing annual locker rent**."
+    ],
+    "id": "note-sec3-29",
+    "title": "Public Sector Banks Report Zero Locker Theft Cases in FY26; RBI Security Norms Highlighted",
+    "tier": "Tier A",
+    "hook": "Mandatory security upgrades eliminated physical locker breaches across state-owned lenders.",
+    "staticGk": "Safe deposit locker rules revised under Sec 35A of Banking Regulation Act, 1949."
+  },
+  {
+    "secId": "sec3",
+    "trap": "Bankers' Books Evidence Act, 2026 vs Bankers' Books Evidence Act, 1891.",
+    "date": "2026-08-05",
+    "interviewQ": "*\"How does the Bankers' Books Evidence Act 2026 impact banking litigation?\"*",
+    "bullets": [
+      "Introduced **Bankers' Books Evidence Act, 2026** Bill in Parliament.",
+      "Repeals and replaces the 135-year-old British-era **Bankers' Books Evidence Act, 1891**.",
+      "Core Reform: Makes **digital and virtual records** admissible primary evidence in court without physical ledger production.",
+      "Covers Core Banking Solutions (CBS) logs, electronic statements, and database microfilms."
+    ],
+    "id": "note-sec3-30",
+    "title": "Government Introduces Bankers' Books Evidence Act, 2026 to Replace 1891 British-Era Law",
+    "tier": "Tier A",
+    "hook": "Modernizes evidence law by granting digital banking logs primary court admissibility.",
+    "staticGk": "Aligned with Bharatiya Sakshya Adhiniyam, 2023."
+  },
+  {
+    "secId": "sec3",
+    "trap": "July 2026 Volume (23.66 billion) vs July 2026 Value (₹29.88 trillion).",
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "**July 2026 Volume:** Record **23.66 billion transactions** (up 4.1% MoM).",
+      "**July 2026 Value:** Record **₹29.88 trillion** (up 3.3% MoM).",
+      "System Operator: **National Payments Corporation of India (NPCI)**."
+    ],
+    "id": "note-sec3-31",
+    "title": "UPI Clocks Record 23.66 Billion Transactions Worth ₹29.88 Trillion in July 2026",
+    "tier": "Tier A",
+    "hook": "UPI sets new monthly transaction volume and value benchmarks as India's primary retail payment spine.",
+    "staticGk": "NPCI incorporated in 2008 under Sec 25 of Companies Act 1956 (now Sec 8) | HQ: Mumbai."
+  },
+  {
+    "secId": "sec3",
+    "trap": "PSBs crossing $1B mark (only 2: SBI & BoB) vs Private banks (4: ICICI, Kotak, Axis, HDFC).",
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Private banks led FCNR(B) mobilization under RBI's limited-period USD-INR forex swap window.",
+      "Foreign banks led by **HSBC and Standard Chartered** mobilized nearly the same volume as all 12 PSBs combined.",
+      "**>$1B Private Banks:** 4 lenders (**ICICI, Kotak, Axis, HDFC**).",
+      "**>$1B PSBs:** Only 2 lenders (**SBI and Bank of Baroda**)."
+    ],
+    "id": "note-sec3-32",
+    "title": "Private Banks Lead FCNR(B) Deposit Drive; ICICI, HSBC & SBI Top Performers",
+    "tier": "Tier A",
+    "hook": "Forex swap windows incentivize private and foreign banks to mobilize non-resident foreign currency deposits.",
+    "staticGk": "FCNR(B) accounts maintained in designated foreign currencies by NRIs; interest tax-free in India and fully repatriable."
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Shivalik Small Finance Bank completed acquisition and merger of Delhi-based ManiBhavnam Home Finance India Pvt Ltd for **₹109 crore** (Shivalik SFB HQ: Noida)."
+    ],
+    "id": "note-sec3-33",
+    "title": "Shivalik Small Finance Bank Acquires ManiBhavnam Home Finance for ₹109 Crore",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "PNB MetLife India Insurance Company Ltd launched the **PNB MetLife 360 Health Saving Plan**, a health-focused Unit-Linked Insurance Plan (ULIP)."
+    ],
+    "id": "note-sec3-34",
+    "title": "PNB MetLife Launches 360 Health Saving Plan (ULIP)",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "National Commodity and Derivatives Exchange Ltd (NCDEX) launched **'NCDEX Nidhi'**, an API-first mutual fund transaction platform for rural FPO integration."
+    ],
+    "id": "note-sec3-35",
+    "title": "NCDEX Launches 'NCDEX Nidhi' Mutual Fund Transaction Platform",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Karnataka Bank launched digital portal **'KBL Finsurance'** (powered by SprintMoney) to streamline insurance lead tracking across branches."
+    ],
+    "id": "note-sec3-36",
+    "title": "Karnataka Bank Launches 'KBL Finsurance' Platform",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "HDFC Bank launched **'Max for Seniors'** and **'Max for Her'** savings account variants with auto-sweep and accidental death cover on debit card up to **₹3.19 crore**."
+    ],
+    "id": "note-sec3-37",
+    "title": "HDFC Bank Launches 'Max for Seniors' and 'Max for Her' Savings Account Variants",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "SBI General Insurance launched motor insurance film campaign *\"Chuniye Bharosa, Apno Sa\"* featuring actor **Pankaj Tripathi**."
+    ],
+    "id": "note-sec3-38",
+    "title": "SBI General Insurance Launches Motor Campaign 'Chuniye Bharosa, Apno Sa'",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "WSFx Global Pay Limited received RBI Authorised Dealer Cat-II license under FEMA for trade remittances up to **₹25 lakh**."
+    ],
+    "id": "note-sec3-39",
+    "title": "WSFx GlobalPay Secures RBI AD Category II License under FEMA 2026",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec3",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "ICICI Lombard General Insurance Company Limited celebrated its **25th foundation anniversary** on August 3, 2026.",
+      "*Favara is the instant payment system of Maldives integrated with India's UPI.*",
+      "*Bank liability for locker theft due to negligence is capped at 100 times annual rent.*",
+      "*Bankers' Books Evidence Act 2026 replaces the 1891 Act to make digital CBS records primary evidence.*",
+      "*July 2026 UPI transactions reached 23.66 billion worth ₹29.88 trillion.*"
+    ],
+    "id": "note-sec3-40",
+    "title": "ICICI Lombard Celebrates 25th Anniversary on August 3, 2026",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": "Glaw Lake (India's 101st Ramsar Site & Arunachal's 1st).",
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "**Glaw Lake** in Arunachal Pradesh officially designated as **India's 101st Ramsar Site**.",
+      "Location: Located inside **Kamlang Tiger Reserve and Wildlife Sanctuary** in Lohit district, Arunachal Pradesh.",
+      "State Milestone: Marks **Arunachal Pradesh's first-ever Ramsar Site**."
+    ],
+    "id": "note-sec4-41",
+    "title": "Glaw Lake in Arunachal Pradesh Designated India's 101st Ramsar Site",
+    "tier": "Tier A",
+    "hook": "Expands international wetland protection in Eastern Himalayan biodiversity corridors.",
+    "staticGk": "Ramsar Convention signed Feb 2, 1971 (Ramsar, Iran) | India total: **101** | Top state: **Tamil Nadu (18 sites)**."
+  },
+  {
+    "secId": "sec4",
+    "trap": "Judge strength excluding CJI (**37 judges**) vs total strength including CJI (**38 judges**).",
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Passed **Supreme Court (Number of Judges) Amendment Bill, 2026** amending the 1956 Act.",
+      "Sanctioned Strength Expansion: Increases SC Judges from **33 to 37** (excluding CJI).",
+      "Total Strength with CJI: **38 Judges** (37 Judges + 1 CJI)."
+    ],
+    "id": "note-sec4-42",
+    "title": "Lok Sabha Passes Bill to Increase Supreme Court Judge Strength from 33 to 37",
+    "tier": "Tier A",
+    "hook": "Expands Apex Court judicial capacity to tackle case pendency and constitute Constitutional Benches.",
+    "staticGk": "Article 124(1) empowers Parliament to alter Supreme Court judge strength by law."
+  },
+  {
+    "secId": "sec4",
+    "trap": "South India's 1st OSAT plant (ASIP Visakhapatnam, AP) vs India's 1st Commercial Fab (Tata Dholera, Gujarat).",
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "PM laid foundation stone for **ASIP Technologies's ₹2,500 crore** OSAT facility.",
+      "Location: **Visakhapatnam, Andhra Pradesh**.",
+      "Regional Milestone: **Andhra Pradesh's and South India's 1st semiconductor plant** under ISM 1.0.",
+      "Tech Partner: **APACT Co.** (South Korea)."
+    ],
+    "id": "note-sec4-43",
+    "title": "PM Modi Launches South India's First Semiconductor Chip Plant in Visakhapatnam",
+    "tier": "Tier A",
+    "hook": "Establishes domestic semiconductor packaging hubs under India Semiconductor Mission.",
+    "staticGk": "India Semiconductor Mission (ISM) launched 2021 under MeitY (outlay ₹76,000 crore)."
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "NOTTO launched **e-Pratyaropan Portal** and mobile app for unified digital organ donation tracking.",
+      "Nodal Ministry: Ministry of Health and Family Welfare (MoHFW).",
+      "Implementing Agency: NOTTO (under Directorate General of Health Services / DGHS)."
+    ],
+    "id": "note-sec4-44",
+    "title": "NOTTO Launches e-Pratyaropan Portal & Mobile App for Organ Donation",
+    "tier": "Tier A",
+    "hook": "Streamlines national organ donation tracking and real-time donor-recipient matching.",
+    "staticGk": "NOTTO HQ: New Delhi."
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "PM inaugurated **₹5,000 crore** Alluri Sitarama Raju International Airport at Bhogapuram in Vizianagaram district, Andhra Pradesh."
+    ],
+    "id": "note-sec4-45",
+    "title": "PM Inaugurates ₹5,000 Crore Alluri Sitarama Raju International Airport at Bhogapuram, AP",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Over 13,000 tribal women performed Dhimsa dance at Bhogapuram AP, entering Guinness World Records (origin Koraput Odisha / Araku Valley AP)."
+    ],
+    "id": "note-sec4-46",
+    "title": "Largest Dhimsa Dance Enters Guinness World Records in Andhra Pradesh",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "US NSF awarded **$528,137** research grant for joint project with MeitY for AI-powered soybean breeding (2026-2029)."
+    ],
+    "id": "note-sec4-47",
+    "title": "US and India Collaborate on $528K AI Project for Precision Agriculture",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Union Territory Administration of Ladakh notified **23 heritage sites** as Protected Monuments under J&K Ancient Monuments Preservation Act Samvat 1977."
+    ],
+    "id": "note-sec4-48",
+    "title": "Ladakh Notifies 23 Heritage Sites as Protected Monuments",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "PM Modi launched 100-week-long campaign spearheaded by MY Bharat under Ministry of Youth Affairs & Sports."
+    ],
+    "id": "note-sec4-49",
+    "title": "PM Modi Launches 100-Week 'Nasha Mukt Yuva for Viksit Bharat Sankalp Abhiyan'",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Nauru officially changed its name to **Republic of Naoero** (3rd-smallest country by population after Vatican City & Tuvalu; Currency: Australian Dollar)."
+    ],
+    "id": "note-sec4-50",
+    "title": "Pacific Nation Nauru Officially Changes Name to Republic of Naoero",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "49th session of UNESCO WHC will be held from June 27 to July 7, 2027 in **Istanbul, Türkiye**."
+    ],
+    "id": "note-sec4-51",
+    "title": "Istanbul, Türkiye to Host 49th Session of UNESCO World Heritage Committee in 2027",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Nathan Thomas (18 yrs 346 days) became world's youngest male professor in Florida, US, breaking a 300-year-old Guinness record."
+    ],
+    "id": "note-sec4-52",
+    "title": "Nathan Thomas Becomes World's Youngest Male Professor at Age 18",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "MoRTH published draft amendments to Central Motor Vehicles Rules 1989 introducing two-wheeled road ambulances."
+    ],
+    "id": "note-sec4-53",
+    "title": "MoRTH Proposes Two-Wheeled Road Ambulances under Central Motor Vehicles Rules",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "MoRTH proposed mandatory fitment of V2V communication systems for all L, M, N category vehicles manufactured on or after **October 1, 2028** (DoT allocated 5.875–5.925 GHz band)."
+    ],
+    "id": "note-sec4-54",
+    "title": "Mandatory Vehicle-to-Vehicle (V2V) Communication Fitment Mandated from Oct 1, 2028",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "India crossed 5 lakh Aadhaar-verified organ donation pledges; ranks **3rd globally** in organ transplants conducted annually (after US & China)."
+    ],
+    "id": "note-sec4-55",
+    "title": "India Crosses 5 Lakh Aadhaar-Verified Organ Donation Pledges; Ranks 3rd Globally",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Ministry of Textiles announced India has over 800 registered GI products (**UP leads with 81 tags**, followed by TN with 76 and Maharashtra with 55)."
+    ],
+    "id": "note-sec4-56",
+    "title": "India's GI Ecosystem Surpasses 800 Registered Products; UP Leads Nationally",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec4",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "**Umling La Pass:** Known as the highest motorable mountain pass in the world (Ladakh, India).",
+      "**Srisailam Dam Project:** Built across Krishna River on the border of Andhra Pradesh and Telangana.",
+      "*Glaw Lake in Kamlang Tiger Reserve, Arunachal Pradesh is India's 101st Ramsar site.*",
+      "*Supreme Court judge strength increased to 37 (excluding CJI) under Article 124(1).*",
+      "*South India's 1st chip plant built at ₹2,500 crore by ASIP Tech in Visakhapatnam.*",
+      "*Uttar Pradesh leads nationally with 81 registered GI products.*"
+    ],
+    "id": "note-sec4-57",
+    "title": "Static GK One-Liners (Umling La Pass & Srisailam Project)",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": "GSI (HQ Kolkata, Est 1851) vs Survey of India (HQ Dehradun).",
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "**Varsha Ashok Aglawe** appointed 54th Director General of GSI.",
+      "Milestone: **First-ever woman** to head GSI in its **176-year history**.",
+      "Parent Ministry: Ministry of Mines."
+    ],
+    "id": "note-sec5-58",
+    "title": "Varsha Ashok Aglawe Appointed 54th DG of Geological Survey of India — First Woman Head in 176 Years",
+    "tier": "Tier A",
+    "hook": null,
+    "staticGk": "Geological Survey of India established in **1851** by Thomas Oldham | HQ: **Kolkata, West Bengal**."
+  },
+  {
+    "secId": "sec5",
+    "trap": "Central Vigilance Commissioner (CVC) vs Chief Information Commissioner (CIC).",
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "**A S Rajeev** appointed Acting Central Vigilance Commissioner.",
+      "Appointment Committee: PM (Chair) + Union Home Minister + Leader of Opposition in Lok Sabha.",
+      "Tenure Rules: Fixed **4 years or until age 65**."
+    ],
+    "id": "note-sec5-59",
+    "title": "A S Rajeev Appointed Acting Central Vigilance Commissioner (CVC)",
+    "tier": "Tier A",
+    "hook": null,
+    "staticGk": "CVC established 1964 (Santhanam Committee) | Statutory via CVC Act, 2003 | HQ: New Delhi."
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Ministry of Ayush signed MoU with IndiaAI Mission to promote AI adoption across traditional medicine research and diagnosis."
+    ],
+    "id": "note-sec5-60",
+    "title": "Ministry of Ayush Signs MoU with IndiaAI Mission",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Air Marshal Sandeep Thareja appointed Director General Armed Forces Medical Services (DGAFMS)."
+    ],
+    "id": "note-sec5-61",
+    "title": "Air Marshal Sandeep Thareja Appointed DG Armed Forces Medical Services",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Air Marshal Tejpal Singh appointed Deputy Chief of the Air Staff (DCAS)."
+    ],
+    "id": "note-sec5-62",
+    "title": "Air Marshal Tejpal Singh Appointed Deputy Chief of Air Staff",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Vice Admiral AN Pramod appointed Deputy Chief of Naval Staff (DCNS)."
+    ],
+    "id": "note-sec5-63",
+    "title": "Vice Admiral AN Pramod Appointed Deputy Chief of Naval Staff",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Vishwesh Negi appointed Ambassador of India to the Islamic Republic of Iran."
+    ],
+    "id": "note-sec5-64",
+    "title": "Vishwesh Negi Appointed Ambassador of India to Iran",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Willie Walsh (former IATA chief) appointed Chief Executive Officer of IndiGo."
+    ],
+    "id": "note-sec5-65",
+    "title": "Willie Walsh Appointed Chief Executive Officer of IndiGo",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Ministry of Textiles organized GI & Beyond 2.0 Summit in New Delhi to showcase GI handloom exports."
+    ],
+    "id": "note-sec5-66",
+    "title": "New Delhi Hosts GI & Beyond 2.0 Summit Organized by Ministry of Textiles",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "AP Government partnered with IIT Tirupati and UNSW Sydney to establish a Centre of Excellence for Solar Manufacturing at IIT Tirupati."
+    ],
+    "id": "note-sec5-67",
+    "title": "Andhra Pradesh Partners with IIT Tirupati and UNSW Sydney for Solar CoE",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "BEL signed MoU with Esri India to collaborate on defence GIS mapping, location intelligence, and GeoAI."
+    ],
+    "id": "note-sec5-68",
+    "title": "Bharat Electronics Limited Partners with Esri India for GeoAI",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "C-DAC (MeitY) signed MoU with GSI (Ministry of Mines) to collaborate in geosciences and mineral exploration using AI and High-Performance Computing (HPC)."
+    ],
+    "id": "note-sec5-69",
+    "title": "C-DAC & GSI MoU for AI and HPC Geoscience Exploration",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec5",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Greater Visakhapatnam Municipal Corporation (GVMC, AP) signed MoU with **Government of Moscow, Russia** for smart mobility and urban transport technology transfer.",
+      "*Varsha Ashok Aglawe appointed 54th DG of GSI (first woman head in 176 years).*",
+      "*A S Rajeev appointed Acting Central Vigilance Commissioner.*",
+      "*C-DAC and GSI partnered for AI and HPC mineral exploration.*"
+    ],
+    "id": "note-sec5-70",
+    "title": "GVMC Visakhapatnam & Moscow Govt Smart Mobility Partnership",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": "Pigeonpea T2T reference genome ('Asha' variety) vs unannotated draft genomes.",
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "ICAR developed India's first fully annotated telomere-to-telomere (**T2T**) reference genome for **pigeonpea (matar/arhar)**.",
+      "Variety Name: Pigeonpea variety **'Asha'** approved as global reference genome.",
+      "Milestone: First crop in India to have a fully annotated T2T reference genome (pigeonpea is India's 2nd most important pulse crop)."
+    ],
+    "id": "note-sec6-71",
+    "title": "ICAR Develops India's First Complete Pigeonpea Genome ('Asha' Variety)",
+    "tier": "Tier A",
+    "hook": "Telomere-to-telomere reference genomes enable molecular breeding of climate-resilient pulse crops.",
+    "staticGk": "ICAR established July 16, 1929 | HQ: New Delhi."
+  },
+  {
+    "secId": "sec6",
+    "trap": "Asmita Dey (48kg Gold) vs Yamini Maurya (57kg Silver) vs Harsh Singh (60kg Gold).",
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "**Asmita Dey** won Gold in **Women's 48 kg Judo** (India's 1st CWG judo gold medallist).",
+      "**Harsh Singh** won Gold in **Men's 60 kg Judo**.",
+      "**Yamini Maurya** won Silver in **Women's 57 kg Judo**.",
+      "Athletics: **Neeraj Chopra** (Silver Javelin), **Yash Vir Singh** (Bronze Javelin), **Tejaswin Shankar** (Bronze Decathlon)."
+    ],
+    "id": "note-sec6-72",
+    "title": "India Secures Historic Judo Gold Medals at 23rd Commonwealth Games 2026",
+    "tier": "Tier A",
+    "hook": "Historic individual multi-sport wins mark structural shifts in India's international sports footprint.",
+    "staticGk": "International Judo Federation HQ: Budapest, Hungary."
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Men's Singles Champion: **Ankur Bhattacharjee** (Gold).",
+      "Women's Singles Champion: **Yashaswini Ghorpade** (Gold).",
+      "Women's Doubles Champions: **Sreeja Akula and Syndrela Das** (Gold).",
+      "Mixed Doubles Champions: **Manav Thakkar and Taneesha Kotecha** (Gold)."
+    ],
+    "id": "note-sec6-73",
+    "title": "India Achieves Clean Sweep at 22nd Commonwealth Table Tennis Championships",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": "TTFI HQ: New Delhi."
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "15-year-old **Tanvi Sharma** won maiden BWF World Tour title defeating Vietnam's Nguyen Thuy Linh.",
+      "Milestone: **First Indian woman to win the title since Saina Nehwal in 2008**."
+    ],
+    "id": "note-sec6-74",
+    "title": "15-Year-Old Tanvi Sharma Wins Maiden BWF World Tour Title",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": "BWF HQ: Kuala Lumpur, Malaysia."
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Chief of the Army Staff General Dhiraj Seth launched indigenously developed XWG Diesel remaining fluid down to **-42°C** for high-altitude operations."
+    ],
+    "id": "note-sec6-75",
+    "title": "COAS Launches Indigenous Xtreme Weather Grade (XWG) Diesel for -42°C Operation",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "ICAR-NIHSAD in Bhopal, MP developed India's 1st homegrown African Swine Fever vaccine (launched by Agri Minister Shivraj Singh Chouhan)."
+    ],
+    "id": "note-sec6-76",
+    "title": "ICAR-NIHSAD Bhopal Develops Indigenous African Swine Fever (ASF) Vaccine",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "2-metre HCT at Hanle, Ladakh completed 25 years of scientific operations (operated by IIA Bengaluru under DST)."
+    ],
+    "id": "note-sec6-77",
+    "title": "25 Years of Himalayan Chandra Telescope (HCT) in Hanle, Ladakh",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "IAF conducted 3rd edition of Counter-UAS Exercise ROTOR CLAP-III at Pokhran Field Firing Range, Rajasthan."
+    ],
+    "id": "note-sec6-78",
+    "title": "IAF Conducts Counter-UAS Exercise 'ROTOR CLAP-III' in Pokhran, Rajasthan",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "12 venues across **South Africa, Zimbabwe, and Namibia** will co-host the 2027 ICC Men's ODI Cricket World Cup."
+    ],
+    "id": "note-sec6-79",
+    "title": "2027 ICC Men's Cricket World Cup to be Co-Hosted Across 12 Venues in South Africa, Zimbabwe & Namibia",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Ramkumar Ramanathan & Vijay Sundar Prashanth won Men's Doubles title at Bonn Open 2026."
+    ],
+    "id": "note-sec6-80",
+    "title": "Bonn Open 2026 Tennis Doubles Championship",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Alexandra Eala (Philippines) became 1st Filipino player to win a WTA Tour-level singles title; Taylor Fritz (USA) won Men's Singles."
+    ],
+    "id": "note-sec6-81",
+    "title": "Washington Open 2026 Tennis Championship",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Biri Takar (Arunachal Pradesh) won Gold in Men's Doubles and Bronze in Men's Singles."
+    ],
+    "id": "note-sec6-82",
+    "title": "BWF Para World Circuit 2026 in Brazil",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Harshita Jakhar (19) became 1st Indian woman cyclist to feature in Tour de France Femmes (Switzerland)."
+    ],
+    "id": "note-sec6-83",
+    "title": "Tour de France Femmes Cycling Milestone",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec6",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Single applications integrating multi-agent AI services into one unified conversational interface.",
+      "*ICAR developed India's 1st complete pigeonpea T2T reference genome using 'Asha' variety.*",
+      "*Asmita Dey won India's 1st CWG Judo Gold medal (Women's 48kg).*",
+      "*2027 ICC ODI World Cup will be co-hosted by South Africa, Zimbabwe, and Namibia across 12 venues.*"
+    ],
+    "id": "note-sec6-84",
+    "title": "AI Super Apps Concept Explained",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec7",
+    "trap": "Job automation risk in developing countries (4.5%) vs high-income countries (14.2%).",
+    "date": "2026-08-01",
+    "interviewQ": "*\"Why is AI automation job risk lower in developing countries like India?\"*",
+    "bullets": [
+      "Report Title: **\"World Development Report 2026: The Promise of Artificial Intelligence\"**, published by **World Bank**.",
+      "Automation Risk Differential: **4.5% of jobs in low- and middle-income countries** at risk of automation vs **14.2% in high-income countries**.",
+      "Productivity Boost: AI enhances productivity in **16.2% of jobs in developing countries** (vs 18.7% in high-income countries).",
+      "Telangana Case Study: AI weather forecasting produced savings **up to $560 per small farmer** in Telangana."
+    ],
+    "id": "note-sec7-85",
+    "title": "World Bank World Development Report 2026: The Promise of Artificial Intelligence",
+    "tier": "Tier A",
+    "hook": "Assesses Generative AI's differential impact on developing vs developed labor markets.",
+    "staticGk": "World Bank Group (HQ: Washington D.C. | President: Ajay Banga | Founded 1944)."
+  },
+  {
+    "secId": "sec7",
+    "trap": "1st Indian woman scientist to win COSPAR Sarabhai Medal (and 4th Indian overall).",
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Indian astrophysicist **Annapurni Subramaniam** conferred **COSPAR Vikram Sarabhai Medal 2026**.",
+      "Historic Milestone: **First Indian woman scientist** to receive this award (4th Indian overall).",
+      "Past Laureates: U. R. Rao (1996), Gurbax Singh Lakhina (2014), Anil Bharadwaj (2024).",
+      "Ceremony: Conferred during 46th COSPAR Scientific Assembly in **Florence, Italy** by COSPAR & ISRO.",
+      "Current Post: Director of **Indian Institute of Astrophysics (IIA)**, Bengaluru."
+    ],
+    "id": "note-sec7-86",
+    "title": "Annapurni Subramaniam Conferred COSPAR Vikram Sarabhai Medal 2026",
+    "tier": "Tier A",
+    "hook": "Conferred for outstanding contributions to astronomical research and space science leadership.",
+    "staticGk": "Award instituted 1990 | Awarded biennially | ISRO HQ: Bengaluru."
+  },
+  {
+    "secId": "sec7",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Report Title: *\"A Livable Future: Tackling Extreme Heat for Jobs and Growth in South Asia's Cities\"* ($194B/247B hrs lost in India, 66% agriculture, $1.6T cooling market by 2040)."
+    ],
+    "id": "note-sec7-87",
+    "title": "World Bank Report Highlights $194 Billion Extreme Heat Risk to India's Economy",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec7",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "International Energy Agency report projecting **$750 billion** investment required by 2040 under STEPS for copper and lithium (IEA HQ: Paris)."
+    ],
+    "id": "note-sec7-88",
+    "title": "IEA Projects Critical Mineral Demand Surge Through 2040 Requiring $750B Investment",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec7",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "**Shah Rukh Khan** claimed #1 position as India's most powerful celebrity in 2025 ($177.9 million brand value), Ranveer Singh #2, Virat Kohli #3."
+    ],
+    "id": "note-sec7-89",
+    "title": "Kroll India's Celebrity Brand Valuation 2025",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec7",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Tamil Nadu won 'Best State' award (266 deceased donors); Delhi ranked #1 in total transplants (4,564)."
+    ],
+    "id": "note-sec7-90",
+    "title": "Tamil Nadu Wins 'Best State' Award for Organ Donations in NOTTO Report 2025-26",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec7",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Book Title: *\"Bringing the Cheetah Back to India: How Diplomacy Made Conservation's Big Mission Possible\"* authored by Prashant Agrawal."
+    ],
+    "id": "note-sec7-91",
+    "title": "Book: 'Bringing the Cheetah Back to India' by Prashant Agrawal (IFS)",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec7",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Primary annual harvest festival of Kerala celebrating mythical King Mahabali."
+    ],
+    "id": "note-sec7-92",
+    "title": "Onam Harvest Festival Celebrated in Kerala",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec7",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Traditional monsoon water festival celebrated on 18th day of Tamil month of Aadi in Tamil Nadu.",
+      "*World Bank WDR 2026 reports 4.5% job automation risk in low/middle-income countries.*",
+      "*Dr. Annapurni Subramaniam became 1st Indian woman scientist to win COSPAR Vikram Sarabhai Medal.*",
+      "*Shah Rukh Khan topped Kroll Brand Valuation 2025 with $177.9 million.*"
+    ],
+    "id": "note-sec7-93",
+    "title": "Aadi Perukku Monsoon Festival Celebrated in Tamil Nadu",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec8",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Observed August 7 to commemorate Swadeshi Movement launched August 7, 1905 in Calcutta."
+    ],
+    "id": "note-sec8-94",
+    "title": "12th National Handloom Day Observed on 7th August",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec8",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Theme 2026: *\"Breastfeeding for a sustainable start in life: strengthen what works\"*."
+    ],
+    "id": "note-sec8-95",
+    "title": "World Breastfeeding Week Observed from 1st to 7th August 2026",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec8",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "Promotes voluntary organ donor registration via NOTTO."
+    ],
+    "id": "note-sec8-96",
+    "title": "Indian Organ Donation Day Observed on 3rd August",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec8",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Raises global awareness for clouded leopard conservation (Meghalaya state animal)."
+    ],
+    "id": "note-sec8-97",
+    "title": "International Clouded Leopard Day Observed on 4th August",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec8",
+    "trap": null,
+    "date": "2026-08-05",
+    "interviewQ": null,
+    "bullets": [
+      "WWW Day marks Tim Berners-Lee's creation at CERN in 1989."
+    ],
+    "id": "note-sec8-98",
+    "title": "World Wide Web Day & World Lung Cancer Day Observed on 1st August",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  },
+  {
+    "secId": "sec8",
+    "trap": null,
+    "date": "2026-08-01",
+    "interviewQ": null,
+    "bullets": [
+      "Honors wildlife rangers killed or injured in line of duty.",
+      "*National Handloom Day is observed on August 7 to mark the 1905 Swadeshi Movement.*"
+    ],
+    "id": "note-sec8-99",
+    "title": "World Ranger Day Observed on 31st July",
+    "tier": "Tier B+",
+    "hook": null,
+    "staticGk": null
+  }
+];
+
+const CA_SECTION_DRILLS = {
+  "sec1": {
+    retrievals: [
+      "What was the gross GST collection figure and YoY growth percentage in July 2026?",
+      "What is the mandatory bank lending pool quota for small/mid MFIs under CGSMFI 2.0?",
+      "Until which tax year does the Taxation (Amendment) Bill 2026 extend tax exemptions for foreign electronics capital goods suppliers?",
+      "In which fiscal year is India's GDP projected to cross  trillion according to the IMF?",
+      "What floor price per share was fixed for LIC's 6.5% Offer for Sale (OFS)?"
+    ],
+    coverTests: [
+      "1. Gross GST July 2026 amount & YoY growth?",
+      "2. CGSMFI 2.0 mandatory bank pool & max loan AUM cap %?",
+      "3. Extended tax exemption sunset year for electronics capital goods suppliers?",
+      "4. Projected nominal GDP in USD by FY29?",
+      "5. LIC OFS floor price per share?"
+    ],
+    answers: "1. ₹2.11 Trillion, 15.4% | 2. 15% of corpus, 20% of AUM | 3. March 31, 2041 | 4. USD 5.1 Trillion | 5. ₹382 per share",
+    examAngles: [
+      "Gross GST July 2026 grew 15.4% to reach ₹2.11 trillion.",
+      "CGSMFI 2.0 mandates banks to lend at least 15% of corpus to small/mid MFIs.",
+      "Taxation Bill 2026 extends electronics capital goods tax exemption sunset to March 31, 2041."
+    ]
+  },
+  "sec2": {
+    retrievals: [
+      "How many circulars were consolidated into how many Master Directions by RBI's Department of Supervision?",
+      "What is the strict RBI mandate regarding detected counterfeit notes at bank counters?",
+      "What is the maximum number of buyers allowed in a FY for unlisted secondary share sales to avoid being a deemed public issue?",
+      "What is the annual fee formula for insurance intermediaries under IRDAI's revised norms?",
+      "What are the maximum penalty caps under DPDPA 2023 for data security failures and breach notification failures?",
+      "What is the current repo rate and projected FY27 GDP growth rate announced in RBI's 62nd MPC statement?"
+    ],
+    coverTests: [
+      "1. Master Directions count & consolidated circulars count?",
+      "2. Unlisted share deal buyer cap per FY?",
+      "3. IRDAI Intermediary annual fee formula & Infra SPV investment cap?",
+      "4. DPDPA maximum security failure penalty cap?",
+      "5. RBI Repo Rate & FY27 GDP growth projection?",
+      "6. CAS Order Entry II window (no modification phase)?"
+    ],
+    answers: "1. 64 Master Directions, 628 circulars | 2. 200 buyers per FY | 3. Higher of ₹10,000 or 0.04% commission; 20% in AA+ Infra SPVs | 4. ₹250 crore | 5. 5.25% Repo Rate, 6.7% GDP growth | 6. 3:25 PM to 3:30 PM",
+    examAngles: [
+      "RBI consolidated 628 circulars into 64 Master Directions.",
+      "DPDPA 2023 caps security failure penalties at ₹250 crore.",
+      "RBI maintained repo rate at 5.25% and projected FY27 GDP growth at 6.7%."
+    ]
+  }
+};
+
+// Current Affairs Command Center 2026 — Application Logic
+
+document.addEventListener("DOMContentLoaded", () => {
+  let activeSectionId = "all";
+  let activeTier = "all";
+  let searchQuery = "";
+  let activeRecallMode = false;
+  let bookmarkedIds = JSON.parse(localStorage.getItem("ca_bookmarks") || "[]");
+
+  // DOM Elements
+  const sectionNavList = document.getElementById("sectionNavList");
+  const notesFeed = document.getElementById("notesFeed");
+  const searchInput = document.getElementById("searchInput");
+  const activeCountEl = document.getElementById("activeCount");
+  const toggleRecallBtn = document.getElementById("toggleRecallBtn");
+  const drillContainer = document.getElementById("drillContainer");
+
+  // Render Sidebar Section Navigation
+  function renderSidebar() {
+    sectionNavList.innerHTML = "";
+
+    // "All Sections" Item
+    const allLi = document.createElement("li");
+    const allBtn = document.createElement("button");
+    allBtn.className = `nav-item-btn ${activeSectionId === "all" ? "active" : ""}`;
+    allBtn.innerHTML = `<span>📑 All Sections</span> <span class="badge-count">${CA_NOTES_DATA.length}</span>`;
+    allBtn.addEventListener("click", () => selectSection("all"));
+    allLi.appendChild(allBtn);
+    sectionNavList.appendChild(allLi);
+
+    // 11 Locked Sections
+    CA_SECTIONS.forEach(sec => {
+      const count = CA_NOTES_DATA.filter(n => n.secId === sec.id).length;
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.className = `nav-item-btn ${activeSectionId === sec.id ? "active" : ""}`;
+      btn.innerHTML = `<span>${sec.title}</span> <span class="badge-count">${count}</span>`;
+      btn.addEventListener("click", () => selectSection(sec.id));
+      li.appendChild(btn);
+      sectionNavList.appendChild(li);
+    });
+  }
+
+  function selectSection(secId) {
+    activeSectionId = secId;
+    renderSidebar();
+    renderFeed();
+    renderDrill();
+  }
+
+  // Active Recall Masker helper
+  function maskNumbersInText(text) {
+    if (!activeRecallMode) return text;
+    // Mask numbers, percentages, currency figures with a blurred span
+    return text.replace(/(\₹[\d,]+|\$\d+(\.\d+)?(B|M|T|billion|trillion|million)?|\d+(\.\d+)?%|\b\d{2,}\b)/g, 
+      '<span class="masked-figure" onclick="this.classList.toggle(\'revealed\')">$1</span>'
+    );
+  }
+
+  // Render Notes Feed
+  function renderFeed() {
+    notesFeed.innerHTML = "";
+
+    let filtered = CA_NOTES_DATA.filter(note => {
+      const matchesSec = activeSectionId === "all" || note.secId === activeSectionId;
+      const matchesTier = activeTier === "all" || note.tier === activeTier;
+      const q = searchQuery.toLowerCase().trim();
+      const matchesSearch = !q || 
+        note.title.toLowerCase().includes(q) || 
+        (note.staticGk && note.staticGk.toLowerCase().includes(q)) ||
+        (note.bullets && note.bullets.some(b => b.toLowerCase().includes(q)));
+      return matchesSec && matchesTier && matchesSearch;
+    });
+
+    activeCountEl.textContent = `${filtered.length} notes`;
+
+    if (filtered.length === 0) {
+      notesFeed.innerHTML = `
+        <div class="glass-panel" style="padding: 40px; text-align: center; color: var(--text-muted);">
+          <h3>🔍 No notes match your filters</h3>
+          <p style="margin-top: 8px; font-size: 0.9rem;">Try clearing your search query or selecting a different section.</p>
+        </div>
+      `;
+      return;
+    }
+
+    filtered.forEach(note => {
+      const isBookmarked = bookmarkedIds.includes(note.id);
+      const secObj = CA_SECTIONS.find(s => s.id === note.secId);
+
+      const card = document.createElement("div");
+      card.className = "glass-panel note-card";
+
+      let bulletsHtml = "";
+      if (note.bullets && note.bullets.length > 0) {
+        bulletsHtml = `
+          <ul class="bullets-list">
+            ${note.bullets.map(b => `<li>${maskNumbersInText(b)}</li>`).join("")}
+          </ul>
+        `;
+      }
+
+      let hookHtml = note.hook ? `
+        <div class="hook-box">
+          🪝 Rationale: ${maskNumbersInText(note.hook)}
+        </div>
+      ` : "";
+
+      let staticHtml = note.staticGk ? `
+        <div class="static-gk-box">
+          🏛️ <strong>Static GK:</strong> ${maskNumbersInText(note.staticGk)}
+        </div>
+      ` : "";
+
+      let trapHtml = note.trap ? `
+        <div class="trap-box">
+          ⚠️ <strong>Trap Contrast:</strong> ${maskNumbersInText(note.trap)}
+        </div>
+      ` : "";
+
+      let interviewHtml = note.interviewQ ? `
+        <div class="interview-box">
+          💼 <strong>Interview Insight:</strong> ${maskNumbersInText(note.interviewQ)}
+        </div>
+      ` : "";
+
+      card.innerHTML = `
+        <div class="note-header">
+          <h3 class="note-title">📰 ${maskNumbersInText(note.title)}</h3>
+          <button class="btn-bookmark ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmark('${note.id}')" title="Bookmark Note">
+            ${isBookmarked ? '★' : '☆'}
+          </button>
+        </div>
+        <div class="note-tags">
+          <span class="tag tag-sec">${secObj ? secObj.emoji : ''} ${secObj ? secObj.title.split(' ')[1] : ''}</span>
+          <span class="tag ${note.tier === 'Tier A' ? 'tag-tier-a' : 'tag-tier-b'}">${note.tier}</span>
+          <span class="tag" style="background: rgba(255,255,255,0.05); color: var(--text-muted);">${note.date}</span>
+        </div>
+        ${hookHtml}
+        ${bulletsHtml}
+        ${staticHtml}
+        ${trapHtml}
+        ${interviewHtml}
+      `;
+
+      notesFeed.appendChild(card);
+    });
+  }
+
+  // Render Section Drill at the bottom of active section
+  function renderDrill() {
+    drillContainer.innerHTML = "";
+    if (activeSectionId === "all") return;
+
+    const drill = CA_SECTION_DRILLS[activeSectionId];
+    if (!drill) return;
+
+    const panel = document.createElement("div");
+    panel.className = "drill-panel";
+
+    const secObj = CA_SECTIONS.find(s => s.id === activeSectionId);
+
+    let retrievalsHtml = drill.retrievals.map((q, idx) => `
+      <div class="quiz-q-item">
+        <strong>Q${idx+1}.</strong> ${q}
+      </div>
+    `).join("");
+
+    let coverTestsHtml = drill.coverTests.map(c => `
+      <div class="quiz-q-item">
+        ⚡ ${c}
+      </div>
+    `).join("");
+
+    panel.innerHTML = `
+      <div class="drill-header">
+        🔒 SECTION DRILL & COVER TEST — ${secObj ? secObj.title : ''}
+      </div>
+      
+      <h4 style="font-size: 0.95rem; color: var(--primary-cyan); margin-bottom: 10px;">🔁 Active Retrieval Questions (Test Recall Before Revealing)</h4>
+      <div class="quiz-q-list">
+        ${retrievalsHtml}
+      </div>
+
+      <h4 style="font-size: 0.95rem; color: var(--accent-amber); margin-bottom: 10px; margin-top: 18px;">🔒 High-Yield Cover Tests</h4>
+      <div class="quiz-q-list">
+        ${coverTestsHtml}
+      </div>
+
+      <button class="answer-toggle-btn" onclick="toggleAnswerBox(this)">🙈 Reveal Section Drill Answers</button>
+      <div class="answer-box">
+        <strong>🔑 Verified Answers:</strong><br>
+        ${drill.answers}
+      </div>
+    `;
+
+    drillContainer.appendChild(panel);
+  }
+
+  // Window global functions
+  window.toggleBookmark = function(noteId) {
+    if (bookmarkedIds.includes(noteId)) {
+      bookmarkedIds = bookmarkedIds.filter(id => id !== noteId);
+    } else {
+      bookmarkedIds.push(noteId);
+    }
+    localStorage.setItem("ca_bookmarks", JSON.stringify(bookmarkedIds));
+    renderFeed();
+  };
+
+  window.toggleAnswerBox = function(btn) {
+    const box = btn.nextElementSibling;
+    box.classList.toggle("show");
+    btn.textContent = box.classList.contains("show") ? "🙈 Hide Section Drill Answers" : "🙈 Reveal Section Drill Answers";
+  };
+
+  // Event Listeners
+  searchInput.addEventListener("input", (e) => {
+    searchQuery = e.target.value;
+    renderFeed();
+  });
+
+  toggleRecallBtn.addEventListener("click", () => {
+    activeRecallMode = !activeRecallMode;
+    toggleRecallBtn.classList.toggle("active", activeRecallMode);
+    toggleRecallBtn.innerHTML = activeRecallMode ? "👁️ Active Recall: ON" : "👁️ Active Recall: OFF";
+    renderFeed();
+  });
+
+  // Initial Execution
+  renderSidebar();
+  renderFeed();
+  renderDrill();
+});
+
+</script>
+</body>
+</html>
