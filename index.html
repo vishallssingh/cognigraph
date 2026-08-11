@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniGraph Kindle Reader — Economics Master Corpus</title>
-  <meta name="description" content="A distraction-free Kindle-style eBook reader for Economics with continuous vertical scrolling, first-principles summaries, and active recall retention.">
+  <title>CogniGraph Kindle Master Reader — Economics & Social Issues</title>
+  <meta name="description" content="Master Kindle eBook Reader for Economics, National Income, Poverty, Unemployment, Fiscal Policy, Planning, NITI Aayog, Industrial Policy, Global Institutions, Social Issues, Monetary Policy, BoP, and Government Schemes.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -214,7 +214,7 @@
 
     /* Table of Contents Sidebar */
     aside.toc-sidebar {
-      width: 340px;
+      width: 350px;
       background: var(--bg-sidebar);
       border-right: 1px solid var(--border-color);
       display: flex;
@@ -286,7 +286,7 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 600;
-      min-width: 22px;
+      min-width: 24px;
     }
 
     /* Kindle Continuous Reader Pane */
@@ -521,7 +521,7 @@
       <span class="brand-icon">📖</span>
       <div class="brand-title">
         <h1>CogniGraph Kindle Reader</h1>
-        <p id="headerSubtitle">Economics & Social Issues Master Corpus (25 Chapters)</p>
+        <p id="headerSubtitle">RBI Grade B ESI Master Syllabus Corpus (35 Chapters)</p>
       </div>
     </div>
 
@@ -550,7 +550,7 @@
     <aside id="tocSidebar" class="toc-sidebar">
       <div class="toc-header">
         <span>Table of Contents</span>
-        <span id="chapterCountBadge" style="font-weight: 600;">25 Chapters</span>
+        <span id="chapterCountBadge" style="font-weight: 600;">35 Chapters</span>
       </div>
       <ul id="tocList" class="toc-list">
         <!-- Populated dynamically -->
@@ -572,7 +572,7 @@
   </div>
 
   <script>
-    // --- Master Book Chapters Dataset (Cleaned Equations & Formatting) ---
+    // --- 35 Master Chapters Across 10 Volumes ---
     const bookData = [
       {
         id: "ch-1",
@@ -1025,6 +1025,214 @@ Short-run inverse trade-off: Unemployment ↓ ⇒ Wage Growth ↑ ⇒ Inflation 
 - **WTO (1 Jan 1995):** Born via Marrakesh Agreement (1994) replacing GATT. Principles: MFN, National Treatment. Agreement on Agriculture (AoA: Green, Amber, Blue boxes).
 - **NDB (BRICS Bank, Shanghai):** Equal one-nation-one-vote (Fortaleza 2014).
 - **AIIB (Beijing, 2016):** 110 members (India founding member & 2nd largest shareholder).
+        `
+      },
+      {
+        id: "ch-26",
+        book: "Book VIII: Social Issues & Human Capital",
+        title: "26. Gender Issues & Women Empowerment",
+        readTime: "5 min read",
+        examTags: "Female LFPR, POSH Act 2013, Gender Budgeting",
+        truth: "Gender equity is an economic imperative; closing the gender gap in labor participation directly expands national output and human development.",
+        body: `
+### Key Dimensions:
+- **Female LFPR:** Historically low in India (~25–35%), though showing upward trends in recent PLFS rounds.
+- **POSH Act (2013):** Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act mandates Internal Complaints Committees (ICC) in organizations with ≥10 employees.
+- **Gender Budgeting:** Introduced in India in 2005-06 (Statement 20 of Union Budget) to track fund allocation directly benefiting women (Part A: 100% women schemes, Part B: ≥30% women schemes).
+- **Equal Remuneration Act 1976:** Mandates equal pay for equal work regardless of gender.
+        `
+      },
+      {
+        id: "ch-27",
+        book: "Book VIII: Social Issues & Human Capital",
+        title: "27. Demographics of India & Human Development",
+        readTime: "5 min read",
+        examTags: "Demographic Dividend, NFHS-5, Dependency Ratio",
+        truth: "A demographic dividend is a temporary window of economic opportunity that yields growth only if human capital, health, and skill infrastructure absorb the expanding working-age population.",
+        body: `
+### Demographic Dividend (2018–2055):
+- India entered its demographic dividend window in 2018 (working-age population 15–64 exceeds dependent population <15 and >65).
+- **Working-Age Share:** Over 65% of India's population is in the working-age group.
+- **Dependency Ratio:** $\text{Dependency Ratio} = \frac{\text{Population } (<15 + >65)}{\text{Population } (15-64)} \times 100$.
+
+### NFHS-5 Benchmarks:
+- **Total Fertility Rate (TFR):** Declined to **2.0** (below replacement level of 2.1).
+- **Sex Ratio at Birth:** Improved to 929 females per 1000 males; overall sex ratio 1020 per 1000.
+        `
+      },
+      {
+        id: "ch-28",
+        book: "Book VIII: Social Issues & Human Capital",
+        title: "28. Education Policy & Human Capital",
+        readTime: "5 min read",
+        examTags: "NEP 2020 5+3+3+4, GER 50% Target, Samagra Shiksha",
+        truth: "Human capital is created when education shifts from rote memorization to foundational literacy, numeracy, and flexible skill acquisition.",
+        body: `
+### National Education Policy (NEP 2020):
+- Replaced 10+2 system with **5+3+3+4 Curricular Structure**:
+  1. **Foundational (5 yrs):** Ages 3–8 (Anganwadi/Pre-school + Class 1-2).
+  2. **Preparatory (3 yrs):** Ages 8–11 (Class 3-5).
+  3. **Middle (3 yrs):** Ages 11–14 (Class 6-8).
+  4. **Secondary (4 yrs):** Ages 14–18 (Class 9-12).
+- **GER Targets:** Gross Enrolment Ratio in Higher Education targeted at **50% by 2035** (up from ~27%).
+- **NIPUN Bharat:** National Initiative for Proficiency in Reading with Understanding and Numeracy.
+        `
+      },
+      {
+        id: "ch-29",
+        book: "Book VIII: Social Issues & Human Capital",
+        title: "29. Health System & Universal Healthcare",
+        readTime: "5 min read",
+        examTags: "National Health Policy 2017, Ayushman Bharat PM-JAY, PM-ABHIM",
+        truth: "Out-of-pocket health expenditure is a primary driver of household impoverishment; universal health coverage protects families from medical bankruptcy.",
+        body: `
+### Policy Targets:
+- **National Health Policy 2017:** Target to increase public health expenditure to **2.5% of GDP**.
+
+### Ayushman Bharat (2 Pillars):
+1. **Health and Wellness Centres (HWCs):** Transforming 1.5 lakh sub-centres for primary healthcare.
+2. **PM-JAY (Pradhan Mantri Jan Arogya Yojana):** Provides **Rs 5 lakh per family per year** health cover for secondary/tertiary hospitalization, covering bottom 40% vulnerable population (~12 crore families / 50 crore individuals).
+
+<div class="exam-highlight-box">
+  <h4>🏥 PM-ABHIM</h4>
+  PM Ayushman Bharat Health Infrastructure Mission: Outlay to strengthen urban & rural health infrastructure, lab networks, and critical care blocks.
+</div>
+        `
+      },
+      {
+        id: "ch-30",
+        book: "Book VIII: Social Issues & Human Capital",
+        title: "30. Urbanization & Migration in India",
+        readTime: "5 min read",
+        examTags: "Internal Migration, Smart Cities, AMRUT 2.0, Swachh Bharat",
+        truth: "Urbanization acts as an engine of economic growth when supported by planned infrastructure, sustainable housing, and basic municipal services.",
+        body: `
+### Urbanization Trends:
+- India's urban population: ~31.2% (Census 2011), projected to cross 40% by 2030.
+- **Migration Push & Pull Factors:** Push (rural distress, low wages, drought) vs Pull (better employment, higher wages, education/health access).
+
+### Urban Schemes:
+- **Smart Cities Mission:** 100 cities selected for core infrastructure & smart solutions.
+- **AMRUT 2.0:** Universal coverage of water supply to households in all statutory towns.
+- **PMAY-Urban:** Affordable housing for urban poor.
+        `
+      },
+      {
+        id: "ch-31",
+        book: "Book IX: Monetary Policy, BoP & Financial Sector",
+        title: "31. Monetary Policy Framework & RBI Architecture",
+        readTime: "6 min read",
+        examTags: "MPC (6 Members), Inflation Targeting 4%±2%, LAF/SDF/MSF",
+        truth: "Monetary policy maintains price stability to protect real purchasing power while supporting sustainable economic growth.",
+        body: `
+### Flexible Inflation Targeting (FIT):
+- Mandated under RBI Act 1934 (2016 Amendment). Target: **4% CPI Headline Inflation with a tolerance band of ± 2%** (2% to 6%).
+
+### Monetary Policy Committee (MPC):
+- **6 Members:** RBI Governor (Chair), Deputy Governor i/c Monetary Policy, Executive Director RBI, plus 3 external members appointed by Central Govt.
+- Meets at least **4 times a year**. Quorum: 4 members. Governor has casting vote.
+
+### Policy Instruments:
+- **LAF Repo Rate:** Rate at which RBI lends short-term money to banks against collateral.
+- **Standing Deposit Facility (SDF):** Floor of LAF corridor; absorbs liquidity without collateral.
+- **Marginal Standing Facility (MSF):** Ceiling of LAF corridor; emergency overnight borrowing.
+- **Reserve Ratios:** CRR (Cash Reserve Ratio held with RBI) & SLR (Statutory Liquidity Ratio in liquid assets).
+        `
+      },
+      {
+        id: "ch-32",
+        book: "Book IX: Monetary Policy, BoP & Financial Sector",
+        title: "32. Balance of Payments (BoP) & Foreign Trade Policy",
+        readTime: "6 min read",
+        examTags: "Current Account vs Capital Account, CAD, Forex Reserves, FTP 2023",
+        truth: "Balance of Payments records all financial transactions between residents and the rest of the world; sustainable current account deficits are financed by non-debt capital flows.",
+        body: `
+### BoP Structure:
+1. **Current Account:** Visible Trade (Exports - Imports of Goods), Invisibles (Services, Transfers, Remittances, Income).
+2. **Capital Account:** Foreign Direct Investment (FDI), Foreign Portfolio Investment (FPI), External Commercial Borrowings (ECB), NRI Deposits.
+
+### Forex Reserves (4 Components):
+1. Foreign Currency Assets (FCA)
+2. Gold holdings
+3. Special Drawing Rights (SDRs)
+4. Reserve Tranche Position (RTP) in IMF
+
+### Foreign Trade Policy (FTP 2023):
+- Sets target to achieve **$2 Trillion total exports by 2030** based on 4 pillars: Incentive to Remission, Export promotion, Ease of Doing Business, Districts as Export Hubs.
+        `
+      },
+      {
+        id: "ch-33",
+        book: "Book IX: Monetary Policy, BoP & Financial Sector",
+        title: "33. Banking Sector, NPAs & Basel III Framework",
+        readTime: "6 min read",
+        examTags: "IBC 2016, Gross NPA, Basel III CRAR 9%+CCB 2.5%, SFBs & Payments Banks",
+        truth: "Bank asset quality determines financial stability; credit expansion without rigorous risk pricing leads to non-performing asset cascades.",
+        body: `
+### Insolvency & Bankruptcy Code (IBC 2016):
+- Time-bound resolution process for distressed corporate debtors overseen by **NCLT** (National Company Law Tribunal) and **IBBI** (Insolvency and Bankruptcy Board of India).
+
+### Basel III Capital Requirements (India):
+- **Minimum CRAR (Capital to Risk-Weighted Assets Ratio):** **9.0%** for Indian banks (higher than Basel III global 8% norm).
+- **Capital Conservation Buffer (CCB):** **2.5%**.
+- **Total Minimum Capital:** **11.5%**.
+
+### Differentiated Banking:
+- **Small Finance Banks (SFBs):** Min capital Rs 200 cr; 75% PSL target; 50% loans ≤ Rs 25 lakh.
+- **Payments Banks:** Min capital Rs 100 cr; deposit limit Rs 2 lakh; **cannot lend or issue credit cards**.
+        `
+      },
+      {
+        id: "ch-34",
+        book: "Book X: Nodal Ministry Flagship Schemes Matrix",
+        title: "34. Nodal Ministry Matrix: Rural & Agricultural Schemes",
+        readTime: "6 min read",
+        examTags: "PM-KISAN, MGNREGA, PMAY-G, DAY-NRLM, PMKSY",
+        truth: "Targeted rural schemes build physical infrastructure, provide income support, and create guaranteed safety nets to eliminate distress migration.",
+        body: `
+### Flagship Schemes Matrix:
+
+1. **PM-KISAN (Pradhan Mantri Kisan Samman Nidhi):**
+   - *Nodal Ministry:* Ministry of Agriculture & Farmers Welfare.
+   - *Benefits:* Income support of **Rs 6,000 per year** in 3 equal installments of Rs 2,000 directly to landholding farmer families.
+
+2. **MGNREGA:**
+   - *Nodal Ministry:* Ministry of Rural Development.
+   - *Statutory Guarantee:* At least **100 days of guaranteed wage employment** in a financial year to adult members of rural households willing to do unskilled manual work.
+
+3. **PMAY-G (Pradhan Mantri Awaas Yojana - Gramin):**
+   - *Nodal Ministry:* Ministry of Rural Development.
+   - *Objective:* Financial assistance for construction of pucca houses with basic amenities for rural homeless/kutcha house dwellers.
+
+4. **DAY-NRLM:**
+   - *Nodal Ministry:* Ministry of Rural Development.
+   - *Objective:* Organize rural poor women into Self-Help Groups (SHGs) and provide revolving fund/capital support to foster sustainable self-employment.
+        `
+      },
+      {
+        id: "ch-35",
+        book: "Book X: Nodal Ministry Flagship Schemes Matrix",
+        title: "35. Nodal Ministry Matrix: Health, Social Security & MSME",
+        readTime: "6 min read",
+        examTags: "Ayushman Bharat, Mudra Yojana, PM-Vishwakarma, Stand-Up India",
+        truth: "Financial inclusion and social security schemes empower informal workers, micro-entrepreneurs, and vulnerable households to achieve economic resilience.",
+        body: `
+### Flagship Schemes Matrix:
+
+1. **Pradhan Mantri Mudra Yojana (PMMY):**
+   - *Nodal Ministry:* Ministry of Finance (executed via MUDRA / SIDBI).
+   - *Categories:* Loans up to Rs 10 lakh to non-corporate micro enterprises:
+     - **Shishu:** Loans up to Rs 50,000.
+     - **Kishor:** Loans from Rs 50,000 to Rs 5 Lakh.
+     - **Tarun:** Loans from Rs 5 Lakh to Rs 10 Lakh.
+
+2. **PM-Vishwakarma Scheme:**
+   - *Nodal Ministry:* Ministry of MSME / Skill Development.
+   - *Objective:* End-to-end support to traditional artisans and craftspeople (Vishwakarmas) through skill verification, toolkit incentive (Rs 15,000), collateral-free credit, and digital transaction incentives.
+
+3. **Stand-Up India Scheme:**
+   - *Nodal Ministry:* Ministry of Finance.
+   - *Objective:* Facilitate bank loans between **Rs 10 lakh and Rs 1 crore** to at least one SC/ST borrower and at least one Woman borrower per bank branch for setting up a greenfield enterprise.
         `
       }
     ];
