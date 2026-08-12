@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniGraph Master Reader — Economics, History, Geography, Polity & Science Corpus</title>
-  <meta name="description" content="Master Kindle eBook Reader with independent subject libraries for Economics (45 Ch), History NCERT (57 Ch), Geography NCERT (12 Ch), Polity NCERT (10 Ch), and Science & Tech NCERT (12 Ch).">
+  <title>CogniGraph Master Reader — Economics, History, Geography, Polity, Science & Rapid Revision</title>
+  <meta name="description" content="Master Kindle eBook Reader with independent subject libraries for Economics (45 Ch), History NCERT (57 Ch), Geography NCERT (12 Ch), Polity NCERT (10 Ch), Science NCERT (12 Ch), and Rapid Revision & Exam Traps (5 Ch).">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -574,6 +574,7 @@
         <button id="tab-geography" class="subject-btn" onclick="filterSubject('geography')">🌍 Geography (12 Ch)</button>
         <button id="tab-polity" class="subject-btn" onclick="filterSubject('polity')">⚖️ Polity (10 Ch)</button>
         <button id="tab-science" class="subject-btn" onclick="filterSubject('science')">🔬 Science (12 Ch)</button>
+        <button id="tab-revision" class="subject-btn" onclick="filterSubject('revision')">⚡ Revision (5 Ch)</button>
         <button id="tab-all" class="subject-btn" onclick="filterSubject('all')">🌐 All Subjects</button>
       </div>
 
@@ -779,7 +780,85 @@
       { subject: "science", subjectName: "General Science & Tech NCERT", chNum: 9, id: "sci-ch-9", book: "Book III: Biology & Life Sciences (NCERT Biology Class 6-10)", title: "9. Cell - The Fundamental Unit of Life & Plant/Animal Tissues", readTime: "8 min read", examTags: "Mitochondria, Plant vs Animal Cell, Xylem & Phloem, Mitosis vs Meiosis", truth: "The cell is the basic structural and functional unit of all living organisms, multiplying through mitotic growth and meiotic reproduction.", body: `### 1. Cell Organelles & Functions:\n- **Nucleus (Robert Brown 1831):** Contains DNA/chromosomes; master control center.\n- **Mitochondria:** "Powerhouse of cell"; produces energy via **ATP (Adenosine Triphosphate)**.\n- **Ribosomes:** Sites of protein synthesis.\n- **Lysosomes:** "Suicide bags" containing digestive enzymes.\n\n<div class="exam-highlight-box">\n  <h4>🌿 Plant vs Animal Cells & Tissues</h4>\n  • <strong>Plant Cell:</strong> Has rigid Cell Wall (cellulose), Plastids/Chloroplasts, large central vacuole.<br>\n  • <strong>Vascular Tissues:</strong> <strong>Xylem</strong> (transports water/minerals upward) & <strong>Phloem</strong> (transports food/sucrose bi-directionally).\n</div>` },
       { subject: "science", subjectName: "General Science & Tech NCERT", chNum: 10, id: "sci-ch-10", book: "Book III: Biology & Life Sciences (NCERT Biology Class 6-10)", title: "10. Human Life Processes, Organ Systems, Microorganisms & Diseases", readTime: "8 min read", examTags: "Circulation, Double Circulation, Vaccines, Microbes, Vector-Borne Diseases", truth: "Human life processes maintain homeostasis through coordinated digestive, respiratory, circulatory, excretory, and immune system functions.", body: `### 1. Human Life Processes:\n- **Digestion:** Carbohydrates $\rightarrow$ Glucose | Proteins $\rightarrow$ Amino Acids | Fats $\rightarrow$ Fatty Acids + Glycerol.\n- **Circulation (Harvey 1628):** 4-chambered heart (2 auricles, 2 ventricles); **Double Circulation** (Systemic + Pulmonary).\n- **Excretion:** **Nephrons** are the functional filtration units of human kidneys.\n\n### 2. Pathogens & Human Diseases:\n- **Bacterial:** Tuberculosis (*M. tuberculosis*), Cholera, Typhoid, Tetanus.\n- **Viral:** COVID-19, Dengue, Chikungunya, Rabies, Polio, HIV/AIDS.\n- **Protozoan:** Malaria (*Plasmodium* carried by female *Anopheles* mosquito), Kala-Azar (*Leishmania* carried by sandfly).` },
       { subject: "science", subjectName: "General Science & Tech NCERT", chNum: 11, id: "sci-ch-11", book: "Book IV: Advanced Biology & Modern Technology (NCERT Class 11-12 & Applied Tech)", title: "11. Genetics, DNA Structure, Protein Synthesis & Biotechnology Applications", readTime: "8 min read", examTags: "Mendelian Genetics, DNA Double Helix, Recombinant DNA, CRISPR-Cas9, Bt Cotton", truth: "Biotechnology utilizes genetic engineering, recombinant DNA technology, and gene editing tools like CRISPR-Cas9 to transform medicine and agriculture.", body: `### 1. Genetics & DNA Architecture:\n- **Mendel's Laws (1865):** Law of Segregation and Law of Independent Assortment.\n- **DNA Double Helix (Watson & Crick 1953):** Nitrogenous base pairs: **Adenine = Thymine (A=T)** and **Guanine ≡ Cytosine (G≡C)** (RNA replaces Thymine with **Uracil**).\n\n### 2. Biotechnology & Genetic Engineering:\n- **Recombinant DNA Technology:** Using Restriction Enzymes ("molecular scissors") and DNA Ligase to insert foreign genes into bacterial plasmids.\n- **Bt Cotton:** Insect-resistant transgenic crop expressing *Cry* toxin gene from *Bacillus thuringiensis* against bollworms.\n- **CRISPR-Cas9:** Precision gene editing technology (Nobel Prize 2020 to Doudna & Charpentier).` },
-      { subject: "science", subjectName: "General Science & Tech NCERT", chNum: 12, id: "sci-ch-12", book: "Book IV: Advanced Biology & Modern Technology (NCERT Class 11-12 & Applied Tech)", title: "12. Space Technology, Defense Tech, Nanotechnology, Nuclear Energy & Environment", readTime: "9 min read", examTags: "ISRO Missions (Chandrayaan-3/Gaganyaan), Agni/Prithvi, Nuclear Fission vs Fusion, Nanotech", truth: "Modern science and technology drive national strategic autonomy across space exploration, defense systems, nuclear power, and nanotechnology.", body: `### 1. India's Space Program (ISRO):\n- **Launch Vehicles:** PSLV (Polar Satellite Launch Vehicle - workhorse) & LVM3 / GSLV Mk III (heavy lifter).\n- **Landmark Missions:**\n  - **Chandrayaan-3 (2023):** Historic soft landing near Moon's South Pole (Vikram lander & Pragyan rover).\n  - **Aditya-L1 (2023):** India's first solar observatory placed at Sun-Earth **Lagrange Point 1 (L1)**.\n  - **Gaganyaan:** India's human spaceflight program.\n\n### 2. Defense Tech & Nuclear Energy:\n- **IGMDP (Dr. A.P.J. Abdul Kalam):** Patna, Agni (IRBM/ICBM), Trishul, Nag (anti-tank), Prithvi (SRBM).\n- **Nuclear Energy:** Fission ($U^{235}$ / $Pu^{239}$ in reactors) vs Fusion (Sun's energy / ITER tokamak).\n- **3-Stage Nuclear Power Program (Homi Bhabha):** Stage 1: PHWR (Natural Uranium) $\\rightarrow$ Stage 2: Fast Breeder Reactors ($Pu^{239}$) $\\rightarrow$ Stage 3: Thorium-based reactors (using India's Monazite sands in Kerala).` }
+      { subject: "science", subjectName: "General Science & Tech NCERT", chNum: 12, id: "sci-ch-12", book: "Book IV: Advanced Biology & Modern Technology (NCERT Class 11-12 & Applied Tech)", title: "12. Space Technology, Defense Tech, Nanotechnology, Nuclear Energy & Environment", readTime: "9 min read", examTags: "ISRO Missions (Chandrayaan-3/Gaganyaan), Agni/Prithvi, Nuclear Fission vs Fusion, Nanotech", truth: "Modern science and technology drive national strategic autonomy across space exploration, defense systems, nuclear power, and nanotechnology.", body: `### 1. India's Space Program (ISRO):\n- **Launch Vehicles:** PSLV (Polar Satellite Launch Vehicle - workhorse) & LVM3 / GSLV Mk III (heavy lifter).\n- **Landmark Missions:**\n  - **Chandrayaan-3 (2023):** Historic soft landing near Moon's South Pole (Vikram lander & Pragyan rover).\n  - **Aditya-L1 (2023):** India's first solar observatory placed at Sun-Earth **Lagrange Point 1 (L1)**.\n  - **Gaganyaan:** India's human spaceflight program.\n\n### 2. Defense Tech & Nuclear Energy:\n- **IGMDP (Dr. A.P.J. Abdul Kalam):** Patna, Agni (IRBM/ICBM), Trishul, Nag (anti-tank), Prithvi (SRBM).\n- **Nuclear Energy:** Fission ($U^{235}$ / $Pu^{239}$ in reactors) vs Fusion (Sun's energy / ITER tokamak).\n- **3-Stage Nuclear Power Program (Homi Bhabha):** Stage 1: PHWR (Natural Uranium) $\\rightarrow$ Stage 2: Fast Breeder Reactors ($Pu^{239}$) $\\rightarrow$ Stage 3: Thorium-based reactors (using India's Monazite sands in Kerala).` },
+
+      // ==========================================
+      // SUBJECT 6: RAPID REVISION & EXAM TRAPS (Ch 1 - 5)
+      // ==========================================
+      { subject: "revision", subjectName: "Rapid Revision & Exam Traps", chNum: 1, id: "rev-ch-1", book: "Book I: History High-Yield Facts & Exam Traps", title: "1. History Rapid-Fire Facts & Tricky Exam Traps", readTime: "7 min read", examTags: "Permanent Settlement vs Ryotwari, Morley-Minto 1909, Doctrine of Lapse, Charter Acts", truth: "History exam questions frequently test exact attribution of land revenue systems, constitutional reform acts, and organizational leaders to trap unprepared candidates.", body: `### ⚡ TRICKY DISTINCTIONS & EXAM TRAPS:
+
+1. **Land Revenue Traps:**
+   - **Permanent Settlement (1793):** Introduced by Cornwallis in Bengal, Bihar, and Odisha. **NOT** in Madras or Bombay Presidencies.
+   - **Ryotwari System:** Introduced in Madras (Thomas Munro & Alexander Read) and Bombay. Direct settlement with actual cultivators (*Ryots*).
+   - **Mahalwari System:** Introduced in NW Provinces, Central India, and Punjab (Holt Mackenzie 1822). Settlement with village community (*Mahal*).
+
+2. **Doctrine of Lapse Traps:**
+   - Annexed: Satara (1848), Sambalpur, Jhansi (1853), Nagpur (1854).
+   - **TRAP:** Punjab was **NOT** annexed under Doctrine of Lapse — it was conquered through the Anglo-Sikh Wars (1849).
+   - **TRAP:** Awadh was **NOT** annexed under Doctrine of Lapse — it was annexed in 1856 on charges of **'Misgovernance' (Outram Report)**.
+
+3. **Constitutional Reform Acts Traps:**
+   - **Morley-Minto Reforms (1909):** Introduced separate electorates for **Muslims ONLY**.
+   - **Montagu-Chelmsford Reforms (1919):** Extended separate electorates to Sikhs, Indian Christians, Anglo-Indians, and Europeans; introduced **Dyarchy in Provinces** (Transferred vs Reserved subjects).
+   - **GOI Act 1935:** Abolished Dyarchy in Provinces and introduced **Provincial Autonomy**; proposed Dyarchy at Centre.` },
+      { subject: "revision", subjectName: "Rapid Revision & Exam Traps", chNum: 2, id: "rev-ch-2", book: "Book II: Geography High-Yield Facts & Exam Traps", title: "2. Geography Rapid-Fire Facts & Tricky Exam Traps", readTime: "7 min read", examTags: "Koppen B Climate, Western vs Eastern Ghats, Cyclones Bay vs Arabian, Indira Point", truth: "Geography exam questions test precise boundary latitudes, river drainage orientations, atmosphere layer boundaries, and ocean relief definitions.", body: `### ⚡ TRICKY DISTINCTIONS & EXAM TRAPS:
+
+1. **Climate & Forest Traps:**
+   - **Tropical Evergreen Forests:** Require **>200 cm** annual rainfall (Western Ghats, NE India, A&N Islands).
+   - **Tropical Deciduous (Monsoon) Forests:** Receive **70–200 cm** rainfall (Most widespread forest type in India).
+   - **Koppen 'B' Climates:** Denotes **Dry Climates** (BWh = Hot desert like Thar; BWk = Cold desert like Ladakh).
+
+2. **Physiography & Coastal Traps:**
+   - **Western vs. Eastern Ghats:** Western Ghats are higher, continuous (crossed via Thalghat, Bhorghat, Palghat passes), and older. Eastern Ghats are lower, discontinuous, and dissected by rivers.
+   - **Cyclones Frequency:** Bay of Bengal experiences **more frequent and intense cyclones** than the Arabian Sea due to warmer sea surface temperatures and low salinity.
+   - **Southernmost Point:** **Indira Point** (6°45'N in Great Nicobar Island), NOT Kanyakumari (8°4'N is southernmost point of *mainland* India).
+
+3. **Tropic of Cancer (23.5°N) Traps:**
+   - Passes through **8 Indian States:** Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, and Mizoram.` },
+      { subject: "revision", subjectName: "Rapid Revision & Exam Traps", chNum: 3, id: "rev-ch-3", book: "Book III: Economics High-Yield Facts & Exam Traps", title: "3. Economics Rapid-Fire Facts & Tricky Exam Traps", readTime: "7 min read", examTags: "GDP vs GNP, Repo vs Reverse Repo, Money Aggregates M1/M3, FDI vs FPI, GST", truth: "Economics questions trap candidates on definitions of domestic vs national boundaries, monetary liquidity aggregates, and fiscal deficit sub-components.", body: `### ⚡ TRICKY DISTINCTIONS & EXAM TRAPS:
+
+1. **National Income Traps:**
+   - **GDP:** All final output inside domestic geographic borders regardless of citizen ownership.
+   - **GNP:** GDP + NFIA (Income earned by Indian citizens abroad minus income earned by foreigners in India).
+   - **GDP Deflator:** Calculated as $\frac{\text{Nominal GDP}}{\text{Real GDP}} \times 100$. Unlike CPI, it covers **ALL goods and services produced domestically**.
+
+2. **Monetary Policy & Money Supply Traps:**
+   - **Repo Rate:** Rate at which RBI lends short-term money to commercial banks against government securities.
+   - **Reverse Repo Rate:** Rate at which RBI absorbs excess liquidity from commercial banks.
+   - **Money Supply Aggregates:**
+     - **M1 (Narrow Money):** Currency with public + Demand deposits with banks + Other deposits with RBI.
+     - **M3 (Broad Money):** M1 + Time deposits with commercial banks.
+
+3. **Foreign Capital Traps:**
+   - **FDI (Foreign Direct Investment):** Investment in physical assets/enterprises with **≥10% voting power**; long-term and stable.
+   - **FPI (Foreign Portfolio Investment):** Investment in financial stocks/bonds with **<10% voting power**; volatile "hot money".` },
+      { subject: "revision", subjectName: "Rapid Revision & Exam Traps", chNum: 4, id: "rev-ch-4", book: "Book IV: Polity High-Yield Facts & Exam Traps", title: "4. Polity Rapid-Fire Facts & Constitutional Exam Traps", readTime: "7 min read", examTags: "Article 32 vs 226, Money Bill Art 110, Electoral College, Emergency Art 352/356", truth: "Polity exam questions target subtle differences between Supreme Court and High Court writ powers, parliamentary bill procedures, and constitutional emergency provisions.", body: `### 1. Constitutional Article Distinctions:
+- **Article 32 vs. Article 226:**
+  - **Article 32 (Supreme Court):** Writ jurisdiction is a **Fundamental Right itself**. SC can issue writs ONLY for Fundamental Rights.
+  - **Article 226 (High Court):** Writ jurisdiction is discretionary (NOT a Fundamental Right). High Courts can issue writs for FRs **AND for any other legal right** (Writ jurisdiction of High Court is wider than Supreme Court!).
+
+2. **Emergency Suspension Traps:**
+   - **Articles 20 & 21:** **CANNOT be suspended** under any circumstances, even during National Emergency (44th Amendment Act 1978).
+   - **Article 19:** Automatically suspended ONLY when National Emergency is declared on grounds of **War or External Aggression** (NOT on grounds of Armed Rebellion).
+
+3. **Parliamentary Bill Traps:**
+   - **Money Bill (Article 110):** Certified exclusively by **Speaker of Lok Sabha**. Rajya Sabha cannot reject or amend a Money Bill; it can only delay it for **maximum 14 days**.` },
+      { subject: "revision", subjectName: "Rapid Revision & Exam Traps", chNum: 5, id: "rev-ch-5", book: "Book V: Science & Tech High-Yield Facts & Exam Traps", title: "5. General Science Rapid-Fire Facts & Exam Traps", readTime: "7 min read", examTags: "Artery vs Vein Exception, Malaria vs Dengue Vector, Fission vs Fusion, Diamond vs Graphite", truth: "Science questions test physiological exceptions, vector distinctions in infectious diseases, and nuclear reactor physics principles.", body: `### ⚡ TRICKY DISTINCTIONS & EXAM TRAPS:
+
+1. **Biology & Health Traps:**
+   - **Arteries vs. Veins Exception:** Arteries carry oxygenated blood away from the heart. **EXCEPTION:** **Pulmonary Artery** carries DEOXYGENATED blood from heart to lungs!
+   - **Malaria vs. Dengue Vectors:**
+     - **Malaria:** Caused by *Plasmodium* protozoa; transmitted by female **Anopheles** mosquito (bites mostly at night).
+     - **Dengue:** Caused by Dengue Virus; transmitted by **Aedes aegypti** mosquito (bites during daytime).
+
+2. **Physics & Nuclear Tech Traps:**
+   - **Nuclear Fission vs. Fusion:**
+     - **Fission:** Heavy nucleus (Uranium-235 / Plutonium-239) splits into lighter nuclei (used in nuclear power reactors and atom bombs).
+     - **Fusion:** Light nuclei (Deuterium + Tritium) combine into heavier Helium nucleus at extreme heat/pressure (powers the Sun and Hydrogen bombs).
+
+3. **Chemistry Carbon Allotropes:**
+   - **Diamond:** $sp^3$ hybridized, 3D tetrahedral structure, hardest natural substance, **does NOT conduct electricity** (no free electrons).
+   - **Graphite:** $sp^2$ hybridized, layered hexagonal planar sheets, soft lubricant, **CONDUCTS electricity** due to free delocalized $\pi$ electrons.` }
     ];
 
     // Filter State & Preferences
@@ -826,6 +905,9 @@
       } else if (sub === 'science') {
         headerSubtitleEl.textContent = "Subject View: General Science & Technology NCERT (12 Chapters - Class 6 to 12)";
         tocTitleLabelEl.textContent = "Science & Tech Syllabus";
+      } else if (sub === 'revision') {
+        headerSubtitleEl.textContent = "Revision Engine: Rapid-Fire High-Yield Facts & Exam Traps (5 Modules)";
+        tocTitleLabelEl.textContent = "Revision Engine";
       } else {
         headerSubtitleEl.textContent = "Cross-Disciplinary View: All Subjects";
         tocTitleLabelEl.textContent = "Master Syllabus";
@@ -904,6 +986,7 @@
         if (ch.subject === 'geography') subjectIcon = '🌍';
         if (ch.subject === 'polity') subjectIcon = '⚖️';
         if (ch.subject === 'science') subjectIcon = '🔬';
+        if (ch.subject === 'revision') subjectIcon = '⚡';
 
         chapterSection.innerHTML = `
           <div class="chapter-header">
