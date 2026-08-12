@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CogniGraph Master Reader — Economics & History Corpus</title>
-  <meta name="description" content="Master Kindle eBook Reader for Economics, Social Issues, and NCERT Class 6 Ancient Indian History with continuous vertical scrolling and active recall.">
+  <title>CogniGraph Kindle Master Reader — Economics & History Corpus</title>
+  <meta name="description" content="Master Kindle eBook Reader with Subject Filtering for Economics, Social Issues, and NCERT Ancient History.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,6 +130,35 @@
       display: flex;
       align-items: center;
       gap: 16px;
+    }
+
+    /* Subject Tabs Selector */
+    .subject-tabs {
+      display: flex;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 3px;
+      border-radius: 8px;
+      gap: 3px;
+      border: 1px solid var(--border-color);
+    }
+
+    .subject-btn {
+      background: transparent;
+      border: none;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .subject-btn.active {
+      background: var(--bg-page);
+      color: var(--text-main);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
 
     .theme-selector {
@@ -521,11 +550,18 @@
       <span class="brand-icon">📖</span>
       <div class="brand-title">
         <h1>CogniGraph Kindle Reader</h1>
-        <p id="headerSubtitle">Economics, Social Issues & History Corpus (46 Chapters)</p>
+        <p id="headerSubtitle">Select Subject View Below</p>
       </div>
     </div>
 
     <div class="toolbar-controls">
+      <!-- Subject Filter Tabs -->
+      <div class="subject-tabs">
+        <button id="tab-all" class="subject-btn active" onclick="filterSubject('all')">🌐 All (46)</button>
+        <button id="tab-economics" class="subject-btn" onclick="filterSubject('economics')">📈 Economics (35)</button>
+        <button id="tab-history" class="subject-btn" onclick="filterSubject('history')">🏛️ History (11)</button>
+      </div>
+
       <!-- Font Size Controls -->
       <div class="font-size-controls">
         <button class="font-btn" onclick="adjustFontSize(-1)">A-</button>
@@ -572,920 +608,98 @@
   </div>
 
   <script>
-    // --- 46 Master Chapters Across 11 Volumes ---
-    const bookData = [
-      {
-        id: "ch-1",
-        book: "Book I: Foundations of Economics & National Income",
-        title: "1. What is Economics? Scarcity & Choice",
-        readTime: "3 min read",
-        examTags: "Micro vs Macro, Scarcity, Adam Smith",
-        truth: "Human desires are infinite, but physical resources are finite; therefore, every economy is forced to solve a continuous optimization problem of what, how, and for whom to allocate resources.",
-        body: `
-The subject matter of Economics focuses on the **rational management of scarce resources** so that limited resources can be optimally transformed into valuable goods to maximize economic welfare.
-
-### According to Adam Smith:
-1. **Microeconomics:** When economic models are applied to individual units like a consumer or a producer (gives rise to Consumer & Producer behavior theories).
-2. **Macroeconomics:** When economic models are applied at the aggregate level (Inflation, National Income, Money Supply, Unemployment, Poverty).
-
-<div class="exam-highlight-box">
-  <h4>💡 Economics vs. Economy</h4>
-  <strong>Economics</strong> is the body of theories studying resource allocation.<br>
-  <strong>Economy</strong> is the practical system where these theories are applied to determine output levels and solve real-world problems.
-</div>
-        `
-      },
-      {
-        id: "ch-2",
-        book: "Book I: Foundations of Economics & National Income",
-        title: "2. The 3 Central Problems & Goods Classification",
-        readTime: "4 min read",
-        examTags: "Consumer vs Capital Goods, Intermediate vs Final Goods",
-        truth: "Classification of goods depends on end-use rather than physical nature; an AC in a home is a consumer good, while the same AC in a factory is a capital good.",
-        body: `
-### The 3 Central Problems:
-1. **What to produce?** (Consumer goods vs. Capital goods allocation).
-2. **How to produce?** (Labor-intensive vs. Capital-intensive technique based on factor abundance).
-3. **For whom to produce?** (Distribution, equity, and optimum allocation).
-
-### Goods Classification (Classic Exam Traps):
-- **Intermediate Goods:** Still in the value-addition process / raw materials (e.g. wheat flour in a bakery).
-- **Final Goods:** Ready for final consumption or investment; no further value addition required.
-- **Consumer Goods:** Consumed for direct utility maximization (Durables, Semi-durables, Non-durables).
-- **Capital Goods:** Used in production to generate wealth (machinery, factory buildings).
-        `
-      },
-      {
-        id: "ch-3",
-        book: "Book I: Foundations of Economics & National Income",
-        title: "3. Circular Flow of Income & Factor Payments",
-        readTime: "5 min read",
-        examTags: "Factors of Production, Factor Payments, Circular Flow",
-        truth: "Every rupee spent by a consumer is a rupee earned by a producer; production automatically generates equal factor income across Land, Labor, Capital, and Entrepreneurship.",
-        body: `
-An economy consists of 4 interacting sectors: **Household, Producer, Government, and External (Rest of World)**.
-
-### Factors of Production & Factor Income:
-- **Land** → **Rent**
-- **Labor** → **Wages / Compensation of Employees**
-- **Capital** → **Interest**
-- **Entrepreneurship** → **Profit**
-
-<div class="exam-highlight-box">
-  <h4>🔄 Circular Flow Rule</h4>
-  Real goods and services flow clockwise, while factor money payments flow counter-clockwise. Total Output Produced = Total Factor Income Generated = Total Expenditure Incurred.
-</div>
-        `
-      },
-      {
-        id: "ch-4",
-        book: "Book I: Foundations of Economics & National Income",
-        title: "4. GDP, NDP, GNP & NNP Aggregate Ladder",
-        readTime: "6 min read",
-        examTags: "GDP vs GNP, NDP vs NNP, NFIA, Domestic Territory",
-        truth: "GDP measures output produced inside a geographic boundary regardless of owner citizenship; GNP measures output produced by a nation's citizens regardless of where they are located.",
-        body: `
-### The Aggregate Ladder:
-- **Gross Domestic Product (GDP):** Total market value of all final goods and services produced within the domestic territory of a country within an accounting year.
-- **Net Domestic Product (NDP):** NDP = GDP − Depreciation
-- **Gross National Product (GNP):** GNP = GDP + NFIA (Net Factor Income from Abroad)
-- **Net National Product at Factor Cost (NNP_FC):** True **National Income**.
-
-<div class="exam-highlight-box">
-  <h4>🚗 The Honda US Plant Case Study</h4>
-  A Honda manufacturing plant in the U.S. owned by a Japanese corporation:
-  - Output → counted in <strong>U.S. GDP</strong> (produced within U.S. territory).
-  - Wages to U.S. workers → counted in <strong>U.S. GNP</strong>.
-  - Profits → go to Japanese owner → counted in <strong>Japan's GNP</strong>.
-</div>
-        `
-      },
-      {
-        id: "ch-5",
-        book: "Book I: Foundations of Economics & National Income",
-        title: "5. Factor Cost, Market Price & GVA at Basic Prices",
-        readTime: "5 min read",
-        examTags: "GVA Basic Prices, Net Indirect Taxes, 2026 Base Year Update",
-        truth: "Factor Cost is what it costs to produce at the factory gate; Market Price is what consumers pay after government taxes and subsidies distort the price.",
-        body: `
-### Market Price vs. Factor Cost:
-- Market Price (MP) = Factor Cost (FC) + Net Indirect Taxes (NIT)
-- Net Indirect Taxes = Indirect Taxes − Subsidies
-
-<div class="formula-box">
-  GVA at Basic Prices = GVA at Factor Cost + Production Taxes − Production Subsidies<br>
-  GDP at Market Prices = GVA at Basic Prices + Product Taxes − Product Subsidies
-</div>
-
-<div class="exam-highlight-box">
-  <h4>✅ 2026 Verified Update</h4>
-  NSO released the revised GDP series with base year <strong>2022-23</strong> (replacing 2011-12) on 27 February 2026 — the 8th base-year revision in India's history.
-</div>
-        `
-      },
-      {
-        id: "ch-6",
-        book: "Book I: Foundations of Economics & National Income",
-        title: "6. Methods of Calculating National Income",
-        readTime: "5 min read",
-        examTags: "Product Method, Income Method, Expenditure Method",
-        truth: "National income can be calculated through three interlinked phases of economic activity: Production (Value Added), Income (Factor Payments), and Expenditure (Final Purchases).",
-        body: `
-### 1. Value-Added / Product Method:
-- Value Added = Value of Output − Intermediate Consumption
-- Sum of value added across all producing firms equals Gross Value Added (GVA).
-
-### 2. Expenditure Method:
-- Y = C + I + G + (X − M)
-- Gives GDP at Market Price ($GDP_{MP}$).
-
-### 3. Income Method:
-- NDP(FC) = Compensation of Employees + Operating Surplus + Mixed Income
-- **Operating Surplus:** Dividends + Corporate Profit Tax + Undistributed Profits.
-- **Mixed Income:** Income of self-employed persons using their own land/labor/capital.
-        `
-      },
-      {
-        id: "ch-7",
-        book: "Book I: Foundations of Economics & National Income",
-        title: "7. Real vs Nominal GDP, GDP Deflator & Green GDP",
-        readTime: "5 min read",
-        examTags: "GDP Deflator, Green GDP, Partha Dasgupta Report",
-        truth: "GDP measures money spent, not human welfare; nominal GDP can rise purely from price inflation without a single extra good being produced, and ignores environmental degradation.",
-        body: `
-### Real vs. Nominal GDP:
-- **Nominal GDP:** Measured at current prices ($P_{\text{current}} \times Q$).
-- **Real GDP:** Measured at constant base year prices ($P_{\text{base}} \times Q$).
-
-<div class="formula-box">
-  GDP Deflator = (Nominal GDP / Real GDP) × 100
-</div>
-
-### Green GDP:
-Accounts for environmental degradation, biodiversity loss, and resource depletion (Partha Dasgupta Expert Group Report 2013).
-        `
-      },
-      {
-        id: "ch-8",
-        book: "Book II: Poverty & Inequality",
-        title: "8. What is Poverty? Dimensions & SDG Linkage",
-        readTime: "4 min read",
-        examTags: "UN Definition, SDG 1 & 2, World Bank Definition",
-        truth: "Poverty entails more than the lack of income; it is the pronounced deprivation of human well-being, capabilities, and freedom to participate in society.",
-        body: `
-### Definitions:
-- **UN Definition:** Poverty entails hunger, malnutrition, limited education/services, social exclusion, and lack of participation.
-- **World Bank Definition:** "Pronounced deprivation in well-being" below a minimum threshold.
-- **SDGs:** **SDG 1 (No Poverty)** & **SDG 2 (Zero Hunger)** born at Rio+20 (2012).
-
-### Poverty, Inequality & Vulnerability:
-- **Inequality:** Distribution of income/consumption across population.
-- **Vulnerability:** Risk of falling into poverty in future (calamities, health shocks).
-        `
-      },
-      {
-        id: "ch-9",
-        book: "Book II: Poverty & Inequality",
-        title: "9. Absolute vs Relative Poverty & Gini Coefficient",
-        readTime: "5 min read",
-        examTags: "Headcount Ratio, Lorenz Curve, Gini Index",
-        truth: "Absolute poverty counts who lacks basic physical survival needs; Relative poverty measures systemic inequality comparing individuals across a societal distribution.",
-        body: `
-### Absolute vs. Relative Poverty:
-- **Absolute Poverty:** Chronic lack of basic survival needs. Measured by Headcount Ratio: HCR = H / N
-- **Relative Poverty:** Measured via Lorenz Curve and Gini Coefficient.
-
-<div class="exam-highlight-box">
-  <h4>📊 Gini Coefficient & Lorenz Curve</h4>
-  • <strong>Lorenz Curve:</strong> Graphical cumulative distribution of income vs population.<br>
-  • <strong>Gini Coefficient (G):</strong> Ratio G = A / (A+B) (0 = equality, 1 = inequality).<br>
-  • <strong>Gini Index:</strong> Gini Coefficient × 100.
-</div>
-        `
-      },
-      {
-        id: "ch-10",
-        book: "Book II: Poverty & Inequality",
-        title: "10. Amartya Sen's Capability Approach",
-        readTime: "4 min read",
-        examTags: "Amartya Sen, Functionings & Capabilities",
-        truth: "Development should expand human capabilities ('real freedoms to achieve valuable beings and doings'), rather than just maximizing GDP growth or calorie intake.",
-        body: `
-### Functionings vs. Capabilities:
-- **Functionings:** The valuable 'beings' and 'doings' a person has reason to value (being educated, healthy, nourished).
-- **Capabilities:** The *real freedoms* and opportunities to achieve those functionings.
-
-### Poverty Types by Duration:
-- **Transitory / Situational:** Temporary shock (disaster, illness).
-- **Chronic / Generational:** Inherited across ≥2 generations.
-        `
-      },
-      {
-        id: "ch-11",
-        book: "Book II: Poverty & Inequality",
-        title: "11. Evolution of Indian Poverty Lines (1867–1993)",
-        readTime: "6 min read",
-        examTags: "Naoroji, Alagh 1979, Lakdawala 1993",
-        truth: "Indian poverty estimation evolved from historical subsistence diets to quantitative calorie intake targets and state-specific CPI inflation indices.",
-        body: `
-### Timeline:
-1. **Dadabhai Naoroji (1867-68):** Subsistence diet (Rs 16–35/year).
-2. **National Planning Committee (1938):** Rs 15–20/month.
-3. **Working Group (1962):** Rs 20 rural / Rs 25 urban per month.
-4. **Y.K. Alagh Task Force (1979):** Calorie norms — **2400 kcal (rural, Rs 49.09)** / **2100 kcal (urban, Rs 56.64)**.
-5. **Lakdawala Group (1993):** Introduced State-specific poverty lines updated via CPI-IW (urban) and CPI-AL (rural).
-        `
-      },
-      {
-        id: "ch-12",
-        book: "Book II: Poverty & Inequality",
-        title: "12. Tendulkar vs Rangarajan & NITI Aayog National MPI",
-        readTime: "7 min read",
-        examTags: "Tendulkar 2005, Rangarajan 2012, National MPI",
-        truth: "Tendulkar shifted poverty estimation from calories to overall consumption expenditure, while Rangarajan restored multi-nutritional norms and household expenditure units.",
-        body: `
-### Committee Comparison:
-- **Tendulkar (2005):** Dropped calorie norms, used MRP (1-year/30-day recall). Lines (2011-12): **Rs 816 (rural)** / **Rs 1000 (urban)**. Total BPL: **27 crore (21.9%)**.
-- **Rangarajan (2012):** Household of 5 unit. Calories + Protein + Fat. Lines (2011-12): **Rs 972 (rural)** / **Rs 1407 (urban)**. Total BPL: **36.3 crore (29.5%)**.
-
-### NITI Aayog National MPI (2021):
-- 3 Dimensions: Health (1/3), Education (1/3), Standard of Living (1/3) across **12 Indicators**.
-        `
-      },
-      {
-        id: "ch-13",
-        book: "Book III: Unemployment & Labor Market",
-        title: "13. What is Unemployment? LFPR, WPR & UR Indicators",
-        readTime: "4 min read",
-        examTags: "LFPR, WPR, Unemployment Rate (UR), 15+ Age Group",
-        truth: "Unemployment measures only those in the working-age population who are actively willing and able to work but cannot find suitable employment.",
-        body: `
-### Core Indicators:
-- **Labour Force:** Employed + Unemployed actively seeking work.
-- **LFPR:** (Employed + Unemployed) / Total Population (15+) × 100.
-- **WPR:** Employed / Total Population × 100.
-- **Unemployment Rate (UR):** Unemployed / Total Labour Force × 100.
-        `
-      },
-      {
-        id: "ch-14",
-        book: "Book III: Unemployment & Labor Market",
-        title: "14. PLFS Survey & Activity Statuses (ps+ss vs CWS)",
-        readTime: "5 min read",
-        examTags: "PLFS 2017, Usual Status (ps+ss), Current Weekly Status",
-        truth: "Employment measurement requires distinguishing between long-term principal activity (365 days) and short-term weekly activity (7 days).",
-        body: `
-### PLFS (Launched April 2017 by NSO):
-- **Urban (Quarterly):** Current Weekly Status (CWS - 7 days).
-- **Rural & Urban (Annual):** Usual Status (ps+ss - 365 days / 30 days) & CWS.
-- **PLFS 2025 Calendar-Year Shift:** Shifted to Jan–Dec calendar year cycle.
-        `
-      },
-      {
-        id: "ch-15",
-        book: "Book III: Unemployment & Labor Market",
-        title: "15. Types of Unemployment & The Phillips Curve",
-        readTime: "6 min read",
-        examTags: "Disguised Unemployment, Structural, Phillips Curve",
-        truth: "Disguised unemployment occurs when additional workers add zero marginal output; Structural unemployment occurs when worker skills do not match market technology.",
-        body: `
-### 7 Types of Unemployment:
-1. **Structural:** Skill/technology mismatch (Industry 4.0).
-2. **Cyclical:** Business cycle downturns.
-3. **Frictional:** Job transition (always present at full employment).
-4. **Disguised:** Marginal product of labor is zero ($\Delta Y / \Delta L = 0$, agriculture).
-5. **Seasonal, Voluntary, Underemployment.**
-
-### The Phillips Curve (1958):
-Short-run inverse trade-off: Unemployment ↓ ⇒ Wage Growth ↑ ⇒ Inflation ↑.
-        `
-      },
-      {
-        id: "ch-16",
-        book: "Book IV: Fiscal Policy & Debt Glide Path",
-        title: "16. Fiscal Policy Stances & Deficit Financing",
-        readTime: "5 min read",
-        examTags: "Expansionary vs Contractionary, Countercyclical, WMA",
-        truth: "Fiscal policy uses government spending and taxation to smooth business cycles; deficit financing covers spending gaps through borrowing or monetization.",
-        body: `
-### Policy Stances:
-- **Expansionary:** ↑ Spend, ↓ Tax (Pump priming in recession).
-- **Contractionary:** ↓ Spend, ↑ Tax (Fight inflation).
-- **Countercyclical:** Works against business cycle to stabilize.
-
-### Deficit Financing & Monetization:
-- **Pre-1997:** Direct monetization via ad hoc Treasury Bills.
-- **Post-1997:** Replaced by **Ways and Means Advances (WMA)** for temporary cash mismatches. RBI operates via secondary market **Open Market Operations (OMOs)**.
-        `
-      },
-      {
-        id: "ch-17",
-        book: "Book IV: Fiscal Policy & Debt Glide Path",
-        title: "17. FRBM Act & FY27 Debt-Anchored Framework",
-        readTime: "6 min read",
-        examTags: "FRBM Act 2003, NK Singh Committee, FY27 Debt Anchor",
-        truth: "India's fiscal framework has shifted from a fixed annual fiscal deficit target to a declining debt-to-GDP anchor targeting ~50% Central Debt by FY31.",
-        body: `
-### Legislative History:
-- **FRBM Act 2003:** Original 3% fiscal deficit target.
-- **N.K. Singh Committee (2017):** Recommended 60% combined debt-to-GDP ceiling (40% Centre / 20% States) + formal Escape Clause (0.5% relaxation).
-- **Post-COVID Glide Path:** Target fiscal deficit below 4.5% of GDP by FY26 (Met on schedule at 4.4% in FY26).
-- **FY27 Debt Anchor Shift:** From Budget 2026-27 onward, Centre targets a declining Central Debt-to-GDP ratio (~50% by FY31 down from 55.6% in FY27).
-        `
-      },
-      {
-        id: "ch-18",
-        book: "Book V: Planning in India & NITI Aayog",
-        title: "18. Pre-Independence Planning to 12th Five-Year Plan",
-        readTime: "6 min read",
-        examTags: "Harrod-Domar, Mahalanobis Plan, 12th FYP (Last Plan)",
-        truth: "India's Five-Year Plan system ran from 1951 to 2017; the 12th Plan (2012–17) was India's final Five-Year Plan before NITI Aayog's structural shift.",
-        body: `
-### Pre-Independence Efforts:
-- National Planning Committee (1938), Bombay Plan & Gandhian Plan (1944), People's Plan (1945), Sarvodaya Plan (1950).
-
-### Key Five-Year Plans:
-- **1st Plan (1951-56):** Harrod-Domar Model (Agriculture focus).
-- **2nd Plan (1956-61):** Mahalanobis Model (Heavy basic industries).
-- **3rd Plan (1961-66):** Aimed at take-off; disrupted by 1962/1965 wars.
-- **12th Plan (2012-17):** "Faster, Sustainable and More Inclusive Growth". **India's last Five-Year Plan**.
-        `
-      },
-      {
-        id: "ch-19",
-        book: "Book V: Planning in India & NITI Aayog",
-        title: "19. NITI Aayog Architecture & Viksit Bharat @2047",
-        readTime: "5 min read",
-        examTags: "NITI Aayog (1 Jan 2015), Advisory Think Tank, Viksit Bharat",
-        truth: "NITI Aayog replaced allocative fund-distribution planning with a 15-year Vision, 7-year Strategy, and 3-year Action Agenda focused on cooperative federalism.",
-        body: `
-### NITI Aayog Basics:
-- Formed **1 January 2015** by Cabinet resolution replacing Planning Commission.
-- Premier policy **think tank** (advisory, non-allocative).
-- **Chairperson:** Prime Minister.
-- **7 Pillars of Governance:** Pro-People, Pro-Activity, Participation, Empowering, Inclusion of All, Equality, Transparency.
-- **Viksit Bharat @2047:** Long-horizon vision for developed nation status by 2047.
-        `
-      },
-      {
-        id: "ch-20",
-        book: "Book V: Planning in India & NITI Aayog",
-        title: "20. Atal Innovation Mission (AIM) & Aspirational Programs",
-        readTime: "5 min read",
-        examTags: "Atal Tinkering Labs, Aspirational Districts & Blocks",
-        truth: "Targeted development programs use real-time KPI monitoring (Champions of Change) to drive convergence across lagging districts and blocks.",
-        body: `
-### Key NITI Aayog Initiatives:
-- **Atal Innovation Mission (AIM):** Over **10,000 Atal Tinkering Labs (ATLs)** established reaching 1.1+ crore students; Budget 2025-26 targeted 50,000 more ATLs.
-- **Aspirational Districts Programme (ADP 2018):** 112 districts across 28 states monitored on 49 KPIs.
-- **Aspirational Blocks Programme (ABP 2023):** 500 blocks across 27 states & 4 UTs selected on population (25%) and per-capita GDP (75%).
-        `
-      },
-      {
-        id: "ch-21",
-        book: "Book VI: Industrial Policy, MSME & LPG Reforms",
-        title: "21. Industrial Policy Resolutions (IPR 1948, 1956 & 1991)",
-        readTime: "6 min read",
-        examTags: "IPR 1948, IPR 1956 Schedule A/B/C, NIP 1991 Delicensing",
-        truth: "Industrial policy evolved from socialist state-monopoly reservations (IPR 1956) to delicensing, de-reservation, and market liberalization under NIP 1991.",
-        body: `
-### Evolution:
-- **IPR 1948:** Introduced mixed economy model; state monopoly in 3 fields (Arms, Atomic Energy, Rail).
-- **IPR 1956:** "Economic Constitution of India". Divided industries into Schedule A (State monopoly), Schedule B (Mixed), Schedule C (Private).
-- **New Industrial Policy 1991:** Dismantled licensing, de-reserved public sector, amended MRTP Act (replaced by **Competition Act 2002**), and raised automatic FDI limit to 51% (34 Appendix I industries).
-        `
-      },
-      {
-        id: "ch-22",
-        book: "Book VI: Industrial Policy, MSME & LPG Reforms",
-        title: "22. PSUs Ratna Status & MSME Udyam Registration",
-        readTime: "5 min read",
-        examTags: "Maharatna/Navratna, MSME Udyam Registration (2020), Disinvestment",
-        truth: "Udyog Aadhaar is obsolete; Udyam Registration is the sole Aadhaar/PAN-integrated digital registration for MSMEs under 2020 unified criteria.",
-        body: `
-### CPSE Ratna Categories:
-- **Maharatna:** Navratna status, listed, avg turnover >Rs 25,000 cr, net worth >Rs 15,000 cr, net profit >Rs 5,000 cr (3-yr avg).
-- **Navratna:** Miniratna-I, Schedule A, score ≥ 60/100 across 6 financial parameters.
-
-### MSME Classification (Unified since 2020):
-- **Micro:** Investment ≤ Rs 2.5 cr | Turnover ≤ Rs 10 cr.
-- **Small:** Investment ≤ Rs 25 cr | Turnover ≤ Rs 100 cr.
-- **Medium:** Investment ≤ Rs 125 cr | Turnover ≤ Rs 500 cr.
-- **Registration:** **Udyam Registration** (19-digit URN, replacing obsolete Udyog Aadhaar).
-        `
-      },
-      {
-        id: "ch-23",
-        book: "Book VI: Industrial Policy, MSME & LPG Reforms",
-        title: "23. LPG Reforms 1991: Liberalization & Privatization",
-        readTime: "5 min read",
-        examTags: "LPG 1991 Crisis, Delicensing, Disinvestment Target",
-        truth: "The 1991 LPG reforms were triggered by a severe BoP and fiscal crisis (forex reserves down to $1.2B), forcing structural deregulation.",
-        body: `
-### 1991 Crisis Backdrop:
-- Gross fiscal deficit at **12.1% of GDP**; Forex reserves at **$1.2 Billion** (barely 2 weeks of imports); Inflation at **13.87%**.
-
-### 3 Reform Directions:
-1. **Liberalization:** Dismantled license-permit raj, freed interest rates, raised SSI limits.
-2. **Privatization:** Disinvestment of PSE shares (Budget 2026-27 miscellaneous capital receipts target: **Rs 80,000 crore**).
-3. **Globalization:** Lowered tariffs, partial rupee convertibility (1993/94), GATT Marrakesh Agreement (1994) → **WTO (1 Jan 1995)**.
-        `
-      },
-      {
-        id: "ch-24",
-        book: "Book VII: Global Economic Institutions",
-        title: "24. International Monetary Fund (IMF) Quotas & SDRs",
-        readTime: "6 min read",
-        examTags: "IMF 1945, SDR Basket, Quota Formula, WEO/GFSR Reports",
-        truth: "The IMF monitors exchange rates and provides BoP liquidity support; voting power is determined by quotas where 85% supermajority gives US veto power.",
-        body: `
-### IMF Basics:
-- Formed Dec 1945 at Bretton Woods (1944). HQ: Washington D.C. 191 Members (Liechtenstein 191st).
-- **Special Drawing Rights (SDR):** "Paper gold" reserve asset. Basket: USD (43.38%), EUR (29.31%), RMB (12.28%), JPY (7.59%), GBP (7.44%).
-- **IMF Reports:** World Economic Outlook (WEO), Global Financial Stability Report (GFSR), Fiscal Monitor.
-        `
-      },
-      {
-        id: "ch-25",
-        book: "Book VII: Global Economic Institutions",
-        title: "25. World Bank Group, WTO, NDB & Regional Blocs",
-        readTime: "7 min read",
-        examTags: "IBRD, IDA, IFC, MIGA, ICSID, B-READY, WTO, NDB, AIIB",
-        truth: "Multilateral institutions complement global trade and infrastructure finance: World Bank (development), WTO (trade rules), NDB & AIIB (emerging market infra).",
-        body: `
-### World Bank Group (5 Institutions):
-1. **IBRD (1944):** Middle-income country loans (India 7th largest shareholder).
-2. **IDA (1960):** "Soft window" concessional grants to poorest nations.
-3. **IFC (1956):** Private sector arm.
-4. **MIGA (1988):** Political risk insurance.
-5. **ICSID (1966):** Investor-State dispute settlement (**India is NOT a member**).
-- **B-READY Report:** Replaced discontinued *Ease of Doing Business* report in 2024.
-
-### WTO & Regional Blocs:
-- **WTO (1 Jan 1995):** Born via Marrakesh Agreement (1994) replacing GATT. Principles: MFN, National Treatment. Agreement on Agriculture (AoA: Green, Amber, Blue boxes).
-- **NDB (BRICS Bank, Shanghai):** Equal one-nation-one-vote (Fortaleza 2014).
-- **AIIB (Beijing, 2016):** 110 members (India founding member & 2nd largest shareholder).
-        `
-      },
-      {
-        id: "ch-26",
-        book: "Book VIII: Social Issues & Human Capital",
-        title: "26. Gender Issues & Women Empowerment",
-        readTime: "5 min read",
-        examTags: "Female LFPR, POSH Act 2013, Gender Budgeting",
-        truth: "Gender equity is an economic imperative; closing the gender gap in labor participation directly expands national output and human development.",
-        body: `
-### Key Dimensions:
-- **Female LFPR:** Historically low in India (~25–35%), though showing upward trends in recent PLFS rounds.
-- **POSH Act (2013):** Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act mandates Internal Complaints Committees (ICC) in organizations with ≥10 employees.
-- **Gender Budgeting:** Introduced in India in 2005-06 (Statement 20 of Union Budget) to track fund allocation directly benefiting women (Part A: 100% women schemes, Part B: ≥30% women schemes).
-- **Equal Remuneration Act 1976:** Mandates equal pay for equal work regardless of gender.
-        `
-      },
-      {
-        id: "ch-27",
-        book: "Book VIII: Social Issues & Human Capital",
-        title: "27. Demographics of India & Human Development",
-        readTime: "5 min read",
-        examTags: "Demographic Dividend, NFHS-5, Dependency Ratio",
-        truth: "A demographic dividend is a temporary window of economic opportunity that yields growth only if human capital, health, and skill infrastructure absorb the expanding working-age population.",
-        body: `
-### Demographic Dividend (2018–2055):
-- India entered its demographic dividend window in 2018 (working-age population 15–64 exceeds dependent population <15 and >65).
-- **Working-Age Share:** Over 65% of India's population is in the working-age group.
-- **Dependency Ratio:** $\text{Dependency Ratio} = \frac{\text{Population } (<15 + >65)}{\text{Population } (15-64)} \times 100$.
-
-### NFHS-5 Benchmarks:
-- **Total Fertility Rate (TFR):** Declined to **2.0** (below replacement level of 2.1).
-- **Sex Ratio at Birth:** Improved to 929 females per 1000 males; overall sex ratio 1020 per 1000.
-        `
-      },
-      {
-        id: "ch-28",
-        book: "Book VIII: Social Issues & Human Capital",
-        title: "28. Education Policy & Human Capital",
-        readTime: "5 min read",
-        examTags: "NEP 2020 5+3+3+4, GER 50% Target, Samagra Shiksha",
-        truth: "Human capital is created when education shifts from rote memorization to foundational literacy, numeracy, and flexible skill acquisition.",
-        body: `
-### National Education Policy (NEP 2020):
-- Replaced 10+2 system with **5+3+3+4 Curricular Structure**:
-  1. **Foundational (5 yrs):** Ages 3–8 (Anganwadi/Pre-school + Class 1-2).
-  2. **Preparatory (3 yrs):** Ages 8–11 (Class 3-5).
-  3. **Middle (3 yrs):** Ages 11–14 (Class 6-8).
-  4. **Secondary (4 yrs):** Ages 14–18 (Class 9-12).
-- **GER Targets:** Gross Enrolment Ratio in Higher Education targeted at **50% by 2035** (up from ~27%).
-- **NIPUN Bharat:** National Initiative for Proficiency in Reading with Understanding and Numeracy.
-        `
-      },
-      {
-        id: "ch-29",
-        book: "Book VIII: Social Issues & Human Capital",
-        title: "29. Health System & Universal Healthcare",
-        readTime: "5 min read",
-        examTags: "National Health Policy 2017, Ayushman Bharat PM-JAY, PM-ABHIM",
-        truth: "Out-of-pocket health expenditure is a primary driver of household impoverishment; universal health coverage protects families from medical bankruptcy.",
-        body: `
-### Policy Targets:
-- **National Health Policy 2017:** Target to increase public health expenditure to **2.5% of GDP**.
-
-### Ayushman Bharat (2 Pillars):
-1. **Health and Wellness Centres (HWCs):** Transforming 1.5 lakh sub-centres for primary healthcare.
-2. **PM-JAY (Pradhan Mantri Jan Arogya Yojana):** Provides **Rs 5 lakh per family per year** health cover for secondary/tertiary hospitalization, covering bottom 40% vulnerable population (~12 crore families / 50 crore individuals).
-
-<div class="exam-highlight-box">
-  <h4>🏥 PM-ABHIM</h4>
-  PM Ayushman Bharat Health Infrastructure Mission: Outlay to strengthen urban & rural health infrastructure, lab networks, and critical care blocks.
-</div>
-        `
-      },
-      {
-        id: "ch-30",
-        book: "Book VIII: Social Issues & Human Capital",
-        title: "30. Urbanization & Migration in India",
-        readTime: "5 min read",
-        examTags: "Internal Migration, Smart Cities, AMRUT 2.0, Swachh Bharat",
-        truth: "Urbanization acts as an engine of economic growth when supported by planned infrastructure, sustainable housing, and basic municipal services.",
-        body: `
-### Urbanization Trends:
-- India's urban population: ~31.2% (Census 2011), projected to cross 40% by 2030.
-- **Migration Push & Pull Factors:** Push (rural distress, low wages, drought) vs Pull (better employment, higher wages, education/health access).
-
-### Urban Schemes:
-- **Smart Cities Mission:** 100 cities selected for core infrastructure & smart solutions.
-- **AMRUT 2.0:** Universal coverage of water supply to households in all statutory towns.
-- **PMAY-Urban:** Affordable housing for urban poor.
-        `
-      },
-      {
-        id: "ch-31",
-        book: "Book IX: Monetary Policy, BoP & Financial Sector",
-        title: "31. Monetary Policy Framework & RBI Architecture",
-        readTime: "6 min read",
-        examTags: "MPC (6 Members), Inflation Targeting 4%±2%, LAF/SDF/MSF",
-        truth: "Monetary policy maintains price stability to protect real purchasing power while supporting sustainable economic growth.",
-        body: `
-### Flexible Inflation Targeting (FIT):
-- Mandated under RBI Act 1934 (2016 Amendment). Target: **4% CPI Headline Inflation with a tolerance band of ± 2%** (2% to 6%).
-
-### Monetary Policy Committee (MPC):
-- **6 Members:** RBI Governor (Chair), Deputy Governor i/c Monetary Policy, Executive Director RBI, plus 3 external members appointed by Central Govt.
-- Meets at least **4 times a year**. Quorum: 4 members. Governor has casting vote.
-
-### Policy Instruments:
-- **LAF Repo Rate:** Rate at which RBI lends short-term money to banks against collateral.
-- **Standing Deposit Facility (SDF):** Floor of LAF corridor; absorbs liquidity without collateral.
-- **Marginal Standing Facility (MSF):** Ceiling of LAF corridor; emergency overnight borrowing.
-- **Reserve Ratios:** CRR (Cash Reserve Ratio held with RBI) & SLR (Statutory Liquidity Ratio in liquid assets).
-        `
-      },
-      {
-        id: "ch-32",
-        book: "Book IX: Monetary Policy, BoP & Financial Sector",
-        title: "32. Balance of Payments (BoP) & Foreign Trade Policy",
-        readTime: "6 min read",
-        examTags: "Current Account vs Capital Account, CAD, Forex Reserves, FTP 2023",
-        truth: "Balance of Payments records all financial transactions between residents and the rest of the world; sustainable current account deficits are financed by non-debt capital flows.",
-        body: `
-### BoP Structure:
-1. **Current Account:** Visible Trade (Exports - Imports of Goods), Invisibles (Services, Transfers, Remittances, Income).
-2. **Capital Account:** Foreign Direct Investment (FDI), Foreign Portfolio Investment (FPI), External Commercial Borrowings (ECB), NRI Deposits.
-
-### Forex Reserves (4 Components):
-1. Foreign Currency Assets (FCA)
-2. Gold holdings
-3. Special Drawing Rights (SDRs)
-4. Reserve Tranche Position (RTP) in IMF
-
-### Foreign Trade Policy (FTP 2023):
-- Sets target to achieve **$2 Trillion total exports by 2030** based on 4 pillars: Incentive to Remission, Export promotion, Ease of Doing Business, Districts as Export Hubs.
-        `
-      },
-      {
-        id: "ch-33",
-        book: "Book IX: Monetary Policy, BoP & Financial Sector",
-        title: "33. Banking Sector, NPAs & Basel III Framework",
-        readTime: "6 min read",
-        examTags: "IBC 2016, Gross NPA, Basel III CRAR 9%+CCB 2.5%, SFBs & Payments Banks",
-        truth: "Bank asset quality determines financial stability; credit expansion without rigorous risk pricing leads to non-performing asset cascades.",
-        body: `
-### Insolvency & Bankruptcy Code (IBC 2016):
-- Time-bound resolution process for distressed corporate debtors overseen by **NCLT** (National Company Law Tribunal) and **IBBI** (Insolvency and Bankruptcy Board of India).
-
-### Basel III Capital Requirements (India):
-- **Minimum CRAR (Capital to Risk-Weighted Assets Ratio):** **9.0%** for Indian banks (higher than Basel III global 8% norm).
-- **Capital Conservation Buffer (CCB):** **2.5%**.
-- **Total Minimum Capital:** **11.5%**.
-
-### Differentiated Banking:
-- **Small Finance Banks (SFBs):** Min capital Rs 200 cr; 75% PSL target; 50% loans ≤ Rs 25 lakh.
-- **Payments Banks:** Min capital Rs 100 cr; deposit limit Rs 2 lakh; **cannot lend or issue credit cards**.
-        `
-      },
-      {
-        id: "ch-34",
-        book: "Book X: Nodal Ministry Flagship Schemes Matrix",
-        title: "34. Nodal Ministry Matrix: Rural & Agricultural Schemes",
-        readTime: "6 min read",
-        examTags: "PM-KISAN, MGNREGA, PMAY-G, DAY-NRLM, PMKSY",
-        truth: "Targeted rural schemes build physical infrastructure, provide income support, and create guaranteed safety nets to eliminate distress migration.",
-        body: `
-### Flagship Schemes Matrix:
-
-1. **PM-KISAN (Pradhan Mantri Kisan Samman Nidhi):**
-   - *Nodal Ministry:* Ministry of Agriculture & Farmers Welfare.
-   - *Benefits:* Income support of **Rs 6,000 per year** in 3 equal installments of Rs 2,000 directly to landholding farmer families.
-
-2. **MGNREGA:**
-   - *Nodal Ministry:* Ministry of Rural Development.
-   - *Statutory Guarantee:* At least **100 days of guaranteed wage employment** in a financial year to adult members of rural households willing to do unskilled manual work.
-
-3. **PMAY-G (Pradhan Mantri Awaas Yojana - Gramin):**
-   - *Nodal Ministry:* Ministry of Rural Development.
-   - *Objective:* Financial assistance for construction of pucca houses with basic amenities for rural homeless/kutcha house dwellers.
-
-4. **DAY-NRLM:**
-   - *Nodal Ministry:* Ministry of Rural Development.
-   - *Objective:* Organize rural poor women into Self-Help Groups (SHGs) and provide revolving fund/capital support to foster sustainable self-employment.
-        `
-      },
-      {
-        id: "ch-35",
-        book: "Book X: Nodal Ministry Flagship Schemes Matrix",
-        title: "35. Nodal Ministry Matrix: Health, Social Security & MSME",
-        readTime: "6 min read",
-        examTags: "Ayushman Bharat, Mudra Yojana, PM-Vishwakarma, Stand-Up India",
-        truth: "Financial inclusion and social security schemes empower informal workers, micro-entrepreneurs, and vulnerable households to achieve economic resilience.",
-        body: `
-### Flagship Schemes Matrix:
-
-1. **Pradhan Mantri Mudra Yojana (PMMY):**
-   - *Nodal Ministry:* Ministry of Finance (executed via MUDRA / SIDBI).
-   - *Categories:* Loans up to Rs 10 lakh to non-corporate micro enterprises:
-     - **Shishu:** Loans up to Rs 50,000.
-     - **Kishor:** Loans from Rs 50,000 to Rs 5 Lakh.
-     - **Tarun:** Loans from Rs 5 Lakh to Rs 10 Lakh.
-
-2. **PM-Vishwakarma Scheme:**
-   - *Nodal Ministry:* Ministry of MSME / Skill Development.
-   - *Objective:* End-to-end support to traditional artisans and craftspeople (Vishwakarmas) through skill verification, toolkit incentive (Rs 15,000), collateral-free credit, and digital transaction incentives.
-
-3. **Stand-Up India Scheme:**
-   - *Nodal Ministry:* Ministry of Finance.
-   - *Objective:* Facilitate bank loans between **Rs 10 lakh and Rs 1 crore** to at least one SC/ST borrower and at least one Woman borrower per bank branch for setting up a greenfield enterprise.
-        `
-      },
-      {
-        id: "ch-36",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "36. History Ch 1: What, Where, How and When? (Historical Methodology)",
-        readTime: "5 min read",
-        examTags: "Manuscripts, Inscriptions, Epigraphy, Numismatics, Carbon-14",
-        truth: "History is an inquiry into human continuity and change over time, reconstructed through archaeological artifacts, written manuscripts, and epigraphic inscriptions.",
-        body: `
-### Core Historical Methodology:
-- **Historia (Greek):** Knowledge acquired through systematic inquiry.
-- **BCE / CE System:** Before Common Era (counts backward to zero) vs Common Era. 200 BCE is more recent than 500 BCE.
-
-### 3 Primary Sources of History:
-1. **Archaeological:** Material remains (pots, tools, coins, bones, buildings).
-2. **Literary / Written:** Manuscripts (palm leaf / birch bark) & Inscriptions.
-3. **Oral Traditions:** Folklore, ballads, oral histories.
-
-<div class="exam-highlight-box">
-  <h4>📜 Manuscripts vs. Inscriptions</h4>
-  • <strong>Manuscripts:</strong> Handwritten on soft materials (palm leaf, birch bark). Prone to copying errors over centuries.<br>
-  • <strong>Inscriptions:</strong> Carved on hard surfaces (stone, metal, walls). More durable and reliable. Study of inscriptions = <strong>Epigraphy</strong>. Study of coins = <strong>Numismatics</strong>.
-</div>
-
-### Early Settlement Geography:
-- **Narmada Valley:** One of the earliest regions of human hunter-gatherer habitation.
-- **Sulaiman & Kirthar Hills (NW):** First wheat & barley farming + animal domestication (~8000 years ago).
-- **Indus River System:** First urban cities (~4700 years ago).
-- **Ganga & Son Valleys:** Rice cultivation (~2000+ years ago) & Magadha Empire.
-        `
-      },
-      {
-        id: "ch-37",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "37. History Ch 2: On the Trail of the Earliest People (Stone Age)",
-        readTime: "5 min read",
-        examTags: "Palaeolithic, Mesolithic Microliths, Neolithic, Bhimbetka",
-        truth: "Human tool technology evolved from crude hand-axes to precision microliths and ground tools, driving the transition from mobile hunter-gatherers to settled farming communities.",
-        body: `
-### 3 Stone Age Phases:
-1. **Palaeolithic (Old Stone Age - 2M to 12,000 yrs ago):** Crude, unpolished flake & hand-axe stone tools. Sites: *Bhimbetka (MP), Hunsgi (Karnataka), Attirampakkam (TN)*.
-2. **Mesolithic (Middle Stone Age - 12,000 to 10,000 yrs ago):** **Microliths** (tiny, sharp stone blades hafted onto wood/bone handles for arrows & spears). Sites: *Bagor (Rajasthan), Adamgarh (MP)*.
-3. **Neolithic (New Stone Age - 10,000 to 4,000 yrs ago):** Polished stone tools, crop cultivation, animal domestication. Sites: *Mehrgarh, Burzahom, Chirand*.
-
-<div class="exam-highlight-box">
-  <h4>🎨 Bhimbetka Rock Shelters (UNESCO World Heritage Site)</h4>
-  Located in Raisen district, MP. Contains hundreds of prehistoric cave paintings showing hunting, dancing, and animals using natural mineral pigments (haematite red & limestone white).
-</div>
-        `
-      },
-      {
-        id: "ch-38",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "38. History Ch 3: In the Earliest Cities (Harappan Civilisation)",
-        readTime: "6 min read",
-        examTags: "Indus Valley Civilisation, Town Planning, Citadel, Lothal, Dholavira",
-        truth: "The Harappan Civilisation was South Asia's first urban revolution, defined by grid town planning, covered drainage, standardized weights, and maritime trade.",
-        body: `
-### Harappan Civilisation (~2600–1900 BCE):
-- First urban civilization in South Asia. Grid system streets cutting at right angles; baked brick construction.
-
-### Citadel vs Lower Town:
-- **Citadel (West):** Raised platform, administrative/public buildings (Great Bath at Mohenjo-Daro, Granaries).
-- **Lower Town (East):** Residential quarters for common citizens.
-
-### Key Harappan Sites & Signature Features:
-- **Mohenjo-Daro (Sindh):** Great Bath (water-tight brickwork with bitumen sealant), Bronze Dancing Girl.
-- **Harappa (Punjab, Pak):** Granaries, coffin burials.
-- **Lothal (Gujarat):** World's earliest artificial **tidal dockyard**; bead-making factory; fire altars.
-- **Dholavira (Rann of Kutch, Gujarat):** 3-tiered city fortification; sophisticated water harvesting reservoirs; large ten-sign signboard.
-- **Kalibangan (Rajasthan):** Ploughed field surface; wooden drain; fire altars.
-        `
-      },
-      {
-        id: "ch-39",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "39. History Ch 4: What Books and Burials Tell Us (Vedic Age)",
-        readTime: "5 min read",
-        examTags: "Rigveda, Hymns, Suktas, Megaliths, Inamgaon Burials",
-        truth: "The Rigvedic era was a pastoral, egalitarian tribal society where wealth was counted in cattle, while Megalithic monuments marked social stratification in peninsular India.",
-        body: `
-### The Rigveda:
-- Oldest Veda composed ~1500–1000 BCE in Vedic Sanskrit. Contains **1,028 hymns (Suktas)** organized in 10 Mandalas.
-- **Key Deities:** Agni (fire), Indra (warrior god), Soma (sacred plant drink).
-- **Society:** Pastoral, semi-nomadic. Wealth measured in cattle (*Gavishti* = search for cows). No standing army or taxation.
-
-### Megaliths (Big Stone Burials):
-- Found in Deccan, South India, and Northeast (~1000 BCE onwards). Stone circles or cairns marking underground graves.
-- Contain black and red ware pottery, iron tools, and weapons.
-- **Inamgaon (Maharashtra):** Chalcolithic burial site showing multi-room houses and adult burials with grave goods.
-        `
-      },
-      {
-        id: "ch-40",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "40. History Ch 5: Kingdoms, Kings and an Early Republic",
-        readTime: "6 min read",
-        examTags: "16 Mahajanapadas, Magadha, Vajji Gana/Sangha, Bhaga Tax",
-        truth: "Iron agricultural tools enabled a agricultural surplus, causing tribal janapadas to consolidate into 16 territorial Mahajanapadas and early republics.",
-        body: `
-### Evolution:
-$$\text{Jana (Tribe)} \longrightarrow \text{Janapada (Settled Land)} \longrightarrow \text{Mahajanapada (Territorial State)}$$
-
-### 16 Mahajanapadas (~600 BCE):
-- **Monarchies (Rajyas):** Magadha, Kosala, Vatsa, Avanti. Rule by hereditary king.
-- **Republics (Ganas / Sanghas):** **Vajji (capital Vaishali)** & Malla. Governance by assembly of elders (*Rajas*).
-
-### Why Magadha Became Supreme:
-1. Rich iron ore deposits (Singhbhum) for weapons and tools.
-2. Fertile Gangetic alluvial soil yielding 1/6th (*Bhaga*) tax surplus.
-3. Natural defensive capitals (Rajagriha surrounded by 5 hills; Pataliputra at river confluence).
-4. Strategic military use of war elephants.
-        `
-      },
-      {
-        id: "ch-41",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "41. History Ch 6: New Questions and Ideas (Buddhism & Jainism)",
-        readTime: "6 min read",
-        examTags: "Buddhism, Four Noble Truths, Eightfold Path, Jainism, Upanishads",
-        truth: "Buddhism and Jainism emerged as intellectual and social reform movements against Vedic animal sacrifices and caste rigidity, preaching non-violence and moral conduct.",
-        body: `
-### 1. Buddhism (Siddhartha Gautama - The Buddha):
-- Born in Lumbini (KSHATRIYA Shakya clan). Attained enlightenment under Pipal tree at **Bodh Gaya**. First sermon at **Sarnath** (Dhammacakkappavattana). Passed away at **Kusinara**.
-- **Four Noble Truths:** Life is suffering; Suffering has a cause (desire/Tanha); Suffering can end; Path is the **Eightfold Path (Astangika Marga)**.
-- Rejection of Varna hierarchy & animal sacrifices; teachings in Prakrit (language of masses).
-
-### 2. Jainism (Vardhamana Mahavira):
-- 24th Tirthankara (Jnatrika clan). Attained Kevalajnana.
-- **5 Doctrines:** Ahimsa (strict non-violence to all living beings), Satya, Asteya, Aparigraha, Brahmacharya (added by Mahavira).
-
-### 3. Upanishads & Sangha:
-- **Upanishads:** Philosophical dialogues on Atman (individual soul) and Brahman (universal soul).
-- **Sangha & Viharas:** Monastic orders and permanent rock-cut/brick shelters for monks.
-        `
-      },
-      {
-        id: "ch-42",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "42. History Ch 7: Ashoka, The Emperor Who Gave Up War",
-        readTime: "6 min read",
-        examTags: "Chandragupta Maurya, Kalinga War 261 BCE, Ashoka Dhamma, Edicts",
-        truth: "After the catastrophic Kalinga War, Ashoka substituted military conquest (Dhammavijaya) with moral governance (Dhamma), issuing rock edicts across the empire.",
-        body: `
-### Mauryan Empire (~321–185 BCE):
-- Founded by **Chandragupta Maurya** after overthrowing Dhana Nanda with Chanakya (Kautilya author of *Arthashastra*).
-- Empire stretched from Afghanistan/Kandahar to Karnataka.
-
-### Ashoka's Kalinga War (261 BCE):
-- Conquest of Kalinga (modern Odisha) resulted in 100,000 deaths and 150,000 captives. The violence filled Ashoka with remorse.
-
-<div class="exam-highlight-box">
-  <h4>📜 Policy of Dhamma & Edicts</h4>
-  • <strong>Dhamma:</strong> Not a new religion, but a moral code (respect for elders, Ahimsa toward animals, truthfulness, humane treatment of servants).<br>
-  • <strong>Edicts:</strong> Inscribed on rocks and polished pillars in Prakrit (Brahmi script) and Greek/Aramaic in NW.<br>
-  • <strong>Dhamma Mahamattas:</strong> Special officers appointed to spread Dhamma and welfare.
-</div>
-        `
-      },
-      {
-        id: "ch-43",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "43. History Ch 8: Vital Villages, Thriving Towns (Second Urbanisation)",
-        readTime: "5 min read",
-        examTags: "Iron Ploughshare, NBPW, Shrenis (Guilds), Sangam Literature",
-        truth: "Widespread adoption of iron agricultural tools and paddy transplantation created a massive economic surplus that fuelled India's Second Urbanisation.",
-        body: `
-### Drivers of Second Urbanisation (~500 BCE onwards):
-- **Iron Ploughshare & Paddy Transplantation:** Increased crop yields dramatically across Gangetic plains.
-- **Northern Black Polished Ware (NBPW):** Fine deluxe pottery with mirror-like metallic luster, signature of urban centers.
-
-### Guilds (Shrenis):
-- Associations of craftspersons and merchants.
-- Functions: Provided training, procured raw materials, distributed finished goods, served as **banks** taking deposits and lending interest.
-
-### Sangam Literature & Southern Trade:
-- Earliest Tamil literature compiled in 3 assemblies (Sangams) at Madurai under Pandyan patronage.
-- **Arikamedu (Puducherry):** Major coastal port facility trading with the Roman Empire (amphorae jars, Arretine stamped pottery found).
-        `
-      },
-      {
-        id: "ch-44",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "44. History Ch 9: Traders, Kings and Pilgrims (Silk Route)",
-        readTime: "6 min read",
-        examTags: "Silk Route, Kushanas, Kanishka, Chinese Pilgrims (Fa Hien, Xuanzang)",
-        truth: "Control over international overland trade routes funded ancient empires, while trade networks facilitated the trans-continental spread of Mahayana Buddhism.",
-        body: `
-### The Silk Route & Kushana Empire:
-- **Silk Route:** Ancient trade network connecting China, India, Central Asia, and Europe.
-- **Kushanas (1st–3rd CE):** Controlled the major branches of the Silk Route. First rulers in India to issue large-scale **gold coins**.
-- **King Kanishka (c. 78 CE):** Convened 4th Buddhist Council in Kashmir (division into Hinayana & Mahayana). Patronized **Ashvaghosha** (author of *Buddhacharita*).
-
-### Chinese Pilgrims to India:
-1. **Fa Hien (399–414 CE):** Visited during Chandragupta II's reign.
-2. **Xuanzang (629–645 CE):** Visited during Harsha's reign; spent years studying at Nalanda University.
-3. **I-Tsing (671–695 CE):** Came via sea route to study Buddhist texts.
-        `
-      },
-      {
-        id: "ch-45",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "45. History Ch 10: New Empires and Kingdoms (Guptas & Harsha)",
-        readTime: "6 min read",
-        examTags: "Gupta Golden Age, Samudragupta, Chandragupta II, Harsha, Pulakeshin II",
-        truth: "The Gupta period was India's classical golden age of Sanskrit literature, mathematics, and science, followed by Harsha's empire in northern India.",
-        body: `
-### 1. Gupta Empire (~320–550 CE) — The Golden Age:
-- **Chandragupta I (319 CE):** Founded Gupta Era; married Licchhavi princess.
-- **Samudragupta (~335–375 CE):** 'Napoleon of India' (V.A. Smith). **Allahabad Pillar Inscription (Prayag Prashasti)** composed by court poet Harishena. Played veena on gold coins.
-- **Chandragupta II Vikramaditya (~375–415 CE):** Defeated Western Sakas. Court adorned by **Navratnas (9 Gems)** including **Kalidasa** (*Abhijnanasakuntalam*) and **Aryabhata** (*Aryabhatiya*). Built rust-resistant **Iron Pillar of Delhi**.
-- **Kumaragupta I:** Founded **Nalanda University**.
-
-### 2. Harsha of Kanauj (~606–647 CE):
-- Ruled north India from Kanauj. Court poet **Bana Bhatta** wrote biography *Harshacharita*.
-- **Defeat by Pulakeshin II:** Harsha tried to expand into Deccan but was defeated by Chalukya king Pulakeshin II (recorded in **Aihole Inscription** by Ravikirti).
-        `
-      },
-      {
-        id: "ch-46",
-        book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)",
-        title: "46. History Ch 11: Buildings, Paintings and Books (Art & Culture)",
-        readTime: "7 min read",
-        examTags: "Stupas, Nagara/Dravida/Vesara, Ajanta Caves, Kailasa Temple",
-        truth: "Ancient Indian architecture evolved from rock-cut Buddhist chaityas and stupas to structural Hindu temples in Nagara, Dravida, and Vesara styles.",
-        body: `
-### 1. Stupa Architecture:
-- Hemispherical mound over Buddha's relics. Parts: **Anda** (dome), **Harmika** (square balcony), **Yashti** (umbrella pole), **Torana** (carved gateway).
-- **Sanchi Stupa (MP):** Built by Ashoka; finest torana carvings depicting Jataka stories.
-
-### 2. Temple Architecture Styles:
-- **Nagara (North India):** Curvilinear *Shikhara* tower over *Garbhagriha* (sanctum). No massive boundary walls. Examples: *Khajuraho, Konark*.
-- **Dravida (South India):** Pyramidal tiered *Vimana* tower, huge *Gopuram* gateways, temple tank. Examples: *Brihadeeswara (Thanjavur), Shore Temple*.
-- **Vesara (Deccan):** Hybrid star-shaped plan combining Nagara & Dravida. Examples: *Hoysala temples, Pattadakal*.
-
-### 3. Rock-Cut Masterpieces:
-- **Ajanta Caves (MH):** 29 Buddhist caves. World-famous tempera mural paintings (Padmapani Bodhisattva).
-- **Ellora Caves (MH):** 34 caves (12 Buddhist, 17 Hindu, 5 Jain). **Kailasa Temple (Cave 16)** carved top-down out of a single monolith by Rashtrakuta King Krishna I.
-        `
-      }
+    // --- 46 Master Chapters Across 11 Volumes (Tagged by Subject) ---
+    const rawBookData = [
+      { subject: "economics", id: "ch-1", book: "Book I: Foundations of Economics & National Income", title: "1. What is Economics? Scarcity & Choice", readTime: "3 min read", examTags: "Micro vs Macro, Scarcity, Adam Smith", truth: "Human desires are infinite, but physical resources are finite; therefore, every economy is forced to solve a continuous optimization problem of what, how, and for whom to allocate resources.", body: `The subject matter of Economics focuses on the **rational management of scarce resources** so that limited resources can be optimally transformed into valuable goods to maximize economic welfare.\n\n### According to Adam Smith:\n1. **Microeconomics:** When economic models are applied to individual units like a consumer or a producer (gives rise to Consumer & Producer behavior theories).\n2. **Macroeconomics:** When economic models are applied at the aggregate level (Inflation, National Income, Money Supply, Unemployment, Poverty).\n\n<div class="exam-highlight-box">\n  <h4>💡 Economics vs. Economy</h4>\n  <strong>Economics</strong> is the body of theories studying resource allocation.<br>\n  <strong>Economy</strong> is the practical system where these theories are applied to determine output levels and solve real-world problems.\n</div>` },
+      { subject: "economics", id: "ch-2", book: "Book I: Foundations of Economics & National Income", title: "2. The 3 Central Problems & Goods Classification", readTime: "4 min read", examTags: "Consumer vs Capital Goods, Intermediate vs Final Goods", truth: "Classification of goods depends on end-use rather than physical nature; an AC in a home is a consumer good, while the same AC in a factory is a capital good.", body: `### The 3 Central Problems:\n1. **What to produce?** (Consumer goods vs. Capital goods allocation).\n2. **How to produce?** (Labor-intensive vs. Capital-intensive technique based on factor abundance).\n3. **For whom to produce?** (Distribution, equity, and optimum allocation).\n\n### Goods Classification (Classic Exam Traps):\n- **Intermediate Goods:** Still in the value-addition process / raw materials (e.g. wheat flour in a bakery).\n- **Final Goods:** Ready for final consumption or investment; no further value addition required.\n- **Consumer Goods:** Consumed for direct utility maximization (Durables, Semi-durables, Non-durables).\n- **Capital Goods:** Used in production to generate wealth (machinery, factory buildings).` },
+      { subject: "economics", id: "ch-3", book: "Book I: Foundations of Economics & National Income", title: "3. Circular Flow of Income & Factor Payments", readTime: "5 min read", examTags: "Factors of Production, Factor Payments, Circular Flow", truth: "Every rupee spent by a consumer is a rupee earned by a producer; production automatically generates equal factor income across Land, Labor, Capital, and Entrepreneurship.", body: `An economy consists of 4 interacting sectors: **Household, Producer, Government, and External (Rest of World)**.\n\n### Factors of Production & Factor Income:\n- **Land** → **Rent**\n- **Labor** → **Wages / Compensation of Employees**\n- **Capital** → **Interest**\n- **Entrepreneurship** → **Profit**\n\n<div class="exam-highlight-box">\n  <h4>🔄 Circular Flow Rule</h4>\n  Real goods and services flow clockwise, while factor money payments flow counter-clockwise. Total Output Produced = Total Factor Income Generated = Total Expenditure Incurred.\n</div>` },
+      { subject: "economics", id: "ch-4", book: "Book I: Foundations of Economics & National Income", title: "4. GDP, NDP, GNP & NNP Aggregate Ladder", readTime: "6 min read", examTags: "GDP vs GNP, NDP vs NNP, NFIA, Domestic Territory", truth: "GDP measures output produced inside a geographic boundary regardless of owner citizenship; GNP measures output produced by a nation's citizens regardless of where they are located.", body: `### The Aggregate Ladder:\n- **Gross Domestic Product (GDP):** Total market value of all final goods and services produced within the domestic territory of a country within an accounting year.\n- **Net Domestic Product (NDP):** NDP = GDP − Depreciation\n- **Gross National Product (GNP):** GNP = GDP + NFIA (Net Factor Income from Abroad)\n- **Net National Product at Factor Cost (NNP_FC):** True **National Income**.\n\n<div class="exam-highlight-box">\n  <h4>🚗 The Honda US Plant Case Study</h4>\n  A Honda manufacturing plant in the U.S. owned by a Japanese corporation:\n  - Output → counted in <strong>U.S. GDP</strong> (produced within U.S. territory).\n  - Wages to U.S. workers → counted in <strong>U.S. GNP</strong>.\n  - Profits → go to Japanese owner → counted in <strong>Japan's GNP</strong>.\n</div>` },
+      { subject: "economics", id: "ch-5", book: "Book I: Foundations of Economics & National Income", title: "5. Factor Cost, Market Price & GVA at Basic Prices", readTime: "5 min read", examTags: "GVA Basic Prices, Net Indirect Taxes, 2026 Base Year Update", truth: "Factor Cost is what it costs to produce at the factory gate; Market Price is what consumers pay after government taxes and subsidies distort the price.", body: `### Market Price vs. Factor Cost:\n- Market Price (MP) = Factor Cost (FC) + Net Indirect Taxes (NIT)\n- Net Indirect Taxes = Indirect Taxes − Subsidies\n\n<div class="formula-box">\n  GVA at Basic Prices = GVA at Factor Cost + Production Taxes − Production Subsidies<br>\n  GDP at Market Prices = GVA at Basic Prices + Product Taxes − Product Subsidies\n</div>\n\n<div class="exam-highlight-box">\n  <h4>✅ 2026 Verified Update</h4>\n  NSO released the revised GDP series with base year <strong>2022-23</strong> (replacing 2011-12) on 27 February 2026 — the 8th base-year revision in India's history.\n</div>` },
+      { subject: "economics", id: "ch-6", book: "Book I: Foundations of Economics & National Income", title: "6. Methods of Calculating National Income", readTime: "5 min read", examTags: "Product Method, Income Method, Expenditure Method", truth: "National income can be calculated through three interlinked phases of economic activity: Production (Value Added), Income (Factor Payments), and Expenditure (Final Purchases).", body: `### 1. Value-Added / Product Method:\n- Value Added = Value of Output − Intermediate Consumption\n- Sum of value added across all producing firms equals Gross Value Added (GVA).\n\n### 2. Expenditure Method:\n- Y = C + I + G + (X − M)\n- Gives GDP at Market Price ($GDP_{MP}$).\n\n### 3. Income Method:\n- NDP(FC) = Compensation of Employees + Operating Surplus + Mixed Income\n- **Operating Surplus:** Dividends + Corporate Profit Tax + Undistributed Profits.\n- **Mixed Income:** Income of self-employed persons using their own land/labor/capital.` },
+      { subject: "economics", id: "ch-7", book: "Book I: Foundations of Economics & National Income", title: "7. Real vs Nominal GDP, GDP Deflator & Green GDP", readTime: "5 min read", examTags: "GDP Deflator, Green GDP, Partha Dasgupta Report", truth: "GDP measures money spent, not human welfare; nominal GDP can rise purely from price inflation without a single extra good being produced, and ignores environmental degradation.", body: `### Real vs. Nominal GDP:\n- **Nominal GDP:** Measured at current prices ($P_{\\text{current}} \\times Q$).\n- **Real GDP:** Measured at constant base year prices ($P_{\\text{base}} \\times Q$).\n\n<div class="formula-box">\n  GDP Deflator = (Nominal GDP / Real GDP) × 100\n</div>\n\n### Green GDP:\nAccounts for environmental degradation, biodiversity loss, and resource depletion (Partha Dasgupta Expert Group Report 2013).` },
+      { subject: "economics", id: "ch-8", book: "Book II: Poverty & Inequality", title: "8. What is Poverty? Dimensions & SDG Linkage", readTime: "4 min read", examTags: "UN Definition, SDG 1 & 2, World Bank Definition", truth: "Poverty entails more than the lack of income; it is the pronounced deprivation of human well-being, capabilities, and freedom to participate in society.", body: `### Definitions:\n- **UN Definition:** Poverty entails hunger, malnutrition, limited education/services, social exclusion, and lack of participation.\n- **World Bank Definition:** "Pronounced deprivation in well-being" below a minimum threshold.\n- **SDGs:** **SDG 1 (No Poverty)** & **SDG 2 (Zero Hunger)** born at Rio+20 (2012).\n\n### Poverty, Inequality & Vulnerability:\n- **Inequality:** Distribution of income/consumption across population.\n- **Vulnerability:** Risk of falling into poverty in future (calamities, health shocks).` },
+      { subject: "economics", id: "ch-9", book: "Book II: Poverty & Inequality", title: "9. Absolute vs Relative Poverty & Gini Coefficient", readTime: "5 min read", examTags: "Headcount Ratio, Lorenz Curve, Gini Index", truth: "Absolute poverty counts who lacks basic physical survival needs; Relative poverty measures systemic inequality comparing individuals across a societal distribution.", body: `### Absolute vs. Relative Poverty:\n- **Absolute Poverty:** Chronic lack of basic survival needs. Measured by Headcount Ratio: HCR = H / N\n- **Relative Poverty:** Measured via Lorenz Curve and Gini Coefficient.\n\n<div class="exam-highlight-box">\n  <h4>📊 Gini Coefficient & Lorenz Curve</h4>\n  • <strong>Lorenz Curve:</strong> Graphical cumulative distribution of income vs population.<br>\n  • <strong>Gini Coefficient (G):</strong> Ratio G = A / (A+B) (0 = equality, 1 = inequality).<br>\n  • <strong>Gini Index:</strong> Gini Coefficient × 100.\n</div>` },
+      { subject: "economics", id: "ch-10", book: "Book II: Poverty & Inequality", title: "10. Amartya Sen's Capability Approach", readTime: "4 min read", examTags: "Amartya Sen, Functionings & Capabilities", truth: "Development should expand human capabilities ('real freedoms to achieve valuable beings and doings'), rather than just maximizing GDP growth or calorie intake.", body: `### Functionings vs. Capabilities:\n- **Functionings:** The valuable 'beings' and 'doings' a person has reason to value (being educated, healthy, nourished).\n- **Capabilities:** The *real freedoms* and opportunities to achieve those functionings.\n\n### Poverty Types by Duration:\n- **Transitory / Situational:** Temporary shock (disaster, illness).\n- **Chronic / Generational:** Inherited across ≥2 generations.` },
+      { subject: "economics", id: "ch-11", book: "Book II: Poverty & Inequality", title: "11. Evolution of Indian Poverty Lines (1867–1993)", readTime: "6 min read", examTags: "Naoroji, Alagh 1979, Lakdawala 1993", truth: "Indian poverty estimation evolved from historical subsistence diets to quantitative calorie intake targets and state-specific CPI inflation indices.", body: `### Timeline:\n1. **Dadabhai Naoroji (1867-68):** Subsistence diet (Rs 16–35/year).\n2. **National Planning Committee (1938):** Rs 15–20/month.\n3. **Working Group (1962):** Rs 20 rural / Rs 25 urban per month.\n4. **Y.K. Alagh Task Force (1979):** Calorie norms — **2400 kcal (rural, Rs 49.09)** / **2100 kcal (urban, Rs 56.64)**.\n5. **Lakdawala Group (1993):** Introduced State-specific poverty lines updated via CPI-IW (urban) and CPI-AL (rural).` },
+      { subject: "economics", id: "ch-12", book: "Book II: Poverty & Inequality", title: "12. Tendulkar vs Rangarajan & NITI Aayog National MPI", readTime: "7 min read", examTags: "Tendulkar 2005, Rangarajan 2012, National MPI", truth: "Tendulkar shifted poverty estimation from calories to overall consumption expenditure, while Rangarajan restored multi-nutritional norms and household expenditure units.", body: `### Committee Comparison:\n- **Tendulkar (2005):** Dropped calorie norms, used MRP (1-year/30-day recall). Lines (2011-12): **Rs 816 (rural)** / **Rs 1000 (urban)**. Total BPL: **27 crore (21.9%)**.\n- **Rangarajan (2012):** Household of 5 unit. Calories + Protein + Fat. Lines (2011-12): **Rs 972 (rural)** / **Rs 1407 (urban)**. Total BPL: **36.3 crore (29.5%)**.\n\n### NITI Aayog National MPI (2021):\n- 3 Dimensions: Health (1/3), Education (1/3), Standard of Living (1/3) across **12 Indicators**.` },
+      { subject: "economics", id: "ch-13", book: "Book III: Unemployment & Labor Market", title: "13. What is Unemployment? LFPR, WPR & UR Indicators", readTime: "4 min read", examTags: "LFPR, WPR, Unemployment Rate (UR), 15+ Age Group", truth: "Unemployment measures only those in the working-age population who are actively willing and able to work but cannot find suitable employment.", body: `### Core Indicators:\n- **Labour Force:** Employed + Unemployed actively seeking work.\n- **LFPR:** (Employed + Unemployed) / Total Population (15+) × 100.\n- **WPR:** Employed / Total Population × 100.\n- **Unemployment Rate (UR):** Unemployed / Total Labour Force × 100.` },
+      { subject: "economics", id: "ch-14", book: "Book III: Unemployment & Labor Market", title: "14. PLFS Survey & Activity Statuses (ps+ss vs CWS)", readTime: "5 min read", examTags: "PLFS 2017, Usual Status (ps+ss), Current Weekly Status", truth: "Employment measurement requires distinguishing between long-term principal activity (365 days) and short-term weekly activity (7 days).", body: `### PLFS (Launched April 2017 by NSO):\n- **Urban (Quarterly):** Current Weekly Status (CWS - 7 days).\n- **Rural & Urban (Annual):** Usual Status (ps+ss - 365 days / 30 days) & CWS.\n- **PLFS 2025 Calendar-Year Shift:** Shifted to Jan–Dec calendar year cycle.` },
+      { subject: "economics", id: "ch-15", book: "Book III: Unemployment & Labor Market", title: "15. Types of Unemployment & The Phillips Curve", readTime: "6 min read", examTags: "Disguised Unemployment, Structural, Phillips Curve", truth: "Disguised unemployment occurs when additional workers add zero marginal output; Structural unemployment occurs when worker skills do not match market technology.", body: `### 7 Types of Unemployment:\n1. **Structural:** Skill/technology mismatch (Industry 4.0).\n2. **Cyclical:** Business cycle downturns.\n3. **Frictional:** Job transition (always present at full employment).\n4. **Disguised:** Marginal product of labor is zero ($\Delta Y / \Delta L = 0$, agriculture).\n5. **Seasonal, Voluntary, Underemployment.**\n\n### The Phillips Curve (1958):\nShort-run inverse trade-off: Unemployment ↓ ⇒ Wage Growth ↑ ⇒ Inflation ↑.` },
+      { subject: "economics", id: "ch-16", book: "Book IV: Fiscal Policy & Debt Glide Path", title: "16. Fiscal Policy Stances & Deficit Financing", readTime: "5 min read", examTags: "Expansionary vs Contractionary, Countercyclical, WMA", truth: "Fiscal policy uses government spending and taxation to smooth business cycles; deficit financing covers spending gaps through borrowing or monetization.", body: `### Policy Stances:\n- **Expansionary:** ↑ Spend, ↓ Tax (Pump priming in recession).\n- **Contractionary:** ↓ Spend, ↑ Tax (Fight inflation).\n- **Countercyclical:** Works against business cycle to stabilize.\n\n### Deficit Financing & Monetization:\n- **Pre-1997:** Direct monetization via ad hoc Treasury Bills.\n- **Post-1997:** Replaced by **Ways and Means Advances (WMA)** for temporary cash mismatches. RBI operates via secondary market **Open Market Operations (OMOs)**.` },
+      { subject: "economics", id: "ch-17", book: "Book IV: Fiscal Policy & Debt Glide Path", title: "17. FRBM Act & FY27 Debt-Anchored Framework", readTime: "6 min read", examTags: "FRBM Act 2003, NK Singh Committee, FY27 Debt Anchor", truth: "India's fiscal framework has shifted from a fixed annual fiscal deficit target to a declining debt-to-GDP anchor targeting ~50% Central Debt by FY31.", body: `### Legislative History:\n- **FRBM Act 2003:** Original 3% fiscal deficit target.\n- **N.K. Singh Committee (2017):** Recommended 60% combined debt-to-GDP ceiling (40% Centre / 20% States) + formal Escape Clause (0.5% relaxation).\n- **Post-COVID Glide Path:** Target fiscal deficit below 4.5% of GDP by FY26 (Met on schedule at 4.4% in FY26).\n- **FY27 Debt Anchor Shift:** From Budget 2026-27 onward, Centre targets a declining Central Debt-to-GDP ratio (~50% by FY31 down from 55.6% in FY27).` },
+      { subject: "economics", id: "ch-18", book: "Book V: Planning in India & NITI Aayog", title: "18. Pre-Independence Planning to 12th Five-Year Plan", readTime: "6 min read", examTags: "Harrod-Domar, Mahalanobis Plan, 12th FYP (Last Plan)", truth: "India's Five-Year Plan system ran from 1951 to 2017; the 12th Plan (2012–17) was India's final Five-Year Plan before NITI Aayog's structural shift.", body: `### Pre-Independence Efforts:\n- National Planning Committee (1938), Bombay Plan & Gandhian Plan (1944), People's Plan (1945), Sarvodaya Plan (1950).\n\n### Key Five-Year Plans:\n- **1st Plan (1951-56):** Harrod-Domar Model (Agriculture focus).\n- **2nd Plan (1956-61):** Mahalanobis Model (Heavy basic industries).\n- **3rd Plan (1961-66):** Aimed at take-off; disrupted by 1962/1965 wars.\n- **12th Plan (2012-17):** "Faster, Sustainable and More Inclusive Growth". **India's last Five-Year Plan**.` },
+      { subject: "economics", id: "ch-19", book: "Book V: Planning in India & NITI Aayog", title: "19. NITI Aayog Architecture & Viksit Bharat @2047", readTime: "5 min read", examTags: "NITI Aayog (1 Jan 2015), Advisory Think Tank, Viksit Bharat", truth: "NITI Aayog replaced allocative fund-distribution planning with a 15-year Vision, 7-year Strategy, and 3-year Action Agenda focused on cooperative federalism.", body: `### NITI Aayog Basics:\n- Formed **1 January 2015** by Cabinet resolution replacing Planning Commission.\n- Premier policy **think tank** (advisory, non-allocative).\n- **Chairperson:** Prime Minister.\n- **7 Pillars of Governance:** Pro-People, Pro-Activity, Participation, Empowering, Inclusion of All, Equality, Transparency.\n- **Viksit Bharat @2047:** Long-horizon vision for developed nation status by 2047.` },
+      { subject: "economics", id: "ch-20", book: "Book V: Planning in India & NITI Aayog", title: "20. Atal Innovation Mission (AIM) & Aspirational Programs", readTime: "5 min read", examTags: "Atal Tinkering Labs, Aspirational Districts & Blocks", truth: "Targeted development programs use real-time KPI monitoring (Champions of Change) to drive convergence across lagging districts and blocks.", body: `### Key NITI Aayog Initiatives:\n- **Atal Innovation Mission (AIM):** Over **10,000 Atal Tinkering Labs (ATLs)** established reaching 1.1+ crore students; Budget 2025-26 targeted 50,000 more ATLs.\n- **Aspirational Districts Programme (ADP 2018):** 112 districts across 28 states monitored on 49 KPIs.\n- **Aspirational Blocks Programme (ABP 2023):** 500 blocks across 27 states & 4 UTs selected on population (25%) and per-capita GDP (75%).` },
+      { subject: "economics", id: "ch-21", book: "Book VI: Industrial Policy, MSME & LPG Reforms", title: "21. Industrial Policy Resolutions (IPR 1948, 1956 & 1991)", readTime: "6 min read", examTags: "IPR 1948, IPR 1956 Schedule A/B/C, NIP 1991 Delicensing", truth: "Industrial policy evolved from socialist state-monopoly reservations (IPR 1956) to delicensing, de-reservation, and market liberalization under NIP 1991.", body: `### Evolution:\n- **IPR 1948:** Introduced mixed economy model; state monopoly in 3 fields (Arms, Atomic Energy, Rail).\n- **IPR 1956:** "Economic Constitution of India". Divided industries into Schedule A (State monopoly), Schedule B (Mixed), Schedule C (Private).\n- **New Industrial Policy 1991:** Dismantled licensing, de-reserved public sector, amended MRTP Act (replaced by **Competition Act 2002**), and raised automatic FDI limit to 51% (34 Appendix I industries).` },
+      { subject: "economics", id: "ch-22", book: "Book VI: Industrial Policy, MSME & LPG Reforms", title: "22. PSUs Ratna Status & MSME Udyam Registration", readTime: "5 min read", examTags: "Maharatna/Navratna, MSME Udyam Registration (2020), Disinvestment", truth: "Udyog Aadhaar is obsolete; Udyam Registration is the sole Aadhaar/PAN-integrated digital registration for MSMEs under 2020 unified criteria.", body: `### CPSE Ratna Categories:\n- **Maharatna:** Navratna status, listed, avg turnover >Rs 25,000 cr, net worth >Rs 15,000 cr, net profit >Rs 5,000 cr (3-yr avg).\n- **Navratna:** Miniratna-I, Schedule A, score ≥ 60/100 across 6 financial parameters.\n\n### MSME Classification (Unified since 2020):\n- **Micro:** Investment ≤ Rs 2.5 cr | Turnover ≤ Rs 10 cr.\n- **Small:** Investment ≤ Rs 25 cr | Turnover ≤ Rs 100 cr.\n- **Medium:** Investment ≤ Rs 125 cr | Turnover ≤ Rs 500 cr.\n- **Registration:** **Udyam Registration** (19-digit URN, replacing obsolete Udyog Aadhaar).` },
+      { subject: "economics", id: "ch-23", book: "Book VI: Industrial Policy, MSME & LPG Reforms", title: "23. LPG Reforms 1991: Liberalization & Privatization", readTime: "5 min read", examTags: "LPG 1991 Crisis, Delicensing, Disinvestment Target", truth: "The 1991 LPG reforms were triggered by a severe BoP and fiscal crisis (forex reserves down to $1.2B), forcing structural deregulation.", body: `### 1991 Crisis Backdrop:\n- Gross fiscal deficit at **12.1% of GDP**; Forex reserves at **$1.2 Billion** (barely 2 weeks of imports); Inflation at **13.87%**.\n\n### 3 Reform Directions:\n1. **Liberalization:** Dismantled license-permit raj, freed interest rates, raised SSI limits.\n2. **Privatization:** Disinvestment of PSE shares (Budget 2026-27 miscellaneous capital receipts target: **Rs 80,000 crore**).\n3. **Globalization:** Lowered tariffs, partial rupee convertibility (1993/94), GATT Marrakesh Agreement (1994) → **WTO (1 Jan 1995)**.` },
+      { subject: "economics", id: "ch-24", book: "Book VII: Global Economic Institutions", title: "24. International Monetary Fund (IMF) Quotas & SDRs", readTime: "6 min read", examTags: "IMF 1945, SDR Basket, Quota Formula, WEO/GFSR Reports", truth: "The IMF monitors exchange rates and provides BoP liquidity support; voting power is determined by quotas where 85% supermajority gives US veto power.", body: `### IMF Basics:\n- Formed Dec 1945 at Bretton Woods (1944). HQ: Washington D.C. 191 Members (Liechtenstein 191st).\n- **Special Drawing Rights (SDR):** "Paper gold" reserve asset. Basket: USD (43.38%), EUR (29.31%), RMB (12.28%), JPY (7.59%), GBP (7.44%).\n- **IMF Reports:** World Economic Outlook (WEO), Global Financial Stability Report (GFSR), Fiscal Monitor.` },
+      { subject: "economics", id: "ch-25", book: "Book VII: Global Economic Institutions", title: "25. World Bank Group, WTO, NDB & Regional Blocs", readTime: "7 min read", examTags: "IBRD, IDA, IFC, MIGA, ICSID, B-READY, WTO, NDB, AIIB", truth: "Multilateral institutions complement global trade and infrastructure finance: World Bank (development), WTO (trade rules), NDB & AIIB (emerging market infra).", body: `### World Bank Group (5 Institutions):\n1. **IBRD (1944):** Middle-income country loans (India 7th largest shareholder).\n2. **IDA (1960):** "Soft window" concessional grants to poorest nations.\n3. **IFC (1956):** Private sector arm.\n4. **MIGA (1988):** Political risk insurance.\n5. **ICSID (1966):** Investor-State dispute settlement (**India is NOT a member**).\n- **B-READY Report:** Replaced discontinued *Ease of Doing Business* report in 2024.\n\n### WTO & Regional Blocs:\n- **WTO (1 Jan 1995):** Born via Marrakesh Agreement (1994) replacing GATT. Principles: MFN, National Treatment. Agreement on Agriculture (AoA: Green, Amber, Blue boxes).\n- **NDB (BRICS Bank, Shanghai):** Equal one-nation-one-vote (Fortaleza 2014).\n- **AIIB (Beijing, 2016):** 110 members (India founding member & 2nd largest shareholder).` },
+      { subject: "economics", id: "ch-26", book: "Book VIII: Social Issues & Human Capital", title: "26. Gender Issues & Women Empowerment", readTime: "5 min read", examTags: "Female LFPR, POSH Act 2013, Gender Budgeting", truth: "Gender equity is an economic imperative; closing the gender gap in labor participation directly expands national output and human development.", body: `### Key Dimensions:\n- **Female LFPR:** Historically low in India (~25–35%), though showing upward trends in recent PLFS rounds.\n- **POSH Act (2013):** Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act mandates Internal Complaints Committees (ICC) in organizations with ≥10 employees.\n- **Gender Budgeting:** Introduced in India in 2005-06 (Statement 20 of Union Budget) to track fund allocation directly benefiting women (Part A: 100% women schemes, Part B: ≥30% women schemes).\n- **Equal Remuneration Act 1976:** Mandates equal pay for equal work regardless of gender.` },
+      { subject: "economics", id: "ch-27", book: "Book VIII: Social Issues & Human Capital", title: "27. Demographics of India & Human Development", readTime: "5 min read", examTags: "Demographic Dividend, NFHS-5, Dependency Ratio", truth: "A demographic dividend is a temporary window of economic opportunity that yields growth only if human capital, health, and skill infrastructure absorb the expanding working-age population.", body: `### Demographic Dividend (2018–2055):\n- India entered its demographic dividend window in 2018 (working-age population 15–64 exceeds dependent population <15 and >65).\n- **Working-Age Share:** Over 65% of India's population is in the working-age group.\n- **Dependency Ratio:** $\text{Dependency Ratio} = \frac{\text{Population } (<15 + >65)}{\text{Population } (15-64)} \times 100$.\n\n### NFHS-5 Benchmarks:\n- **Total Fertility Rate (TFR):** Declined to **2.0** (below replacement level of 2.1).\n- **Sex Ratio at Birth:** Improved to 929 females per 1000 males; overall sex ratio 1020 per 1000.` },
+      { subject: "economics", id: "ch-28", book: "Book VIII: Social Issues & Human Capital", title: "28. Education Policy & Human Capital", readTime: "5 min read", examTags: "NEP 2020 5+3+3+4, GER 50% Target, Samagra Shiksha", truth: "Human capital is created when education shifts from rote memorization to foundational literacy, numeracy, and flexible skill acquisition.", body: `### National Education Policy (NEP 2020):\n- Replaced 10+2 system with **5+3+3+4 Curricular Structure**:\n  1. **Foundational (5 yrs):** Ages 3–8 (Anganwadi/Pre-school + Class 1-2).\n  2. **Preparatory (3 yrs):** Ages 8–11 (Class 3-5).\n  3. **Middle (3 yrs):** Ages 11–14 (Class 6-8).\n  4. **Secondary (4 yrs):** Ages 14–18 (Class 9-12).\n- **GER Targets:** Gross Enrolment Ratio in Higher Education targeted at **50% by 2035** (up from ~27%).\n- **NIPUN Bharat:** National Initiative for Proficiency in Reading with Understanding and Numeracy.` },
+      { subject: "economics", id: "ch-29", book: "Book VIII: Social Issues & Human Capital", title: "29. Health System & Universal Healthcare", readTime: "5 min read", examTags: "National Health Policy 2017, Ayushman Bharat PM-JAY, PM-ABHIM", truth: "Out-of-pocket health expenditure is a primary driver of household impoverishment; universal health coverage protects families from medical bankruptcy.", body: `### Policy Targets:\n- **National Health Policy 2017:** Target to increase public health expenditure to **2.5% of GDP**.\n\n### Ayushman Bharat (2 Pillars):\n1. **Health and Wellness Centres (HWCs):** Transforming 1.5 lakh sub-centres for primary healthcare.\n2. **PM-JAY (Pradhan Mantri Jan Arogya Yojana):** Provides **Rs 5 lakh per family per year** health cover for secondary/tertiary hospitalization, covering bottom 40% vulnerable population (~12 crore families / 50 crore individuals).\n\n<div class="exam-highlight-box">\n  <h4>🏥 PM-ABHIM</h4>\n  PM Ayushman Bharat Health Infrastructure Mission: Outlay to strengthen urban & rural health infrastructure, lab networks, and critical care blocks.\n</div>` },
+      { subject: "economics", id: "ch-30", book: "Book VIII: Social Issues & Human Capital", title: "30. Urbanization & Migration in India", readTime: "5 min read", examTags: "Internal Migration, Smart Cities, AMRUT 2.0, Swachh Bharat", truth: "Urbanization acts as an engine of economic growth when supported by planned infrastructure, sustainable housing, and basic municipal services.", body: `### Urbanization Trends:\n- India's urban population: ~31.2% (Census 2011), projected to cross 40% by 2030.\n- **Migration Push & Pull Factors:** Push (rural distress, low wages, drought) vs Pull (better employment, higher wages, education/health access).\n\n### Urban Schemes:\n- **Smart Cities Mission:** 100 cities selected for core infrastructure & smart solutions.\n- **AMRUT 2.0:** Universal coverage of water supply to households in all statutory towns.\n- **PMAY-Urban:** Affordable housing for urban poor.` },
+      { subject: "economics", id: "ch-31", book: "Book IX: Monetary Policy, BoP & Financial Sector", title: "31. Monetary Policy Framework & RBI Architecture", readTime: "6 min read", examTags: "MPC (6 Members), Inflation Targeting 4%±2%, LAF/SDF/MSF", truth: "Monetary policy maintains price stability to protect real purchasing power while supporting sustainable economic growth.", body: `### Flexible Inflation Targeting (FIT):\n- Mandated under RBI Act 1934 (2016 Amendment). Target: **4% CPI Headline Inflation with a tolerance band of ± 2%** (2% to 6%).\n\n### Monetary Policy Committee (MPC):\n- **6 Members:** RBI Governor (Chair), Deputy Governor i/c Monetary Policy, Executive Director RBI, plus 3 external members appointed by Central Govt.\n- Meets at least **4 times a year**. Quorum: 4 members. Governor has casting vote.\n\n### Policy Instruments:\n- **LAF Repo Rate:** Rate at which RBI lends short-term money to banks against collateral.\n- **Standing Deposit Facility (SDF):** Floor of LAF corridor; absorbs liquidity without collateral.\n- **Marginal Standing Facility (MSF):** Ceiling of LAF corridor; emergency overnight borrowing.\n- **Reserve Ratios:** CRR (Cash Reserve Ratio held with RBI) & SLR (Statutory Liquidity Ratio in liquid assets).` },
+      { subject: "economics", id: "ch-32", book: "Book IX: Monetary Policy, BoP & Financial Sector", title: "32. Balance of Payments (BoP) & Foreign Trade Policy", readTime: "6 min read", examTags: "Current Account vs Capital Account, CAD, Forex Reserves, FTP 2023", truth: "Balance of Payments records all financial transactions between residents and the rest of the world; sustainable current account deficits are financed by non-debt capital flows.", body: `### BoP Structure:\n1. **Current Account:** Visible Trade (Exports - Imports of Goods), Invisibles (Services, Transfers, Remittances, Income).\n2. **Capital Account:** Foreign Direct Investment (FDI), Foreign Portfolio Investment (FPI), External Commercial Borrowings (ECB), NRI Deposits.\n\n### Forex Reserves (4 Components):\n1. Foreign Currency Assets (FCA)\n2. Gold holdings\n3. Special Drawing Rights (SDRs)\n4. Reserve Tranche Position (RTP) in IMF\n\n### Foreign Trade Policy (FTP 2023):\n- Sets target to achieve **$2 Trillion total exports by 2030** based on 4 pillars: Incentive to Remission, Export promotion, Ease of Doing Business, Districts as Export Hubs.` },
+      { subject: "economics", id: "ch-33", book: "Book IX: Monetary Policy, BoP & Financial Sector", title: "33. Banking Sector, NPAs & Basel III Framework", readTime: "6 min read", examTags: "IBC 2016, Gross NPA, Basel III CRAR 9%+CCB 2.5%, SFBs & Payments Banks", truth: "Bank asset quality determines financial stability; credit expansion without rigorous risk pricing leads to non-performing asset cascades.", body: `### Insolvency & Bankruptcy Code (IBC 2016):\n- Time-bound resolution process for distressed corporate debtors overseen by **NCLT** (National Company Law Tribunal) and **IBBI** (Insolvency and Bankruptcy Board of India).\n\n### Basel III Capital Requirements (India):\n- **Minimum CRAR (Capital to Risk-Weighted Assets Ratio):** **9.0%** for Indian banks (higher than Basel III global 8% norm).\n- **Capital Conservation Buffer (CCB):** **2.5%**.\n- **Total Minimum Capital:** **11.5%**.\n\n### Differentiated Banking:\n- **Small Finance Banks (SFBs):** Min capital Rs 200 cr; 75% PSL target; 50% loans ≤ Rs 25 lakh.\n- **Payments Banks:** Min capital Rs 100 cr; deposit limit Rs 2 lakh; **cannot lend or issue credit cards**.` },
+      { subject: "economics", id: "ch-34", book: "Book X: Nodal Ministry Flagship Schemes Matrix", title: "34. Nodal Ministry Matrix: Rural & Agricultural Schemes", readTime: "6 min read", examTags: "PM-KISAN, MGNREGA, PMAY-G, DAY-NRLM, PMKSY", truth: "Targeted rural schemes build physical infrastructure, provide income support, and create guaranteed safety nets to eliminate distress migration.", body: `### Flagship Schemes Matrix:\n\n1. **PM-KISAN (Pradhan Mantri Kisan Samman Nidhi):**\n   - *Nodal Ministry:* Ministry of Agriculture & Farmers Welfare.\n   - *Benefits:* Income support of **Rs 6,000 per year** in 3 equal installments of Rs 2,000 directly to landholding farmer families.\n\n2. **MGNREGA:**\n   - *Nodal Ministry:* Ministry of Rural Development.\n   - *Statutory Guarantee:* At least **100 days of guaranteed wage employment** in a financial year to adult members of rural households willing to do unskilled manual work.\n\n3. **PMAY-G (Pradhan Mantri Awaas Yojana - Gramin):**\n   - *Nodal Ministry:* Ministry of Rural Development.\n   - *Objective:* Financial assistance for construction of pucca houses with basic amenities for rural homeless/kutcha house dwellers.\n\n4. **DAY-NRLM:**\n   - *Nodal Ministry:* Ministry of Rural Development.\n   - *Objective:* Organize rural poor women into Self-Help Groups (SHGs) and provide revolving fund/capital support to foster sustainable self-employment.` },
+      { subject: "economics", id: "ch-35", book: "Book X: Nodal Ministry Flagship Schemes Matrix", title: "35. Nodal Ministry Matrix: Health, Social Security & MSME", readTime: "6 min read", examTags: "Ayushman Bharat, Mudra Yojana, PM-Vishwakarma, Stand-Up India", truth: "Financial inclusion and social security schemes empower informal workers, micro-entrepreneurs, and vulnerable households to achieve economic resilience.", body: `### Flagship Schemes Matrix:\n\n1. **Pradhan Mantri Mudra Yojana (PMMY):**\n   - *Nodal Ministry:* Ministry of Finance (executed via MUDRA / SIDBI).\n   - *Categories:* Loans up to Rs 10 lakh to non-corporate micro enterprises:\n     - **Shishu:** Loans up to Rs 50,000.\n     - **Kishor:** Loans from Rs 50,000 to Rs 5 Lakh.\n     - **Tarun:** Loans from Rs 5 Lakh to Rs 10 Lakh.\n\n2. **PM-Vishwakarma Scheme:**\n   - *Nodal Ministry:* Ministry of MSME / Skill Development.\n   - *Objective:* End-to-end support to traditional artisans and craftspeople (Vishwakarmas) through skill verification, toolkit incentive (Rs 15,000), collateral-free credit, and digital transaction incentives.\n\n3. **Stand-Up India Scheme:**\n   - *Nodal Ministry:* Ministry of Finance.\n   - *Objective:* Facilitate bank loans between **Rs 10 lakh and Rs 1 crore** to at least one SC/ST borrower and at least one Woman borrower per bank branch for setting up a greenfield enterprise.` },
+      { subject: "history", id: "ch-36", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "36. History Ch 1: What, Where, How and When? (Historical Methodology)", readTime: "5 min read", examTags: "Manuscripts, Inscriptions, Epigraphy, Numismatics, Carbon-14", truth: "History is an inquiry into human continuity and change over time, reconstructed through archaeological artifacts, written manuscripts, and epigraphic inscriptions.", body: `### Core Historical Methodology:\n- **Historia (Greek):** Knowledge acquired through systematic inquiry.\n- **BCE / CE System:** Before Common Era (counts backward to zero) vs Common Era. 200 BCE is more recent than 500 BCE.\n\n### 3 Primary Sources of History:\n1. **Archaeological:** Material remains (pots, tools, coins, bones, buildings).\n2. **Literary / Written:** Manuscripts (palm leaf / birch bark) & Inscriptions.\n3. **Oral Traditions:** Folklore, ballads, oral histories.\n\n<div class="exam-highlight-box">\n  <h4>📜 Manuscripts vs. Inscriptions</h4>\n  • <strong>Manuscripts:</strong> Handwritten on soft materials (palm leaf, birch bark). Prone to copying errors over centuries.<br>\n  • <strong>Inscriptions:</strong> Carved on hard surfaces (stone, metal, walls). More durable and reliable. Study of inscriptions = <strong>Epigraphy</strong>. Study of coins = <strong>Numismatics</strong>.\n</div>\n\n### Early Settlement Geography:\n- **Narmada Valley:** One of the earliest regions of human hunter-gatherer habitation.\n- **Sulaiman & Kirthar Hills (NW):** First wheat & barley farming + animal domestication (~8000 years ago).\n- **Indus River System:** First urban cities (~4700 years ago).\n- **Ganga & Son Valleys:** Rice cultivation (~2000+ years ago) & Magadha Empire.` },
+      { subject: "history", id: "ch-37", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "37. History Ch 2: On the Trail of the Earliest People (Stone Age)", readTime: "5 min read", examTags: "Palaeolithic, Mesolithic Microliths, Neolithic, Bhimbetka", truth: "Human tool technology evolved from crude hand-axes to precision microliths and ground tools, driving the transition from mobile hunter-gatherers to settled farming communities.", body: `### 3 Stone Age Phases:\n1. **Palaeolithic (Old Stone Age - 2M to 12,000 yrs ago):** Crude, unpolished flake & hand-axe stone tools. Sites: *Bhimbetka (MP), Hunsgi (Karnataka), Attirampakkam (TN)*.\n2. **Mesolithic (Middle Stone Age - 12,000 to 10,000 yrs ago):** **Microliths** (tiny, sharp stone blades hafted onto wood/bone handles for arrows & spears). Sites: *Bagor (Rajasthan), Adamgarh (MP)*.\n3. **Neolithic (New Stone Age - 10,000 to 4,000 yrs ago):** Polished stone tools, crop cultivation, animal domestication. Sites: *Mehrgarh, Burzahom, Chirand*.\n\n<div class="exam-highlight-box">\n  <h4>🎨 Bhimbetka Rock Shelters (UNESCO World Heritage Site)</h4>\n  Located in Raisen district, MP. Contains hundreds of prehistoric cave paintings showing hunting, dancing, and animals using natural mineral pigments (haematite red & limestone white).\n</div>` },
+      { subject: "history", id: "ch-38", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "38. History Ch 3: In the Earliest Cities (Harappan Civilisation)", readTime: "6 min read", examTags: "Indus Valley Civilisation, Town Planning, Citadel, Lothal, Dholavira", truth: "The Harappan Civilisation was South Asia's first urban revolution, defined by grid town planning, covered drainage, standardized weights, and maritime trade.", body: `### Harappan Civilisation (~2600–1900 BCE):\n- First urban civilization in South Asia. Grid system streets cutting at right angles; baked brick construction.\n\n### Citadel vs Lower Town:\n- **Citadel (West):** Raised platform, administrative/public buildings (Great Bath at Mohenjo-Daro, Granaries).\n- **Lower Town (East):** Residential quarters for common citizens.\n\n### Key Harappan Sites & Signature Features:\n- **Mohenjo-Daro (Sindh):** Great Bath (water-tight brickwork with bitumen sealant), Bronze Dancing Girl.\n- **Harappa (Punjab, Pak):** Granaries, coffin burials.\n- **Lothal (Gujarat):** World's earliest artificial **tidal dockyard**; bead-making factory; fire altars.\n- **Dholavira (Rann of Kutch, Gujarat):** 3-tiered city fortification; sophisticated water harvesting reservoirs; large ten-sign signboard.\n- **Kalibangan (Rajasthan):** Ploughed field surface; wooden drain; fire altars.` },
+      { subject: "history", id: "ch-39", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "39. History Ch 4: What Books and Burials Tell Us (Vedic Age)", readTime: "5 min read", examTags: "Rigveda, Hymns, Suktas, Megaliths, Inamgaon Burials", truth: "The Rigvedic era was a pastoral, egalitarian tribal society where wealth was counted in cattle, while Megalithic monuments marked social stratification in peninsular India.", body: `### The Rigveda:\n- Oldest Veda composed ~1500–1000 BCE in Vedic Sanskrit. Contains **1,028 hymns (Suktas)** organized in 10 Mandalas.\n- **Key Deities:** Agni (fire), Indra (warrior god), Soma (sacred plant drink).\n- **Society:** Pastoral, semi-nomadic. Wealth measured in cattle (*Gavishti* = search for cows). No standing army or taxation.\n\n### Megaliths (Big Stone Burials):\n- Found in Deccan, South India, and Northeast (~1000 BCE onwards). Stone circles or cairns marking underground graves.\n- Contain black and red ware pottery, iron tools, and weapons.\n- **Inamgaon (Maharashtra):** Chalcolithic burial site showing multi-room houses and adult burials with grave goods.` },
+      { subject: "history", id: "ch-40", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "40. History Ch 5: Kingdoms, Kings and an Early Republic", readTime: "6 min read", examTags: "16 Mahajanapadas, Magadha, Vajji Gana/Sangha, Bhaga Tax", truth: "Iron agricultural tools enabled a agricultural surplus, causing tribal janapadas to consolidate into 16 territorial Mahajanapadas and early republics.", body: `### Evolution:\n$$\\text{Jana (Tribe)} \\longrightarrow \\text{Janapada (Settled Land)} \\longrightarrow \\text{Mahajanapada (Territorial State)}$$\n\n### 16 Mahajanapadas (~600 BCE):\n- **Monarchies (Rajyas):** Magadha, Kosala, Vatsa, Avanti. Rule by hereditary king.\n- **Republics (Ganas / Sanghas):** **Vajji (capital Vaishali)** & Malla. Governance by assembly of elders (*Rajas*).\n\n### Why Magadha Became Supreme:\n1. Rich iron ore deposits (Singhbhum) for weapons and tools.\n2. Fertile Gangetic alluvial soil yielding 1/6th (*Bhaga*) tax surplus.\n3. Natural defensive capitals (Rajagriha surrounded by 5 hills; Pataliputra at river confluence).\n4. Strategic military use of war elephants.` },
+      { subject: "history", id: "ch-41", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "41. History Ch 6: New Questions and Ideas (Buddhism & Jainism)", readTime: "6 min read", examTags: "Buddhism, Four Noble Truths, Eightfold Path, Jainism, Upanishads", truth: "Buddhism and Jainism emerged as intellectual and social reform movements against Vedic animal sacrifices and caste rigidity, preaching non-violence and moral conduct.", body: `### 1. Buddhism (Siddhartha Gautama - The Buddha):\n- Born in Lumbini (KSHATRIYA Shakya clan). Attained enlightenment under Pipal tree at **Bodh Gaya**. First sermon at **Sarnath** (Dhammacakkappavattana). Passed away at **Kusinara**.\n- **Four Noble Truths:** Life is suffering; Suffering has a cause (desire/Tanha); Suffering can end; Path is the **Eightfold Path (Astangika Marga)**.\n- Rejection of Varna hierarchy & animal sacrifices; teachings in Prakrit (language of masses).\n\n### 2. Jainism (Vardhamana Mahavira):\n- 24th Tirthankara (Jnatrika clan). Attained Kevalajnana.\n- **5 Doctrines:** Ahimsa (strict non-violence to all living beings), Satya, Asteya, Aparigraha, Brahmacharya (added by Mahavira).\n\n### 3. Upanishads & Sangha:\n- **Upanishads:** Philosophical dialogues on Atman (individual soul) and Brahman (universal soul).\n- **Sangha & Viharas:** Monastic orders and permanent rock-cut/brick shelters for monks.` },
+      { subject: "history", id: "ch-42", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "42. History Ch 7: Ashoka, The Emperor Who Gave Up War", readTime: "6 min read", examTags: "Chandragupta Maurya, Kalinga War 261 BCE, Ashoka Dhamma, Edicts", truth: "After the catastrophic Kalinga War, Ashoka substituted military conquest (Dhammavijaya) with moral governance (Dhamma), issuing rock edicts across the empire.", body: `### Mauryan Empire (~321–185 BCE):\n- Founded by **Chandragupta Maurya** after overthrowing Dhana Nanda with Chanakya (Kautilya author of *Arthashastra*).\n- Empire stretched from Afghanistan/Kandahar to Karnataka.\n\n### Ashoka's Kalinga War (261 BCE):\n- Conquest of Kalinga (modern Odisha) resulted in 100,000 deaths and 150,000 captives. The violence filled Ashoka with remorse.\n\n<div class="exam-highlight-box">\n  <h4>📜 Policy of Dhamma & Edicts</h4>\n  • <strong>Dhamma:</strong> Not a new religion, but a moral code (respect for elders, Ahimsa toward animals, truthfulness, humane treatment of servants).<br>\n  • <strong>Edicts:</strong> Inscribed on rocks and polished pillars in Prakrit (Brahmi script) and Greek/Aramaic in NW.<br>\n  • <strong>Dhamma Mahamattas:</strong> Special officers appointed to spread Dhamma and welfare.\n</div>` },
+      { subject: "history", id: "ch-43", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "43. History Ch 8: Vital Villages, Thriving Towns (Second Urbanisation)", readTime: "5 min read", examTags: "Iron Ploughshare, NBPW, Shrenis (Guilds), Sangam Literature", truth: "Widespread adoption of iron agricultural tools and paddy transplantation created a massive economic surplus that fuelled India's Second Urbanisation.", body: `### Drivers of Second Urbanisation (~500 BCE onwards):\n- **Iron Ploughshare & Paddy Transplantation:** Increased crop yields dramatically across Gangetic plains.\n- **Northern Black Polished Ware (NBPW):** Fine deluxe pottery with mirror-like metallic luster, signature of urban centers.\n\n### Guilds (Shrenis):\n- Associations of craftspersons and merchants.\n- Functions: Provided training, procured raw materials, distributed finished goods, served as **banks** taking deposits and lending interest.\n\n### Sangam Literature & Southern Trade:\n- Earliest Tamil literature compiled in 3 assemblies (Sangams) at Madurai under Pandyan patronage.\n- **Arikamedu (Puducherry):** Major coastal port facility trading with the Roman Empire (amphorae jars, Arretine stamped pottery found).` },
+      { subject: "history", id: "ch-44", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "44. History Ch 9: Traders, Kings and Pilgrims (Silk Route)", readTime: "6 min read", examTags: "Silk Route, Kushanas, Kanishka, Chinese Pilgrims (Fa Hien, Xuanzang)", truth: "Control over international overland trade routes funded ancient empires, while trade networks facilitated the trans-continental spread of Mahayana Buddhism.", body: `### The Silk Route & Kushana Empire:\n- **Silk Route:** Ancient trade network connecting China, India, Central Asia, and Europe.\n- **Kushanas (1st–3rd CE):** Controlled the major branches of the Silk Route. First rulers in India to issue large-scale **gold coins**.\n- **King Kanishka (c. 78 CE):** Convened 4th Buddhist Council in Kashmir (division into Hinayana & Mahayana). Patronized **Ashvaghosha** (author of *Buddhacharita*).\n\n### Chinese Pilgrims to India:\n1. **Fa Hien (399–414 CE):** Visited during Chandragupta II's reign.\n2. **Xuanzang (629–645 CE):** Visited during Harsha's reign; spent years studying at Nalanda University.\n3. **I-Tsing (671–695 CE):** Came via sea route to study Buddhist texts.` },
+      { subject: "history", id: "ch-45", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "45. History Ch 10: New Empires and Kingdoms (Guptas & Harsha)", readTime: "6 min read", examTags: "Gupta Golden Age, Samudragupta, Chandragupta II, Harsha, Pulakeshin II", truth: "The Gupta period was India's classical golden age of Sanskrit literature, mathematics, and science, followed by Harsha's empire in northern India.", body: `### 1. Gupta Empire (~320–550 CE) — The Golden Age:\n- **Chandragupta I (319 CE):** Founded Gupta Era; married Licchhavi princess.\n- **Samudragupta (~335–375 CE):** 'Napoleon of India' (V.A. Smith). **Allahabad Pillar Inscription (Prayag Prashasti)** composed by court poet Harishena. Played veena on gold coins.\n- **Chandragupta II Vikramaditya (~375–415 CE):** Defeated Western Sakas. Court adorned by **Navratnas (9 Gems)** including **Kalidasa** (*Abhijnanasakuntalam*) and **Aryabhata** (*Aryabhatiya*). Built rust-resistant **Iron Pillar of Delhi**.\n- **Kumaragupta I:** Founded **Nalanda University**.\n\n### 2. Harsha of Kanauj (~606–647 CE):\n- Ruled north India from Kanauj. Court poet **Bana Bhatta** wrote biography *Harshacharita*.\n- **Defeat by Pulakeshin II:** Harsha tried to expand into Deccan but was defeated by Chalukya king Pulakeshin II (recorded in **Aihole Inscription** by Ravikirti).` },
+      { subject: "history", id: "ch-46", book: "Book XI: Ancient Indian History & Civilisation (NCERT Class 6)", title: "46. History Ch 11: Buildings, Paintings and Books (Art & Culture)", readTime: "7 min read", examTags: "Stupas, Nagara/Dravida/Vesara, Ajanta Caves, Kailasa Temple", truth: "Ancient Indian architecture evolved from rock-cut Buddhist chaityas and stupas to structural Hindu temples in Nagara, Dravida, and Vesara styles.", body: `### 1. Stupa Architecture:\n- Hemispherical mound over Buddha's relics. Parts: **Anda** (dome), **Harmika** (square balcony), **Yashti** (umbrella pole), **Torana** (carved gateway).\n- **Sanchi Stupa (MP):** Built by Ashoka; finest torana carvings depicting Jataka stories.\n\n### 2. Temple Architecture Styles:\n- **Nagara (North India):** Curvilinear *Shikhara* tower over *Garbhagriha* (sanctum). No massive boundary walls. Examples: *Khajuraho, Konark*.\n- **Dravida (South India):** Pyramidal tiered *Vimana* tower, huge *Gopuram* gateways, temple tank. Examples: *Brihadeeswara (Thanjavur), Shore Temple*.\n- **Vesara (Deccan):** Hybrid star-shaped plan combining Nagara & Dravida. Examples: *Hoysala temples, Pattadakal*.\n\n### 3. Rock-Cut Masterpieces:\n- **Ajanta Caves (MH):** 29 Buddhist caves. World-famous tempera mural paintings (Padmapani Bodhisattva).\n- **Ellora Caves (MH):** 34 caves (12 Buddhist, 17 Hindu, 5 Jain). **Kailasa Temple (Cave 16)** carved top-down out of a single monolith by Rashtrakuta King Krishna I.` }
     ];
 
-    // State Variables
+    // Filter State & Preferences
+    let selectedSubject = localStorage.getItem('kindle_subject_filter') || 'all';
     let currentChapterIndex = 0;
     let currentTheme = localStorage.getItem('kindle_theme') || 'sepia';
     let currentFontSize = parseInt(localStorage.getItem('kindle_font_size')) || 1.12;
+
+    // Filtered Dataset
+    function getFilteredBookData() {
+      if (selectedSubject === 'all') return rawBookData;
+      return rawBookData.filter(ch => ch.subject === selectedSubject);
+    }
 
     // --- DOM References ---
     const tocListEl = document.getElementById('tocList');
     const bookStreamEl = document.getElementById('bookStream');
     const readerPaneEl = document.getElementById('readerPane');
     const progressBarFillEl = document.getElementById('progressBarFill');
+    const headerSubtitleEl = document.getElementById('headerSubtitle');
+
+    // --- Subject Filter Logic ---
+    function filterSubject(sub) {
+      selectedSubject = sub;
+      localStorage.setItem('kindle_subject_filter', sub);
+
+      document.querySelectorAll('.subject-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.id === `tab-${sub}`);
+      });
+
+      if (sub === 'economics') {
+        headerSubtitleEl.textContent = "Subject View: Economics & Social Issues (35 Chapters)";
+      } else if (sub === 'history') {
+        headerSubtitleEl.textContent = "Subject View: NCERT Ancient History (11 Chapters)";
+      } else {
+        headerSubtitleEl.textContent = "Subject View: All Subjects (46 Master Chapters)";
+      }
+
+      currentChapterIndex = 0;
+      renderBookStream();
+      renderToc();
+      setupScrollObserver();
+      readerPaneEl.scrollTop = 0;
+    }
 
     // --- Theme & Font Management ---
     function setTheme(theme) {
@@ -1511,10 +725,13 @@ $$\text{Jana (Tribe)} \longrightarrow \text{Janapada (Settled Land)} \longrighta
 
     // --- Render Table of Contents ---
     function renderToc() {
+      const activeData = getFilteredBookData();
       tocListEl.innerHTML = '';
       let currentBook = '';
 
-      bookData.forEach((ch, idx) => {
+      document.getElementById('chapterCountBadge').textContent = `${activeData.length} Chapters`;
+
+      activeData.forEach((ch, idx) => {
         if (ch.book !== currentBook) {
           currentBook = ch.book;
           const bookHeader = document.createElement('li');
@@ -1528,7 +745,7 @@ $$\text{Jana (Tribe)} \longrightarrow \text{Janapada (Settled Land)} \longrighta
         item.className = `toc-item ${idx === currentChapterIndex ? 'active' : ''}`;
         item.onclick = () => scrollToChapter(idx);
         item.innerHTML = `
-          <span class="toc-num">${idx + 1}.</span>
+          <span class="toc-num">${ch.id.replace('ch-', '')}.</span>
           <span>${ch.title.split('. ')[1] || ch.title}</span>
         `;
         tocListEl.appendChild(item);
@@ -1537,9 +754,10 @@ $$\text{Jana (Tribe)} \longrightarrow \text{Janapada (Settled Land)} \longrighta
 
     // --- Render Continuous Book Stream ---
     function renderBookStream() {
+      const activeData = getFilteredBookData();
       bookStreamEl.innerHTML = '';
 
-      bookData.forEach((ch, idx) => {
+      activeData.forEach((ch, idx) => {
         const chapterSection = document.createElement('section');
         chapterSection.id = `chapter-section-${idx}`;
         chapterSection.className = 'kindle-screen-chapter';
@@ -1604,6 +822,7 @@ $$\text{Jana (Tribe)} \longrightarrow \text{Janapada (Settled Land)} \longrighta
 
     // --- Scroll & Intersection Observer for Continuous Infinite Scroll ---
     function setupScrollObserver() {
+      const activeData = getFilteredBookData();
       const observerOptions = {
         root: readerPaneEl,
         threshold: 0.15
@@ -1620,7 +839,7 @@ $$\text{Jana (Tribe)} \longrightarrow \text{Janapada (Settled Land)} \longrighta
         });
       }, observerOptions);
 
-      bookData.forEach((_, idx) => {
+      activeData.forEach((_, idx) => {
         const el = document.getElementById(`chapter-section-${idx}`);
         if (el) observer.observe(el);
       });
@@ -1638,9 +857,7 @@ $$\text{Jana (Tribe)} \longrightarrow \text{Janapada (Settled Land)} \longrighta
     // --- Initialization ---
     setTheme(currentTheme);
     document.documentElement.style.setProperty('--reader-font-size', `${currentFontSize}rem`);
-    renderBookStream();
-    renderToc();
-    setupScrollObserver();
+    filterSubject(selectedSubject);
   </script>
 </body>
 </html>
