@@ -166,17 +166,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addNewTask = function() {
     const input = document.getElementById("newTaskInput");
-    const text = input.value.trim();
-    if (text) {
-      const newTask = {
-        id: "task-" + Date.now(),
-        text: text,
-        done: false
-      };
-      userTasks.push(newTask);
-      localStorage.setItem("ca_tracker_tasks", JSON.stringify(userTasks));
-      input.value = "";
-      renderChecklist();
+    if (input) {
+      const text = input.value.trim();
+      if (text) {
+        const newTask = {
+          id: "task-" + Date.now(),
+          text: text,
+          done: false
+        };
+        userTasks.push(newTask);
+        localStorage.setItem("ca_tracker_tasks", JSON.stringify(userTasks));
+        input.value = "";
+        renderChecklist();
+      }
     }
   };
 
@@ -304,13 +306,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (activeSubject === "quant") {
       quantNavGrid.innerHTML = "";
 
-      const allLi = document.createElement("li");
-      const allBtn = document.createElement("button");
-      allBtn.className = `nav-item-btn ${activeQuantChapterId === "all" ? "active" : ""}`;
-      allBtn.innerHTML = `<span>📐 All Quant Topics</span> <span class="badge-count">${QUANT_CHAPTERS.length}</span>`;
-      allBtn.addEventListener("click", () => selectQuantChapter("all"));
-      allLi.appendChild(allBtn);
-      quantNavGrid.appendChild(allLi);
+      const quantAllLi = document.createElement("li");
+      const quantAllBtn = document.createElement("button");
+      quantAllBtn.className = `nav-item-btn ${activeQuantChapterId === "all" ? "active" : ""}`;
+      quantAllBtn.innerHTML = `<span>📐 All Quant Topics</span> <span class="badge-count">${QUANT_CHAPTERS.length}</span>`;
+      quantAllBtn.addEventListener("click", () => selectQuantChapter("all"));
+      quantAllLi.appendChild(quantAllBtn);
+      quantNavGrid.appendChild(quantAllLi);
 
       QUANT_CHAPTERS.forEach(ch => {
         const li = document.createElement("li");
@@ -324,13 +326,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (activeSubject === "static_ga") {
       quantNavGrid.innerHTML = "";
 
-      const allLi = document.createElement("li");
-      const allBtn = document.createElement("button");
-      allBtn.className = `nav-item-btn ${activeStaticChapterId === "all" ? "active" : ""}`;
-      allBtn.innerHTML = `<span>📘 All Static GA Chapters</span> <span class="badge-count">${STATIC_GA_CHAPTERS.length}</span>`;
-      allBtn.addEventListener("click", () => selectStaticChapter("all"));
-      allLi.appendChild(allBtn);
-      quantNavGrid.appendChild(allLi);
+      const staticAllLi = document.createElement("li");
+      const staticAllBtn = document.createElement("button");
+      staticAllBtn.className = `nav-item-btn ${activeStaticChapterId === "all" ? "active" : ""}`;
+      staticAllBtn.innerHTML = `<span>📘 All Static GA Chapters</span> <span class="badge-count">${STATIC_GA_CHAPTERS.length}</span>`;
+      staticAllBtn.addEventListener("click", () => selectStaticChapter("all"));
+      staticAllLi.appendChild(staticAllBtn);
+      quantNavGrid.appendChild(staticAllLi);
 
       STATIC_GA_CHAPTERS.forEach(ch => {
         const li = document.createElement("li");
@@ -429,9 +431,9 @@ document.addEventListener("DOMContentLoaded", () => {
           if (chev) chev.textContent = "▲";
         }
       } else {
-        const isOpen = quantNavDrawer.classList.contains("open");
+        const isQuantOpen = quantNavDrawer.classList.contains("open");
         closeAllDrawers();
-        if (!isOpen) {
+        if (!isQuantOpen) {
           quantNavDrawer.classList.add("open");
           const chev = document.getElementById("sidebarChevron");
           if (chev) chev.textContent = "▲";
@@ -748,16 +750,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (person === role || person.length > 35) {
+        let parts;
         if (n.title.includes(" Appointed ")) {
-          const parts = n.title.split(" Appointed ");
+          parts = n.title.split(" Appointed ");
           person = parts[0].replace(/^(RBI|SEBI|IRDAI|IFSCA|CCI|Government|Center)\s+/, '').trim();
           role = parts[1].trim();
         } else if (n.title.includes(" Granted ")) {
-          const parts = n.title.split(" Granted ");
+          parts = n.title.split(" Granted ");
           person = parts[0].trim();
           role = parts[1].trim();
         } else if (n.title.includes(" Takes Charge ")) {
-          const parts = n.title.split(" Takes Charge ");
+          parts = n.title.split(" Takes Charge ");
           person = parts[0].trim();
           role = parts[1].trim();
         }
