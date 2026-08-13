@@ -3,6 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
 
 :root {
+  /* Functional Color Tokens (Part 6) */
+  --color-active: #a65228;        /* Terracotta Ink Accent (Selected item only) */
+  --color-mastered: #2e7d32;      /* Sage Green (Revised & Mastered) */
+  --color-untouched: #6b7280;     /* Muted Grey (Not yet revised) */
+  --color-overdue: #dc2626;       /* Red (Overdue > 30 days) */
+
   /* Kindle Warm Sepia Palette */
   --bg-primary: #f4ecd8;         /* Warm Kindle Sepia Paper */
   --bg-card: #fcf8ee;            /* Warm Cream Card */
@@ -17,7 +23,7 @@
   --border-focus: #9e6038;       /* Warm Terracotta Focus */
   
   --accent-warm: #a65228;        /* Terracotta Ink Accent */
-  --accent-green: #3b6b4c;       /* Vintage Sage Green */
+  --accent-green: #2e7d32;       /* Sage Green */
   --accent-gold: #b37418;        /* Warm Sepia Gold */
   --accent-blue: #2c5f8a;        /* Deep Navy Blue for Quant */
   
@@ -26,74 +32,131 @@
   --font-mono: 'Consolas', 'Courier New', 'SF Mono', ui-monospace, monospace;
 }
 
-/* Base Reset & Reader Layout */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-main);
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-}
-
-/* Minimalist Non-Overlapping E-Reader Header */
-header {
-  background-color: var(--bg-sidebar);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 24px 36px;
-  position: relative;
-  width: 100%;
-}
-
-.header-container {
-  max-width: 980px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.logo-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo-icon {
-  font-size: 1.4rem;
-}
-
-.logo-text h1 {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-headline);
-  letter-spacing: -0.01em;
-}
-
-.logo-text p {
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 2px;
-}
-
+/* Header Cluster Layouts (Part 1) */
 .header-controls {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
+}
+
+.nav-cluster {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mode-cluster {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-card);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+.status-cluster {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Crisp Mode Switch Toggles (Part 1) */
+.mode-switch-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  user-select: none;
+}
+
+.mode-switch-label input[type="checkbox"] {
+  display: none;
+}
+
+.mode-slider {
+  position: relative;
+  width: 34px;
+  height: 18px;
+  background-color: var(--border-subtle);
+  border-radius: 12px;
+  transition: background-color 0.25s ease;
+}
+
+.mode-slider::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 2px;
+  top: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.mode-switch-label input:checked + .mode-slider {
+  background-color: var(--color-mastered);
+}
+
+.mode-switch-label input:checked + .mode-slider::before {
+  transform: translateX(16px);
+}
+
+/* Exam Countdown Status Badge Escalation (Part 1) */
+.status-tracker-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.status-tracker-chip:hover {
+  border-color: var(--color-active);
+}
+
+.urgency-gray {
+  background: #6b7280 !important;
+  color: #fff !important;
+}
+
+.urgency-blue {
+  background: #0284c7 !important;
+  color: #fff !important;
+}
+
+.urgency-amber {
+  background: #d97706 !important;
+  color: #fff !important;
+}
+
+.urgency-red {
+  background: #dc2626 !important;
+  color: #fff !important;
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
 }
 
 .toggle-chip {
@@ -141,6 +204,46 @@ header {
 .toggle-chip.active-static .badge-count {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
+}
+
+/* Revision Health Badges & Locked Hints (Part 2 & 5) */
+.health-badge {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.health-green {
+  background: var(--color-mastered);
+  color: #fff;
+}
+
+.health-amber {
+  background: #d97706;
+  color: #fff;
+}
+
+.health-red {
+  background: var(--color-overdue);
+  color: #fff;
+}
+
+.health-grey {
+  background: var(--color-untouched);
+  color: #fff;
+}
+
+.sec-unlock-hint {
+  font-family: var(--font-sans);
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: var(--accent-gold);
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px dashed var(--border-subtle);
 }
 
 /* Collapsible Top Navigation Drawers */

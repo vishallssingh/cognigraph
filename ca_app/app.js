@@ -95,10 +95,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize Tracker Panel Data
   function initTrackerPanel() {
     const daysLeft = getDaysRemaining(DASHBOARD_DATA.targetDate);
-    trackerBadge.textContent = `${daysLeft}d`;
-    trackerCountdownHeader.textContent = `⚡ ${DASHBOARD_DATA.primaryTarget}: ${daysLeft} Days Left`;
-    trackerTargetTitle.textContent = DASHBOARD_DATA.primaryTarget;
-    trackerTargetSprint.textContent = DASHBOARD_DATA.currentPhase;
+    if (trackerBadge) {
+      trackerBadge.textContent = `${daysLeft}d`;
+      trackerBadge.classList.remove("urgency-gray", "urgency-blue", "urgency-amber", "urgency-red");
+      if (daysLeft > 30) {
+        trackerBadge.classList.add("urgency-gray");
+      } else if (daysLeft >= 14) {
+        trackerBadge.classList.add("urgency-blue");
+      } else if (daysLeft >= 7) {
+        trackerBadge.classList.add("urgency-amber");
+      } else {
+        trackerBadge.classList.add("urgency-red");
+      }
+    }
+    if (trackerCountdownHeader) trackerCountdownHeader.textContent = `⚡ ${DASHBOARD_DATA.primaryTarget}: ${daysLeft} Days Left`;
+    if (trackerTargetTitle) trackerTargetTitle.textContent = DASHBOARD_DATA.primaryTarget;
+    if (trackerTargetSprint) trackerTargetSprint.textContent = DASHBOARD_DATA.currentPhase;
 
     // Mock Audits List
     trackerMockAuditList.innerHTML = DASHBOARD_DATA.mockAudits.map(m => `
@@ -217,12 +229,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const toggleFlashcardBtn = document.getElementById("toggleFlashcardBtn");
   const toggleMasterWhosWhoBtn = document.getElementById("toggleMasterWhosWhoBtn");
+  const toggleRecallCheck = document.getElementById("toggleRecallCheck");
+  const toggleFlashcardCheck = document.getElementById("toggleFlashcardCheck");
+
+  if (toggleRecallCheck) {
+    toggleRecallCheck.addEventListener("change", (e) => {
+      activeRecallMode = e.target.checked;
+      renderFeed();
+    });
+  }
+
+  if (toggleFlashcardCheck) {
+    toggleFlashcardCheck.addEventListener("change", (e) => {
+      activeFlashcardMode = e.target.checked;
+      if (notesFeed) notesFeed.classList.toggle("flashcard-mode", activeFlashcardMode);
+      renderFeed();
+    });
+  }
 
   if (toggleFlashcardBtn) {
     toggleFlashcardBtn.addEventListener("click", () => {
       activeFlashcardMode = !activeFlashcardMode;
-      toggleFlashcardBtn.classList.toggle("active", activeFlashcardMode);
-      toggleFlashcardBtn.innerHTML = activeFlashcardMode ? "🃏 Flashcards: ON" : "🃏 Flashcards: OFF";
+      if (toggleFlashcardCheck) toggleFlashcardCheck.checked = activeFlashcardMode;
       if (notesFeed) notesFeed.classList.toggle("flashcard-mode", activeFlashcardMode);
       renderFeed();
     });
@@ -280,25 +308,121 @@ document.addEventListener("DOMContentLoaded", () => {
     renderDrill();
   };
 
+  // Recall History Data Store (Part 2 & Part 4)
+  let caRecallHistory = JSON.parse(localStorage.getItem("ca_recall_history") || "{}");
+
+  function saveRecallRating(noteId, rating) {
+    caRecallHistory[noteId] = {
+      lastRevised: Date.now(),
+      rating: rating // "again", "hard", "good", "easy"
+    };
+    localStorage.setItem("ca_recall_history", JSON.stringify(caRecallHistory));
+    renderSidebar(); // Update section health indicators
+  }
+
+  function getSectionHealth(secId) {
+    const secNotes = secId === "all" 
+      ? CA_NOTES_DATA 
+      : CA_NOTES_DATA.filter(n => n.secId === secId);
+    
+    if (secNotes.length === 0) return { pct: 0, lastRevisedText: "Never revised", colorClass: "health-grey" };
+
+    let revisedCount = 0;
+    let latestTimestamp = 0;
+
+    secNotes.forEach(n => {
+      const hist = caRecallHistory[n.id];
+      if (hist && hist.lastRevised) {
+        revisedCount++;
+        if (hist.lastRevised > latestTimestamp) {
+          latestTimestamp = hist.lastRevised;
+        }
+      }
+    });
+
+    const pct = Math.round((revisedCount / secNotes.length) * 100);
+
+    let lastRevisedText = "Never revised";
+    let colorClass = "health-grey";
+
+    if (latestTimestamp > 0) {
+      const diffMs = Date.now() - latestTimestamp;
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+
+      if (diffDays === 0) {
+        lastRevisedText = diffHours === 0 ? "Revised just now" : `Revised ${diffHours}h ago`;
+      } else {
+        lastRevisedText = `Revised ${diffDays}d ago`;
+      }
+
+      if (diffDays >= 30) {
+        colorClass = "health-red";
+      } else if (pct >= 80) {
+        colorClass = "health-green";
+      } else if (pct > 0) {
+        colorClass = "health-amber";
+      }
+    }
+
+    return { pct, lastRevisedText, colorClass, revisedCount, total: secNotes.length };
+  }
+
   // Render Sidebar / Topic Navigation Grid
   function renderSidebar() {
     if (activeSubject === "ca") {
       sectionNavList.innerHTML = "";
 
+      const allHealth = getSectionHealth("all");
       const allLi = document.createElement("li");
       const allBtn = document.createElement("button");
       allBtn.className = `nav-item-btn ${activeSectionId === "all" ? "active" : ""}`;
-      allBtn.innerHTML = `<span>📑 All CA Sections</span> <span class="badge-count">${CA_NOTES_DATA.length}</span>`;
+      allBtn.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 2px; width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span>📑 All CA Sections</span>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span class="health-badge ${allHealth.colorClass}">${allHealth.pct}% Mastered</span>
+              <span class="badge-count">${CA_NOTES_DATA.length}</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted);">
+            <span>${allHealth.lastRevisedText}</span>
+          </div>
+        </div>
+      `;
       allBtn.addEventListener("click", () => selectSection("all"));
       allLi.appendChild(allBtn);
       sectionNavList.appendChild(allLi);
 
-      CA_SECTIONS.forEach(sec => {
-        const count = CA_NOTES_DATA.filter(n => n.secId === sec.id).length;
+      CA_SECTIONS.forEach((sec, idx) => {
+        const secNotes = CA_NOTES_DATA.filter(n => n.secId === sec.id);
+        const health = getSectionHealth(sec.id);
+        const isLocked = sec.locked || false;
+
+        let unlockSubtitle = "";
+        if (isLocked) {
+          unlockSubtitle = `<div class="sec-unlock-hint">🔒 Unlocks when Section ${idx} reaches 80% recall</div>`;
+        }
+
         const li = document.createElement("li");
         const btn = document.createElement("button");
         btn.className = `nav-item-btn ${activeSectionId === sec.id ? "active" : ""}`;
-        btn.innerHTML = `<span>${sec.title}</span> <span class="badge-count">${count}</span>`;
+        btn.innerHTML = `
+          <div style="display: flex; flex-direction: column; gap: 2px; width: 100%;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span>${sec.title}</span>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="health-badge ${health.colorClass}">${health.pct}% Mastered</span>
+                <span class="badge-count">${secNotes.length}</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted);">
+              <span>${health.lastRevisedText}</span>
+            </div>
+            ${unlockSubtitle}
+          </div>
+        `;
         btn.addEventListener("click", () => selectSection(sec.id));
         li.appendChild(btn);
         sectionNavList.appendChild(li);
@@ -519,7 +643,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderCAFeed() {
     let filtered = CA_NOTES_DATA.filter(note => {
       const matchesSec = activeSectionId === "all" || note.secId === activeSectionId;
-      const matchesMonth = activeMonth === "all" || note.date.startsWith(activeMonth);
+      
+      let matchesMonth = true;
+      if (activeMonth === "preset_exam_window") {
+        const targetDateStr = (DASHBOARD_DATA && DASHBOARD_DATA.targetDate) ? DASHBOARD_DATA.targetDate : "2026-08-24";
+        const targetDate = new Date(targetDateStr);
+        const cutoffDate = new Date(targetDate.getTime() - (180 * 24 * 60 * 60 * 1000));
+        const noteDate = new Date(note.date);
+        matchesMonth = noteDate >= cutoffDate && noteDate <= targetDate;
+      } else if (activeMonth !== "all") {
+        matchesMonth = note.date && note.date.startsWith(activeMonth);
+      }
+
       const matchesBookmark = !onlyBookmarks || bookmarkedIds.includes(note.id);
       return matchesSec && matchesMonth && matchesBookmark;
     });
@@ -557,6 +692,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <p style="margin-top: 8px; font-size: 0.9rem;">Try selecting a different section or clearing starred filters.</p>
         </div>
       `;
+      return;
+    }
+
+    // Part 4 — Interactive Revision Mode: 1-Card Active Recall Queue
+    if (activeRecallMode) {
+      renderRevisionModeQueue(filtered);
       return;
     }
 
@@ -722,17 +863,179 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Render Centralized Master Living "Who's Who & Appointments Directory" Table
+  // Part 4 — Interactive 1-Card Revision Queue & Self-Rating System
+  let revisionQueueIndex = 0;
+
+  function renderRevisionModeQueue(filteredNotes) {
+    if (revisionQueueIndex >= filteredNotes.length) {
+      notesFeed.innerHTML = `
+        <div class="note-card" style="padding: 40px; text-align: center; background: var(--bg-card);">
+          <h2 style="color: var(--color-mastered); font-size: 1.4rem;">🎉 Revision Queue Completed!</h2>
+          <p style="margin-top: 10px; color: var(--text-muted);">You have reviewed all ${filteredNotes.length} notes in this session. Section health metrics have been updated.</p>
+          <button class="toggle-chip active" onclick="resetRevisionQueue()" style="margin: 20px auto 0; cursor: pointer; padding: 8px 18px;">
+            🔄 Restart Revision Queue
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    const note = filteredNotes[revisionQueueIndex];
+    const isBookmarked = bookmarkedIds.includes(note.id);
+    const existingHist = caRecallHistory[note.id];
+    const ratingLabel = existingHist ? `Previous: ${existingHist.rating.toUpperCase()}` : "Not Yet Rated";
+
+    const card = document.createElement("div");
+    card.className = "note-card revision-card-active";
+    card.style.borderLeft = "6px solid var(--accent-warm)";
+
+    let hookHtml = note.hook ? `<div class="exam-hook">💡 <strong>Exam Rationale:</strong> ${parseMarkdown(note.hook)}</div>` : "";
+    
+    let bulletsHtml = "";
+    if (note.bullets && note.bullets.length > 0) {
+      bulletsHtml = `<ul class="bullet-list">${note.bullets.map(b => `<li>${processBulletText(b)}</li>`).join("")}</ul>`;
+    }
+
+    let staticHtml = note.staticGk ? `<div class="static-gk-box">🏛️ <strong>Static GK Anchor:</strong> ${parseTrapAndStaticGK(note.staticGk)}</div>` : "";
+    let trapHtml = note.trap ? `<div class="exam-trap-box">⚠️ <strong>Exam Trap:</strong> ${parseTrapAndStaticGK(note.trap)}</div>` : "";
+
+    card.innerHTML = `
+      <div class="note-header" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px; margin-bottom: 14px;">
+        <div>
+          <span class="badge-count" style="background: var(--accent-warm); color: #fff; font-size: 0.78rem;">Card ${revisionQueueIndex + 1} of ${filteredNotes.length}</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 8px;">${ratingLabel}</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="note-date-subtle">${formatSubtleDate(note.date)}</span>
+          <button class="btn-bookmark ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmark('${note.id}')" title="Bookmark">
+            ${isBookmarked ? '★' : '☆'}
+          </button>
+        </div>
+      </div>
+
+      <h3 class="note-title" style="font-size: 1.25rem; line-height: 1.5; margin-bottom: 14px;">📰 ${parseMarkdown(note.title)}</h3>
+      ${hookHtml}
+
+      <div id="revisionDetails_${note.id}" class="flashcard-body-hidden" style="margin-top: 16px;">
+        ${bulletsHtml}
+        ${staticHtml}
+        ${trapHtml}
+      </div>
+
+      <div id="revisionRevealBtn_${note.id}" style="margin-top: 16px; text-align: center;">
+        <button onclick="revealRevisionCard('${note.id}')" class="toggle-chip active" style="padding: 10px 22px; font-size: 0.95rem; cursor: pointer; width: 100%; justify-content: center;">
+          👁️ Reveal Key Facts & Details
+        </button>
+      </div>
+
+      <div id="revisionRatingBar_${note.id}" style="display: none; margin-top: 20px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+        <div style="font-size: 0.85rem; font-weight: 600; text-align: center; margin-bottom: 10px; color: var(--text-muted);">
+          How accurately did you recall this note?
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+          <button onclick="rateRevisionCard('${note.id}', 'again')" class="toggle-chip" style="background: #dc2626; color: #fff; border: none; justify-content: center;">
+            🔴 Again (1)
+          </button>
+          <button onclick="rateRevisionCard('${note.id}', 'hard')" class="toggle-chip" style="background: #d97706; color: #fff; border: none; justify-content: center;">
+            🟠 Hard (2)
+          </button>
+          <button onclick="rateRevisionCard('${note.id}', 'good')" class="toggle-chip" style="background: #2e7d32; color: #fff; border: none; justify-content: center;">
+            🟢 Good (3)
+          </button>
+          <button onclick="rateRevisionCard('${note.id}', 'easy')" class="toggle-chip" style="background: #0284c7; color: #fff; border: none; justify-content: center;">
+            🔵 Easy (4)
+          </button>
+        </div>
+      </div>
+    `;
+
+    notesFeed.appendChild(card);
+  }
+
+  window.revealRevisionCard = function(id) {
+    const detailsEl = document.getElementById(`revisionDetails_${id}`);
+    const revealBtnEl = document.getElementById(`revisionRevealBtn_${id}`);
+    const ratingBarEl = document.getElementById(`revisionRatingBar_${id}`);
+
+    if (detailsEl) detailsEl.classList.remove("flashcard-body-hidden");
+    if (revealBtnEl) revealBtnEl.style.display = "none";
+    if (ratingBarEl) ratingBarEl.style.display = "block";
+  };
+
+  window.rateRevisionCard = function(id, rating) {
+    saveRecallRating(id, rating);
+    revisionQueueIndex++;
+    renderFeed();
+  };
+
+  window.resetRevisionQueue = function() {
+    revisionQueueIndex = 0;
+    renderFeed();
+  };
+
+  let apptCategoryFilter = "all";
+  let apptTimeframeFilter = "90days";
+
+  window.setApptCategoryFilter = function(cat) {
+    apptCategoryFilter = cat;
+    renderMasterWhosWhoTable();
+  };
+
+  window.setApptTimeframeFilter = function(tf) {
+    apptTimeframeFilter = tf;
+    renderMasterWhosWhoTable();
+  };
+
+  // Render Centralized Master Living "Who's Who & Appointments Directory" Table (Part 7)
   function renderMasterWhosWhoTable() {
     notesFeed.innerHTML = "";
 
-    // Gather all appointment notes across all months & static GA
-    const allApptNotes = CA_NOTES_DATA.filter(n => {
+    // 1. Gather all appointment notes (excluding pure static GK entries like NATO/ASEAN founding)
+    let allApptNotes = CA_NOTES_DATA.filter(n => {
       const titleLower = n.title ? n.title.toLowerCase() : "";
+      const isStaticGkOnly = titleLower.includes("static gk:") || titleLower.includes("founding &") || titleLower.includes("32-nation alliance");
+      if (isStaticGkOnly) return false;
+
       return n.secId === "sec5" || titleLower.includes("appoint") || titleLower.includes("sworn in") || titleLower.includes("takes charge") || titleLower.includes("dg of") || titleLower.includes("chairman of") || titleLower.includes("president of") || titleLower.includes("md & ceo");
     });
 
-    // Sort by date descending (latest first: August -> July -> June)
+    // 2. Timeframe Filter (Default: Last 90 Days)
+    if (apptTimeframeFilter === "90days") {
+      const targetDateStr = (DASHBOARD_DATA && DASHBOARD_DATA.targetDate) ? DASHBOARD_DATA.targetDate : "2026-08-24";
+      const targetDate = new Date(targetDateStr);
+      const cutoff90 = new Date(targetDate.getTime() - (90 * 24 * 60 * 60 * 1000));
+      allApptNotes = allApptNotes.filter(n => new Date(n.date) >= cutoff90);
+    }
+
+    // 3. Category Tagging & Category Filter
+    allApptNotes = allApptNotes.filter(n => {
+      const titleLower = (n.title || "").toLowerCase();
+      const bulletText = (n.bullets ? n.bullets.join(" ") : "").toLowerCase();
+      const combined = titleLower + " " + bulletText;
+
+      let cat = "corporate";
+      if (n.secId === "sec1" || n.secId === "sec2" || combined.includes("rbi") || combined.includes("sebi") || combined.includes("irdai") || combined.includes("ifsca") || combined.includes("bank") || combined.includes("cvc") || combined.includes("gsi")) {
+        cat = "financial";
+      } else if (combined.includes("un") || combined.includes("nato") || combined.includes("world bank") || combined.includes("imf") || combined.includes("cop17") || combined.includes("ambassador")) {
+        cat = "intl";
+      }
+
+      n._apptCat = cat;
+
+      // Assign Exam Priority Tag
+      if (combined.includes("rbi") || combined.includes("sebi") || combined.includes("irdai") || combined.includes("cvc") || combined.includes("gsi") || combined.includes("director general") || combined.includes("governor")) {
+        n._apptPriority = "HIGH";
+      } else if (combined.includes("bank") || combined.includes("executive director") || combined.includes("chairman")) {
+        n._apptPriority = "MED";
+      } else {
+        n._apptPriority = "LOW";
+      }
+
+      if (apptCategoryFilter === "all") return true;
+      return cat === apptCategoryFilter;
+    });
+
+    // Sort by date descending (latest first)
     allApptNotes.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
     activeCountEl.textContent = `${allApptNotes.length} appointments`;
@@ -766,21 +1069,46 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
+      // Highlight predecessor changeover info
+      let predecessorHtml = "";
+      if (context.toLowerCase().includes("succeeding") || context.toLowerCase().includes("replaces")) {
+        const predMatch = context.match(/(succeeding|replaces)\s+([A-Z][a-zA-Z\s]+)/i);
+        if (predMatch) {
+          predecessorHtml = `<br><span class="health-badge health-amber" style="font-size: 0.68rem; margin-top: 4px; display: inline-block;">↩ ${predMatch[0]}</span>`;
+        }
+      }
+
       const roleKey = (role + person).toLowerCase().replace(/[^a-z0-9]/g, '');
       const isLatest = !seenRoles.has(roleKey);
       seenRoles.add(roleKey);
 
       const isBm = bookmarkedIds.includes(n.id);
 
+      // Priority Badge Color
+      let priorityClass = "health-grey";
+      if (n._apptPriority === "HIGH") priorityClass = "health-red";
+      else if (n._apptPriority === "MED") priorityClass = "health-amber";
+
+      // Optional Exam Angle
+      let examAngleHtml = n.hook ? `<div style="font-size: 0.8rem; color: var(--accent-gold); margin-top: 4px; font-weight: 500;">💡 Exam Angle: ${parseMarkdown(n.hook)}</div>` : "";
+
       return `
         <tr>
-          <td style="font-weight: 600; white-space: nowrap;">${formatSubtleDate(n.date)}</td>
-          <td style="font-weight: 700; color: var(--accent-blue); width: 22%;">
-            ${parseMarkdown(person)}
-            ${isLatest ? '<span class="badge-count" style="background: var(--accent-green); color: #fff; font-size: 0.65rem; margin-left: 4px;">ACTIVE 2026</span>' : ''}
+          <td style="font-weight: 600; white-space: nowrap;">
+            ${formatSubtleDate(n.date)}
+            <br>
+            <span class="health-badge ${priorityClass}" style="font-size: 0.65rem; margin-top: 4px; display: inline-block;">${n._apptPriority} PRIORITY</span>
+          </td>
+          <td style="font-weight: 700; color: var(--color-active); width: 22%;">
+            <strong>${parseMarkdown(person)}</strong>
+            ${isLatest ? '<span class="badge-count" style="background: var(--color-mastered); color: #fff; font-size: 0.65rem; margin-left: 4px;">ACTIVE 2026</span>' : ''}
+            ${predecessorHtml}
           </td>
           <td style="font-weight: 600; width: 30%;">${parseMarkdown(role)}</td>
-          <td style="font-size: 0.88rem; color: var(--text-muted);">${parseTrapAndStaticGK(context)}</td>
+          <td style="font-size: 0.88rem; color: var(--text-muted);">
+            ${parseTrapAndStaticGK(context)}
+            ${examAngleHtml}
+          </td>
           <td style="text-align: center; width: 8%;">
             <button class="btn-bookmark ${isBm ? 'bookmarked' : ''}" onclick="toggleBookmark('${n.id}')" title="Bookmark Appointment">
               ${isBm ? '★' : '☆'}
@@ -793,21 +1121,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const masterCard = document.createElement("div");
     masterCard.className = "note-card";
     masterCard.innerHTML = `
-      <div class="note-header" style="border-bottom: 2px solid var(--accent-blue); padding-bottom: 12px; margin-bottom: 16px;">
+      <div class="note-header" style="border-bottom: 2px solid var(--color-active); padding-bottom: 12px; margin-bottom: 16px;">
         <div>
           <h2 class="note-title" style="font-size: 1.3rem;">🤝 Appointments Master Directory (Living Consolidated Table)</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Single living master table combining all appointments across June, July, August 2026 & Static GA notes into one updated reference directory.</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Single living master table combining all official appointments across June, July, August 2026 & Static GA into one updated reference directory.</p>
         </div>
-        <span class="badge-count" style="background: var(--accent-blue); color: #fff; font-size: 0.9rem; padding: 6px 14px;">${allApptNotes.length} Active Appointments</span>
+        <span class="badge-count" style="background: var(--color-active); color: #fff; font-size: 0.9rem; padding: 6px 14px;">${allApptNotes.length} Appointments</span>
       </div>
+
+      <!-- Filter Bar for Appointments Table (Part 7) -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; background: var(--bg-sidebar); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-subtle);">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">Sector Category:</span>
+          <button onclick="setApptCategoryFilter('all')" class="toggle-chip ${apptCategoryFilter === 'all' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">All Categories</button>
+          <button onclick="setApptCategoryFilter('financial')" class="toggle-chip ${apptCategoryFilter === 'financial' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🏛️ Financial & Banking</button>
+          <button onclick="setApptCategoryFilter('corporate')" class="toggle-chip ${apptCategoryFilter === 'corporate' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🏢 Corporate & Industry</button>
+          <button onclick="setApptCategoryFilter('intl')" class="toggle-chip ${apptCategoryFilter === 'intl' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🌐 International</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">Timeframe:</span>
+          <button onclick="setApptTimeframeFilter('90days')" class="toggle-chip ${apptTimeframeFilter === '90days' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🎯 Last 90 Days</button>
+          <button onclick="setApptTimeframeFilter('all')" class="toggle-chip ${apptTimeframeFilter === 'all' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">📅 All Time</button>
+        </div>
+      </div>
+
       <div style="overflow-x: auto;">
         <table class="mini-grid-table" style="width: 100%; margin: 0;">
           <thead>
             <tr>
-              <th>Date</th>
+              <th>Date & Priority</th>
               <th>Appointee / Official</th>
               <th>New Designation & Organization</th>
-              <th>Key Context & Details</th>
+              <th>Key Context & Exam Angle</th>
               <th>Action</th>
             </tr>
           </thead>

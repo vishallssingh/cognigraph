@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banking Command Center 2026 — CA, Quant & Exam Tracker</title>
   <meta name="description" content="Kindle E-Book Reader Command Center for Banking, Regulatory, and Civil Services Exams.">
-  <link rel="stylesheet" href="styles.css?v=v8.0">
+  <link rel="stylesheet" href="styles.css?v=v9.0">
 </head>
 <body>
 
@@ -20,30 +20,47 @@
         </div>
       </div>
       <div class="header-controls">
-        <button id="toggleSubjectBtn" class="toggle-chip active">
-          📚 Subject: Current Affairs <span id="subjectChevron">▼</span>
-        </button>
-        <button id="toggleTrackerBtn" class="toggle-chip">
-          ⏱️ Exam Tracker <span id="trackerBadge" class="badge-count">11d</span> <span id="trackerChevron">▼</span>
-        </button>
-        <button id="toggleSidebarBtn" class="toggle-chip">
-          🔒 Locked Sections <span id="sidebarChevron">▼</span>
-        </button>
-        <button id="toggleMonthBtn" class="toggle-chip">
-          📅 August 2026 <span id="monthChevron">▼</span>
-        </button>
-        <button id="toggleRecallBtn" class="toggle-chip">
-          👁️ Active Recall: OFF
-        </button>
-        <button id="toggleFlashcardBtn" class="toggle-chip">
-          🃏 Flashcards: OFF
-        </button>
-        <button id="toggleMasterWhosWhoBtn" class="toggle-chip">
-          🤝 Appointments
-        </button>
-        <button id="toggleBookmarkFilterBtn" class="toggle-chip">
-          ⭐ Bookmarks <span id="bookmarkBadge" class="badge-count">0</span>
-        </button>
+        <!-- Cluster 1: Primary Navigation Breadcrumb Row -->
+        <div class="nav-cluster">
+          <button id="toggleSubjectBtn" class="toggle-chip active">
+            📚 Subject: Current Affairs <span id="subjectChevron">▼</span>
+          </button>
+          <button id="toggleSidebarBtn" class="toggle-chip">
+            🔒 Sections <span id="sidebarChevron">▼</span>
+          </button>
+          <button id="toggleMonthBtn" class="toggle-chip">
+            📅 August 2026 <span id="monthChevron">▼</span>
+          </button>
+          <button id="toggleMasterWhosWhoBtn" class="toggle-chip">
+            🤝 Appointments
+          </button>
+          <button id="toggleBookmarkFilterBtn" class="toggle-chip">
+            ⭐ Starred <span id="bookmarkBadge" class="badge-count">0</span>
+          </button>
+        </div>
+
+        <!-- Cluster 2: Interaction Mode Switches (On/Off Toggles) -->
+        <div class="mode-cluster">
+          <label class="mode-switch-label" title="Toggle 1-Card Active Recall Queue">
+            <span class="mode-switch-text">👁️ Active Recall</span>
+            <input type="checkbox" id="toggleRecallCheck">
+            <span class="mode-slider"></span>
+          </label>
+          <label class="mode-switch-label" title="Toggle Quick-Flip Flashcard Mode">
+            <span class="mode-switch-text">🃏 Flashcards</span>
+            <input type="checkbox" id="toggleFlashcardCheck">
+            <span class="mode-slider"></span>
+          </label>
+        </div>
+
+        <!-- Cluster 3: Persistent Exam Countdown Status Badge -->
+        <div class="status-cluster">
+          <button id="toggleTrackerBtn" class="status-tracker-chip">
+            <span class="status-title">⏱️ Exam Tracker</span>
+            <span id="trackerBadge" class="badge-count urgency-amber">11d</span>
+            <span id="trackerChevron">▼</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -187,10 +204,11 @@
         <span class="badge-count" style="background: rgba(0,0,0,0.06); color: var(--text-muted);">Multi-month archive</span>
       </div>
       <div id="monthNavGrid" class="month-nav-grid">
-        <button class="nav-item-btn active" onclick="selectMonth('all')">📅 All Months <span class="badge-count" id="monthAllCount">441</span></button>
-        <button class="nav-item-btn" onclick="selectMonth('2026-08')">📅 August 2026 <span class="badge-count" id="monthAugCount">205</span></button>
-        <button class="nav-item-btn" onclick="selectMonth('2026-07')">📅 July 2026 <span class="badge-count" id="monthJulCount">173</span></button>
-        <button class="nav-item-btn" onclick="selectMonth('2026-06')">📅 June 2026 <span class="badge-count" id="monthJunCount">60</span></button>
+        <button class="nav-item-btn" id="btnPresetExamWindow" onclick="selectMonth('preset_exam_window')">🎯 Last 6 Months (Exam Window) <span class="badge-count" id="monthExamWindowCount">441</span></button>
+        <button class="nav-item-btn active" id="btnMonthAll" onclick="selectMonth('all')">📅 All Months <span class="badge-count" id="monthAllCount">441</span></button>
+        <button class="nav-item-btn" id="btnMonthAug" onclick="selectMonth('2026-08')">📅 August 2026 <span class="badge-count" id="monthAugCount">205</span></button>
+        <button class="nav-item-btn" id="btnMonthJul" onclick="selectMonth('2026-07')">📅 July 2026 <span class="badge-count" id="monthJulCount">173</span></button>
+        <button class="nav-item-btn" id="btnMonthJun" onclick="selectMonth('2026-06')">📅 June 2026 <span class="badge-count" id="monthJunCount">60</span></button>
       </div>
     </div>
   </div>
@@ -219,10 +237,10 @@
 
   </main>
 
-  <script src="data.js?v=v8.1"></script>
-  <script src="static_ga_data.js?v=v8.1"></script>
-  <script src="quant_data.js?v=v8.1"></script>
-  <script src="dashboard_data.js?v=v8.1"></script>
-  <script src="app.js?v=v8.1"></script>
+  <script src="data.js?v=v9.0"></script>
+  <script src="static_ga_data.js?v=v9.0"></script>
+  <script src="quant_data.js?v=v9.0"></script>
+  <script src="dashboard_data.js?v=v9.0"></script>
+  <script src="app.js?v=v9.0"></script>
 </body>
 </html>
