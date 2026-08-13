@@ -297,7 +297,8 @@ const CA_NOTES_DATA = [
     "hook": "The MPC balances inflation control with economic growth momentum, setting benchmark interest rates for FY27.",
     "date": "2026-08-01",
     "bullets": [
-      "MPC held 62nd meeting from August 3 to 5, 2026 | Chairmanship: **Sanjay Malhotra** (RBI Governor).",
+      "MPC held 62nd meeting from August 3 to 5, 2026.",
+      "Chairmanship: **Sanjay Malhotra** (RBI Governor).",
       "**Repo Rate:** Kept unchanged at **5.25%**.",
       "**Real GDP Growth Projection (FY 2026-27):** Projected at **6.7%** (Q1 7.0%, Q2 6.4%, Q3 6.5%, Q4 6.8%).",
       "**CPI Inflation Projection (FY 2026-27):** Lowered to **5.0%** (earlier 5.1%) (Q2 4.7%, Q3 5.9%, Q4 5.5%). Core inflation projected at **4.3%**.",
@@ -1451,7 +1452,9 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Indian astrophysicist **Annapurni Subramaniam** conferred **COSPAR Vikram Sarabhai Medal 2026**.",
       "Historic Milestone: **First Indian woman scientist** to receive this award (4th Indian overall).",
-      "Past Laureates: U. R. Rao (1996), Gurbax Singh Lakhina (2014), Anil Bharadwaj (2024).",
+      "Past Laureates: U.",
+      "R.",
+      "Rao (1996), Gurbax Singh Lakhina (2014), Anil Bharadwaj (2024).",
       "Ceremony: Conferred during 46th COSPAR Scientific Assembly in **Florence, Italy** by COSPAR & ISRO.",
       "Current Post: Director of **Indian Institute of Astrophysics (IIA)**, Bengaluru."
     ],
@@ -2173,7 +2176,8 @@ const CA_NOTES_DATA = [
     "hook": "Showcases Indian cultural heritage destinations on Incredible India Portal.",
     "date": "2026-08-06",
     "bullets": [
-      "Netflix Co-CEO: Ted Sarandos | Union Minister: Gajendra Singh Shekhawat."
+      "Netflix Co-CEO: Ted Sarandos.",
+      "Union Minister: Gajendra Singh Shekhawat."
     ],
     "trap": null,
     "miniGrid": {
@@ -2315,7 +2319,8 @@ const CA_NOTES_DATA = [
     "date": "2026-08-07",
     "bullets": [
       "Location & Dates: Ulaanbaatar, Mongolia (August 17 to 28, 2026).",
-      "Theme: “Restoring Land. Restoring Hope”."
+      "Theme: “Restoring Land.",
+      "Restoring Hope”."
     ],
     "trap": null,
     "miniGrid": {
@@ -2474,7 +2479,8 @@ const CA_NOTES_DATA = [
     "hook": "Indian Grandmaster defeats Javokhir Sindarov (Uzbekistan).",
     "date": "2026-08-07",
     "bullets": [
-      "Indian Grandmaster R Praggnanandhaa won the St. Louis Rapid & Blitz 2026 chess tournament in Missouri, US.",
+      "Indian Grandmaster R Praggnanandhaa won the St.",
+      "Louis Rapid & Blitz 2026 chess tournament in Missouri, US.",
       "Defeated Alireza Firouzja and Fabiano Caruana in tie-breaks."
     ],
     "trap": null
@@ -2532,7 +2538,10 @@ const CA_NOTES_DATA = [
     "hook": "Honored in Chennai by MSSRF, CavinKare & Rotary Club of Madras East for environmental protection.",
     "date": "2026-08-06",
     "bullets": [
-      "Organic farmers P. Pechiyammal (Tamil Nadu) and Govindhammal received Dr. M.S. Swaminathan Award 2026 for sustainable agriculture.",
+      "Organic farmers P.",
+      "Pechiyammal (Tamil Nadu) and Govindhammal received Dr.",
+      "M.S.",
+      "Swaminathan Award 2026 for sustainable agriculture.",
       "Conferred by MSSRF for promoting native seed conservation."
     ],
     "trap": null,
@@ -2878,7 +2887,8 @@ const CA_NOTES_DATA = [
     "id": "note-sec10-157",
     "bullets": [
       "Approved Projects: ₹852.93 cr (West Ahmedabad sewerage), ₹551.35 cr (East Ahmedabad sewerage), ₹479.25 cr (125 TPD Integrated Sludge Facility), ₹331.03 cr (ITMS & AFCS Transit).",
-      "UCF Corpus & Structure: UCF approved with ₹1 lakh crore Central Assistance to leverage ₹4 lakh crore urban investments (FY26 to FY31). Central support capped at 25%, minimum 50% market raised, 25% state/ULB.",
+      "UCF Corpus & Structure: UCF approved with ₹1 lakh crore Central Assistance to leverage ₹4 lakh crore urban investments (FY26 to FY31).",
+      "Central support capped at 25%, minimum 50% market raised, 25% state/ULB.",
       "Credit Guarantee Sub-Scheme: Central repayment guarantee up to ₹7 crore (or 70% of loan) for Tier-II/III cities."
     ],
     "secId": "sec10",
@@ -2893,7 +2903,8 @@ const CA_NOTES_DATA = [
     "staticGk": "Supreme Court sanctioned judge strength: 38 (including CJI) | Article 124(1).",
     "id": "note-sec2-158",
     "bullets": [
-      "Bench Composition: 3-judge bench headed by CJI Surya Kant, Justice Joymalya Bagchi, and Justice V. Mohana.",
+      "Bench Composition: 3-judge bench headed by CJI Surya Kant, Justice Joymalya Bagchi, and Justice V.",
+      "Mohana.",
       "Order Mandate: Bars posting, reposting, extracting, or monetising courtroom audio-video recordings without written permission of Supreme Court Secretary General or High Court Registrar Generals.",
       "News Reporting Clarification: Clarified that order does NOT restrict genuine news reporting or authorized livestreaming."
     ],
@@ -2989,7 +3000,8 @@ const CA_NOTES_DATA = [
     "staticGk": "Indian Railways CEO: Satish Kumar | RPF works under Ministry of Railways.",
     "id": "note-sec3-164",
     "bullets": [
-      "Ferried live heart 250 km from Surat to Ahmedabad aboard Vande Bharat Express (Train No. 20901) to U.N. Mehta Institute.",
+      "Ferried live heart 250 km from Surat to Ahmedabad aboard Vande Bharat Express (Train No. 20901) to U.N.",
+      "Mehta Institute.",
       "Green Corridor: Platform 1 at Ahmedabad Station connected via RPF-Police green corridor."
     ],
     "secId": "sec3",
@@ -3158,7 +3170,8 @@ const CA_NOTES_DATA = [
     "staticGk": "IRDAI Chairman: Ajay Seth | HQ: Hyderabad, Telangana | Established 1999.",
     "id": "note-sec3-174",
     "bullets": [
-      "License Awardee: ProTec General Insurance Ltd (JV between M. Pallonji Group & True North's Divya Sehgal).",
+      "License Awardee: ProTec General Insurance Ltd (JV between M.",
+      "Pallonji Group & True North's Divya Sehgal).",
       "Regulatory Reforms: Operationalised PEPF under Sec 16A of IRDA Act 1999; mandated salesperson tagging on policies; replaced periodic intermediary renewals with annual fee perpetual registration.",
       "FDI Threshold: 2 insurers (1 life, 1 general) increased foreign shareholding beyond 74% following 100% FDI clearance."
     ],
@@ -3465,7 +3478,8 @@ const CA_NOTES_DATA = [
     "staticGk": "P&G Global HQ: Cincinnati, Ohio, USA.",
     "id": "note-sec5-190",
     "bullets": [
-      "Indian-American business leader appointed P&G Board Chairman (succeeding Jon R. Moeller) while continuing as CEO."
+      "Indian-American business leader appointed P&G Board Chairman (succeeding Jon R.",
+      "Moeller) while continuing as CEO."
     ],
     "secId": "sec5",
     "date": "2026-08-01",
@@ -5158,8 +5172,9 @@ const CA_NOTES_DATA = [
     "date": "2026-07-26",
     "bullets": [
       "Champions: Spain (Captain: Rodri) defeated Argentina 2-1 at MetLife Stadium, New York.",
-      "Golden Ball (Best Player): Rodri (Spain) | Golden Boot (Top Scorer): Kylian Mbappé (France, 22 all-time World Cup goals).",
-      "Golden Glove (Best Goalkeeper): Unai Simón (Spain) | Young Player: Pau Cubarsí (Spain).",
+      "Golden Ball (Best Player): Rodri (Spain). Golden Boot (Top Scorer): Kylian Mbappé (France, 22 all-time World Cup goals).",
+      "Golden Glove (Best Goalkeeper): Unai Simón (Spain).",
+      "Young Player: Pau Cubarsí (Spain).",
       "2030 World Cup Hosts: Main hosts Morocco, Portugal, Spain (Centenary matches in Argentina, Paraguay, Uruguay)."
     ],
     "title": "2026 FIFA World Cup: Spain Defeats Defending Champions Argentina 2-1 in New York Final",
@@ -5313,7 +5328,9 @@ const CA_NOTES_DATA = [
   {
     "bullets": [
       "Establishment & Legal Basis: Established April 27, 2020 under the IFSCA Act 2019.",
-      "Headquarters & Leadership: Headquartered at GIFT City, Gandhinagar, Gujarat | Chairperson: K. Rajaraman.",
+      "Headquarters & Leadership: Headquartered at GIFT City, Gandhinagar, Gujarat.",
+      "Chairperson: K.",
+      "Rajaraman.",
       "Regulatory Jurisdiction: Combines regulatory oversight of banking, capital markets, insurance, and pensions in IFSC zones."
     ],
     "interviewQ": null,
@@ -5328,9 +5345,11 @@ const CA_NOTES_DATA = [
   },
   {
     "bullets": [
-      "Establishment: Founded July 9, 1988 under National Housing Bank Act 1987 | HQ: New Delhi.",
+      "Establishment: Founded July 9, 1988 under National Housing Bank Act 1987.",
+      "HQ: New Delhi.",
       "Capital Structure: Authorized capital stands at ₹1,450 crore (100% fully subscribed by Union Government).",
-      "Leadership: MD: Sanjay Shukla | Chairman: Prabhanjan Mohapatra."
+      "Leadership: MD: Sanjay Shukla.",
+      "Chairman: Prabhanjan Mohapatra."
     ],
     "interviewQ": null,
     "secId": "sec2",
@@ -5463,7 +5482,8 @@ const CA_NOTES_DATA = [
   {
     "bullets": [
       "Alliance Expansion: Sweden joined as the 32nd member state on March 7, 2024 (Finland joined 31st in 2023).",
-      "Governance & HQ: Headquartered in Brussels, Belgium | Secretary General: Mark Rutte."
+      "Governance & HQ: Headquartered in Brussels, Belgium.",
+      "Secretary General: Mark Rutte."
     ],
     "interviewQ": null,
     "secId": "sec5",
@@ -5521,7 +5541,8 @@ const CA_NOTES_DATA = [
   {
     "bullets": [
       "Nehru Trophy Regatta: Held annually on 2nd Saturday of August on Punnamada Lake, Alappuzha, Kerala.",
-      "Indian Navy Domain: Safeguards 11,098 km coastline and 2.4 million sq. km. Exclusive Economic Zone (EEZ)."
+      "Indian Navy Domain: Safeguards 11,098 km coastline and 2.4 million sq. km.",
+      "Exclusive Economic Zone (EEZ)."
     ],
     "interviewQ": null,
     "secId": "sec4",
@@ -5679,7 +5700,8 @@ const CA_NOTES_DATA = [
   {
     "tier": "Tier A",
     "bullets": [
-      "Price Revision: Procurement price raised from ₹1,875 to ₹2,125 per quintal (w.e.f. July 4).",
+      "Price Revision: Procurement price raised from ₹1,875 to ₹2,125 per quintal (w.e.f.",
+      "July 4).",
       "Procurement Agencies: Procured through NAFED and National Cooperative Consumers' Federation (NCCF).",
       "Production Estimate: 2025-26 onion production estimated at 307.37 lakh metric tonnes (LMT)."
     ],
@@ -5858,7 +5880,8 @@ const CA_NOTES_DATA = [
   {
     "tier": "Tier A",
     "bullets": [
-      "Platform Portal: trlcompass.in launched by Principal Scientific Adviser Prof. Ajay Kumar Sood.",
+      "Platform Portal: trlcompass.in launched by Principal Scientific Adviser Prof.",
+      "Ajay Kumar Sood.",
       "National Framework: Standardises 9-level TRL scale to support ANRF and Research, Development & Innovation (RDI) Fund."
     ],
     "staticGk": "Data Security Council of India (DSCI) is a non-profit body set up by NASSCOM.",
@@ -6297,7 +6320,8 @@ const CA_NOTES_DATA = [
     "staticGk": "Fortune India MPW list evaluates 100 women leaders across business, finance, and policy.",
     "id": "note-sec7-346",
     "bullets": [
-      "Rank #1: Nita M. Ambani (Founder & Chairperson of Reliance Foundation) ranked #1 in Fortune India MPW 2026 list.",
+      "Rank #1: Nita M.",
+      "Ambani (Founder & Chairperson of Reliance Foundation) ranked #1 in Fortune India MPW 2026 list.",
       "Key Recognition: Marks her 2nd major recognition of 2026 following AAPI Humanitarian Award & Key to City of Tampa."
     ],
     "hook": "Recognizes top 100 female leaders shaping India's economic and business landscape.",
@@ -6897,7 +6921,8 @@ const CA_NOTES_DATA = [
     "hook": "S&P Global data places Kotak Bank #1 among banks with assets over  billion.",
     "bullets": [
       "Leverage Leader: Kotak Mahindra Bank reported 16.56% leverage ratio as of March 31, 2026.",
-      "Peer Comparison: HDFC Bank (11.14%), ICICI Bank (10.84%), Axis Bank (9.28%). Australian banks lowest.",
+      "Peer Comparison: HDFC Bank (11.14%), ICICI Bank (10.84%), Axis Bank (9.28%).",
+      "Australian banks lowest.",
       "Financial Definition: Lower leverage ratio indicates a financially accountable business with constant revenue stream."
     ],
     "id": "note-sec2-381",
