@@ -552,6 +552,64 @@
       width: 0%;
       transition: width 0.2s;
     }
+  
+    /* --- CUSTOM TABLE & RESPONSIVE CONTAINER STYLING --- */
+    .chapter-content table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1.25rem 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .chapter-content th {
+      background: var(--bg-highlight);
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+    .chapter-content td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .chapter-content tr:last-child td {
+      border-bottom: none;
+    }
+    .chapter-content tr:nth-child(even) td {
+      background: rgba(0, 0, 0, 0.025);
+    }
+    /* Theme-Adaptive Mind Map Containers */
+    .mindmap-container {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-main) !important;
+      padding: 16px !important;
+      border-radius: 10px !important;
+      margin: 1.5rem 0 !important;
+    }
+    .mindmap-container h4 {
+      color: var(--accent-brand) !important;
+    }
+    .mindmap-container div[style*="background:#1e293b"],
+    .mindmap-container div[style*="background: #1e293b"] {
+      background: var(--bg-highlight) !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-main) !important;
+    }
+    .mindmap-container strong[style*="color:#f8fafc"],
+    .mindmap-container strong[style*="color: #f8fafc"] {
+      color: var(--text-main) !important;
+    }
+
   </style>
 </head>
 <body class="theme-sepia">
@@ -3055,6 +3113,13 @@
         });
       }
     }
+
+    
+    marked.setOptions({
+      gfm: true,
+      breaks: false,
+      headerIds: true
+    });
 
     // --- Initial Launch ---
     setTheme(currentTheme);
