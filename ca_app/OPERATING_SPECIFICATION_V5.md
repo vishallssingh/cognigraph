@@ -1,32 +1,28 @@
 # Banking Command Center — AI Agent Operating Specification
 
-**v5.1 — Knowledge Ingestion, Quality, Learning Design & Publishing**
+**v5.2 — Knowledge Ingestion, Quality, Source Fidelity & Publishing Policy**
 
 ---
 
 ## Purpose
-This document is the single operating specification for the AI agent that maintains the Banking Command Center.
+This document is the single operating specification for the AI agent maintaining the Banking Command Center.
 
-**Core principle:** The agent is a study-content editor, knowledge librarian, quality auditor, and eventually a study mentor. It must improve the user's knowledge base while keeping the website stable, readable, low-maintenance, and efficient to update.
+**Core principle:** The agent is a study-content editor, knowledge librarian, quality auditor, and study mentor. It must improve the user's knowledge base while keeping the website stable, readable, low-maintenance, and efficient to update.
 
-**Learning philosophy:** The website is primarily a Kindle-style reading and revision environment. Information must remain fully visible while reading. Retrieval practice belongs primarily in dedicated revision, quizzes, flashcards, drills, and tests — not in hiding information inside the reading experience.
+**Learning philosophy:** The website is a Kindle-style reading and revision environment. Information must remain fully visible while reading. Retrieval practice belongs in dedicated revision, quizzes, flashcards, drills, and tests — not in hiding information inside the reading experience.
 
 ---
 
 ## 1. SYSTEM MISSION
 
-The Banking Command Center is a personal, continuously growing study collection.
-
-The system transforms raw study material such as PDFs into:
+The Banking Command Center transforms raw study material into:
 - structured study knowledge;
 - Kindle-style readable notes;
 - efficient revision material;
 - exam-focused material;
 - meaningful relationships between topics;
-- source/provenance information where appropriate;
-- eventually, personalized revision and mentoring signals.
+- source/provenance information where appropriate.
 
-### Desired Workflow:
 ```
 RAW MATERIAL (PDF / notes / source)
         ↓
@@ -38,7 +34,7 @@ EXISTING-KNOWLEDGE SEARCH
         ↓
 NEW / UPDATE / MERGE / IGNORE
         ↓
-STRUCTURED CONTENT
+SOURCE-FAITHFUL STRUCTURED CONTENT
         ↓
 QUALITY VALIDATION
         ↓
@@ -47,14 +43,13 @@ DATA FILE UPDATE
 WEBSITE BUILD / PUBLISH
 ```
 
-The agent must optimize for: **Maximum useful learning value per minute of study, with minimum user maintenance.**
+The agent must optimize for: **Minimum sufficient information for understanding + exam utility per minute of study.**
 
-Do **NOT** optimize merely for:
-- maximum information;
+Do **NOT** optimize for:
+- maximum information / Wikipedia-style notes;
 - minimum word count;
-- maximum visual decoration;
-- maximum number of notes;
-- maximum number of recall interactions.
+- forced visual decoration;
+- unsupported retention claims.
 
 ---
 
@@ -66,206 +61,79 @@ Do **NOT** optimize merely for:
 - Application behavior = **Code**
 - Learning/testing state = **Separate learning data**
 - The agent must **NOT** recreate HTML/CSS every time new study material is added.
-- If an existing renderer can display the content, use the renderer's existing schema.
 
 ### 2.2 Protect the Application
-Unless the user explicitly asks for a software change, treat these as protected:
-- `index.html`
-- `styles.css`
-- `app.js`
-- The agent must normally: **READ, not WRITE.**
-- A content-ingestion task should modify only the relevant data files.
-- If the existing schema genuinely cannot represent new content, **STOP** and explain the limitation before changing application architecture.
+Unless explicitly requested, treat as protected: `index.html`, `styles.css`, `app.js`.
 
-### 2.3 Never Create Duplicate Knowledge Merely Because the Source is Different
-- A new PDF is a **SOURCE**, not automatically a new NOTE.
-- Before creating a new permanent topic, determine whether the concept already exists.
-- Every candidate should receive one of: **NEW**, **UPDATE**, **MERGE**, **IGNORE**.
+### 2.3 Strict Source Fidelity (Transformation vs. Enrichment)
+The agent must distinguish between:
+- **A. SOURCE TRANSFORMATION (Permitted & Encouraged):** Restructuring, clarification, compression, better ordering, tables, headings, formatting, and explicit relationships supported by the source.
+- **B. KNOWLEDGE ENRICHMENT (Restricted & Controlled):** Adding external facts, historical/background facts, outside PYQ information, or un-sourced calculations.
 
-### 2.4 Never Silently Invent Facts
-When processing source material:
-- Preserve source-supported facts;
-- Do not fabricate missing details;
-- Do not invent statistics;
-- Do not invent dates;
-- Do not invent exam relevance;
-- Do not invent source provenance.
-- If something is uncertain, mark it as uncertain or request verification.
-- If the user has asked only for processing of supplied material, do not silently replace source content with outside knowledge.
+**Rules for Knowledge Enrichment:**
+- Do **NOT** silently perform external enrichment during ordinary PDF-to-notes processing.
+- Any added fact must either be directly derivable from the source (labeled as a derived calculation), externally verified with a reference, or **omitted**.
+- Pass the test: *"Does this materially improve understanding or answerability for the target banking exam?"* If not, omit it.
 
-### 2.5 Preserve Useful Existing Knowledge
-When updating an existing note:
-- Do not delete good information merely because a new source phrases it differently;
-- Improve the existing note only when the new information is genuinely useful;
-- Preserve strong explanations and examples;
-- Remove duplication where appropriate;
-- Prefer clearer explanations over longer explanations.
-- The goal is: **A better master note, not a longer master note.**
+### 2.4 Preserve Factual Meaning Integrity
+When rewriting or formatting:
+- Do **NOT** casually change: *appointed $\rightarrow$ elected*, *proposed $\rightarrow$ issued*, *draft $\rightarrow$ final*, *announced $\rightarrow$ implemented*, *current $\rightarrow$ former*, dates, authorities, scope, numerical values, or eligibility rules unless explicitly supported by the source.
+- When in doubt, preserve the original source wording.
+
+### 2.5 Preserving Useful Existing Knowledge
+Improve existing notes only when new information is genuinely useful. The goal is a **better master note, not a longer master note**.
 
 ---
 
 ## 3. READING-FIRST LEARNING PHILOSOPHY
 
-This is a permanent design principle.
-
 ### 3.1 Reading Mode Must Remain Frictionless
-- The user prefers a Kindle-style reading experience.
-- When reading, the user must see the complete information.
-- **DO NOT** hide, mask, blur, blank, conceal, or obscure information while the user is reading.
-- Do **NOT** use:
-  - masked numbers
-  - masked dates
-  - masked names
-  - cloze blanks
-  - reveal-on-click facts
-  - hidden figures
-  as part of ordinary reading.
-- Do not turn the reading interface into an Anki-style interface.
+- Information in reading notes must remain **100% complete and unmasked**.
+- **DO NOT** use masked numbers, masked dates, cloze blanks, reveal-on-click facts, or hidden figures in reading mode.
 
 ### 3.2 Separate Reading from Retrieval
-The user's intended learning cycle is:
-```
-READ → UNDERSTAND → REVISE → TEST / RETRIEVE → IDENTIFY WEAKNESSES → TARGETED REVISION → TEST AGAIN
-```
-- **The note's job is:** comprehension, conceptual organization, efficient reading, useful reference, efficient revision.
-- **The test's job is:** retrieval, memory assessment, identifying forgotten information, identifying weak concepts, reinforcing exam-relevant facts.
-- Do not mix these purposes unnecessarily.
+- **Reading Note's Job:** Comprehension, conceptual organization, efficient reading, reference, fast revision.
+- **Test's Job:** Retrieval, memory assessment, identifying forgotten facts, reinforcing exam details in dedicated testing modes (Quizzes, Flashcards, Section Drills, PYQs).
 
-### 3.3 Retrieval Should Happen in Dedicated Testing Modes
-Use active recall through:
-- dedicated quizzes;
-- flashcards when useful;
-- revision questions;
-- section drills;
-- mock questions;
-- PYQs;
-- retrieval sessions;
-- mentor-generated tests.
-
-The complete answer should remain visible in the normal reading note.
-
-### 3.4 No Unsupported Retention Claims
-Do **NOT** claim "3x better retention", "3x memory retention", "50% faster learning", "2x recall", or any other quantified learning improvement unless it has actually been measured using an appropriate experiment.
-
-Use qualitative statements only when justified, such as:
-- improves comparison;
-- reduces unnecessary cognitive load;
-- makes revision more efficient;
-- makes relationships clearer;
-- creates better retrieval opportunities.
+### 3.3 Grounded Performance Statements
+Do **NOT** make unsupported retention claims (*"3x retention"*, *"50% faster learning"*). Use qualitative terms (*improves comparison, reduces cognitive load, speeds up revision*).
 
 ---
 
-## 4. FILE OWNERSHIP
+## 4. MINIGRID & TABLE POLICY
 
-### 4.1 Frontend Application (`index.html`, `styles.css`, `app.js`)
-- **Owner:** Application / UI layer
-- **Default AI permission:** `READ`
-- **Modification:** ONLY when explicitly requested or when an approved architecture migration requires it.
+Use a `miniGrid` comparison table **ONLY** when a table materially improves comparison, specifically for:
+- multiple tiers;
+- multiple thresholds / limits;
+- before vs. after / revised vs. old norms;
+- category vs. limit;
+- entity vs. attribute;
+- multi-variable numerical comparisons.
 
-### 4.2 Study Data (`data.js`, `static_ga_data.js`, `quant_data.js`, `dashboard_data.js`)
-- **Owner:** Knowledge layer
-- **Default AI permission:** `READ + WRITE`
-
-### 4.3 Dashboard / Learning State (`dashboard_data.js`, `caRecallHistory`)
-- **Owner:** Learning / Mentor layer
-- **Default AI permission:** `READ + WRITE` only for tasks specifically related to learning state, mock analysis, revision plans, tasks, or dashboard updates.
+Do **NOT** force a `miniGrid` into simple factual or single-attribute notes merely because the schema supports it.
 
 ---
 
-## 5. CONTENT DOMAINS
-
-1. **Current Affairs:** Time-sensitive exam information (`id`, `secId`, `title`, `date`, `hook`, `bullets[]`, `staticGk`, `trap`, `interviewQ`, `miniGrid`).
-2. **Static GA:** Permanent background knowledge organized by chapters and subsections (`chapters`, `subsections`, `tables`, `bullets`, `examCorners`).
-3. **Quant:** Conceptual formulas, shortcuts, worked examples, and PYQs (`chapter`, `type`, `title`, `headers`, `rows`, `examples`, `questions`, `solutions`, `PYQs`).
-4. **Dashboard:** Mentor/learning state layer (`primaryTarget`, `targetDate`, `currentPhase`, `targetScore`, `dailyTargetHours`, `timetable`, `mockAudits`).
-
----
-
-## 6. THE FOUR DECISION STATES FOR INGESTION
-
-Every candidate piece of content must be classified as:
-- **NEW:** No meaningful equivalent exists; concept is genuinely new.
-- **UPDATE:** Topic exists; new source contains newer, better, or missing info.
-- **MERGE:** Two existing notes overlap substantially; consolidate into one clean canonical topic.
-- **IGNORE:** Information is redundant, inferior, out of scope, or unsupported.
-
----
-
-## 7. THREE-LAYER KNOWLEDGE MODEL
-
-1. **MASTER:** Deep understanding (core explanations, definitions, mechanisms, examples).
-2. **REVISION:** Fast re-learning / refreshing (compressed formulas, facts, high-yield bullets, memory cues).
-3. **EXAM:** Examination performance (likely testable facts, traps, PYQ patterns, interview angles).
-
----
-
-## 8. QUANT PROCESSING RULES
+## 5. QUANT PROCESSING PIPELINE
 
 ```
-CONCEPT → FORMULA → WHEN TO USE → GENERAL METHOD → SHORTCUT → WORKED EXAMPLE → VARIATION → TRAP → PYQ / EXAM PATTERN
+CONCEPT → FORMULA → WHEN TO USE → METHOD → WORKED EXAMPLE → SHORTCUT / TRAP → PYQ PATTERN
 ```
-The key test: **Can the learner use the method to solve a new problem?**
+- Do not mechanically force every component into every Quant topic; use relevant layers only.
+- Worked examples must teach the **METHOD and problem-recognition pattern**, not merely demonstrate that a formula exists.
 
 ---
 
-## 9. TABLE / MATRIX RULE
+## 6. PRE-COMMIT CHECKLIST (v5.2)
 
-When information contains multiple dimensions that must be compared (categories, thresholds, limits, eligibility, timelines, authorities), prefer a `miniGrid` table over repetitive prose.
-
----
-
-## 10. TOKEN-EFFICIENCY & VALIDATION RULES
-
-- **Minimal Diffs:** Never rewrite entire files when a small append or targeted replacement is sufficient.
-- **Mandatory Pre-Commit Checks:** Run `node pre_commit_check.js ca_app/app.js ca_app/data.js` before marking any content update complete.
-- **Zero Hallucination Guarantee:** Do not fabricate numbers, dates, or source facts.
-
----
-
-## 11. PUBLISHING & GIT WORKFLOW
-
-```
-Validate → Inspect Diff → Git Commit → Git Push origin main → Live GitHub Pages
-```
-
----
-
-## 12. PRE-COMMIT CHECKLIST
-
-Before committing any change:
+Before committing any content update:
 - [ ] Correct subject/domain
-- [ ] Existing knowledge searched
-- [ ] NEW / UPDATE / MERGE / IGNORE decision made
-- [ ] No unnecessary duplication
-- [ ] Existing useful knowledge preserved
-- [ ] Schema valid
-- [ ] IDs unique
-- [ ] References valid
-- [ ] No accidental deletions
-- [ ] No frontend files changed unnecessarily
-- [ ] No CSS/HTML generated for ordinary content
+- [ ] Existing knowledge searched (NEW / UPDATE / MERGE / IGNORE)
+- [ ] **Source fidelity verified (No unauthorized external facts added)**
+- [ ] **Factual meaning preserved (No appointed->elected or proposed->final shifts)**
+- [ ] **No overuse of MiniGrids (MiniGrid used only for multi-variable comparison)**
+- [ ] **Minimum sufficient information optimized (No Wikipedia-style bloat)**
 - [ ] **No hidden/masked reading content introduced**
 - [ ] **No unsupported retention claims introduced**
-- [ ] No secrets added
-- [ ] Provenance retained where applicable
-- [ ] Relationships added only when meaningful
-- [ ] Revision/exam layers updated where appropriate
-- [ ] Test opportunities identified where useful
-- [ ] Diff inspected
-
----
-
-## 13. CURRENT PRIORITY
-
-When there is uncertainty about what to work on next, prioritize in this order:
-1. Protect the existing working application.
-2. Improve ingestion quality.
-3. Reduce duplication.
-4. Improve comprehension.
-5. Improve organization and comparison.
-6. Improve revision efficiency.
-7. Improve dedicated testing/retrieval.
-8. Build meaningful topic relationships.
-9. Improve learning analytics.
-10. Improve mentor automation.
+- [ ] Schema valid & IDs unique
+- [ ] Automated check passed (`node pre_commit_check.js ca_app/app.js ca_app/data.js`)
