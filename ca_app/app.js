@@ -1096,34 +1096,71 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderMasterWhosWhoTable() {
     notesFeed.innerHTML = "";
 
-    const masterList = [];
+    // Header Banner
+    const topBanner = document.createElement("div");
+    topBanner.className = "month-group-banner";
+    topBanner.style.background = "var(--bg-sidebar)";
+    topBanner.style.border = "1px solid var(--border-subtle)";
+    topBanner.style.padding = "16px 20px";
+    topBanner.style.borderRadius = "8px";
+    topBanner.style.marginBottom = "20px";
+    topBanner.innerHTML = `
+      <div>
+        <h2 style="font-size: 1.25rem; font-family: var(--font-serif); color: var(--accent-warm);">👔 Appointments Master Directory (Official Chapter 1 Schema)</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">Clean reference tables combining Chapter 1 Apex Regulatory Bodies, RBI Transitions, Public Sector Banks, and 2026 Monthly Updates.</p>
+      </div>
+    `;
+    notesFeed.appendChild(topBanner);
 
-    // 1. Extract static GA Chapter 1 baseline appointments
+    // 1. Render Static GA Chapter 1 Subsections directly if available
     if (typeof STATIC_GA_CHAPTERS !== "undefined") {
       const ch1 = STATIC_GA_CHAPTERS.find(c => c.id === "ch1");
       if (ch1 && ch1.subsections) {
         ch1.subsections.forEach(sub => {
-          if (sub.type === "table" && sub.rows) {
-            sub.rows.forEach((r, idx) => {
-              masterList.push({
-                id: `static_ch1_${sub.subId}_${idx}`,
-                person: r[0],
-                position: r[1],
-                entity: r[2],
-                date: r[3],
-                predecessor: r[4] || "-",
-                details: r[5] || r[4] || "-",
-                category: "financial",
-                priority: "HIGH",
-                source: "Static GA Anchor"
-              });
-            });
+          const card = document.createElement("div");
+          card.className = "note-card";
+          card.style.marginBottom = "24px";
+
+          let bodyHtml = "";
+          if (sub.type === "table" && sub.headers && sub.rows) {
+            const ths = sub.headers.map(h => `<th>${h}</th>`).join("");
+            const trs = sub.rows.map(r => {
+              const tds = r.map((c, idx) => {
+                if (idx === 0) return `<td style="font-weight: 700; color: var(--color-active);">${parseMarkdown(c)}</td>`;
+                if (idx === 1) return `<td style="font-weight: 600;">${parseMarkdown(c)}</td>`;
+                if (idx === 2) return `<td style="font-weight: 600; color: var(--accent-blue);">${parseMarkdown(c)}</td>`;
+                return `<td style="font-size: 0.88rem; color: var(--text-muted);">${parseMarkdown(c)}</td>`;
+              }).join("");
+              return `<tr>${tds}</tr>`;
+            }).join("");
+
+            bodyHtml = `
+              <div style="overflow-x: auto; margin-top: 12px;">
+                <table class="mini-grid-table" style="width: 100%; margin: 0;">
+                  <thead><tr>${ths}</tr></thead>
+                  <tbody>${trs}</tbody>
+                </table>
+              </div>
+            `;
+          } else if (sub.type === "bullets" && sub.items) {
+            bodyHtml = `<ul class="bullet-list" style="margin-top: 12px;">${sub.items.map(i => `<li>${processBulletText(i)}</li>`).join("")}</ul>`;
+          } else if (sub.type === "examCorner" && sub.items) {
+            bodyHtml = `<div class="exam-corner-box" style="margin-top: 12px;">${sub.items.map(i => `<div style="margin-bottom: 8px;">${parseTrapAndStaticGK(i)}</div>`).join("")}</div>`;
           }
+
+          card.innerHTML = `
+            <div class="note-header" style="border-bottom: 2px solid var(--accent-warm); padding-bottom: 10px; margin-bottom: 12px;">
+              <h3 class="note-title" style="font-size: 1.15rem; color: var(--text-headline);">${sub.title}</h3>
+            </div>
+            ${bodyHtml}
+          `;
+          notesFeed.appendChild(card);
         });
       }
     }
 
-    // 2. Extract dynamic 2026 person-level appointments from CA_NOTES_DATA
+    // 2. Render 2026 Monthly Appointments Card
+    const dynamicAppts = [];
     const nonPersonKeywords = ["mou", "conference", "summit", "adopts", "partners", "hosts", "sign", "agrees", "platform", "zone", "corridor", "facility", "project", "initiative", "policy"];
 
     CA_NOTES_DATA.forEach(n => {
@@ -1162,7 +1199,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (person.length > 35) return;
 
-      // Determine category & priority
       const combined = (person + " " + pos + " " + context).toLowerCase();
       let cat = "corporate";
       if (combined.includes("rbi") || combined.includes("sebi") || combined.includes("irdai") || combined.includes("ifsca") || combined.includes("bank") || combined.includes("cvc") || combined.includes("gsi")) {
@@ -1178,7 +1214,7 @@ document.addEventListener("DOMContentLoaded", () => {
         prio = "MED";
       }
 
-      masterList.push({
+      dynamicAppts.push({
         id: n.id,
         person: person.trim(),
         position: pos.trim(),
@@ -1187,36 +1223,25 @@ document.addEventListener("DOMContentLoaded", () => {
         predecessor: context.includes("succeeding") ? (context.match(/succeeding\s+([A-Z][a-zA-Z\s]+)/i)?.[0] || "-") : "-",
         details: context,
         category: cat,
-        priority: prio,
-        source: "2026 Monthly Note"
+        priority: prio
       });
     });
 
-    // 3. Apply Timeframe Filter
-    let filteredList = masterList;
+    let filteredDyn = dynamicAppts;
     if (apptTimeframeFilter === "90days") {
       const targetDateStr = (DASHBOARD_DATA && DASHBOARD_DATA.targetDate) ? DASHBOARD_DATA.targetDate : "2026-08-24";
       const targetDate = new Date(targetDateStr);
       const cutoff90 = new Date(targetDate.getTime() - (90 * 24 * 60 * 60 * 1000));
-      filteredList = masterList.filter(item => {
-        if (item.source === "Static GA Anchor") return true;
-        return new Date(item.date) >= cutoff90;
-      });
+      filteredDyn = dynamicAppts.filter(item => new Date(item.date) >= cutoff90);
     }
 
-    // 4. Apply Category Filter
     if (apptCategoryFilter !== "all") {
-      filteredList = filteredList.filter(item => item.category === apptCategoryFilter);
+      filteredDyn = filteredDyn.filter(item => item.category === apptCategoryFilter);
     }
 
-    activeCountEl.textContent = `${filteredList.length} appointments`;
+    activeCountEl.textContent = `${filteredDyn.length + 17} appointments`;
 
-    const seenRoles = new Set();
-    const rowsHtml = filteredList.map(item => {
-      const roleKey = (item.position + item.person).toLowerCase().replace(/[^a-z0-9]/g, '');
-      const isLatest = !seenRoles.has(roleKey);
-      seenRoles.add(roleKey);
-
+    const dynRowsHtml = filteredDyn.map(item => {
       let priorityClass = "health-grey";
       if (item.priority === "HIGH") priorityClass = "health-red";
       else if (item.priority === "MED") priorityClass = "health-amber";
@@ -1227,7 +1252,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <tr>
           <td style="font-weight: 700; color: var(--color-active); width: 18%;">
             <strong>${parseMarkdown(item.person)}</strong>
-            ${isLatest ? '<span class="badge-count" style="background: var(--color-mastered); color: #fff; font-size: 0.65rem; margin-left: 4px;">ACTIVE</span>' : ''}
           </td>
           <td style="font-weight: 600; width: 22%;">${parseMarkdown(item.position)}</td>
           <td style="font-weight: 600; color: var(--accent-blue); width: 18%;">${parseMarkdown(item.entity)}</td>
@@ -1247,18 +1271,18 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }).join("");
 
-    const masterCard = document.createElement("div");
-    masterCard.className = "note-card";
-    masterCard.innerHTML = `
+    const dynCard = document.createElement("div");
+    dynCard.className = "note-card";
+    dynCard.innerHTML = `
       <div class="note-header" style="border-bottom: 2px solid var(--color-active); padding-bottom: 12px; margin-bottom: 16px;">
         <div>
-          <h2 class="note-title" style="font-size: 1.3rem;">👔 Appointments Master Directory (Ideal Static Baseline Format)</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Clean living directory containing 100% human official appointments (RBI, SEBI, IRDAI, PSBs & Apex Bodies) matching the Chapter 1 schema.</p>
+          <h3 class="note-title" style="font-size: 1.2rem;">📰 2026 Monthly Appointments Archive (June, July, August 2026 Updates)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Dynamic monthly additions filtered by sector category & timeframe.</p>
         </div>
-        <span class="badge-count" style="background: var(--color-active); color: #fff; font-size: 0.9rem; padding: 6px 14px;">${filteredList.length} Appointments</span>
+        <span class="badge-count" style="background: var(--color-active); color: #fff; font-size: 0.9rem; padding: 6px 14px;">${filteredDyn.length} Updates</span>
       </div>
 
-      <!-- Filter Bar for Appointments Table (Part 7) -->
+      <!-- Filter Bar for Monthly Appointments Table -->
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; background: var(--bg-sidebar); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-subtle);">
         <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
           <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">Sector Category:</span>
@@ -1287,13 +1311,13 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
           </thead>
           <tbody>
-            ${rowsHtml}
+            ${dynRowsHtml}
           </tbody>
         </table>
       </div>
     `;
 
-    notesFeed.appendChild(masterCard);
+    notesFeed.appendChild(dynCard);
   }
 
   // Render Quant Superbook Feed
