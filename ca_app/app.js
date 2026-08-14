@@ -255,21 +255,45 @@ document.addEventListener("DOMContentLoaded", () => {
     autoScrollAnimId = requestAnimationFrame(stepAutoScroll);
   }
 
+  const floatingAutoScrollPill = document.getElementById("floatingAutoScrollPill");
+  const floatingSpeedLabel = document.getElementById("floatingSpeedLabel");
+
   function startAutoScroll() {
     if (isAutoScrolling) return;
     isAutoScrolling = true;
     if (toggleAutoScrollCheck) toggleAutoScrollCheck.checked = true;
+    if (floatingAutoScrollPill) floatingAutoScrollPill.style.display = "flex";
+    if (floatingSpeedLabel) floatingSpeedLabel.textContent = `${autoScrollSpeed}x`;
     autoScrollAnimId = requestAnimationFrame(stepAutoScroll);
   }
 
   function stopAutoScroll() {
     isAutoScrolling = false;
     if (toggleAutoScrollCheck) toggleAutoScrollCheck.checked = false;
+    if (floatingAutoScrollPill) floatingAutoScrollPill.style.display = "none";
     if (autoScrollAnimId) {
       cancelAnimationFrame(autoScrollAnimId);
       autoScrollAnimId = null;
     }
   }
+
+  window.toggleAutoScrollFromFloating = function() {
+    if (isAutoScrolling) {
+      stopAutoScroll();
+    } else {
+      startAutoScroll();
+    }
+  };
+
+  window.addEventListener("keydown", (e) => {
+    const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : "";
+    if (activeTag === "input" || activeTag === "textarea") return;
+
+    if (e.code === "Space" || e.key === "s" || e.key === "S") {
+      e.preventDefault();
+      window.toggleAutoScrollFromFloating();
+    }
+  });
 
   if (toggleAutoScrollCheck) {
     toggleAutoScrollCheck.addEventListener("change", (e) => {
@@ -287,6 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (autoScrollSpeed === 2) autoScrollSpeed = 3;
       else autoScrollSpeed = 1;
       btnAutoScrollSpeed.textContent = `${autoScrollSpeed}x`;
+      if (floatingSpeedLabel) floatingSpeedLabel.textContent = `${autoScrollSpeed}x`;
     });
   }
 
