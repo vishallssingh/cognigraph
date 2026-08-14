@@ -256,14 +256,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const floatingAutoScrollPill = document.getElementById("floatingAutoScrollPill");
-  const floatingSpeedLabel = document.getElementById("floatingSpeedLabel");
+  const floatingSpeedBtn = document.getElementById("floatingSpeedBtn");
+
+  function syncSpeedLabels() {
+    if (btnAutoScrollSpeed) btnAutoScrollSpeed.textContent = `${autoScrollSpeed}x`;
+    if (floatingSpeedBtn) floatingSpeedBtn.textContent = `${autoScrollSpeed}x ⚡`;
+  }
 
   function startAutoScroll() {
     if (isAutoScrolling) return;
     isAutoScrolling = true;
     if (toggleAutoScrollCheck) toggleAutoScrollCheck.checked = true;
     if (floatingAutoScrollPill) floatingAutoScrollPill.style.display = "flex";
-    if (floatingSpeedLabel) floatingSpeedLabel.textContent = `${autoScrollSpeed}x`;
+    syncSpeedLabels();
     autoScrollAnimId = requestAnimationFrame(stepAutoScroll);
   }
 
@@ -276,6 +281,13 @@ document.addEventListener("DOMContentLoaded", () => {
       autoScrollAnimId = null;
     }
   }
+
+  window.cycleAutoScrollSpeedFromFloating = function() {
+    if (autoScrollSpeed === 1) autoScrollSpeed = 2;
+    else if (autoScrollSpeed === 2) autoScrollSpeed = 3;
+    else autoScrollSpeed = 1;
+    syncSpeedLabels();
+  };
 
   window.toggleAutoScrollFromFloating = function() {
     if (isAutoScrolling) {
@@ -307,11 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (btnAutoScrollSpeed) {
     btnAutoScrollSpeed.addEventListener("click", () => {
-      if (autoScrollSpeed === 1) autoScrollSpeed = 2;
-      else if (autoScrollSpeed === 2) autoScrollSpeed = 3;
-      else autoScrollSpeed = 1;
-      btnAutoScrollSpeed.textContent = `${autoScrollSpeed}x`;
-      if (floatingSpeedLabel) floatingSpeedLabel.textContent = `${autoScrollSpeed}x`;
+      window.cycleAutoScrollSpeedFromFloating();
     });
   }
 

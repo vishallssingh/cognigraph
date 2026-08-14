@@ -1014,3 +1014,23 @@ header {
 .floating-pause-btn:hover {
   transform: scale(1.05);
 }
+
+.floating-speed-btn {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  padding: 3px 10px;
+  border-radius: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.floating-speed-btn:hover {
+  background: var(--accent-warm);
+  color: #fff;
+  border-color: var(--accent-warm);
+  transform: scale(1.05);
+}
