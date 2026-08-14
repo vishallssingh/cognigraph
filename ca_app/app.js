@@ -231,10 +231,83 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleMasterWhosWhoBtn = document.getElementById("toggleMasterWhosWhoBtn");
   const toggleRecallCheck = document.getElementById("toggleRecallCheck");
   const toggleFlashcardCheck = document.getElementById("toggleFlashcardCheck");
+  const toggleAutoScrollCheck = document.getElementById("toggleAutoScrollCheck");
+  const btnAutoScrollSpeed = document.getElementById("btnAutoScrollSpeed");
+
+  let isAutoScrolling = false;
+  let autoScrollSpeed = 1; // 1x, 2x, 3x
+  let autoScrollAnimId = null;
+  let isHoveringFeed = false;
+
+  function stepAutoScroll() {
+    if (!isAutoScrolling) return;
+
+    if (!isHoveringFeed) {
+      const speedPx = autoScrollSpeed === 1 ? 0.8 : (autoScrollSpeed === 2 ? 1.6 : 3.0);
+      window.scrollBy({ top: speedPx, behavior: "auto" });
+
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        stopAutoScroll();
+        return;
+      }
+    }
+
+    autoScrollAnimId = requestAnimationFrame(stepAutoScroll);
+  }
+
+  function startAutoScroll() {
+    if (isAutoScrolling) return;
+    isAutoScrolling = true;
+    if (toggleAutoScrollCheck) toggleAutoScrollCheck.checked = true;
+    autoScrollAnimId = requestAnimationFrame(stepAutoScroll);
+  }
+
+  function stopAutoScroll() {
+    isAutoScrolling = false;
+    if (toggleAutoScrollCheck) toggleAutoScrollCheck.checked = false;
+    if (autoScrollAnimId) {
+      cancelAnimationFrame(autoScrollAnimId);
+      autoScrollAnimId = null;
+    }
+  }
+
+  if (toggleAutoScrollCheck) {
+    toggleAutoScrollCheck.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        startAutoScroll();
+      } else {
+        stopAutoScroll();
+      }
+    });
+  }
+
+  if (btnAutoScrollSpeed) {
+    btnAutoScrollSpeed.addEventListener("click", () => {
+      if (autoScrollSpeed === 1) autoScrollSpeed = 2;
+      else if (autoScrollSpeed === 2) autoScrollSpeed = 3;
+      else autoScrollSpeed = 1;
+      btnAutoScrollSpeed.textContent = `${autoScrollSpeed}x`;
+    });
+  }
+
+  if (notesFeed) {
+    notesFeed.addEventListener("mouseenter", () => { isHoveringFeed = true; });
+    notesFeed.addEventListener("mouseleave", () => { isHoveringFeed = false; });
+    notesFeed.addEventListener("touchstart", () => { isHoveringFeed = true; });
+    notesFeed.addEventListener("touchend", () => { setTimeout(() => { isHoveringFeed = false; }, 1000); });
+  }
+
+  window.addEventListener("wheel", () => {
+    if (isAutoScrolling) {
+      isHoveringFeed = true;
+      setTimeout(() => { isHoveringFeed = false; }, 1500);
+    }
+  });
 
   if (toggleRecallCheck) {
     toggleRecallCheck.addEventListener("change", (e) => {
       activeRecallMode = e.target.checked;
+      if (activeRecallMode) stopAutoScroll();
       renderFeed();
     });
   }
