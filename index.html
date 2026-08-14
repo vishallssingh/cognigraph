@@ -587,30 +587,38 @@
     .chapter-content tr:nth-child(even) td {
       background: rgba(0, 0, 0, 0.025);
     }
-    /* Theme-Adaptive Mind Map Containers */
+    
+    /* High-Contrast Mind Map Container (Dark Navy with Crisp White/Slate Text) */
     .mindmap-container {
-      background: var(--bg-card) !important;
-      border: 1px solid var(--border-color) !important;
-      color: var(--text-main) !important;
-      padding: 16px !important;
+      background: #0f172a !important;
+      border: 1px solid #1e293b !important;
+      color: #f8fafc !important;
+      padding: 18px !important;
       border-radius: 10px !important;
       margin: 1.5rem 0 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
     }
     .mindmap-container h4 {
-      color: var(--accent-brand) !important;
+      color: #38bdf8 !important;
+      margin-top: 0 !important;
+      font-size: 1.05rem !important;
     }
-    .mindmap-container div[style*="background:#1e293b"],
-    .mindmap-container div[style*="background: #1e293b"] {
-      background: var(--bg-highlight) !important;
-      border: 1px solid var(--border-color) !important;
-      color: var(--text-main) !important;
+    .mindmap-container small,
+    .mindmap-container small * {
+      color: #cbd5e1 !important;
+      font-size: 0.88rem !important;
+      line-height: 1.5 !important;
     }
-    .mindmap-container strong[style*="color:#f8fafc"],
-    .mindmap-container strong[style*="color: #f8fafc"] {
-      color: var(--text-main) !important;
+    .mindmap-container strong {
+      color: #f8fafc !important;
+    }
+    .mindmap-container div[style*="background"] {
+      background: #1e293b !important;
+      border: 1px solid #334155 !important;
+      color: #f8fafc !important;
     }
 
-  </style>
+</style>
 </head>
 <body class="theme-sepia">
 
@@ -3062,14 +3070,17 @@
 
     function scrollToChapter(index) {
       const targetEl = document.getElementById(`chapter-section-${index}`);
-      if (targetEl && readerPaneEl) {
-        const targetTop = targetEl.offsetTop - 20;
-        readerPaneEl.scrollTo({ top: targetTop, behavior: 'smooth' });
-        highlightTocItem(index);
-      } else if (targetEl) {
+      if (!targetEl) return;
+
+      if (readerPaneEl && readerPaneEl.scrollHeight > readerPaneEl.clientHeight) {
+        const paneRect = readerPaneEl.getBoundingClientRect();
+        const targetRect = targetEl.getBoundingClientRect();
+        const offset = targetRect.top - paneRect.top + readerPaneEl.scrollTop - 20;
+        readerPaneEl.scrollTo({ top: offset, behavior: 'smooth' });
+      } else {
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        highlightTocItem(index);
       }
+      highlightTocItem(index);
     }
 
     function highlightTocItem(index) {
