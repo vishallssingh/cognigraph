@@ -65,15 +65,16 @@ Do **NOT** optimize for:
 ### 2.2 Protect the Application
 Unless explicitly requested, treat as protected: `index.html`, `styles.css`, `app.js`.
 
-### 2.3 Strict Source Fidelity (Transformation vs. Enrichment)
+### 2.3 Strict Source Fidelity & Enrichment Taxonomy
 The agent must distinguish between:
-- **A. SOURCE TRANSFORMATION (Permitted & Encouraged):** Restructuring, clarification, compression, better ordering, tables, headings, formatting, and explicit relationships supported by the source.
-- **B. KNOWLEDGE ENRICHMENT (Restricted & Controlled):** Adding external facts, historical/background facts, outside PYQ information, or un-sourced calculations.
 
-**Rules for Knowledge Enrichment:**
-- Do **NOT** silently perform external enrichment during ordinary PDF-to-notes processing.
-- Any added fact must either be directly derivable from the source (labeled as a derived calculation), externally verified with a reference, or **omitted**.
-- Pass the test: *"Does this materially improve understanding or answerability for the target banking exam?"* If not, omit it.
+1. **SOURCE TRANSFORMATION (Permitted & Encouraged):** Restructuring, clarification, compression, better ordering, tables, headings, formatting, and explicit relationships supported by the source.
+2. **DERIVED PEDAGOGICAL ENRICHMENT (Permitted for Quant & Methods):** Allowed when directly derivable and mathematically/verifiably correct (algebraically equivalent formulas, direct numerical worked examples, percentage-change calculations, formula-derived shortcuts & traps, recognition/method explanations).
+3. **EXTERNALLY VERIFIED EXAM ENRICHMENT (Controlled):** Allowed only when explicitly sourced and verified (actual PYQs, verified exam/year references).
+4. **EXTERNAL FACTUAL ENRICHMENT (Restricted by Default):** Do NOT silently add external facts, institutional history, or un-sourced statistics during ordinary PDF-to-notes processing.
+5. **UNRELATED KNOWLEDGE ENRICHMENT (Forbidden):** Exclude.
+
+**Compliance Standard:** *"Zero unverified external factual enrichment; derived pedagogical transformations are permitted where directly supported/derivable."*
 
 ### 2.4 Preserve Factual Meaning Integrity
 When rewriting or formatting:
@@ -124,12 +125,12 @@ CONCEPT → FORMULA → WHEN TO USE → METHOD → WORKED EXAMPLE → SHORTCUT /
 
 ---
 
-## 6. PRE-COMMIT CHECKLIST (v5.2)
+## 6. PRE-COMMIT CHECKLIST (v5.2 Approved)
 
 Before committing any content update:
 - [ ] Correct subject/domain
 - [ ] Existing knowledge searched (NEW / UPDATE / MERGE / IGNORE)
-- [ ] **Source fidelity verified (No unauthorized external facts added)**
+- [ ] **Zero unverified external factual enrichment; derived pedagogical transformations permitted where directly supported/derivable**
 - [ ] **Factual meaning preserved (No appointed->elected or proposed->final shifts)**
 - [ ] **No overuse of MiniGrids (MiniGrid used only for multi-variable comparison)**
 - [ ] **Minimum sufficient information optimized (No Wikipedia-style bloat)**
