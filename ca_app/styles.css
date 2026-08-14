@@ -68,6 +68,104 @@ header {
   gap: 16px;
 }
 
+/* Option 1: Two-Column Kindle Banner */
+.header-banner-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  gap: 16px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.header-greeting-col {
+  flex: 1.2;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-greeting-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--accent-warm);
+  margin-bottom: 6px;
+}
+
+.user-greeting-badge .user-name {
+  color: var(--text-headline);
+  font-weight: 700;
+}
+
+.user-greeting-badge .date-chip {
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.header-quote-col {
+  flex: 1;
+  min-width: 280px;
+}
+
+.header-quote-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--accent-warm);
+  border-radius: 6px;
+  padding: 10px 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-header {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-warm);
+  margin-bottom: 4px;
+}
+
+.quote-body {
+  font-family: var(--font-serif);
+  font-size: 0.84rem;
+  font-style: italic;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.exam-mini-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.exam-mini-badge:hover {
+  background: #eae0c9;
+}
+
 .logo-group {
   display: flex;
   align-items: center;

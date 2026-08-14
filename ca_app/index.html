@@ -5,20 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banking Command Center 2026 — CA, Quant & Exam Tracker</title>
   <meta name="description" content="Kindle E-Book Reader Command Center for Banking, Regulatory, and Civil Services Exams.">
-  <link rel="stylesheet" href="styles.css?v=v14.0">
+  <link rel="stylesheet" href="styles.css?v=v15.0">
 </head>
 <body>
 
   <!-- Modular Header Command Bar -->
   <header>
     <div class="header-container">
-      <div class="logo-group">
-        <div class="logo-icon">📖</div>
-        <div class="logo-text">
-          <h1 id="appHeaderTitle">Banking Command Center</h1>
-          <p id="appHeaderSubtitle">Kindle E-Book Reader Edition | Framework v3.1</p>
+      <!-- Option 1: Two-Column Kindle Banner Row -->
+      <div class="header-banner-row">
+        <!-- Left Column: User Greeting & Title -->
+        <div class="header-greeting-col">
+          <div class="user-greeting-badge">
+            👋 Welcome back, <span class="user-name">Vishal</span>
+            <span id="currentDateDisplay" class="date-chip">🗓️ Friday, 14 Aug 2026</span>
+          </div>
+          <div class="logo-group">
+            <div class="logo-icon">📖</div>
+            <div class="logo-text">
+              <h1 id="appHeaderTitle">Banking Command Center</h1>
+              <p id="appHeaderSubtitle">Kindle E-Book Reader Edition | Framework v3.1</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Daily High-Yield Strategy Quote Card -->
+        <div class="header-quote-col">
+          <div class="header-quote-card">
+            <div class="quote-header">💡 Daily Strategy Quote</div>
+            <div id="dailyQuoteText" class="quote-body">"Consistency builds Rank 1. Master 5 core RBI circulars every morning."</div>
+          </div>
         </div>
       </div>
+
       <div class="header-controls">
         <!-- Cluster 1: Primary Navigation Breadcrumb Row -->
         <div class="nav-cluster">
@@ -61,8 +80,10 @@
           </div>
         </div>
 
-        <!-- Cluster 3: Persistent Exam Countdown Status Badge -->
-        <div class="status-cluster">
+        <!-- Cluster 3: Persistent Exam Countdown Status Badges -->
+        <div class="status-cluster" style="display: flex; align-items: center; gap: 6px;">
+          <span class="exam-mini-badge" onclick="document.getElementById('toggleTrackerBtn').click()" title="IBPS PO Prelims Target (Aug 25, 2026)">🎯 IBPS PO: <strong>11d</strong></span>
+          <span class="exam-mini-badge" onclick="document.getElementById('toggleTrackerBtn').click()" title="SBI PO Mains Target (Sep 25, 2026)">🏦 SBI PO: <strong>42d</strong></span>
           <button id="toggleTrackerBtn" class="status-tracker-chip">
             <span class="status-title">⏱️ Exam Tracker</span>
             <span id="trackerBadge" class="badge-count urgency-amber">11d</span>
@@ -253,10 +274,10 @@
     <button onclick="toggleAutoScrollFromFloating()" class="floating-pause-btn">⏸️ Pause</button>
   </div>
 
-  <script src="data.js?v=v14.0"></script>
-  <script src="static_ga_data.js?v=v14.0"></script>
-  <script src="quant_data.js?v=v14.0"></script>
-  <script src="dashboard_data.js?v=v14.0"></script>
-  <script src="app.js?v=v14.0"></script>
+  <script src="data.js?v=v15.0"></script>
+  <script src="static_ga_data.js?v=v15.0"></script>
+  <script src="quant_data.js?v=v15.0"></script>
+  <script src="dashboard_data.js?v=v15.0"></script>
+  <script src="app.js?v=v15.0"></script>
 </body>
 </html>

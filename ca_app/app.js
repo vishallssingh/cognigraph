@@ -9,6 +9,37 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("ca_tracker_tasks", JSON.stringify(userTasks));
   }
 
+  // Dynamic Header Initialization (Welcome, Date & Strategy Quotes)
+  function initHeaderBanner() {
+    const currentDateDisplay = document.getElementById("currentDateDisplay");
+    const dailyQuoteText = document.getElementById("dailyQuoteText");
+
+    if (currentDateDisplay) {
+      const now = new Date();
+      const options = { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' };
+      currentDateDisplay.textContent = `🗓️ ${now.toLocaleDateString('en-US', options)}`;
+    }
+
+    if (dailyQuoteText) {
+      const quotes = [
+        "\"Consistency builds Rank 1. Master 5 core RBI circulars every morning.\"",
+        "\"The secret to clearing Mains isn't reading more—it's recalling faster.\"",
+        "\"Focus on precision over volume—every mark in GA counts towards final selection.\"",
+        "\"Active recall turns passive reading into permanent exam memory.\"",
+        "\"Master the discriminators: RBI regulatory caps, PSL targets, and CVA frameworks.\"",
+        "\"Small daily revisions compound into flawless performance under exam pressure.\""
+      ];
+      const now = new Date();
+      const start = new Date(now.getFullYear(), 0, 0);
+      const diff = now - start;
+      const oneDay = 1000 * 60 * 60 * 24;
+      const dayOfYear = Math.floor(diff / oneDay);
+      const quoteIndex = dayOfYear % quotes.length;
+      dailyQuoteText.textContent = quotes[quoteIndex];
+    }
+  }
+  initHeaderBanner();
+
   // DOM Elements
   const appHeaderTitle = document.getElementById("appHeaderTitle");
   const appHeaderSubtitle = document.getElementById("appHeaderSubtitle");
