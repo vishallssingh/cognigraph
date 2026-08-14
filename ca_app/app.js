@@ -401,14 +401,13 @@ document.addEventListener("DOMContentLoaded", () => {
         window.switchSubject("static_ga");
       }
       if (typeof selectStaticChapter === "function") {
-        selectStaticChapter("ch15");
+        selectStaticChapter("ch16");
       }
       if (typeof renderFeed === "function") {
         renderFeed();
       }
     });
   }
-
 
   if (toggleMasterWhosWhoBtn) {
     toggleMasterWhosWhoBtn.addEventListener("click", () => {
