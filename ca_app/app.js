@@ -397,10 +397,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleSchemesHeaderBtn = document.getElementById("toggleSchemesHeaderBtn");
   if (toggleSchemesHeaderBtn) {
     toggleSchemesHeaderBtn.addEventListener("click", () => {
-      selectSubject("static_ga");
-      selectStaticChapter("ch15");
+      if (typeof window.switchSubject === "function") {
+        window.switchSubject("static_ga");
+      }
+      if (typeof selectStaticChapter === "function") {
+        selectStaticChapter("ch15");
+      }
+      if (typeof renderFeed === "function") {
+        renderFeed();
+      }
     });
   }
+
 
   if (toggleMasterWhosWhoBtn) {
     toggleMasterWhosWhoBtn.addEventListener("click", () => {
