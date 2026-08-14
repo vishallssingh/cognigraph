@@ -24,12 +24,8 @@ const CA_NOTES_DATA = [
     "hook": "Restructured rules ensure credit guarantee cover reaches lower-tier microfinance institutions.",
     "date": "2026-08-05",
     "bullets": [
-      "The **National Credit Guarantee Trustee Company Ltd. (NCGTC)** modified allocation rules under **CGSMFI 2.0**.",
-      "**Mandatory Bank Allocation:** Commercial banks must lend at least **15%** of their total ₹20,000 crore corpus to **small- and mid-size MFIs** (up from 5% and 10%).",
-      "**Sanction Cap:** Maximum bank loan capped at **20% of AUM** of NBFC-MFIs and MFIs.",
-      "**Lender Size Caps:** Max loan capped at **₹100 crore** (small MFIs), **₹200 crore** (medium MFIs), and **₹1,000 crore** (large MFIs).",
-      "**MFI Classification by AUM:** Small MFI (<₹500 crore AUM), Medium MFI (₹500–₹2,000 crore AUM), Large MFI (>₹2,000 crore AUM).",
-      "**Scheme Corpus:** Guarantees loans up to **₹20,000 crore** (wholly owned by Govt of India)."
+      "📌 **Core Policy Directives & Scope:**\nThe **National Credit Guarantee Trustee Company Ltd. (NCGTC)** modified allocation rules under **CGSMFI 2.0**.\n**Mandatory Bank Allocation:** Commercial banks must lend at least **15%** of their total ₹20,000 crore corpus to **small- and mid-size MFIs** (up from 5% and 10%).\n**Sanction Cap:** Maximum bank loan capped at **20% of AUM** of NBFC-MFIs and MFIs.",
+      "💰 **Financial Outlays & Operational Rules:**\n**Lender Size Caps:** Max loan capped at **₹100 crore** (small MFIs), **₹200 crore** (medium MFIs), and **₹1,000 crore** (large MFIs).\n**MFI Classification by AUM:** Small MFI (<₹500 crore AUM), Medium MFI (₹500–₹2,000 crore AUM), Large MFI (>₹2,000 crore AUM).\n**Scheme Corpus:** Guarantees loans up to **₹20,000 crore** (wholly owned by Govt of India)."
     ],
     "trap": "Small MFI limit (<₹500 cr AUM) vs Medium MFI limit (₹500–₹2,000 cr AUM) vs 15% bank lending pool quota.",
     "miniGrid": {
@@ -63,10 +59,8 @@ const CA_NOTES_DATA = [
     "hook": "Expanding ethanol production capacity accelerates India's E20 target (20% ethanol blending by 2025-26).",
     "date": "2026-08-01",
     "bullets": [
-      "Union Government approved **₹4,687 crore** in interest subsidies for eligible ethanol projects.",
-      "**Nodal Agency:** **NABARD** serves as the nodal disbursing agency (**₹2,075 crore** released since FY23).",
-      "**Subvention Terms:** Interest subvention of **6% per annum or 50% of interest charged** (whichever lower) for **5 years**.",
-      "Policy Alignment: Boosts grain-based and sugar-based distilleries under Ethanol Blended Petrol (EBP) program."
+      "📌 **Core Policy Directives & Scope:**\nUnion Government approved **₹4,687 crore** in interest subsidies for eligible ethanol projects.\n**Nodal Agency:** **NABARD** serves as the nodal disbursing agency (**₹2,075 crore** released since FY23).",
+      "💰 **Financial Outlays & Operational Rules:**\n**Subvention Terms:** Interest subvention of **6% per annum or 50% of interest charged** (whichever lower) for **5 years**.\nPolicy Alignment: Boosts grain-based and sugar-based distilleries under Ethanol Blended Petrol (EBP) program."
     ],
     "trap": "Ethanol interest subvention (6% p.a. or 50% of interest for 5 yrs) vs priority sector short-term crop loan subvention (capped at 3%)."
   },
@@ -80,10 +74,8 @@ const CA_NOTES_DATA = [
     "hook": "Extending tax exemptions for capital equipment foreign suppliers provides long-term stability to domestic electronics manufacturers.",
     "date": "2026-08-05",
     "bullets": [
-      "Government introduced **Taxation and Other Laws (Amendment) Bill, 2026** amending Payment & Settlement Systems Act 2007, Income-tax Act 2025, and Finance Act 2026.",
-      "**Electronics Exemption Extension:** Extends tax exemption for foreign companies supplying capital goods/tooling to Indian contract manufacturers for electronic goods until **March 31, 2041** (extended from earlier sunset of 2030-31).",
-      "**UPI MDR Proposal:** Amends Payment & Settlement Systems Act 2007 to permit Merchant Discount Rate (MDR) on non-negative list electronic payment modes including UPI.",
-      "Current Baseline: Credit card MDR ~1.5%, debit card up to 0.9%, UPI currently 0% for merchants."
+      "📌 **Core Policy Directives & Scope:**\nGovernment introduced **Taxation and Other Laws (Amendment) Bill, 2026** amending Payment & Settlement Systems Act 2007, Income-tax Act 2025, and Finance Act 2026.\n**Electronics Exemption Extension:** Extends tax exemption for foreign companies supplying capital goods/tooling to Indian contract manufacturers for electronic goods until **March 31, 2041** (extended from earlier sunset of 2030-31).",
+      "💰 **Financial Outlays & Operational Rules:**\n**UPI MDR Proposal:** Amends Payment & Settlement Systems Act 2007 to permit Merchant Discount Rate (MDR) on non-negative list electronic payment modes including UPI.\nCurrent Baseline: Credit card MDR ~1.5%, debit card up to 0.9%, UPI currently 0% for merchants."
     ],
     "trap": "Extended sunset year for electronics capital goods tax exemption (**March 31, 2041**) vs earlier sunset year (**March 31, 2031**)."
   },
@@ -270,11 +262,8 @@ const CA_NOTES_DATA = [
     "hook": "Frees up insurer capital for infrastructure while enforcing training standards on agents.",
     "date": "2026-08-05",
     "bullets": [
-      "**Intermediary Registration Validity:** Certificate valid perpetually subject to **annual non-refundable fee** (higher of **₹10,000 or 0.04% commission**).",
-      "**IMF Training Mandate:** Principal officers & salespersons must complete **≥25 hours of training once every 3 years**.",
-      "**SPV Investment Cap:** Insurers allowed to invest up to **20%** in operational Infra SPVs rated **AA or above**.",
-      "**AIF/VCF Investment Caps:** Combined exposure capped at **3% for life insurers** and **5% for general insurers**.",
-      "**Promoter & Repo Caps:** Promoter group exposure capped at **5% of investment assets**; Repo/G-Sec lending capped at lower of **25% of available securities or ₹10,000 crore**."
+      "📌 **Core Policy Directives & Scope:**\n**Intermediary Registration Validity:** Certificate valid perpetually subject to **annual non-refundable fee** (higher of **₹10,000 or 0.04% commission**).\n**IMF Training Mandate:** Principal officers & salespersons must complete **≥25 hours of training once every 3 years**.\n**SPV Investment Cap:** Insurers allowed to invest up to **20%** in operational Infra SPVs rated **AA or above**.",
+      "💰 **Financial Outlays & Operational Rules:**\n**AIF/VCF Investment Caps:** Combined exposure capped at **3% for life insurers** and **5% for general insurers**.\n**Promoter & Repo Caps:** Promoter group exposure capped at **5% of investment assets**; Repo/G-Sec lending capped at lower of **25% of available securities or ₹10,000 crore**."
     ],
     "trap": "AIF/VCF cap for Life Insurers (3%) vs General Insurers (5%).",
     "miniGrid": {
@@ -324,10 +313,8 @@ const CA_NOTES_DATA = [
     "hook": "Multi-regulatory frameworks enforce operational resilience and heavy statutory penalties across India's digital ecosystem.",
     "date": "2026-08-05",
     "bullets": [
-      "**RBI Penalties:** RBI imposed **₹54.78 crore in penalties across 353 cases** in FY25 for IT/cybersecurity lapses.",
-      "**DPDPA 2023 Penalties:** Statutory penalties up to **₹250 crore** for security failures and **₹200 crore** for breach notification failures.",
-      "**RBI IT Governance & 2FA:** IT Governance Directions (effective April 2024); Authentication Directions 2025 mandate **2FA with at least one dynamic factor** for domestic digital transactions.",
-      "**SEBI CSCRF 2024:** Applies to **22 types of regulated entities** across a **5-tier model** (exchanges, depositories, brokers, AMCs)."
+      "📌 **Core Policy Directives & Scope:**\n**RBI Penalties:** RBI imposed **₹54.78 crore in penalties across 353 cases** in FY25 for IT/cybersecurity lapses.\n**DPDPA 2023 Penalties:** Statutory penalties up to **₹250 crore** for security failures and **₹200 crore** for breach notification failures.",
+      "💰 **Financial Outlays & Operational Rules:**\n**RBI IT Governance & 2FA:** IT Governance Directions (effective April 2024); Authentication Directions 2025 mandate **2FA with at least one dynamic factor** for domestic digital transactions.\n**SEBI CSCRF 2024:** Applies to **22 types of regulated entities** across a **5-tier model** (exchanges, depositories, brokers, AMCs)."
     ],
     "trap": "DPDPA penalty for security failure (up to ₹250 crore) vs breach notification failure (up to ₹200 crore)."
   },
@@ -341,12 +328,8 @@ const CA_NOTES_DATA = [
     "hook": "The MPC balances inflation control with economic growth momentum, setting benchmark interest rates for FY27.",
     "date": "2026-08-01",
     "bullets": [
-      "MPC held 62nd meeting from August 3 to 5, 2026.",
-      "Chairmanship: **Sanjay Malhotra** (RBI Governor).",
-      "**Repo Rate:** Kept unchanged at **5.25%**.",
-      "**Real GDP Growth Projection (FY 2026-27):** Projected at **6.7%** (Q1 7.0%, Q2 6.4%, Q3 6.5%, Q4 6.8%).",
-      "**CPI Inflation Projection (FY 2026-27):** Lowered to **5.0%** (earlier 5.1%) (Q2 4.7%, Q3 5.9%, Q4 5.5%). Core inflation projected at **4.3%**.",
-      "Macro Buffers: Gross FDI inflows at **US$ 30.7 billion** in Q1 FY27; Forex reserves import cover **over 10 months**."
+      "📌 **Core Policy Directives & Scope:**\nMPC held 62nd meeting from August 3 to 5, 2026.\nChairmanship: **Sanjay Malhotra** (RBI Governor).\n**Repo Rate:** Kept unchanged at **5.25%**.",
+      "💰 **Financial Outlays & Operational Rules:**\n**Real GDP Growth Projection (FY 2026-27):** Projected at **6.7%** (Q1 7.0%, Q2 6.4%, Q3 6.5%, Q4 6.8%).\n**CPI Inflation Projection (FY 2026-27):** Lowered to **5.0%** (earlier 5.1%) (Q2 4.7%, Q3 5.9%, Q4 5.5%). Core inflation projected at **4.3%**.\nMacro Buffers: Gross FDI inflows at **US$ 30.7 billion** in Q1 FY27; Forex reserves import cover **over 10 months**."
     ],
     "trap": "Real GDP Growth projection (6.7%) vs CPI Inflation projection (5.0%) for FY27.",
     "miniGrid": {
@@ -552,10 +535,8 @@ const CA_NOTES_DATA = [
     "hook": "Mandatory security upgrades eliminated physical locker breaches across state-owned lenders.",
     "date": "2026-08-01",
     "bullets": [
-      "PSBs reported **zero (0) locker theft cases in FY26 (2025-26)** (down from 40 cases between FY22-FY25).",
-      "Active Lockers: **11,111,077** (1.11 crore) operational lockers across PSBs as on March 31, 2026.",
-      "**RBI Security Guidelines:** CCTV cameras mandatory at strong room entry/exit; footage preserved for **at least 180 days**.",
-      "**Bank Liability Cap:** Compensation for loss due to bank negligence capped at **100 times prevailing annual locker rent**."
+      "📌 **Core Policy Directives & Scope:**\nPSBs reported **zero (0) locker theft cases in FY26 (2025-26)** (down from 40 cases between FY22-FY25).\nActive Lockers: **11,111,077** (1.11 crore) operational lockers across PSBs as on March 31, 2026.",
+      "💰 **Financial Outlays & Operational Rules:**\n**RBI Security Guidelines:** CCTV cameras mandatory at strong room entry/exit; footage preserved for **at least 180 days**.\n**Bank Liability Cap:** Compensation for loss due to bank negligence capped at **100 times prevailing annual locker rent**."
     ],
     "trap": "Bank liability for negligence (capped at 100x annual rent) vs natural calamities/Acts of God (banks NOT liable)."
   },
@@ -569,10 +550,8 @@ const CA_NOTES_DATA = [
     "hook": "Modernizes evidence law by granting digital banking logs primary court admissibility.",
     "date": "2026-08-05",
     "bullets": [
-      "Introduced **Bankers' Books Evidence Act, 2026** Bill in Parliament.",
-      "Repeals and replaces the 135-year-old British-era **Bankers' Books Evidence Act, 1891**.",
-      "Core Reform: Makes **digital and virtual records** admissible primary evidence in court without physical ledger production.",
-      "Covers Core Banking Solutions (CBS) logs, electronic statements, and database microfilms."
+      "📌 **Core Policy Directives & Scope:**\nIntroduced **Bankers' Books Evidence Act, 2026** Bill in Parliament.\nRepeals and replaces the 135-year-old British-era **Bankers' Books Evidence Act, 1891**.",
+      "💰 **Financial Outlays & Operational Rules:**\nCore Reform: Makes **digital and virtual records** admissible primary evidence in court without physical ledger production.\nCovers Core Banking Solutions (CBS) logs, electronic statements, and database microfilms."
     ],
     "trap": "Bankers' Books Evidence Act, 2026 vs Bankers' Books Evidence Act, 1891."
   },
@@ -602,10 +581,8 @@ const CA_NOTES_DATA = [
     "hook": "Forex swap windows incentivize private and foreign banks to mobilize non-resident foreign currency deposits.",
     "date": "2026-08-05",
     "bullets": [
-      "Private banks led FCNR(B) mobilization under RBI's limited-period USD-INR forex swap window.",
-      "Foreign banks led by **HSBC and Standard Chartered** mobilized nearly the same volume as all 12 PSBs combined.",
-      "**>$1B Private Banks:** 4 lenders (**ICICI, Kotak, Axis, HDFC**).",
-      "**>$1B PSBs:** Only 2 lenders (**SBI and Bank of Baroda**)."
+      "📌 **Core Policy Directives & Scope:**\nPrivate banks led FCNR(B) mobilization under RBI's limited-period USD-INR forex swap window.\nForeign banks led by **HSBC and Standard Chartered** mobilized nearly the same volume as all 12 PSBs combined.",
+      "💰 **Financial Outlays & Operational Rules:**\n**>$1B Private Banks:** 4 lenders (**ICICI, Kotak, Axis, HDFC**).\n**>$1B PSBs:** Only 2 lenders (**SBI and Bank of Baroda**)."
     ],
     "trap": "PSBs crossing $1B mark (only 2: SBI & BoB) vs Private banks (4: ICICI, Kotak, Axis, HDFC)."
   },
@@ -763,10 +740,8 @@ const CA_NOTES_DATA = [
     "hook": "Establishes domestic semiconductor packaging hubs under India Semiconductor Mission.",
     "date": "2026-08-01",
     "bullets": [
-      "PM laid foundation stone for **ASIP Technologies's ₹2,500 crore** OSAT facility.",
-      "Location: **Visakhapatnam, Andhra Pradesh**.",
-      "Regional Milestone: **Andhra Pradesh's and South India's 1st semiconductor plant** under ISM 1.0.",
-      "Tech Partner: **APACT Co.** (South Korea)."
+      "📌 **Core Policy Directives & Scope:**\nPM laid foundation stone for **ASIP Technologies's ₹2,500 crore** OSAT facility.\nLocation: **Visakhapatnam, Andhra Pradesh**.",
+      "💰 **Financial Outlays & Operational Rules:**\nRegional Milestone: **Andhra Pradesh's and South India's 1st semiconductor plant** under ISM 1.0.\nTech Partner: **APACT Co.** (South Korea)."
     ],
     "trap": "South India's 1st OSAT plant (ASIP Visakhapatnam, AP) vs India's 1st Commercial Fab (Tata Dholera, Gujarat)."
   },
@@ -1041,7 +1016,23 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Ministry of Ayush signed MoU with IndiaAI Mission to promote AI adoption across traditional medicine research and diagnosis."
     ],
-    "trap": null
+    "trap": null,
+    "miniGrid": {
+      "headers": [
+        "Rooftop Solar System Capacity",
+        "Central Financial Assistance (CFA) Subsidy"
+      ],
+      "rows": [
+        [
+          "Up to 2 kW",
+          "₹30,000 per kW (Max ₹60,000)"
+        ],
+        [
+          "3 kW or Higher",
+          "₹78,000 fixed maximum subsidy"
+        ]
+      ]
+    }
   },
   {
     "title": "Air Marshal Sandeep Thareja Appointed DG Armed Forces Medical Services",
@@ -1497,10 +1488,8 @@ const CA_NOTES_DATA = [
     "hook": "Assesses Generative AI's differential impact on developing vs developed labor markets.",
     "date": "2026-08-01",
     "bullets": [
-      "Report Title: **\"World Development Report 2026: The Promise of Artificial Intelligence\"**, published by **World Bank**.",
-      "Automation Risk Differential: **4.5% of jobs in low- and middle-income countries** at risk of automation vs **14.2% in high-income countries**.",
-      "Productivity Boost: AI enhances productivity in **16.2% of jobs in developing countries** (vs 18.7% in high-income countries).",
-      "Telangana Case Study: AI weather forecasting produced savings **up to $560 per small farmer** in Telangana."
+      "📌 **Core Policy Directives & Scope:**\nReport Title: **\"World Development Report 2026: The Promise of Artificial Intelligence\"**, published by **World Bank**.\nAutomation Risk Differential: **4.5% of jobs in low- and middle-income countries** at risk of automation vs **14.2% in high-income countries**.",
+      "💰 **Financial Outlays & Operational Rules:**\nProductivity Boost: AI enhances productivity in **16.2% of jobs in developing countries** (vs 18.7% in high-income countries).\nTelangana Case Study: AI weather forecasting produced savings **up to $560 per small farmer** in Telangana."
     ],
     "trap": "Job automation risk in developing countries (4.5%) vs high-income countries (14.2%).",
     "miniGrid": {
@@ -1789,7 +1778,8 @@ const CA_NOTES_DATA = [
     "hook": null,
     "date": "2026-08-05",
     "bullets": [
-      "WWW Day marks Tim Berners-Lee's creation at CERN in 1989."
+      "📌 **Core Policy Directives & Scope:**\nWWW Day marks Tim Berners-Lee's creation at CERN in 1989.",
+      "💰 **Financial Outlays & Operational Rules:**\n"
     ],
     "trap": null,
     "miniGrid": {
@@ -1999,10 +1989,8 @@ const CA_NOTES_DATA = [
     "hook": "Establishes a permanent regulatory pathway for large credit cooperative societies to convert into Urban Cooperative Banks (UCBs).",
     "date": "2026-08-07",
     "bullets": [
-      "Operational Track Record: Minimum 10 years operations required.",
-      "Capital Thresholds: Deposit base ≥ ₹10,000 crore, Net worth ≥ ₹300 crore (as of March 31).",
-      "Initial Eligibility: Restricted to societies registered under Multi-State Cooperative Societies Act 2002.",
-      "Prudential Conditions: CRAR ≥ 12%, Net NPA ≤ 3%, individual shareholding cap of 5%."
+      "📌 **Core Policy Directives & Scope:**\nOperational Track Record: Minimum 10 years operations required.\nCapital Thresholds: Deposit base ≥ ₹10,000 crore, Net worth ≥ ₹300 crore (as of March 31).",
+      "💰 **Financial Outlays & Operational Rules:**\nInitial Eligibility: Restricted to societies registered under Multi-State Cooperative Societies Act 2002.\nPrudential Conditions: CRAR ≥ 12%, Net NPA ≤ 3%, individual shareholding cap of 5%."
     ],
     "trap": null
   },
@@ -2077,8 +2065,8 @@ const CA_NOTES_DATA = [
     "hook": "Unlocks institutional capital for greenfield infrastructure and commercial real estate development.",
     "date": "2026-08-06",
     "bullets": [
-      "Exposure Norms: Allows minority non-controlling stakes within existing exposure limits.",
-      "Cooling-off Period: Proposed reduction from 12 weeks to 8 weeks for illiquid privately placed InvITs."
+      "📌 **Core Policy Directives & Scope:**\nExposure Norms: Allows minority non-controlling stakes within existing exposure limits.",
+      "💰 **Financial Outlays & Operational Rules:**\nCooling-off Period: Proposed reduction from 12 weeks to 8 weeks for illiquid privately placed InvITs."
     ],
     "trap": null
   },
@@ -2854,10 +2842,8 @@ const CA_NOTES_DATA = [
     "staticGk": "Droupadi Murmu sworn in as 15th President on July 25, 2022 (India's 1st tribal Head of State) | Historic Mughal Gardens renamed Amrit Udyan.",
     "id": "note-sec4-150",
     "bullets": [
-      "Heritage & Inclusion: Launched app-based e-Audio Guide (16 Indian languages + sign language) and 3rd edition of e-Upahaar (300 curated gifts for public auction).",
-      "Childcare Facility: Inaugurated 'Bachpan Bal Parisar' comprising 'Kilkari' play zone and 'Samarth Anganwadi-cum-Palna'.",
-      "Green Mobility: Flagged off 'RAAHI' (Rashtrapati Bhavan Access and Heritage Interconnector)—a fare-free, 27-seater electric bus operated by women drivers.",
-      "Net Zero Infrastructure: Foundation stone laid for new service block under Net Zero Energy Strategy."
+      "📌 **Core Policy Directives & Scope:**\nHeritage & Inclusion: Launched app-based e-Audio Guide (16 Indian languages + sign language) and 3rd edition of e-Upahaar (300 curated gifts for public auction).\nChildcare Facility: Inaugurated 'Bachpan Bal Parisar' comprising 'Kilkari' play zone and 'Samarth Anganwadi-cum-Palna'.",
+      "💰 **Financial Outlays & Operational Rules:**\nGreen Mobility: Flagged off 'RAAHI' (Rashtrapati Bhavan Access and Heritage Interconnector)—a fare-free, 27-seater electric bus operated by women drivers.\nNet Zero Infrastructure: Foundation stone laid for new service block under Net Zero Energy Strategy."
     ],
     "secId": "sec4",
     "date": "2026-08-02"
@@ -5637,11 +5623,8 @@ const CA_NOTES_DATA = [
   },
   {
     "bullets": [
-      "Establishment: Founded July 9, 1988 under National Housing Bank Act 1987.",
-      "HQ: New Delhi.",
-      "Capital Structure: Authorized capital stands at ₹1,450 crore (100% fully subscribed by Union Government).",
-      "Leadership: MD: Sanjay Shukla.",
-      "Chairman: Prabhanjan Mohapatra."
+      "📌 **Core Policy Directives & Scope:**\nEstablishment: Founded July 9, 1988 under National Housing Bank Act 1987.\nHQ: New Delhi.\nCapital Structure: Authorized capital stands at ₹1,450 crore (100% fully subscribed by Union Government).",
+      "💰 **Financial Outlays & Operational Rules:**\nLeadership: MD: Sanjay Shukla.\nChairman: Prabhanjan Mohapatra."
     ],
     "interviewQ": null,
     "secId": "sec2",
@@ -5997,9 +5980,8 @@ const CA_NOTES_DATA = [
   {
     "tier": "Tier A",
     "bullets": [
-      "Airport City Investment: AACL investing > ₹20,000 crore across 6 airports (Mumbai, Navi Mumbai, Ahmedabad, Lucknow, Jaipur, Guwahati) covering 22 million sq. ft.",
-      "Hotel Tie-Up: Signed IHG Hotels & Resorts for 5 luxury hotels (debut of Kimpton brand in India).",
-      "Organic Fertilizer & CBG: Adani TotalEnergies Biomass Ltd (ATBL) launched 'Harit Amrit' fertilizer; Barsana (UP) project developed as India's largest agri-waste compressed biogas facility under SATAT (5% blending target)."
+      "📌 **Core Policy Directives & Scope:**\nAirport City Investment: AACL investing > ₹20,000 crore across 6 airports (Mumbai, Navi Mumbai, Ahmedabad, Lucknow, Jaipur, Guwahati) covering 22 million sq. ft.\nHotel Tie-Up: Signed IHG Hotels & Resorts for 5 luxury hotels (debut of Kimpton brand in India).",
+      "💰 **Financial Outlays & Operational Rules:**\nOrganic Fertilizer & CBG: Adani TotalEnergies Biomass Ltd (ATBL) launched 'Harit Amrit' fertilizer; Barsana (UP) project developed as India's largest agri-waste compressed biogas facility under SATAT (5% blending target)."
     ],
     "staticGk": "Adani Airport Holdings manages 8 airports in India | LEED Gold pre-certified.",
     "trap": "Barsana CBG facility location (Uttar Pradesh) vs SATAT CBG blending target (5%).",
@@ -9151,11 +9133,8 @@ const CA_NOTES_DATA = [
     "date": "2026-08-13",
     "hook": "RBI draft Interest Rate Directions 2026 mandate benchmark linkage for fixed/floating loans and cap floating reset frequency at 3 months.",
     "bullets": [
-      "**Benchmark Linkage:** All loans must link to internal or external benchmark + risk-based spread; no loan below benchmark.",
-      "**Floating Reset Cap:** Floating rate benchmark reset frequency chosen by lender, capped at **max once every 3 months**.",
-      "**Agri Loans Reset:** Reset linked to crop season, capped at **max 12 months**.",
-      "**MCLR Rule:** Commercial banks, RRBs, Tier 3/4 UCBs with deposits >**₹1,000 crore** continue using MCLR internal benchmark.",
-      "**Mandatory External Benchmark:** Mandatory for floating personal and MSME loans by commercial banks."
+      "📌 **Core Policy Directives & Scope:**\n**Benchmark Linkage:** All loans must link to internal or external benchmark + risk-based spread; no loan below benchmark.\n**Floating Reset Cap:** Floating rate benchmark reset frequency chosen by lender, capped at **max once every 3 months**.\n**Agri Loans Reset:** Reset linked to crop season, capped at **max 12 months**.",
+      "💰 **Financial Outlays & Operational Rules:**\n**MCLR Rule:** Commercial banks, RRBs, Tier 3/4 UCBs with deposits >**₹1,000 crore** continue using MCLR internal benchmark.\n**Mandatory External Benchmark:** Mandatory for floating personal and MSME loans by commercial banks."
     ],
     "staticGk": "MCLR: Marginal Cost of Funds based Lending Rate introduced in April 2016.",
     "trap": "≠ **Reset Cap:** Floating loan reset max once every 3 months; Agri loan reset max 12 months."

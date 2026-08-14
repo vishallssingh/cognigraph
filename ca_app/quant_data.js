@@ -92,18 +92,12 @@ const QUANT_CHAPTERS = [
       {
         "type": "bullets",
         "items": [
-          "**Scaling rule**: sides ×k → area ×k², volume ×k³",
-          "**Pythagorean triples**: 3-4-5, 6-8-10, 9-12-15, 5-12-13, 8-15-17, 7-24-25, 20-21-29",
-          "**Melting/recasting**: volume conserved; n small spheres from big sphere: n = (R/r)³",
-          "**Same-perimeter comparison**: circle area > square area > equilateral triangle area",
-          "**Path/border problems**: outer path area = (l+2w)(b+2w) − lb; inner path = lb − (l−2w)(b−2w)",
-          "**Cylinder/cone/sphere quick facts**: cone vol = ⅓ cylinder (same r,h); sphere vol = ⅔ circumscribing cylinder; hemisphere = ½ sphere",
-          "**% change compounding**: side +x% → area +(2x+x²/100)%; volume +(3x+3x²/100+x³/10000)%",
-          "**Among same-volume solids**: sphere has least surface area; among same-surface solids, sphere has greatest volume",
-          "**Rate problems**: flow rate × time = volume; keep units consistent",
-          "**Cube roots to memorize**: 8 (2³), 27 (3³), 64 (4³), 125 (5³), 216 (6³), 343 (7³), 512 (8³), 729 (9³), 1000 (10³)"
+          "**2D Area Percentage Change Shortcut:** If linear dimension increases by $+x\\%$, Area increases by **$\\left(2x + \\frac{x^2}{100}\\right)\\%$** (using successive percentage formula $x + y + \\frac{xy}{100}$).",
+          "**Melting & Recasting Law:** When solids are melted and recast, **Total Volume remains CONSTANT** ($V_{\\text{initial}} = V_{\\text{final}}$).",
+          "⚠️ **Common Trap Alert:** Increasing radius of a cylinder by 20% increases CSA by 20% (if height is constant), but increases Volume by **44%** ($1.2^2 = 1.44$).",
+          "📝 **Worked Example (Melting Spheres Method):** 3 metallic spheres of radii 3 cm, 4 cm, 5 cm are melted to form a single solid sphere. Find its radius.\n*Method:* Recognize Recasting $\\rightarrow$ Equalize volumes: $V = \\frac{4}{3}\\pi (3^3 + 4^3 + 5^3) = \\frac{4}{3}\\pi (27 + 64 + 125) = \\frac{4}{3}\\pi (216) \\implies R^3 = 216 \\implies R = 6\\text{ cm}$."
         ],
-        "title": "1.4 Shortcuts & Mains-Level Tricks",
+        "title": "1.4 Mensuration Percentage Scale Shortcuts & Traps",
         "subId": "qsec1-4"
       },
       {
@@ -156,10 +150,10 @@ const QUANT_CHAPTERS = [
         "items": [
           "**2-Year CI − SI Difference Shortcut:** $D_2 = P \\left(\\frac{R}{100}\\right)^2$",
           "**3-Year CI − SI Difference Shortcut:** $D_3 = P \\left(\\frac{R}{100}\\right)^2 \\left(\\frac{300 + R}{100}\\right) = D_2 \\times \\frac{300+R}{100}$",
-          "**Equal CI Installment Equation:** For annual installment $x$: $P = \\frac{x}{\\left(1 + \\frac{R}{100}\\right)} + \\frac{x}{\\left(1 + \\frac{R}{100}\\right)^2}$",
-          "📝 **Worked Example (2-Year CI-SI Difference Method):** If the difference between CI and SI on a principal for 2 years at 10% per annum is ₹250, find the Principal.\n*Method:* Recognize 2-Year CI-SI Diff $\\rightarrow$ $250 = P \\left(\\frac{10}{100}\\right)^2 = P \\times \\frac{1}{100} \\implies P = ₹25,000$."
+          "**Time-Work LCM Method:** Assume total work = LCM of given completion days; Efficiency = $\\frac{\\text{Total Work}}{\\text{Days Taken}}$.",
+          "📝 **Worked Example (Time-Work LCM Method):** A takes 10 days and B takes 15 days to complete a job. How long will they take working together?\n*Method:* Recognize Time-Work $\\rightarrow$ Total Work = $\\text{LCM}(10, 15) = 30\\text{ units}$. Efficiency: $A = 3\\text{ units/day}, B = 2\\text{ units/day}$. Combined efficiency = $5\\text{ units/day} \\implies \\text{Time} = \\frac{30}{5} = 6\\text{ days}$."
         ],
-        "title": "2.2 Arithmetic Shortcuts & CI-SI Difference Worked Methods",
+        "title": "2.2 Arithmetic Shortcuts & Time-Work Tricks",
         "subId": "qsec2-2"
       },
       {
@@ -255,15 +249,57 @@ const QUANT_CHAPTERS = [
         "subId": "qsec4-1"
       },
       {
-        "type": "bullets",
+        "type": "table",
         "items": [
           "**Quadratic comparison (two equations)**: find roots of both, compare all pairs; mixed relations → 'cannot be determined'",
           "**Fast factoring by inspection**: for x²+bx+c, find two numbers multiplying to c, adding to b",
           "**a+1/a expressions**: a²+1/a²=k²−2; a³+1/a³=k³−3k",
           "**a−1/a expressions**: a²+1/a²=k²+2; (a+1/a)²=(a−1/a)²+4"
         ],
-        "title": "4.2 Shortcuts & Tricks",
-        "subId": "qsec4-2"
+        "title": "4.2 Quadratic Equation Sign Table & Root Tricks",
+        "subId": "qsec4-2",
+        "headers": [
+          "Equation Form",
+          "b Sign",
+          "c Sign",
+          "Root 1 Sign",
+          "Root 2 Sign",
+          "Quick Memory Rule"
+        ],
+        "rows": [
+          [
+            "x² + bx + c = 0",
+            "+",
+            "+",
+            "−",
+            "−",
+            "Both roots Negative"
+          ],
+          [
+            "x² − bx + c = 0",
+            "−",
+            "+",
+            "+",
+            "+",
+            "Both roots Positive"
+          ],
+          [
+            "x² + bx − c = 0",
+            "+",
+            "−",
+            "−",
+            "+",
+            "Larger root Negative"
+          ],
+          [
+            "x² − bx − c = 0",
+            "−",
+            "−",
+            "+",
+            "−",
+            "Larger root Positive"
+          ]
+        ]
       },
       {
         "type": "examples",
@@ -388,11 +424,11 @@ const QUANT_CHAPTERS = [
       {
         "type": "bullets",
         "items": [
-          "**P vs C decision rule**: does order matter? Seating/ranking/passwords → Permutation; selecting a team/committee → Combination",
-          "**'Together'/'never together' trick**: bundle together-items as one unit, arrange, then arrange within bundle; never together = total − together",
-          "**Complement trick for probability**: 'at least one' → 1 − P(none), much faster than summing 'exactly k' cases"
+          "**Handshake & Tournament Formula:** Total handshakes/matches among $n$ people = ${}^n\\text{C}_2 = \\frac{n(n-1)}{2}$.",
+          "**Circular Permutation:** Arrangements of $n$ distinct items in a circle = $(n-1)!$.",
+          "📝 **Worked Example (Handshake Formula Method):** 10 persons attend a conference and each person shakes hands with every other person once. Find total handshakes.\n*Method:* Recognize Handshake pattern $\\rightarrow$ Apply $\\frac{n(n-1)}{2} = \\frac{10 \\times 9}{2} = 45\\text{ handshakes}$."
         ],
-        "title": "7.2 Shortcuts & Tricks",
+        "title": "7.2 Permutation & Combination Shortcuts",
         "subId": "qsec7-2"
       },
       {
