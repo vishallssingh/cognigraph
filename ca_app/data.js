@@ -1,19 +1,3 @@
-﻿// Current Affairs Command Center 2026 — Master Dataset (148 Items, 1st to 7th August 2026)
-
-const CA_SECTIONS = [
-  { id: "sec1", title: "1. 💰 ESI, FINANCE & BUSINESS NEWS", emoji: "💰" },
-  { id: "sec2", title: "2. 🏛️ REGULATORY BODIES NEWS", emoji: "🏛️" },
-  { id: "sec3", title: "3. 🏦 BANKING & INSURANCE NEWS", emoji: "🏦" },
-  { id: "sec4", title: "4. 🌐 NATIONAL, STATE & INTERNATIONAL NEWS", emoji: "🌐" },
-  { id: "sec5", title: "5. 🤝 MoUs, CONFERENCES & APPOINTMENTS", emoji: "🤝" },
-  { id: "sec6", title: "6. 🔬 SCIENCE, TECHNOLOGY, DEFENCE & SPORTS", emoji: "🔬" },
-  { id: "sec7", title: "7. 🏆 AWARDS, BOOKS, INDICES & RANKINGS", emoji: "🏆" },
-  { id: "sec8", title: "8. 📅 IMPORTANT DAYS & PERSONS IN NEWS", emoji: "📅" },
-  { id: "sec9", title: "9. 📋 PIB, CIRCULARS & NOTIFICATIONS", emoji: "📋" },
-  { id: "sec10", title: "10. 📌 MISCELLANEOUS — GOVT SCHEMES & STATIC", emoji: "📌" },
-  { id: "sec11", title: "11. 🧠 REVISION", emoji: "🧠" }
-];
-
 const CA_NOTES_DATA = [
   {
     "title": "Gross GST Collections Surge 15.4% to ₹2.11 Trillion in July 2026",
@@ -47,7 +31,27 @@ const CA_NOTES_DATA = [
       "**MFI Classification by AUM:** Small MFI (<₹500 crore AUM), Medium MFI (₹500–₹2,000 crore AUM), Large MFI (>₹2,000 crore AUM).",
       "**Scheme Corpus:** Guarantees loans up to **₹20,000 crore** (wholly owned by Govt of India)."
     ],
-    "trap": "Small MFI limit (<₹500 cr AUM) vs Medium MFI limit (₹500–₹2,000 cr AUM) vs 15% bank lending pool quota."
+    "trap": "Small MFI limit (<₹500 cr AUM) vs Medium MFI limit (₹500–₹2,000 cr AUM) vs 15% bank lending pool quota.",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Mandatory Bank Allocation",
+          "Commercial banks must lend at least 15% of their total ₹20,000 crore corpus to small- and mid-size MFIs (up from 5% and 10%)."
+        ],
+        [
+          "Sanction Cap",
+          "Maximum bank loan capped at 20% of AUM of NBFC-MFIs and MFIs."
+        ],
+        [
+          "Lender Size Caps",
+          "Max loan capped at ₹100 crore (small MFIs), ₹200 crore (medium MFIs), and ₹1,000 crore (large MFIs)."
+        ]
+      ]
+    }
   },
   {
     "title": "Government Approves ₹4,687 Crore Interest Subsidies for Ethanol Projects via NABARD",
@@ -129,7 +133,27 @@ const CA_NOTES_DATA = [
       "Floor price fixed at **₹382 per share**.",
       "Centre currently holds 96.5% stake in LIC."
     ],
-    "trap": null
+    "trap": null,
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Key Metric",
+          "Disinvestment of 2.5% base equity with an additional 4% greenshoe option (total up to 6.5%)."
+        ],
+        [
+          "Key Metric",
+          "Floor price fixed at ₹382 per share."
+        ],
+        [
+          "Key Metric",
+          "Centre currently holds 96.5% stake in LIC."
+        ]
+      ]
+    }
   },
   {
     "title": "Moody's Assigns First-Time Investment-Grade 'Baa2' Rating to RBL Bank",
@@ -252,7 +276,27 @@ const CA_NOTES_DATA = [
       "**AIF/VCF Investment Caps:** Combined exposure capped at **3% for life insurers** and **5% for general insurers**.",
       "**Promoter & Repo Caps:** Promoter group exposure capped at **5% of investment assets**; Repo/G-Sec lending capped at lower of **25% of available securities or ₹10,000 crore**."
     ],
-    "trap": "AIF/VCF cap for Life Insurers (3%) vs General Insurers (5%)."
+    "trap": "AIF/VCF cap for Life Insurers (3%) vs General Insurers (5%).",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Intermediary Registration Validity",
+          "Certificate valid perpetually subject to annual non-refundable fee (higher of ₹10,000 or 0.04% commission)."
+        ],
+        [
+          "SPV Investment Cap",
+          "Insurers allowed to invest up to 20% in operational Infra SPVs rated AA or above."
+        ],
+        [
+          "AIF/VCF Investment Caps",
+          "Combined exposure capped at 3% for life insurers and 5% for general insurers."
+        ]
+      ]
+    }
   },
   {
     "title": "SC Directs RBI on Mule Accounts SOP & IRDAI on ANPR Motor Insurance Verification",
@@ -304,7 +348,27 @@ const CA_NOTES_DATA = [
       "**CPI Inflation Projection (FY 2026-27):** Lowered to **5.0%** (earlier 5.1%) (Q2 4.7%, Q3 5.9%, Q4 5.5%). Core inflation projected at **4.3%**.",
       "Macro Buffers: Gross FDI inflows at **US$ 30.7 billion** in Q1 FY27; Forex reserves import cover **over 10 months**."
     ],
-    "trap": "Real GDP Growth projection (6.7%) vs CPI Inflation projection (5.0%) for FY27."
+    "trap": "Real GDP Growth projection (6.7%) vs CPI Inflation projection (5.0%) for FY27.",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Repo Rate",
+          "Kept unchanged at 5.25%."
+        ],
+        [
+          "Real GDP Growth Projection (FY 2026-27)",
+          "Projected at 6.7% (Q1 7.0%, Q2 6.4%, Q3 6.5%, Q4 6.8%)."
+        ],
+        [
+          "CPI Inflation Projection (FY 2026-27)",
+          "Lowered to 5.0% (earlier 5.1%) (Q2 4.7%, Q3 5.9%, Q4 5.5%). Core inflation projected at 4.3%."
+        ]
+      ]
+    }
   },
   {
     "title": "SEBI Closing Auction Session (CAS) Takes Effect August 3, 2026",
@@ -1438,7 +1502,23 @@ const CA_NOTES_DATA = [
       "Productivity Boost: AI enhances productivity in **16.2% of jobs in developing countries** (vs 18.7% in high-income countries).",
       "Telangana Case Study: AI weather forecasting produced savings **up to $560 per small farmer** in Telangana."
     ],
-    "trap": "Job automation risk in developing countries (4.5%) vs high-income countries (14.2%)."
+    "trap": "Job automation risk in developing countries (4.5%) vs high-income countries (14.2%).",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Automation Risk Differential",
+          "4.5% of jobs in low- and middle-income countries at risk of automation vs 14.2% in high-income countries."
+        ],
+        [
+          "Productivity Boost",
+          "AI enhances productivity in 16.2% of jobs in developing countries (vs 18.7% in high-income countries)."
+        ]
+      ]
+    }
   },
   {
     "title": "Annapurni Subramaniam Conferred COSPAR Vikram Sarabhai Medal 2026",
@@ -2892,7 +2972,31 @@ const CA_NOTES_DATA = [
       "Credit Guarantee Sub-Scheme: Central repayment guarantee up to ₹7 crore (or 70% of loan) for Tier-II/III cities."
     ],
     "secId": "sec10",
-    "date": "2026-08-02"
+    "date": "2026-08-02",
+    "miniGrid": {
+      "headers": [
+        "Bank Category",
+        "Minimum Leverage Ratio Floor",
+        "Buffer Requirement"
+      ],
+      "rows": [
+        [
+          "Domestic Systemically Important Banks (D-SIBs)",
+          "4.0%",
+          "Standard D-SIB Capital Buffer"
+        ],
+        [
+          "Other Commercial Banks",
+          "3.5%",
+          "Standard Capital Buffer"
+        ],
+        [
+          "G-SIB Foreign Branches in India",
+          "3.5%",
+          "3.5% + Applicable G-SIB Leverage Buffer"
+        ]
+      ]
+    }
   },
   {
     "title": "Supreme Court Issues Interim Order Barring Audio-Video Court Recording Monetisation on Digital Platforms",
@@ -3874,7 +3978,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Introduces 'principal employer' liability for contract workers and streamlines withdrawal rules into 3 categories.",
     "trap": "3 withdrawal categories (down from 13) vs 25% mandatory minimum balance requirement.",
-    "id": "note-sec1-208"
+    "id": "note-sec1-208",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Mandatory Balance & Unemployment",
+          "25% minimum balance required; 75% withdrawal permitted after 12 months membership; 100% full withdrawal permitted after 1 year of unemployment."
+        ],
+        [
+          "Contribution Rates",
+          "12% standard contribution (10% for notified units); wage ceiling fixed at ₹15,000."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec1",
@@ -3938,7 +4058,27 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Highlights urban employment structure across 46 million-plus population cities under PLFS 2025 survey.",
     "trap": "Female regular job rate in million-plus cities (65.1%) vs male rate (56.4%).",
-    "id": "note-sec1-212"
+    "id": "note-sec1-212",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Unemployment Rate",
+          "Average unemployment across 46 million-plus cities stood at 6.8% (Prayagraj & Patna >20%; Ahmedabad & Kolkata <2.5%)."
+        ],
+        [
+          "Regular vs Casual Jobs",
+          "Regular wage/salary jobs accounted for 58.5% in million-plus cities (vs 47.6% urban India); casual labor stood at 6.3% (vs 12% urban India)."
+        ],
+        [
+          "Female Participation",
+          "Female regular employment reached 65.1% in million-plus cities, surpassing male counterparts (56.4%)."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec1",
@@ -4000,7 +4140,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Reaffirms India's position as the world's fastest-growing major economy.",
     "trap": "India FY27 GDP forecast (6.4%) vs FY28 GDP forecast (6.7%).",
-    "id": "note-sec1-216"
+    "id": "note-sec1-216",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "India Growth Forecasts",
+          "6.4% in FY27 and 6.7% in FY28 under World Economic Outlook update."
+        ],
+        [
+          "Global Growth Outlook",
+          "World growth projected to moderate to 3.0% in 2026 before recovering to 3.4% in 2027."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec1",
@@ -4015,7 +4171,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Asian Development Outlook (ADO) raises India inflation forecast sharply to 5.2%.",
     "trap": "ADB FY27 GDP forecast (6.6%) vs IMF FY27 GDP forecast (6.4%).",
-    "id": "note-sec1-217"
+    "id": "note-sec1-217",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "GDP Revision",
+          "India FY27 GDP growth revised to 6.6% (from earlier 6.9%) due to Middle East energy risks."
+        ],
+        [
+          "Inflation Forecast",
+          "Inflation forecast raised to 5.2% (from 4.5% projected in April)."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec1",
@@ -4062,7 +4234,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Includes  million IBRD loan and  million Clean Technology Fund loan for rooftop solar.",
     "trap": "IBRD loan ( million) vs ADB loan ( million).",
-    "id": "note-sec1-220"
+    "id": "note-sec1-220",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Scheme Outlay",
+          "PM Surya Ghar Yojana approved in Feb 2024 with ₹75,021 crore outlay for 10 million households."
+        ],
+        [
+          "National RE Target",
+          "India committed to 60% non-fossil electricity capacity by 2035 and net-zero emissions by 2070."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec1",
@@ -4094,7 +4282,27 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "EAC-PM working paper reveals India's global savings share rose to 10.3% in 2025.",
     "trap": "India global savings share (10.3%, 2nd) vs China share (31.9%, 1st).",
-    "id": "note-sec1-222"
+    "id": "note-sec1-222",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Global Rankings",
+          "India became the world's 2nd-largest contributor to global savings in PPP terms (10.3% share)."
+        ],
+        [
+          "Top Country",
+          "China ranks 1st globally with a 31.9% share of global savings."
+        ],
+        [
+          "Historical Growth",
+          "India's share rose from 3.3% in 1992 to 10.3% in 2025."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec1",
@@ -4228,7 +4436,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Outlines strategy to expand global merchandise export share from 1.8% in 2024 to 10% by centenary.",
     "trap": "India merchandise export share 2024 (1.8%) vs 2047 target (10%).",
-    "id": "note-sec2-231"
+    "id": "note-sec2-231",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Customs Duty Rationalisation",
+          "BCD structure simplified by eliminating 100%, 125%, and 150% peak rates, reducing applied rates to 8 bands."
+        ],
+        [
+          "Export Target",
+          "Scale share from 1.8% to 10% by 2047."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec2",
@@ -4488,7 +4712,27 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Replaces USD registration fees with INR structure (Category-I FPI fee ₹2.3 lakh).",
     "trap": "Category-I FPI registration fee (₹2.3 lakh) vs custodian monthly fee (₹85,000).",
-    "id": "note-sec2-248"
+    "id": "note-sec2-248",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Rupee Fee Structure",
+          "Category-I FPI registration fee fixed at ₹2.3 lakh (replaced ,500); ,000 fee replaced by ₹90,000."
+        ],
+        [
+          "Custodian Monthly Fee",
+          "Custodian fee revised to ₹85,000/month (replaced ₹10 lakh annual fee)."
+        ],
+        [
+          "Intraday MF Borrowing",
+          "Mutual funds permitted intraday borrowing up to 20% of net assets for settlement liquidity."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec2",
@@ -4579,7 +4823,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Measures 97 financial inclusion indicators across Access (35%), Usage (45%), and Quality (20%).",
     "trap": "Usage weightage (45%) vs Access weightage (35%) vs Quality weightage (20%).",
-    "id": "note-sec2-254"
+    "id": "note-sec2-254",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Index Value",
+          "FI-Index rose 4.48% to 70.0 in March 2026 (up from 67.0 in March 2025)."
+        ],
+        [
+          "Parameter Weights",
+          "Access (35%), Usage (45%), Quality (20%) — published annually without a base year."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec2",
@@ -4670,7 +4930,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Secures Tier-III UCB status under RBI norms with zero net Non-Performing Assets (NPAs).",
     "trap": "Tier-II deposit limit (up to ₹1,000 crore) vs Tier-III deposit threshold (₹1,000 cr – ₹10,000 cr).",
-    "id": "note-sec3-260"
+    "id": "note-sec3-260",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Deposit Threshold",
+          "Total deposits crossed ₹2,000 crore mark with 0% net NPAs."
+        ],
+        [
+          "UCF Classification",
+          "Tier-I (<₹100 cr), Tier-II (₹100 cr – ₹1,000 cr), Tier-III (₹1,000 cr – ₹10,000 cr)."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec3",
@@ -4968,7 +5244,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "hook": "Undernourished population in India declines from 21.1% (2004-06) to 9.8% (2023-25).",
     "trap": "India undernourished share (9.8%) vs healthy diet cost (.11 PPP/day).",
-    "id": "note-sec4-276"
+    "id": "note-sec4-276",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Undernourishment Reduction",
+          "Share dropped from 21.1% to 9.8% (142.5 million people)."
+        ],
+        [
+          "Child Stunting",
+          "Stunting in under-5 children fell to 32.9% in 2024 (down from 41.7% in 2012)."
+        ]
+      ]
+    }
   },
   {
     "secId": "sec7",
@@ -5569,7 +5861,27 @@ const CA_NOTES_DATA = [
     "id": "note-sec1-303",
     "date": "2026-07-01",
     "hook": "Replaces MGNREGA from July 1, 2026 with a minimum statutory wage rate of ₹300 per day.",
-    "title": "VB-G-RAM-G Act Replaces MGNREGA: Wage Employment Guarantee Increased to 125 Days"
+    "title": "VB-G-RAM-G Act Replaces MGNREGA: Wage Employment Guarantee Increased to 125 Days",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Employment Guarantee",
+          "Increases statutory wage employment from 100 days to 125 days per year (total budget ₹1,51,282 crore)."
+        ],
+        [
+          "Minimum Wage Rate",
+          "Wage rates increased by ~10% on average, ensuring no state has a wage rate below ₹300/day."
+        ],
+        [
+          "Initial Outlay",
+          "First 'Mother Sanction' installment of ₹25,863 crore released to states to ensure 15-day wage payments."
+        ]
+      ]
+    }
   },
   {
     "tier": "Tier A",
@@ -5585,7 +5897,23 @@ const CA_NOTES_DATA = [
     "id": "note-sec4-304",
     "date": "2026-07-02",
     "hook": "Phases out fossil-fuel two-wheeler registrations while committing ₹7,000 crore for EV incentives.",
-    "title": "Delhi EV Policy 2026 (EV Policy 2.0): Bans Petrol & CNG Two-Wheeler Registrations from April 2028"
+    "title": "Delhi EV Policy 2026 (EV Policy 2.0): Bans Petrol & CNG Two-Wheeler Registrations from April 2028",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Purchase Subsidies",
+          "Up to ₹30,000 for electric 2-wheelers; ₹50,000 for 3-wheelers; ₹1 lakh for N1 trucks (100% road tax/reg fee exemption)."
+        ],
+        [
+          "Infrastructure & Bus Fleet",
+          "Outlay of ₹7,000 crore to install 32,000 active EV charging points and electrify 30% of school bus fleets by March 2030."
+        ]
+      ]
+    }
   },
   {
     "tier": "Tier A",
@@ -5997,7 +6325,27 @@ const CA_NOTES_DATA = [
     "hook": "Quadruples internet connections to 1.02 billion as electronics manufacturing reaches ₹13 lakh crore.",
     "secId": "sec2",
     "trap": "UPI share of domestic digital payments (81%) vs share of global real-time digital transactions (49%).",
-    "date": "2026-07-08"
+    "date": "2026-07-08",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Digital Milestones",
+          "Internet connections rose to 1.02 billion (from 250M in 2015); UPI processed 24,162 crore transactions in FY26 (49% of global real-time digital payments)."
+        ],
+        [
+          "Electronics & Chips",
+          "Electronics manufacturing reached ₹13 lakh crore (3rd-largest export category); India Semiconductor Mission approved 12 projects with ₹1.64 lakh crore investment pipeline."
+        ],
+        [
+          "Global DPI Model",
+          "DigiLocker, UMANG, eSanjeevani, and DIKSHA (2 crore users) exported via 'India Stack Global'."
+        ]
+      ]
+    }
   },
   {
     "interviewQ": null,
@@ -6157,7 +6505,23 @@ const CA_NOTES_DATA = [
     "hook": "Teacher count rises to 1.02 crore as secondary Gross Enrolment Ratio touches 71.7%.",
     "secId": "sec4",
     "trap": "NEP recommended PTR (30:1) vs secondary level actual PTR (21:1).",
-    "date": "2026-07-18"
+    "date": "2026-07-18",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Enrolment & Dropouts",
+          "Secondary GER rose to 71.7% (from 68.5%); secondary dropout rate fell to 7% (from 8.2%); female teaching staff 54.9%."
+        ],
+        [
+          "Single-Teacher Reduction",
+          "Single-teacher schools fell to 1,00,843; zero-enrolment schools dropped 29% to 5,663."
+        ]
+      ]
+    }
   },
   {
     "interviewQ": null,
@@ -6173,7 +6537,23 @@ const CA_NOTES_DATA = [
     "hook": "India's intangible investment touches .2 billion as software & databases account for 45%.",
     "secId": "sec2",
     "trap": "Software & database share of Indian intangibles (45%) vs R&D share (12.7%).",
-    "date": "2026-07-19"
+    "date": "2026-07-19",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Growth Leader",
+          "India recorded highest intangible investment growth (7.9% YoY to .2B) among top 15 economies."
+        ],
+        [
+          "Asset Breakdown",
+          "Software & databases (45%), organisational capital (21.8%), R&D (12.7%), brands (9.3%), design (11%)."
+        ]
+      ]
+    }
   },
   {
     "interviewQ": null,
@@ -6358,7 +6738,27 @@ const CA_NOTES_DATA = [
       "First Fab Timeline: India's 1st commercial semiconductor fabrication plant scheduled for commissioning in 2028."
     ],
     "hook": "Provides 40% fiscal subsidy for silicon fabs and 35% for compound semiconductors.",
-    "tier": "Tier A"
+    "tier": "Tier A",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Financial Outlay",
+          "₹1,27,500 crore total budget outlay structured across 6 strategic pillars."
+        ],
+        [
+          "Differentiated Subsidies",
+          "40% support on eligible capex for silicon fabrication plants; 35% for compound semiconductors/display fabs; 35% for advanced packaging; 25% for conventional packaging (ATMP/OSAT)."
+        ],
+        [
+          "Private Investment Impact",
+          "Expected to catalyze an additional ₹4 lakh crore in private semiconductor investment."
+        ]
+      ]
+    }
   },
   {
     "title": "Union Cabinet Approves 'Mobile Phone Manufacturing Scheme (MPMS)' with ₹62,500 Crore Outlay",
@@ -6374,7 +6774,27 @@ const CA_NOTES_DATA = [
       "Electronics Export Milestone: Smartphones emerged as India's single largest exported product category in 2025 (99.2% of domestic phones built in India)."
     ],
     "hook": "5-year scheme (FY27 to FY31) targeting ₹39 lakh crore mobile production and 60,000 direct jobs.",
-    "tier": "Tier A"
+    "tier": "Tier A",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Scheme Outlay & Tenure",
+          "₹62,500 crore budget outlay running for 5 years from FY 2026-27 to FY 2030-31."
+        ],
+        [
+          "Incentive Tiers",
+          "Differentiated sales incentives of 2.25% to 5%; additional 1.5% incentive for domestic component sourcing; 3% incentive for product design R&D."
+        ],
+        [
+          "Electronics Export Milestone",
+          "Smartphones emerged as India's single largest exported product category in 2025 (99.2% of domestic phones built in India)."
+        ]
+      ]
+    }
   },
   {
     "title": "Gujarat Launches India's 1st State-Level 'Viksit Gujarat Data Centre Policy 2026-29'",
@@ -6513,7 +6933,23 @@ const CA_NOTES_DATA = [
       "Incentive Package: Motor vehicle tax waivers, 5% interest subvention on vehicle loans, min 8% OEM discount, and Certificate of Deposit (CoD) trading."
     ],
     "hook": "Accelerates replacement of polluting NCR trucks and buses with BS-VI or electric vehicles.",
-    "tier": "Tier A"
+    "tier": "Tier A",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Outlay & Central Support",
+          "₹9,585 crore total outlay including ₹5,041 crore central budgetary support."
+        ],
+        [
+          "Incentive Package",
+          "Motor vehicle tax waivers, 5% interest subvention on vehicle loans, min 8% OEM discount, and Certificate of Deposit (CoD) trading."
+        ]
+      ]
+    }
   },
   {
     "title": "MoSPI Releases 'PAIMANA' Infrastructure Monitoring Dashboard (165 Indicators)",
@@ -6648,7 +7084,23 @@ const CA_NOTES_DATA = [
       "Outlay & Roadmap: ₹175.45 crore 5-year convergence project (2025-2030) under 'Unlock Economic Potential of Northeast'.",
       "Cultivation Target: Triples cultivation area to 7,000 hectares, benefiting 17,500 farmers (99% women) in Jaintia Hills."
     ],
-    "date": "2026-07-25"
+    "date": "2026-07-25",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Outlay & Roadmap",
+          "₹175.45 crore 5-year convergence project (2025-2030) under 'Unlock Economic Potential of Northeast'."
+        ],
+        [
+          "Cultivation Target",
+          "Triples cultivation area to 7,000 hectares, benefiting 17,500 farmers (99% women) in Jaintia Hills."
+        ]
+      ]
+    }
   },
   {
     "trap": "BSMR-200 site (Tarapur, Maharashtra) vs HTGCR site (Visakhapatnam, AP).",
@@ -6678,7 +7130,23 @@ const CA_NOTES_DATA = [
       "Phased Tariff Schedule: 0% tariff (Aug 2026 – July 2028), 100% (Aug 2028 – July 2029), 200% (from Aug 2029).",
       "India Impact: Impacts >40% of India's .5 billion generic pharma exports to the US."
     ],
-    "date": "2026-07-27"
+    "date": "2026-07-27",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Phased Tariff Schedule",
+          "0% tariff (Aug 2026 – July 2028), 100% (Aug 2028 – July 2029), 200% (from Aug 2029)."
+        ],
+        [
+          "India Impact",
+          "Impacts >40% of India's .5 billion generic pharma exports to the US."
+        ]
+      ]
+    }
   },
   {
     "trap": "Discounted issue price (~₹10,296 crore) vs maturity face value (₹20,000 crore).",
@@ -6724,7 +7192,27 @@ const CA_NOTES_DATA = [
       "Park Requirements: Grant up to ₹1,000 cr per park (min ₹500 cr state contribution); min area 2,000 acres (8 sq km).",
       "Chemical Sector Rank: India ranks 6th globally and 3rd in Asia in chemical production (contributes 7% to GDP)."
     ],
-    "date": "2026-07-30"
+    "date": "2026-07-30",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Scheme Outlay",
+          "₹3,030 crore financial outlay over 5 years (FY27 to FY31) from Union Budget FY27."
+        ],
+        [
+          "Park Requirements",
+          "Grant up to ₹1,000 cr per park (min ₹500 cr state contribution); min area 2,000 acres (8 sq km)."
+        ],
+        [
+          "Chemical Sector Rank",
+          "India ranks 6th globally and 3rd in Asia in chemical production (contributes 7% to GDP)."
+        ]
+      ]
+    }
   },
   {
     "trap": "New base year (2022-23) vs combined core industries weightage in IIP (32.88%).",
@@ -6849,7 +7337,23 @@ const CA_NOTES_DATA = [
       "Species Cultivation: India is the only country cultivating all 4 recognised cotton species.",
       "MSP & Mission Outlay: 2026-27 MSP ₹8,267/quintal (medium-staple) and ₹8,667 (long-staple); 5-year 'Mission for Cotton Productivity' outlay ₹5,659.22 crore."
     ],
-    "date": "2026-07-07"
+    "date": "2026-07-07",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Global Ranks",
+          "India ranks 1st globally in cotton acreage (114.84 lakh hectares, 38% world share) and 2nd in production/consumption."
+        ],
+        [
+          "MSP & Mission Outlay",
+          "2026-27 MSP ₹8,267/quintal (medium-staple) and ₹8,667 (long-staple); 5-year 'Mission for Cotton Productivity' outlay ₹5,659.22 crore."
+        ]
+      ]
+    }
   },
   {
     "trap": "Mirabai Chanu CWG gold streak (3rd consecutive: 2018, 2022, 2026).",
@@ -6926,7 +7430,31 @@ const CA_NOTES_DATA = [
       "Financial Definition: Lower leverage ratio indicates a financially accountable business with constant revenue stream."
     ],
     "id": "note-sec2-381",
-    "staticGk": "Kotak Mahindra Bank MD & CEO: Ashok Vaswani | HQ: Mumbai."
+    "staticGk": "Kotak Mahindra Bank MD & CEO: Ashok Vaswani | HQ: Mumbai.",
+    "miniGrid": {
+      "headers": [
+        "Bank Category",
+        "Minimum Leverage Ratio Floor",
+        "Buffer Requirement"
+      ],
+      "rows": [
+        [
+          "Domestic Systemically Important Banks (D-SIBs)",
+          "4.0%",
+          "Standard D-SIB Capital Buffer"
+        ],
+        [
+          "Other Commercial Banks",
+          "3.5%",
+          "Standard Capital Buffer"
+        ],
+        [
+          "G-SIB Foreign Branches in India",
+          "3.5%",
+          "3.5% + Applicable G-SIB Leverage Buffer"
+        ]
+      ]
+    }
   },
   {
     "tier": "Tier A",
@@ -6957,7 +7485,23 @@ const CA_NOTES_DATA = [
       "Coverage Expansion: Extends portfolio investment route to all individual Persons Resident Outside India (PROIs) at par with NRIs and OCIs."
     ],
     "id": "note-sec2-383",
-    "staticGk": "FEMA (Non-Debt Instruments) Rules 2019 governed by Department of Economic Affairs, Ministry of Finance."
+    "staticGk": "FEMA (Non-Debt Instruments) Rules 2019 governed by Department of Economic Affairs, Ministry of Finance.",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Individual Holding Cap",
+          "Maximum holding for individual overseas investor (PROI) in a listed company raised from 5% to below 10%."
+        ],
+        [
+          "Aggregate Limit",
+          "Combined holding of all overseas investors increased from 10% to 24%."
+        ]
+      ]
+    }
   },
   {
     "tier": "Tier A",
@@ -7051,7 +7595,23 @@ const CA_NOTES_DATA = [
       "Macro Projections: FY27 Real GDP growth projected at 6.6% (Q1 6.6%, Q2 6.3%, Q3 6.5%, Q4 6.8%); CPI inflation 5.1%."
     ],
     "id": "note-sec2-389",
-    "staticGk": "RBI Governor: Sanjay Malhotra (26th Governor) | MPC constituted under Sec 45ZB RBI Act 1934."
+    "staticGk": "RBI Governor: Sanjay Malhotra (26th Governor) | MPC constituted under Sec 45ZB RBI Act 1934.",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Rate Decision",
+          "Repo rate kept unchanged at 5.25% (SDF 5.00%, MSF/Bank Rate 5.50%) under Neutral stance."
+        ],
+        [
+          "Macro Projections",
+          "FY27 Real GDP growth projected at 6.6% (Q1 6.6%, Q2 6.3%, Q3 6.5%, Q4 6.8%); CPI inflation 5.1%."
+        ]
+      ]
+    }
   },
   {
     "tier": "Tier A",
@@ -7129,7 +7689,27 @@ const CA_NOTES_DATA = [
       "Risk Weighting: Standard risk weight 100% (125% for capital market exposure; 150% for Indian bank overseas branches)."
     ],
     "id": "note-sec2-394",
-    "staticGk": "REITs regulated under SEBI (Real Estate Investment Trusts) Regulations 2014."
+    "staticGk": "REITs regulated under SEBI (Real Estate Investment Trusts) Regulations 2014.",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Exposure Ceiling",
+          "Overall bank exposure to a REIT/InvIT capped at 49% of asset value; sub-limit capped at 10% of bank's capital base."
+        ],
+        [
+          "Cash Flow Mandate",
+          "Min 80% underlying assets must generate positive operational cash flows for $\\\\ge 1$ year."
+        ],
+        [
+          "Risk Weighting",
+          "Standard risk weight 100% (125% for capital market exposure; 150% for Indian bank overseas branches)."
+        ]
+      ]
+    }
   },
   {
     "tier": "Tier A",
@@ -7145,7 +7725,23 @@ const CA_NOTES_DATA = [
       "Pre-Open Auction: Pre-open call auction mechanism introduced for Gold & Silver ETFs."
     ],
     "id": "note-sec2-395",
-    "staticGk": "Base price calculated using 30-minute VWAP of previous trading day."
+    "staticGk": "Base price calculated using 30-minute VWAP of previous trading day.",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Equity/Debt ETFs",
+          "Initial dynamic band ±10%, expandable up to ±20% after 15-minute cooling off."
+        ],
+        [
+          "Bullion ETFs",
+          "Gold & Silver ETFs get initial ±6% band, expandable in 3% stages without upper/lower limits."
+        ]
+      ]
+    }
   },
   {
     "tier": "Tier A",
@@ -7745,7 +8341,23 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec2-432",
     "title": "Zerodha Fund House Launches India's 1st 'Lifecycle Mutual Funds' (NFOs 2036 & 2041)",
-    "trap": "Minimum subscription amount (₹100) vs exit load window (3 years)."
+    "trap": "Minimum subscription amount (₹100) vs exit load window (3 years).",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Target-Date NFOs",
+          "Launches 'Zerodha Life Cycle Fund 2036' and 'Zerodha Life Cycle Fund 2041' (minimum subscription ₹100)."
+        ],
+        [
+          "Exit Load Tier",
+          "3% exit load within 1 yr, 2% within 2 yrs, 1% within 3 yrs, nil beyond 3 yrs."
+        ]
+      ]
+    }
   },
   {
     "bullets": [
@@ -7930,931 +8542,949 @@ const CA_NOTES_DATA = [
         ]
       ]
     }
-  }
-,
+  },
   {
-  "id": "ca_2026_08_08_pm_edrive_extension",
-  "secId": "sec4",
-  "title": "Govt Halves e2W Subsidy to ₹2,500/kWh & Extends PM E-DRIVE Scheme Till March 2028",
-  "date": "2026-08-08",
-  "hook": "PM E-DRIVE scheme extended by 1 year to March 31, 2028, with e2W incentive halved from ₹5,000 to ₹2,500 per kWh.",
-  "bullets": [
-    "**Scheme Extension:** PM Electric Drive Revolution in Innovative Vehicle Enhancement (PM E-DRIVE) extended by 1 year to **March 31, 2028**.",
-    "**Incentive Cut:** Incentive for electric two-wheelers (e2Ws) reduced from **₹5,000 to ₹2,500 per kWh**.",
-    "**Cap & Ceiling:** Maximum incentive capped at **₹5,000 per vehicle** (down from ₹10,000 in FY25) for e2Ws with ex-factory price up to **₹1.5 lakh**.",
-    "**Outlay & Ceiling Limit:** Total scheme outlay remains **₹11,900 crore**; incentive capped at 15% of ex-factory price."
-  ],
-  "staticGk": "Nodal Ministry: Ministry of Heavy Industries (MHI). Outlay: ₹11,900 crore.",
-  "trap": "≠ **Cap Trap:** Do not confuse the new maximum incentive cap of ₹5,000/vehicle with the earlier FY25 cap of ₹10,000/vehicle."
-},
-  {
-  "id": "ca_2026_08_08_govt_debt_to_gdp_fy26",
-  "secId": "sec3",
-  "title": "Govt Debt-to-GDP Ratio Stands at 58.2% in FY26; Fiscal Deficit Drops to 4.4%",
-  "date": "2026-08-08",
-  "hook": "India's debt-to-GDP ratio for FY26 stood at 58.2%, 210 bps higher than the 56.1% target, while fiscal deficit declined to 4.4%.",
-  "bullets": [
-    "**Debt-to-GDP Ratio:** Government debt-to-GDP ratio for FY26 stood at **58.2%**.",
-    "**Target Deviation:** Ratio was **210 basis points (bps)** higher than the government target of **56.1%**.",
-    "**Fiscal Deficit Trajectory:** Fiscal deficit dropped significantly from **9.2% in FY21 to 4.4% in FY26**."
-  ],
-  "staticGk": "Fiscal Deficit Definition: Gap between total expenditure and total receipts excluding borrowings.",
-  "trap": "⚠️ **Target Trap:** Note that FY26 debt-to-GDP (58.2%) missed the government aim of 56.1% by 210 bps (2.1%)."
-},
-  {
-  "id": "ca_2026_08_08_sebi_annual_report_retail",
-  "secId": "sec2",
-  "title": "SEBI Annual Report 2025-26: MF AUM Reaches ₹73.7 Lakh Crore; Unique Investors Surge to 6.1 Crore",
-  "date": "2026-08-08",
-  "hook": "SEBI Annual Report 2025-26 highlights Mutual Fund AUM expansion to ₹73.7 lakh crore and unique investor growth to 6.1 crore.",
-  "bullets": [
-    "**Mutual Fund AUM Growth:** Indian Mutual Fund AUM grew from **₹31.43 lakh crore (March 2021)** to **₹73.7 lakh crore (March 2026)**.",
-    "**Unique Investors:** Unique MF investors surged to **6.1 crore**, up **13.2% YoY**.",
-    "**Macro Growth Estimates:** Real GDP growth estimated at **7.7% in FY26** (up from 7.1% in FY25); IMF projects **6.5% growth for FY27**."
-  ],
-  "staticGk": "SEBI Established: April 12, 1988 (Statutory status 1992). Chairperson: Tuhin Kanta Pandey.",
-  "trap": "≠ **AUM Growth:** Pay attention: MF AUM more than doubled over 5 years from ₹31.43L cr (2021) to ₹73.7L cr (2026)."
-},
-  {
-  "id": "ca_2026_08_09_rbi_cva_capital_framework",
-  "secId": "sec1",
-  "title": "RBI Proposes Credit Valuation Adjustment (CVA) Risk-Capital Framework Effective April 1, 2027",
-  "date": "2026-08-09",
-  "hook": "RBI proposed new CVA Framework for derivative-related counterparty risk, effective April 1, 2027, replacing 2011 guidelines.",
-  "bullets": [
-    "**Scope & Applicability:** Applies to all commercial banks except SFBs, Payments Banks, and Local Area Banks.",
-    "**Basic Approach (BA-CVA):** Offers Full BA-CVA (recognizes eligible hedges) and Reduced BA-CVA (no hedge recognition).",
-    "**Simplified Threshold:** Banks with non-centrally cleared derivatives up to **₹10 trillion** can use simplified approach (CVA capital req = 100% counterparty credit risk capital req).",
-    "**Counterparty Risk Weights:** Sovereigns: 0.5% (Investment Grade) and 2% (others); Financial Sector: 5% (IG) and 12% (others)."
-  ],
-  "staticGk": "CVA: Credit Valuation Adjustment measures counterparty credit risk in derivative transactions.",
-  "trap": "⚠️ **Exemption Trap:** SFBs, Payments Banks, and LABs are EXCLUDED from the new CVA capital framework."
-},
-  {
-  "id": "ca_2026_08_09_rbi_g_sib_leverage_buffer",
-  "secId": "sec1",
-  "title": "RBI Draft Aligns Leverage Ratio Regime with Basel 2017 Standards; Prescribes G-SIB Leverage Buffer",
-  "date": "2026-08-09",
-  "hook": "RBI draft directions align leverage ratio norms with Basel 2017, introducing leverage buffer for G-SIB branches in India from April 1, 2027.",
-  "bullets": [
-    "**Minimum Leverage Ratio:** Retained at **4% for D-SIBs** and **3.5% for all other banks**.",
-    "**G-SIB Branches:** Foreign branches of G-SIBs must maintain **3.5% minimum leverage ratio + applicable G-SIB leverage buffer**.",
-    "**Derivative Calculation:** Uses replacement cost + potential future exposure, multiplier generally **1.4x**."
-  ],
-  "staticGk": "D-SIBs in India: State Bank of India (SBI), HDFC Bank, ICICI Bank.",
-  "trap": "≠ **Ratio Floor:** D-SIBs floor is 4.0%; Non-D-SIB commercial banks floor is 3.5%."
-},
-  {
-  "id": "ca_2026_08_09_sebi_unclaimed_mf_dividends",
-  "secId": "sec2",
-  "title": "SEBI Report: Unclaimed Mutual Fund Amounts Reach ₹3,811 Crore as of March 2026",
-  "date": "2026-08-09",
-  "hook": "Unclaimed mutual fund dividends rose 15.7% to ₹2,689 crore, bringing total unclaimed MF pool to ₹3,811 crore.",
-  "bullets": [
-    "**Unclaimed Breakdown:** Unclaimed dividends rose 15.7% to **₹2,689 crore**; unclaimed redemption fell 0.5% to **₹1,122 crore**.",
-    "**Total Unclaimed Pool:** Stood at **₹3,811 crore** as of March 31, 2026.",
-    "**Remedial Measures:** Centralised nominee reporting with KRA, DigiLocker access, and 'Niveshak Shivir' drive by SEBI + IEPFA."
-  ],
-  "staticGk": "IEPFA: Investor Education and Protection Fund Authority under Ministry of Corporate Affairs.",
-  "trap": "⚠️ **Direction Trap:** Unclaimed dividends INCREASED by 15.7%, whereas unclaimed redemption DECREASED by 0.5%."
-},
-  {
-  "id": "ca_2026_08_09_rbi_psl_fcnr_nre_swap",
-  "secId": "sec1",
-  "title": "RBI Directions: USD-INR Swap Facility Introduced for Fresh FCNR(B) Funds; Excluded from ANBC",
-  "date": "2026-08-09",
-  "hook": "RBI introduced USD-INR swap facility for 3-5 year FCNR(B) deposits and excluded fresh FCNR(B)/NRE deposits from ANBC calculation.",
-  "bullets": [
-    "**Swap Facility Tenor:** US Dollar-Rupee swap facility for fresh FCNR(B) dollar deposits with tenor of **3 to 5 years**.",
-    "**CRR/SLR Exemption:** Temporary CRR/SLR relief on fresh FCNR(B) (8 June - 30 Sept 2026) and NRE term deposits (19 June - 30 Sept 2026, 3+ yrs).",
-    "**ANBC Exclusion:** Advances against eligible fresh FCNR(B)/NRE deposits excluded from Adjusted Net Bank Credit (ANBC) for PSL calculation."
-  ],
-  "staticGk": "ANBC: Adjusted Net Bank Credit forms the baseline for computing Priority Sector Lending (PSL) targets.",
-  "trap": "≠ **ANBC Cap:** Excluded amount cannot exceed eligible fresh FCNR(B)/NRE deposits."
-},
-  {
-  "id": "ca_2026_08_10_sebi_isin_limit_debt",
-  "secId": "sec2",
-  "title": "SEBI Proposes Raising Annual ISIN Limit for Private Debt Securities from 14 to 17",
-  "date": "2026-08-10",
-  "hook": "SEBI proposed expanding annual ISIN limit maturing in a FY from 14 to 17 to ease NBFC refinancing pressure.",
-  "bullets": [
-    "**ISIN Limit Breakdown:** Plain-vanilla debt ISINs increased from **9 to 12**; Structured/FRBs/ZCBs/Tier-II ISIN limit remains **5**.",
-    "**Large Issuer Flexibility:** Once 12 ISINs reach **₹15,000 crore**, 1 additional ISIN permitted per further **₹3,000 crore** outstanding.",
-    "**Mandatory Listing Relief:** Removed requirement to mandatorily list all outstanding unlisted NCDs issued on/after Jan 1, 2024.",
-    "**Exclusion:** Sovereign/Government-serviced EBR bonds excluded from ISIN limits."
-  ],
-  "staticGk": "ISIN: International Securities Identification Number (12-character alphanumeric code).",
-  "trap": "⚠️ **Limit Allocation:** Plain vanilla ISIN limit expanded (9->12), but structured debt ISIN limit remained UNCHANGED at 5."
-},
-  {
-  "id": "ca_2026_08_10_nse_authorised_person_rules",
-  "secId": "sec2",
-  "title": "NSE Introduces Tighter Net Worth & Deposit Norms for Authorised Persons (APs)",
-  "date": "2026-08-10",
-  "hook": "NSE revised rules for Authorised Persons, prescribing minimum net worth of ₹5L for individuals and ₹25L for partnerships/LLPs.",
-  "bullets": [
-    "**Net Worth Norms:** Minimum net worth set at **₹5 lakh for individuals** and **₹25 lakh for partnerships/LLPs/companies**.",
-    "**Broker Deposit:** APs must maintain minimum deposit of **₹1 lakh** with stock broker.",
-    "**Mandatory Disclosures:** APs must disclose bank/demat accounts, websites, NISM certifications, and social media handles."
-  ],
-  "staticGk": "NSE Founded: Nov 27, 1992. HQ: Mumbai. MD & CEO: Ashishkumar Chauhan.",
-  "trap": "≠ **Net Worth Discriminator:** Individual APs (₹5L) vs Corporate/LLP APs (₹25L)."
-},
-  {
-  "id": "ca_2026_08_10_paul_merchants_fema_ad2",
-  "secId": "sec2",
-  "title": "Paul Merchants Secures Perpetual RBI AD Category-II License Under FEMA Norms 2026",
-  "date": "2026-08-10",
-  "hook": "RBI granted Paul Merchants a perpetual Authorised Dealer Category-II (AD-II) license under FEMA Regulations 2026.",
-  "bullets": [
-    "**License Status:** Perpetual AD Category-II (AD-II) status granted under FEMA Regulations 2026.",
-    "**Permitted Scope:** Non-trade current account transactions (excluding gifts/donations) and foreign trade transactions up to **₹25 lakh per transaction**."
-  ],
-  "staticGk": "FEMA: Foreign Exchange Management Act 1999 (Adjudicated by RBI / Enforcement Directorate).",
-  "trap": "⚠️ **Transaction Cap:** Foreign trade remittance capped at ₹25 lakh per transaction under AD-II."
-},
-  {
-  "id": "ca_2026_08_10_indusind_stock_broking_subsidiary",
-  "secId": "sec2",
-  "title": "RBI Approves IndusInd Bank to Set Up Wholly Owned Stock Broking Subsidiary",
-  "date": "2026-08-10",
-  "hook": "IndusInd Bank received RBI approval to establish a wholly owned stock broking subsidiary and infuse equity capital.",
-  "bullets": [
-    "**Regulatory Clearance:** RBI approved establishment of wholly owned stock broking subsidiary with equity infusion.",
-    "**Corporate Governance:** IndusInd Bank MD & CEO: Rajiv Anand; HQ: Mumbai."
-  ],
-  "staticGk": "IndusInd Bank Founder: S.P. Hinduja (1994). HQ: Mumbai.",
-  "trap": "≠ **Subsidiary Ownership:** 100% wholly owned subsidiary."
-},
-  {
-  "id": "ca_2026_08_10_kotak_hybrid_home_loan",
-  "secId": "sec2",
-  "title": "Kotak Mahindra Bank Launches Hybrid Home Loan with 65-Month Fixed Rate Lock",
-  "date": "2026-08-10",
-  "hook": "Kotak Bank launched hybrid home loan combining fixed and floating rates with fixed interest lock up to 65 months.",
-  "bullets": [
-    "**Fixed Rate Lock:** Borrowers can lock interest rates for up to **65 months** before transitioning to floating rate.",
-    "**Product Structure:** Combines fixed and floating rates for salaried and self-employed borrowers across India."
-  ],
-  "staticGk": "Kotak Mahindra Bank MD & CEO: Ashok Vaswani; Chairman: Chandra Sekar Rajan; Founder: Uday Kotak.",
-  "trap": "≠ **Lock Period:** 65 months (approx 5.4 years) rate lock."
-},
-  {
-  "id": "ca_2026_08_10_gift_city_nri_mf_fund",
-  "secId": "sec2",
-  "title": "Wealth Company Launches Category III AIF in GIFT City for NRI Mutual Fund Investments",
-  "date": "2026-08-10",
-  "hook": "Wealth Company launched Category III AIF ('Wealth Company IFSC FoF') in GIFT City IFSC for NRIs to invest in Indian MFs and ETFs.",
-  "bullets": [
-    "**Fund Vehicle:** 'The Wealth Company IFSC FoF' registered as open-ended **Category III Alternative Investment Fund (AIF)**.",
-    "**Regulator & Manager:** Managed by Wealth Company Asset Management IFSC branch registered with **IFSCA**."
-  ],
-  "staticGk": "IFSCA Headquarters: GIFT City, Gandhinagar, Gujarat. Chairman: K. Rajaraman.",
-  "trap": "⚠️ **AIF Category:** Registered specifically as Category III AIF (Fund of Funds)."
-},
-  {
-  "id": "ca_2026_08_10_ifc_225cr_ndr_smart_spaces",
-  "secId": "sec6",
-  "title": "World Bank's IFC to Invest ₹225 Crore ($23 Million) in NDR Smart Spaces Warehousing",
-  "date": "2026-08-10",
-  "hook": "International Finance Corporation (IFC) to invest ₹225 crore ($23M) equity in NDR Smart Spaces for Grade A warehousing across MH, TN, UP.",
-  "bullets": [
-    "**Equity Investment:** IFC investing **₹225 crore (~$23 million)** in NDR Smart Spaces Pvt Ltd.",
-    "**Infrastructure Focus:** Developing Grade A warehousing and logistics infrastructure in **Maharashtra, Tamil Nadu, and Uttar Pradesh**."
-  ],
-  "staticGk": "IFC Established: July 20, 1956. Members: 186 countries. HQ: Washington D.C. Parent: World Bank Group.",
-  "trap": "≠ **Member Count:** IFC has 186 member countries (World Bank IBRD has 189)."
-},
-  {
-  "id": "ca_2026_08_10_mithila_makhana_export_australia",
-  "secId": "sec6",
-  "title": "GI-Tagged Mithila Makhana Exports from Bihar to Australia Supported by APEDA",
-  "date": "2026-08-10",
-  "hook": "First consignment of GI-tagged Mithila Makhana exported from Darbhanga, Bihar to Australia with APEDA support.",
-  "bullets": [
-    "**Export Route:** Exported from **Darbhanga, Bihar** to **Australia**.",
-    "**Nodal Support:** Facilitated by APEDA (Agricultural and Processed Food Products Export Development Authority)."
-  ],
-  "staticGk": "APEDA: Statutory body under APEDA Act 1985 (Ministry of Commerce). Chairman: Abhishek Dev. HQ: New Delhi.",
-  "trap": "≠ **Nodal Ministry:** APEDA comes under Ministry of Commerce and Industry (NOT Agriculture)."
-},
-  {
-  "id": "ca_2026_08_11_boss_scam_warning_i4c",
-  "secId": "sec4",
-  "title": "I4C Issues Warning Against 'Boss Scam' WhatsApp CEO Impersonation Trojan Fraud",
-  "date": "2026-08-11",
-  "hook": "Indian Cyber Crime Coordination Centre (I4C) issued advisory against 'Boss Scam' WhatsApp Web takeover Trojan malware.",
-  "bullets": [
-    "**Fraud Mechanism:** WhatsApp CEO impersonation fraud installing Trojan malware on Windows devices via malicious files.",
-    "**Nodal Platform:** National Cyber Crime Reporting Portal (NCRP) operating under MHA/I4C (National Helpline **1930**)."
-  ],
-  "staticGk": "I4C: Nodal cybercrime agency under Ministry of Home Affairs (MHA). HQ: New Delhi.",
-  "trap": "⚠️ **Helpline Number:** Cybercrime national helpline is 1930."
-},
-  {
-  "id": "ca_2026_08_11_govt_notifies_11_evisa_ports",
-  "secId": "sec4",
-  "title": "Government Notifies 11 Additional Ports for e-Visa Entry, Taking Total to 88 Ports",
-  "date": "2026-08-11",
-  "hook": "Center notified 11 new international ports (9 land ports + 2 airports), expanding e-visa entry ports to 88 across India.",
-  "bullets": [
-    "**New Additions:** 11 ports = 9 land ports + 2 airports (**Bhopal and Tirupati**).",
-    "**Total e-Visa Ports:** Reached **88 ports** (37 Airports + 38 Seaports + 13 Land Ports)."
-  ],
-  "staticGk": "Nodal Ministry: Ministry of Home Affairs (Bureau of Immigration).",
-  "trap": "≠ **Airport Additions:** The 2 new airports notified are Bhopal and Tirupati."
-},
-  {
-  "id": "ca_2026_08_11_mmdr_amendment_bill_2026",
-  "secId": "sec4",
-  "title": "Govt Introduces MMDR Amendment Bill 2026 in Lok Sabha; Removes 50% Captive Sales Ceiling",
-  "date": "2026-08-11",
-  "hook": "Mines and Minerals Amendment Bill 2026 introduced in Lok Sabha, removing 50% sales cap on captive mines and expanding NMET.",
-  "bullets": [
-    "**Captive Mine Ceiling Removed:** Bill removes 50% ceiling on annual mineral sales by captive mines after meeting end-use requirements.",
-    "**Trust Expansion:** Renames NMET to **National Mineral Exploration and Development Trust** to fund mine development.",
-    "**Lease Extension:** Composite licence extended up to 30%; mining lease up to 10%; one-time extension for deep-seated minerals (>200m depth)."
-  ],
-  "staticGk": "Amends: Mines and Minerals (Development and Regulation) Act, 1957.",
-  "trap": "⚠️ **Depth Threshold:** Deep-seated minerals defined as minerals found >200 meters below land surface."
-},
-  {
-  "id": "ca_2026_08_11_nabl_mobile_food_testing_scheme",
-  "secId": "sec4",
-  "title": "India Launches 1st Accreditation Scheme for Mobile Food Testing Laboratories by NABL",
-  "date": "2026-08-11",
-  "hook": "NABL under Quality Council of India (QCI) launched India's first accreditation scheme for mobile food testing labs.",
-  "bullets": [
-    "**Program Framework:** Integrated Assessment Programme launched by NABL (Quality Council of India constituent).",
-    "**NABL Governance:** HQ: New Delhi; Chairperson: Dr. Sandip Shah."
-  ],
-  "staticGk": "QCI: Autonomous body attached to Department for Promotion of Industry and Internal Trade (DPIIT).",
-  "trap": "≠ **NABL Nodal:** NABL is a constituent board of QCI (DPIIT)."
-},
-  {
-  "id": "ca_2026_08_11_pm_vbry_women_enrolment",
-  "secId": "sec4",
-  "title": "PM-VBRY Enrolment Update: Women Account for 28.56% of 9.99 Million First-Time Employees",
-  "date": "2026-08-11",
-  "hook": "PM Viksit Bharat Rozgar Yojana enrolled 9.99M first-time employees (2.85M women = 28.56%). Maharashtra led registrations.",
-  "bullets": [
-    "**Enrolment Stats:** Of 9.99M first-time workers, **2.85 million were women (28.56%)** vs 7.14M men.",
-    "**Top 3 States:** (1) Maharashtra, (2) Karnataka, (3) Tamil Nadu.",
-    "**Scheme Outlay:** Implemented Aug 1, 2025 to July 31, 2027 with **₹99,446 crore** outlay."
-  ],
-  "staticGk": "PM-VBRY: Nodal Ministry of Labour and Employment.",
-  "trap": "≠ **Outlay & Period:** 2-year implementation period with ₹99,446 crore outlay."
-},
-  {
-  "id": "ca_2026_08_11_fao_food_price_index_july",
-  "secId": "sec6",
-  "title": "FAO Food Price Index Hits 3-Year High of 131.1 Points in July 2026",
-  "date": "2026-08-11",
-  "hook": "UN FAO Food Price Index reached 3-year high at 131.1 points in July 2026.",
-  "bullets": [
-    "**Index Benchmark:** FAO Food Price Index reached **131.1 points** in July 2026.",
-    "**UN FAO Profile:** HQ: Rome, Italy; Established: Oct 16, 1945; Director-General: Qu Dongyu."
-  ],
-  "staticGk": "World Food Day: Celebrated annually on October 16 (FAO founding day).",
-  "trap": "≠ **FAO HQ:** Rome, Italy (NOT Geneva or Vienna)."
-},
-  {
-  "id": "ca_2026_08_11_colombia_74_earthquake",
-  "secId": "sec6",
-  "title": "Magnitude 7.4 Earthquake Strikes Western Colombia in Chocó Region",
-  "date": "2026-08-11",
-  "hook": "Magnitude 7.4 earthquake struck western Colombia near San José del Palmar in the Pacific Ring of Fire.",
-  "bullets": [
-    "**Seismic Event:** Magnitude 7.4 earthquake struck **San José del Palmar, Chocó region, Colombia** on Aug 11, 2026.",
-    "**Tectonic Context:** Colombia is situated along the seismically active Pacific Ring of Fire."
-  ],
-  "staticGk": "Capital of Colombia: Bogotá. Currency: Colombian Peso.",
-  "trap": "≠ **Tectonic Zone:** Pacific Ring of Fire."
-},
-  {
-  "id": "ca_2026_08_10_digilocker_aaeri_verify_mou",
-  "secId": "sec4",
-  "title": "NeGD DigiLocker Signs MoU with AAERI to Launch 'AAERI Verify' Credentials Platform",
-  "date": "2026-08-10",
-  "hook": "MeitY's NeGD (DigiLocker) partnered with AAERI to launch 'AAERI Verify' for authenticating Australian education credentials.",
-  "bullets": [
-    "**MoU Partners:** National e-Governance Division (NeGD, MeitY) + Association of Australian Education Representatives in India (AAERI).",
-    "**Objective:** Launch 'AAERI Verify' knowledge-sharing platform for credential verification."
-  ],
-  "staticGk": "DigiLocker: Key initiative under Digital India Programme (MeitY).",
-  "trap": "≠ **Partner Country:** Australia (AAERI)."
-},
-  {
-  "id": "ca_2026_08_10_mospi_isi_gdp_nowcasting",
-  "secId": "sec3",
-  "title": "MoSPI Partners with IDEAS & ISI Kolkata to Develop Desktop GDP Nowcasting Software",
-  "date": "2026-08-10",
-  "hook": "MoSPI partnered with IDEAS Foundation and ISI Kolkata to develop desktop GDP Nowcasting software tool.",
-  "bullets": [
-    "**Collaboration:** MoSPI + IDEAS Foundation + Indian Statistical Institute (ISI Kolkata).",
-    "**Deliverables:** Desktop-based GDP Nowcasting tool and harmonized health/nutrition NSS indicator framework."
-  ],
-  "staticGk": "ISI Kolkata Founder: Prasanta Chandra Mahalanobis (National Statistics Day June 29).",
-  "trap": "≠ **Institute Name:** IDEAS (Institute of Data Engineering, Analytics and Science Foundation)."
-},
-  {
-  "id": "ca_2026_08_10_everest_rocket_engine_astrobase",
-  "secId": "sec10",
-  "title": "Astrobase Space Technologies Unveils EVEREST, India's 1st Private 800 kN FFSC Rocket Engine",
-  "date": "2026-08-10",
-  "hook": "Astrobase Space Technologies unveiled EVEREST, India's 1st privately developed 800 kN Full-Flow Staged Combustion rocket engine in Bengaluru.",
-  "bullets": [
-    "**Engine Specifications:** EVEREST 800 kN Full-Flow Staged Combustion (FFSC) rocket engine.",
-    "**Location & Support:** Bengaluru, Karnataka; supported under IN-SPACe Technology Adoption Fund."
-  ],
-  "staticGk": "IN-SPACe HQ: Ahmedabad, Gujarat. Chairman: Pawan Kumar Goenka.",
-  "trap": "≠ **Engine Type:** Full-Flow Staged Combustion (FFSC) 800 kN engine."
-},
-  {
-  "id": "ca_2026_08_11_indo_us_eod_exercise_2026",
-  "secId": "sec6",
-  "title": "Indian Navy & US Navy Conduct 8th Explosive Ordnance Disposal (EDO) Exercise 2026",
-  "date": "2026-08-11",
-  "hook": "8th edition of joint Explosive Ordnance Disposal (EDO) exercise conducted between Indian Navy and US Navy.",
-  "bullets": [
-    "**Exercise Details:** 8th Explosive Ordnance Disposal (EDO) & Salvage Exercise between Indian Navy and US Navy.",
-    "**Historical Track:** Joint salvage exercises conducted between India and US since 2005."
-  ],
-  "staticGk": "Other India-US Navy Exercises: Malabar, Tiger Triumph, PASSEX.",
-  "trap": "≠ **Edition:** 8th edition of EDO exercise."
-},
-  {
-  "id": "ca_2026_08_11_dirac_medal_2026_deepak_dhar",
-  "secId": "sec8",
-  "title": "Prof. Deepak Dhar Awarded Prestigious 2026 ICTP Dirac Medal for Statistical Mechanics",
-  "date": "2026-08-11",
-  "hook": "Professor Deepak Dhar (UP) awarded the 2026 ICTP Dirac Medal for contributions to statistical mechanics.",
-  "bullets": [
-    "**Awardee:** Prof. Deepak Dhar (from Uttar Pradesh) shares 2026 Dirac Medal with Bernard Derrida, Marc Mézard, and Haim Sompolinsky.",
-    "**About Dirac Medal:** Awarded annually on Paul Dirac's birthday (August 8) by ICTP Italy (Prize $5,000)."
-  ],
-  "staticGk": "ICTP: Abdus Salam International Centre for Theoretical Physics, Trieste, Italy (Instituted 1985).",
-  "trap": "≠ **Prize Money:** US $5,000."
-},
-  {
-  "id": "ca_2026_08_11_rahul_navin_director_ed",
-  "secId": "sec5",
-  "title": "Rahul Navin Appointed Director of Enforcement Directorate (ED)",
-  "date": "2026-08-11",
-  "hook": "Rahul Navin officially appointed Director of Enforcement Directorate (ED).",
-  "bullets": [
-    "**Official Designation:** Director of the Enforcement Directorate (ED).",
-    "**Nodal Agency:** ED operates under Department of Revenue, Ministry of Finance."
-  ],
-  "staticGk": "ED Enforcement: PMLA 2002 and FEMA 1999. HQ: New Delhi.",
-  "trap": "≠ **Agency Ministry:** ED is under Ministry of Finance (NOT MHA).",
-  "miniGrid": {
-    "headers": [
-      "Appointee / Official",
-      "New Position & Organization",
-      "Key Context & Details"
+    "id": "ca_2026_08_08_pm_edrive_extension",
+    "secId": "sec4",
+    "title": "Govt Halves e2W Subsidy to ₹2,500/kWh & Extends PM E-DRIVE Scheme Till March 2028",
+    "date": "2026-08-08",
+    "hook": "PM E-DRIVE scheme extended by 1 year to March 31, 2028, with e2W incentive halved from ₹5,000 to ₹2,500 per kWh.",
+    "bullets": [
+      "**Scheme Extension:** PM Electric Drive Revolution in Innovative Vehicle Enhancement (PM E-DRIVE) extended by 1 year to **March 31, 2028**.",
+      "**Incentive Cut:** Incentive for electric two-wheelers (e2Ws) reduced from **₹5,000 to ₹2,500 per kWh**.",
+      "**Cap & Ceiling:** Maximum incentive capped at **₹5,000 per vehicle** (down from ₹10,000 in FY25) for e2Ws with ex-factory price up to **₹1.5 lakh**.",
+      "**Outlay & Ceiling Limit:** Total scheme outlay remains **₹11,900 crore**; incentive capped at 15% of ex-factory price."
     ],
-    "rows": [
-      [
-        "Rahul Navin",
-        "Director of Enforcement Directorate (ED)",
-        "Appointed Director of ED under Ministry of Finance."
+    "staticGk": "Nodal Ministry: Ministry of Heavy Industries (MHI). Outlay: ₹11,900 crore.",
+    "trap": "≠ **Cap Trap:** Do not confuse the new maximum incentive cap of ₹5,000/vehicle with the earlier FY25 cap of ₹10,000/vehicle.",
+    "miniGrid": {
+      "headers": [
+        "Metric / Component",
+        "Threshold / Provision Detail"
+      ],
+      "rows": [
+        [
+          "Incentive Cut",
+          "Incentive for electric two-wheelers (e2Ws) reduced from ₹5,000 to ₹2,500 per kWh."
+        ],
+        [
+          "Cap & Ceiling",
+          "Maximum incentive capped at ₹5,000 per vehicle (down from ₹10,000 in FY25) for e2Ws with ex-factory price up to ₹1.5 lakh."
+        ],
+        [
+          "Outlay & Ceiling Limit",
+          "Total scheme outlay remains ₹11,900 crore; incentive capped at 15% of ex-factory price."
+        ]
       ]
-    ]
-  }
-},
+    }
+  },
   {
-  "id": "ca_2026_08_11_bimal_patel_itlos_judge",
-  "secId": "sec5",
-  "title": "Bimal N Patel Appointed Judge of International Tribunal for Law of Sea (ITLOS)",
-  "date": "2026-08-11",
-  "hook": "Dr. Bimal N Patel appointed Judge of ITLOS at Hamburg, Germany.",
-  "bullets": [
-    "**Appointed Position:** Judge of the International Tribunal for the Law of the Sea (ITLOS).",
-    "**Headquarters:** ITLOS HQ located in **Hamburg, Germany**."
-  ],
-  "staticGk": "ITLOS Established: UNCLOS 1982 convention. HQ: Hamburg, Germany.",
-  "trap": "≠ **HQ Location:** Hamburg, Germany (NOT The Hague or Geneva).",
-  "miniGrid": {
-    "headers": [
-      "Appointee / Official",
-      "New Position & Organization",
-      "Key Context & Details"
+    "id": "ca_2026_08_08_govt_debt_to_gdp_fy26",
+    "secId": "sec3",
+    "title": "Govt Debt-to-GDP Ratio Stands at 58.2% in FY26; Fiscal Deficit Drops to 4.4%",
+    "date": "2026-08-08",
+    "hook": "India's debt-to-GDP ratio for FY26 stood at 58.2%, 210 bps higher than the 56.1% target, while fiscal deficit declined to 4.4%.",
+    "bullets": [
+      "**Debt-to-GDP Ratio:** Government debt-to-GDP ratio for FY26 stood at **58.2%**.",
+      "**Target Deviation:** Ratio was **210 basis points (bps)** higher than the government target of **56.1%**.",
+      "**Fiscal Deficit Trajectory:** Fiscal deficit dropped significantly from **9.2% in FY21 to 4.4% in FY26**."
     ],
-    "rows": [
-      [
-        "Bimal N Patel",
-        "Judge of ITLOS",
-        "Appointed Judge of ITLOS (HQ: Hamburg, Germany)."
-      ]
-    ]
-  }
-},
+    "staticGk": "Fiscal Deficit Definition: Gap between total expenditure and total receipts excluding borrowings.",
+    "trap": "⚠️ **Target Trap:** Note that FY26 debt-to-GDP (58.2%) missed the government aim of 56.1% by 210 bps (2.1%)."
+  },
   {
-  "id": "ca_2026_08_11_ashwani_bhatia_niva_bupa",
-  "secId": "sec5",
-  "title": "Ashwani Bhatia Appointed Chairman of Niva Bupa Health Insurance",
-  "date": "2026-08-11",
-  "hook": "Former SEBI Whole-time Member Ashwani Bhatia appointed Chairman of Niva Bupa Health Insurance.",
-  "bullets": [
-    "**Appointed Position:** Chairman of Niva Bupa Health Insurance.",
-    "**Background:** Former Whole-time Member at SEBI and MD at State Bank of India."
-  ],
-  "staticGk": "Niva Bupa: Standalone Health Insurer regulated by IRDAI.",
-  "trap": "≠ **Entity Type:** Standalone Health Insurance Company.",
-  "miniGrid": {
-    "headers": [
-      "Appointee / Official",
-      "New Position & Organization",
-      "Key Context & Details"
+    "id": "ca_2026_08_08_sebi_annual_report_retail",
+    "secId": "sec2",
+    "title": "SEBI Annual Report 2025-26: MF AUM Reaches ₹73.7 Lakh Crore; Unique Investors Surge to 6.1 Crore",
+    "date": "2026-08-08",
+    "hook": "SEBI Annual Report 2025-26 highlights Mutual Fund AUM expansion to ₹73.7 lakh crore and unique investor growth to 6.1 crore.",
+    "bullets": [
+      "**Mutual Fund AUM Growth:** Indian Mutual Fund AUM grew from **₹31.43 lakh crore (March 2021)** to **₹73.7 lakh crore (March 2026)**.",
+      "**Unique Investors:** Unique MF investors surged to **6.1 crore**, up **13.2% YoY**.",
+      "**Macro Growth Estimates:** Real GDP growth estimated at **7.7% in FY26** (up from 7.1% in FY25); IMF projects **6.5% growth for FY27**."
     ],
-    "rows": [
-      [
-        "Ashwani Bhatia",
-        "Chairman of Niva Bupa",
-        "Appointed Chairman of Niva Bupa Health Insurance."
-      ]
-    ]
-  }
-},
+    "staticGk": "SEBI Established: April 12, 1988 (Statutory status 1992). Chairperson: Tuhin Kanta Pandey.",
+    "trap": "≠ **AUM Growth:** Pay attention: MF AUM more than doubled over 5 years from ₹31.43L cr (2021) to ₹73.7L cr (2026)."
+  },
   {
-  "id": "ca_2026_08_11_asian_junior_weightlifting_2026",
-  "secId": "sec10",
-  "title": "India Wins Gold & Silver Medals at Asian Junior Weightlifting Championships in Tashkent",
-  "date": "2026-08-11",
-  "hook": "Tomchou Meetei won Gold (266kg) and Gurunaidu Sanapathi won Silver (265kg) in Men's 60kg at Asian Junior Weightlifting.",
-  "bullets": [
-    "**Men's 60kg Category:** Tomchou Meetei won **Gold** (266 kg); Gurunaidu Sanapathi won **Silver** (265 kg).",
-    "**Men's 65kg Category:** Maharajan Arumugapandian won **Silver**.",
-    "**Women's 45kg Category:** Titli Maji won **Silver**."
-  ],
-  "staticGk": "Venue: Tashkent, Uzbekistan.",
-  "trap": "≠ **Gold Winner:** Tomchou Meetei won Gold in Men's 60kg."
-},
-  {
-  "id": "ca_2026_08_11_ashmita_chaliha_korea_masters",
-  "secId": "sec10",
-  "title": "Ashmita Chaliha Wins Korea Masters 2026 Women's Singles Title",
-  "date": "2026-08-11",
-  "hook": "Ashmita Chaliha won her 1st BWF World Tour title at Korea Masters 2026, defeating China's Han Qian Xi.",
-  "bullets": [
-    "**Champion:** Ashmita Chaliha (India) won **Women's Singles** (1st BWF title), defeating Han Qian Xi (China)."
-  ],
-  "staticGk": "Sport: Badminton (BWF World Tour Super 300).",
-  "trap": "≠ **First Title:** Ashmita Chaliha's maiden BWF World Tour title."
-},
-  {
-  "id": "ca_2026_08_11_tarun_chugh_highest_paid_ceo",
-  "secId": "sec5",
-  "title": "Bajaj Life's Tarun Chugh Emerges as Highest-Paid Life Insurance CEO in FY26 (₹33.66 Cr)",
-  "date": "2026-08-11",
-  "hook": "Tarun Chugh (MD & CEO Bajaj Allianz Life) was highest-paid life insurance executive in FY26 with ₹33.66 crore remuneration.",
-  "bullets": [
-    "**Remuneration:** Tarun Chugh received **₹33.66 crore** in FY2025–26.",
-    "**Designation:** MD & CEO of Bajaj Allianz Life Insurance."
-  ],
-  "staticGk": "IRDAI Salary Guidelines apply to private life insurance CEOs.",
-  "trap": "≠ **Remuneration:** ₹33.66 crore."
-}
-,
-  {
-  "id": "ca_2026_08_12_india_6th_largest_gdp",
-  "secId": "sec3",
-  "title": "India 6th-Largest Economy Globally with $3.92 Trillion Nominal GDP in FY26: IMF Outlook",
-  "date": "2026-08-12",
-  "hook": "According to IMF April 2026 World Economic Outlook, India ranked 6th-largest global economy in FY26 with nominal GDP of $3.92 trillion.",
-  "bullets": [
-    "**Nominal GDP Ranking:** India stood as world's **6th-largest economy in 2025-26** with nominal GDP of **$3.92 trillion** (Source: IMF April 2026 WEO).",
-    "**PSB Asset Quality:** Gross NPAs of Public Sector Banks fell to **₹2,45,634 crore** (GNPA ratio declined to **1.93%**) as of March 31, 2026.",
-    "**DEA Fund Unclaimed Deposits:** Total unclaimed deposits in Depositor Education and Awareness (DEA) Fund reached **₹86,917.08 crore** as of June 30, 2026.",
-    "**Bank Breakdown:** Public: SBI (₹20,040 cr), PNB, Canara Bank; Private: ICICI Bank (₹2,278 cr), HDFC Bank, Axis Bank."
-  ],
-  "staticGk": "Unclaimed Deposits: Savings/current accounts inoperative for 10 years or term deposits unclaimed 10 years post-maturity.",
-  "trap": "≠ **GNPA Ratio:** PSB Gross NPA ratio fell below 2% to 1.93% in FY26."
-},
-  {
-  "id": "ca_2026_08_12_govt_disinvestment_asset_monetisation_fy26",
-  "secId": "sec4",
-  "title": "Govt Mops Up ₹45,306 Crore from Disinvestment & Asset Monetisation in FY26",
-  "date": "2026-08-12",
-  "hook": "Government combined mop-up from disinvestment and asset monetisation reached ₹45,306 crore in FY26, exceeding RE of ₹33,837 crore.",
-  "bullets": [
-    "**FY26 Receipts:** Combined mop-up stood at **₹45,306 crore** in FY26 (exceeding Revised Estimate of ₹33,837 crore).",
-    "**FY27 Target:** Government budgeted **₹80,000 crore** under Miscellaneous Capital Receipts for FY27."
-  ],
-  "staticGk": "DIPAM: Department of Investment and Public Asset Management (Ministry of Finance).",
-  "trap": "⚠️ **Budgeted Target:** FY27 budget target set at ₹80,000 crore."
-},
-  {
-  "id": "ca_2026_08_12_cbdc_food_subsidy_dbt",
-  "secId": "sec1",
-  "title": "Chandigarh & Dadra Nagar Haveli Become First UTs to Launch CBDC Food Subsidy Transfers",
-  "date": "2026-08-12",
-  "hook": "PMGKAY food subsidy delivery fully digitized via Digital Rupee (e₹) tokens in Chandigarh and Dadra & Nagar Haveli.",
-  "bullets": [
-    "**First UTs:** Chandigarh and Dadra & Nagar Haveli launched CBDC-based Direct Benefit Transfer (DBT) for food subsidies under PMGKAY.",
-    "**Digital Token System:** Beneficiaries receive Digital Rupee (e₹) tokens for food grain purchases."
-  ],
-  "staticGk": "CBDC: Central Bank Digital Currency issued by Reserve Bank of India under RBI Act 1934.",
-  "trap": "≠ **First UTs:** Chandigarh and Dadra & Nagar Haveli."
-},
-  {
-  "id": "ca_2026_08_12_sebi_municipal_debt_timelines",
-  "secId": "sec2",
-  "title": "SEBI Relaxes Financial Results Submission Timelines for Listed Municipal Debt Securities",
-  "date": "2026-08-12",
-  "hook": "SEBI amended Municipal Debt Securities Regulations 2015, extending half-yearly results timeline to 60 days and annual results to 90 days.",
-  "bullets": [
-    "**Revised Timelines:** Half-yearly unaudited results extended to **60 days** (from 45 days); Annual audited results extended to **90 days** (from 60 days).",
-    "**Face Value Norms:** Private placement municipal debt securities face value set at **₹1 lakh or ₹10,000**.",
-    "**Escrow Mechanism:** Introduced 2-step escrow account mechanism for pooled finance SPVs requiring 1 year interest obligation buffer."
-  ],
-  "staticGk": "Amends: SEBI (Issue and Listing of Municipal Debt Securities) Regulations, 2015.",
-  "trap": "⚠️ **Timeline Shift:** Half-yearly (45->60 days); Annual (60->90 days)."
-},
-  {
-  "id": "ca_2026_08_12_sebi_fpi_non_agri_commodity_derivatives",
-  "secId": "sec2",
-  "title": "SEBI Proposes Wider FPI Participation in Non-Agricultural Commodity Derivatives",
-  "date": "2026-08-12",
-  "hook": "SEBI proposed allowing FPIs in non-agri index derivatives and physically settled contracts with 2-tier safeguard mechanism.",
-  "bullets": [
-    "**Expanded Scope:** FPIs allowed in non-cash-settled and physically settled non-agricultural commodity derivatives.",
-    "**Two-Tier Safeguard:** Voluntary exit before delivery period; automatic position transfer to designated Trading Member (TM/TCM) as backstop.",
-    "**Settlement Rules:** Transferred position executed at settlement price; TM/TCM given **2 trading days** to align position limits."
-  ],
-  "staticGk": "SEBI Commodity Derivatives: FPI participation first allowed in cash-settled contracts in 2022.",
-  "trap": "≠ **Position Transfer Limit:** TM/TCM allowed up to 2 trading days to bring positions within limit."
-},
-  {
-  "id": "ca_2026_08_12_sebi_bullion_etf_vault_norms",
-  "secId": "sec2",
-  "title": "SEBI Proposes Expanding Vault Managers Regulations to Cover All Bullion Products",
-  "date": "2026-08-12",
-  "hook": "SEBI proposed expanding Vault Managers Regulations 2021 from EGRs to physical bullion underlying ETFs and derivatives.",
-  "bullets": [
-    "**Regulatory Expansion:** Vault Managers Regulations 2021 expanded from Electronic Gold Receipts (EGRs) to physical bullion underlying all SEBI products.",
-    "**Objective:** Establish unified vaulting framework across EGRs, bullion ETFs, and bullion derivatives."
-  ],
-  "staticGk": "EGR: Electronic Gold Receipts traded on stock exchange platform.",
-  "trap": "≠ **Framework Scope:** Covers EGRs, Bullion ETFs, and Bullion Derivatives."
-},
-  {
-  "id": "ca_2026_08_12_sebi_retail_fo_losses_fy26",
-  "secId": "sec2",
-  "title": "SEBI Measures Curtail Retail Equity F&O Net Losses to ₹91,685 Crore in FY26",
-  "date": "2026-08-12",
-  "hook": "SEBI F&O rationalisation measures reduced aggregate retail equity derivative losses from ₹1,11,788 crore to ₹91,685 crore in FY26.",
-  "bullets": [
-    "**Loss Reduction:** Net retail losses in equity derivatives curtailed from **₹1,11,788 crore to ₹91,685 crore** in FY26.",
-    "**Unique Individual Traders:** Unique retail traders declined to **78.60 lakh**.",
-    "**Key Reform Measures:** Weekly index derivative rationalisation, higher contract sizes, upfront option premium, removal of expiry day calendar spreads."
-  ],
-  "staticGk": "F&O Reforms: Introduced under SEBI Master Circular on Equity Derivatives.",
-  "trap": "⚠️ **Loss Figures:** Total retail F&O net loss stood at ₹91,685 crore in FY26."
-},
-  {
-  "id": "ca_2026_08_13_rbi_draft_interest_rate_directions_2026",
-  "secId": "sec1",
-  "title": "RBI Issues Draft Interest Rate Directions 2026: Mandates Benchmark Linkage & Quarterly Reset Cap",
-  "date": "2026-08-13",
-  "hook": "RBI draft Interest Rate Directions 2026 mandate benchmark linkage for fixed/floating loans and cap floating reset frequency at 3 months.",
-  "bullets": [
-    "**Benchmark Linkage:** All loans must link to internal or external benchmark + risk-based spread; no loan below benchmark.",
-    "**Floating Reset Cap:** Floating rate benchmark reset frequency chosen by lender, capped at **max once every 3 months**.",
-    "**Agri Loans Reset:** Reset linked to crop season, capped at **max 12 months**.",
-    "**MCLR Rule:** Commercial banks, RRBs, Tier 3/4 UCBs with deposits >**₹1,000 crore** continue using MCLR internal benchmark.",
-    "**Mandatory External Benchmark:** Mandatory for floating personal and MSME loans by commercial banks."
-  ],
-  "staticGk": "MCLR: Marginal Cost of Funds based Lending Rate introduced in April 2016.",
-  "trap": "≠ **Reset Cap:** Floating loan reset max once every 3 months; Agri loan reset max 12 months."
-},
-  {
-  "id": "ca_2026_08_13_sebi_commodity_stress_testing_zscore",
-  "secId": "sec2",
-  "title": "SEBI Lowers Commodity Derivatives Stress-Testing Z-Score Limit to 5",
-  "date": "2026-08-13",
-  "hook": "SEBI lowered Z-score limit for stress testing in commodity derivatives market from 10 to 5 under Core SGF framework.",
-  "bullets": [
-    "**Z-Score Threshold:** Lowered from **10 to 5** to ease compliance for market participants under Core Settlement Guarantee Fund (Core SGF).",
-    "**Historical Window:** Uses mean and sigma of returns over Margin Period of Risk (MPOR) across **15 years**."
-  ],
-  "staticGk": "Core SGF: Core Settlement Guarantee Fund maintained by Clearing Corporations.",
-  "trap": "≠ **Threshold Reduction:** Z-score reduced from 10 to 5 (15-year MPOR window)."
-},
-  {
-  "id": "ca_2026_08_12_polymer_banknotes_field_trials",
-  "secId": "sec1",
-  "title": "Govt Approves Introduction of 1 Billion Polymer Banknotes Each of ₹10 and ₹20 for Field Trials",
-  "date": "2026-08-12",
-  "hook": "Center approved field trials of 1 billion pieces of ₹10 and 1 billion pieces of ₹20 polymer banknotes under RBI Act Section 25.",
-  "bullets": [
-    "**Polymer Trial Volumes:** 1 billion pieces of **₹10** and 1 billion pieces of **₹20** polymer banknotes for field trials.",
-    "**Statutory Provision:** Approved by Central Government under **Section 25 of the RBI Act, 1934**."
-  ],
-  "staticGk": "RBI Act Section 25: Design, form, and material of banknotes recommended by Central Board and approved by Central Govt.",
-  "trap": "⚠️ **Section Trap:** Polymer banknote design approval falls under Section 25 of RBI Act 1934."
-},
-  {
-  "id": "ca_2026_08_12_jacob_diamond_rbi_vault",
-  "secId": "sec1",
-  "title": "184.75-Carat Historic Jacob Diamond Retained in Reserve Bank of India Vaults in Mumbai",
-  "date": "2026-08-12",
-  "hook": "Historic 184.75-carat Golconda-origin Jacob Diamond, once owned by 6th Nizam of Hyderabad, preserved in RBI Mumbai vaults.",
-  "bullets": [
-    "**Diamond Details:** 184.75-carat Golconda diamond offered to 6th Nizam of Hyderabad (Mir Mahboob Ali Khan).",
-    "**Location:** Kept securely in Reserve Bank of India vaults in Mumbai."
-  ],
-  "staticGk": "Golconda Diamonds: World famous mines in Andhra Pradesh/Telangana (Koh-i-Noor, Hope Diamond, Jacob Diamond).",
-  "trap": "≠ **Carat Weight:** 184.75 carats."
-},
-  {
-  "id": "ca_2026_08_12_nps_e_shramik_pfrda_gig_workers",
-  "secId": "sec2",
-  "title": "PFRDA NPS e-Shramik Model Enables Flexible Contributions for Gig & Platform Workers",
-  "date": "2026-08-12",
-  "hook": "PFRDA NPS e-Shramik Platform Service Partner model allows joint or single contributions for gig workers with no fixed minimum/maximum limit.",
-  "bullets": [
-    "**Target Group:** Gig workers and platform workers providing services through digital platforms.",
-    "**Flexible Contribution:** No fixed minimum or maximum contribution prescribed; follows NPS Corporate Model structure."
-  ],
-  "staticGk": "PFRDA: Pension Fund Regulatory and Development Authority. Chairperson: Sivasubramanian Ramann.",
-  "trap": "≠ **Contribution Cap:** NO minimum or maximum contribution limit prescribed."
-},
-  {
-  "id": "ca_2026_08_12_fssai_hfss_school_limits",
-  "secId": "sec4",
-  "title": "FSSAI Proposes New Classification Limits for High-Fat, Sugar & Salt (HFSS) Foods in Schools",
-  "date": "2026-08-12",
-  "hook": "FSSAI proposed HFSS thresholds for school foods: Solid (>4.2g fat, >3g sugar, >0.625g salt per 100g); Liquid (>1.5g fat, >2g sugar, >0.175g salt per 100ml).",
-  "bullets": [
-    "**Solid Foods (per 100g):** Fat >4.2g, Sugar >3g, Salt >0.625g.",
-    "**Liquid Foods (per 100ml):** Fat >1.5g, Sugar >2g, Salt >0.175g."
-  ],
-  "staticGk": "FSSAI Statutory Body under Food Safety and Standards Act, 2006 (Ministry of Health and Family Welfare).",
-  "trap": "⚠️ **Threshold Units:** Solid (per 100g) vs Liquid (per 100ml)."
-},
-  {
-  "id": "ca_2026_08_12_nba_abs_mustard_proceeds",
-  "secId": "sec4",
-  "title": "National Biodiversity Authority Releases ₹15.52 Crore ABS Proceeds from Mustard Genetic Resources",
-  "date": "2026-08-12",
-  "hook": "National Biodiversity Authority (NBA) released ₹15.52 crore Access and Benefit Sharing proceeds from mustard genetic resources.",
-  "bullets": [
-    "**ABS Disbursement:** Released **₹15.52 crore** in Access and Benefit Sharing (ABS) proceeds.",
-    "**NBA Profile:** Statutory body established Oct 1, 2003 under Biological Diversity Act 2002 (MoEFCC). HQ: **Chennai, Tamil Nadu**."
-  ],
-  "staticGk": "NBA Headquarters: Chennai, Tamil Nadu (MoEFCC).",
-  "trap": "≠ **HQ Location:** Chennai, Tamil Nadu (NOT New Delhi)."
-},
-  {
-  "id": "ca_2026_08_12_gramin_gyan_setu_app",
-  "secId": "sec4",
-  "title": "HM Amit Shah Launches 'Gramin Gyan Setu' App to Integrate Libraries in Gandhinagar",
-  "date": "2026-08-12",
-  "hook": "Union Home Minister Amit Shah launched Gramin Gyan Setu app to integrate library network in Gandhinagar, Gujarat.",
-  "bullets": [
-    "**App Objective:** Integrates rural libraries across Gandhinagar Lok Sabha constituency in Gujarat.",
-    "**National Library Day:** Celebrated on **August 12** (birth anniversary of S.R. Ranganathan, father of library science in India)."
-  ],
-  "staticGk": "S.R. Ranganathan: Father of Library Science in India (Colon Classification system).",
-  "trap": "≠ **National Library Day:** August 12."
-},
-  {
-  "id": "ca_2026_08_12_sanchar_mitras_itu_youth_envoys",
-  "secId": "sec4",
-  "title": "DoT Selects Three Sanchar Mitras as ITU Generation Connect Youth Envoys",
-  "date": "2026-08-12",
-  "hook": "Department of Telecommunications selected 3 Indian Sanchar Mitras as ITU Generation Connect Youth Envoys (GCYE).",
-  "bullets": [
-    "**Selected Envoys:** (1) Ankit Kumar Pal, (2) Manish Kumar Mandal, (3) Susmita Sain.",
-    "**Sanchar Mitra Role:** Engages youth in telecom awareness, digital safety, and telecom fraud prevention."
-  ],
-  "staticGk": "ITU (International Telecommunication Union) HQ: Geneva, Switzerland (Established 1865).",
-  "trap": "≠ **Selection Body:** Department of Telecommunications (DoT)."
-},
-  {
-  "id": "ca_2026_08_12_msme_dpiit_gi_products_mou",
-  "secId": "sec4",
-  "title": "Ministry of MSME Signs MoU with DPIIT to Accelerate Global Market Access for GI Products",
-  "date": "2026-08-12",
-  "hook": "MoU signed between MSME Ministry and DPIIT to commercialize Indian Geographical Indication (GI) products and strengthen ODOP.",
-  "bullets": [
-    "**MoU Signatories:** Ministry of Micro, Small and Medium Enterprises (MSME) + Department for Promotion of Industry and Internal Trade (DPIIT).",
-    "**Objective:** Accelerate global market access for GI products and strengthen One District One Product (ODOP) ecosystem."
-  ],
-  "staticGk": "GI Registry: Located in Chennai, Tamil Nadu (under DPIIT).",
-  "trap": "≠ **Registry HQ:** Chennai, Tamil Nadu."
-},
-  {
-  "id": "ca_2026_08_12_bhashini_niti_aayog_mou",
-  "secId": "sec4",
-  "title": "Digital India BHASHINI Division & NITI Aayog Partner for 'BHASHINI for Seva' Initiative",
-  "date": "2026-08-12",
-  "hook": "DIBD and NITI Aayog partnered for voice-first AI solutions supporting 36 Indian text and 23 Indian voice languages.",
-  "bullets": [
-    "**Initiative:** 'BHASHINI for Seva / Sanchalan' for multilingual citizen-centric service delivery.",
-    "**Language Support:** Supports **36 Indian text languages, 23 Indian voice languages, and 35 international languages**."
-  ],
-  "staticGk": "BHASHINI: National Language Translation Mission under MeitY.",
-  "trap": "≠ **Language Counts:** 36 text, 23 voice, 35 international languages."
-},
-  {
-  "id": "ca_2026_08_12_bofa_jio_credit_49_percent_deal",
-  "secId": "sec7",
-  "title": "Bank of America Subsidiary Acquires 49.9% Stake in Jio Credit for ₹18,268 Crore ($1.9B)",
-  "date": "2026-08-12",
-  "hook": "NB Holdings Corp (wholly owned subsidiary of Bank of America) acquiring 49.9% stake in Jio Credit for ₹18,268.22 crore.",
-  "bullets": [
-    "**Deal Valuation:** NB Holdings (BofA) acquiring **49.9% stake** in Jio Credit (Jio Financial Services lending arm) for **₹18,268.22 crore ($1.9 billion)**.",
-    "**Jio Financial Alliances:** Allianz Group (50:50 Reinsurance JV) and BlackRock (50:50 Asset Management JV)."
-  ],
-  "staticGk": "Jio Financial Services Chairman: K.V. Kamath.",
-  "trap": "≠ **Stake Percentage:** 49.9% stake for ₹18,268.22 crore."
-},
-  {
-  "id": "ca_2026_08_12_nasa_isro_artemis_accords_moon_base",
-  "secId": "sec10",
-  "title": "NASA Invites ISRO to Join Moon Base Programme Under Artemis Accords Framework",
-  "date": "2026-08-12",
-  "hook": "NASA invited ISRO to join its Moon Base programme. India joined Artemis Accords in 2023 as 27th signatory (70 members currently).",
-  "bullets": [
-    "**Global Invitation:** NASA invited ISRO to participate in its Moon Base exploration programme.",
-    "**Artemis Membership:** India signed Artemis Accords as **27th country in 2023**; total current membership reached **70 countries**."
-  ],
-  "staticGk": "ISRO Established: Aug 15, 1969. HQ: Bengaluru. Chairman: Dr. V. Narayanan.",
-  "trap": "≠ **India Signatory Order:** 27th country (out of 70 current members)."
-},
-  {
-  "id": "ca_2026_08_12_india_nuclear_power_100gwe_target_2047",
-  "secId": "sec10",
-  "title": "India Targets 100 GWe Nuclear Capacity by 2047 & 5 Operational Indigenous SMRs by 2033",
-  "date": "2026-08-12",
-  "hook": "India set target to expand nuclear power capacity to 100 GWe by 2047 and operationalize 5 Small Modular Reactors (SMRs) by 2033.",
-  "bullets": [
-    "**Nuclear Capacity Target:** Increase India's nuclear power capacity to **100 GWe by 2047**.",
-    "**SMR Target:** Operationalize at least **5 indigenous Small Modular Reactors (SMRs) by 2033**.",
-    "**Three-Stage Program:** Stage I (PHWRs natural uranium), Stage II (Fast Breeder Reactors plutonium), Stage III (Thorium utilization)."
-  ],
-  "staticGk": "Father of Indian Nuclear Programme: Dr. Homi J. Bhabha.",
-  "trap": "≠ **Target Years:** 100 GWe by 2047; 5 SMRs by 2033."
-},
-  {
-  "id": "ca_2026_08_12_exercise_udara_shakti_2026",
-  "secId": "sec6",
-  "title": "Indian Air Force & Royal Malaysian Air Force Conduct Exercise Udara Shakti 2026",
-  "date": "2026-08-12",
-  "hook": "Joint air exercise Udara Shakti 2026 conducted between Indian Air Force (IAF) and Royal Malaysian Air Force at Subang Air Base.",
-  "bullets": [
-    "**Participants:** Indian Air Force (IAF) and Royal Malaysian Air Force (RMAF).",
-    "**Venue:** Subang Air Base, Malaysia."
-  ],
-  "staticGk": "Other India-Malaysia Exercises: Harimau Shakti (Army), Samudra Laksamana (Navy).",
-  "trap": "≠ **Exercise Domain:** Air Force exercise (held at Subang Air Base)."
-},
-  {
-  "id": "ca_2026_08_12_barclays_hurun_valuable_family_businesses",
-  "secId": "sec8",
-  "title": "2026 Barclays Hurun Report: Top 300 Indian Family Businesses Worth ₹138 Lakh Crore",
-  "date": "2026-08-12",
-  "hook": "Barclays Hurun India report values top 300 family businesses at ₹138 lakh crore ($1.46T), adding ₹4,076 crore/day since 2024.",
-  "bullets": [
-    "**Total Valuation:** Top 300 family businesses worth **₹138 lakh crore ($1.46 trillion)** (equivalent to 18th largest global economy).",
-    "**Top 5 Families:** (1) Ambani family (₹25.82 lakh crore), (2) KM Birla family, (3) Jindal family, (4) Bajaj family, (5) Mahindra family.",
-    "**HQ Cities:** Mumbai (95 HQs), NCR, Kolkata.",
-    "**Women-Led Leaders:** Priya Agarwal Hebbar (Hindustan Zinc ₹4.45L cr), Roshni Nadar Malhotra (HCL ₹2.91L cr)."
-  ],
-  "staticGk": "Barclays Private Clients Hurun India Most Valuable Family Businesses List 2026.",
-  "trap": "≠ **Rank 1 Family:** Ambani family (₹25.82 lakh crore)."
-},
-  {
-  "id": "ca_2026_08_12_sangeet_natak_akademi_awards_2026",
-  "secId": "sec8",
-  "title": "President Murmu Confers Sangeet Natak Akademi Fellowships & Awards on 115 Artists",
-  "date": "2026-08-12",
-  "hook": "President Droupadi Murmu conferred Sangeet Natak Akademi Fellowships (7 artists) and Puraskar awards for 2024-25 on 115 artists.",
-  "bullets": [
-    "**Fellowship Winners (7):** Ramlal Bareth, A V Anand, Rita Ganguly, Puru Dadheech, Chittaranjan Jyotishi, Pasumarthi Rattaiah Sarma, Sudharani Raghupathy.",
-    "**Prize Cash:** Akademi Fellowship (₹3 lakh + Tamrapatra); Akademi Award (₹1 lakh + Tamrapatra)."
-  ],
-  "staticGk": "Sangeet Natak Akademi Instituted: 1952 (National Academy of Music, Dance and Drama).",
-  "trap": "≠ **Fellowship Cash:** ₹3 lakh for Fellowship; ₹1 lakh for Award."
-},
-  {
-  "id": "ca_2026_08_12_ram_nath_kovind_autobiography",
-  "secId": "sec8",
-  "title": "Former President Ram Nath Kovind Pens Autobiography 'Triumph of the Indian Republic'",
-  "date": "2026-08-12",
-  "hook": "Autobiography of 14th President of India Ram Nath Kovind titled 'Triumph of the Indian Republic: My Life, My Struggles' released.",
-  "bullets": [
-    "**Autobiography Title:** 'Triumph of the Indian Republic: My Life, My Struggles' by Ram Nath Kovind (14th President of India).",
-    "**Sridevi Biography:** 'Empress: The Definitive Biography of Sridevi' authored by Dhiraj U. Kumarr."
-  ],
-  "staticGk": "Ram Nath Kovind: 14th President of India (2017–2022).",
-  "trap": "≠ **Author:** Self-autobiography of 14th President Ram Nath Kovind."
-},
-  {
-  "id": "ca_2026_08_12_black_necked_crane_festival_ladakh",
-  "secId": "sec10",
-  "title": "Ladakh Hosts First-Ever Black-Necked Crane Festival at Changthang Cold Wildlife Sanctuary",
-  "date": "2026-08-12",
-  "hook": "Ladakh hosted 1st Black-Necked Crane Festival at Changthang Cold Wildlife Sanctuary, sole breeding ground in India.",
-  "bullets": [
-    "**Festival Event:** First-ever Black-Necked Crane Festival held in Ladakh.",
-    "**Breeding Ground:** Changthang Cold Wildlife Sanctuary (Tsokar, Hanle wetlands at 2500-5000m altitude) is the **only breeding place in India**.",
-    "**State Bird:** Black-Necked Crane is the official state bird of UT Ladakh."
-  ],
-  "staticGk": "State Animal of Ladakh: Snow Leopard; State Bird: Black-Necked Crane.",
-  "trap": "≠ **Exclusive Breeding Site:** Changthang Cold Wildlife Sanctuary is the ONLY breeding site in India."
-},
-  {
-  "id": "ca_2026_08_12_andras_baka_president_hungary",
-  "secId": "sec5",
-  "title": "Andras Baka Elected President of Hungary",
-  "date": "2026-08-12",
-  "hook": "Andras Baka elected President of Hungary.",
-  "bullets": [
-    "**Appointed Position:** President of Hungary.",
-    "**Country Capital & Currency:** Capital: Budapest; Currency: Hungarian Forint (HUF)."
-  ],
-  "staticGk": "Hungary Capital: Budapest. Currency: Forint.",
-  "trap": "≠ **Office:** President of Hungary.",
-  "miniGrid": {
-    "headers": [
-      "Appointee / Official",
-      "New Position & Organization",
-      "Key Context & Details"
+    "id": "ca_2026_08_09_rbi_cva_capital_framework",
+    "secId": "sec1",
+    "title": "RBI Proposes Credit Valuation Adjustment (CVA) Risk-Capital Framework Effective April 1, 2027",
+    "date": "2026-08-09",
+    "hook": "RBI proposed new CVA Framework for derivative-related counterparty risk, effective April 1, 2027, replacing 2011 guidelines.",
+    "bullets": [
+      "**Scope & Applicability:** Applies to all commercial banks except SFBs, Payments Banks, and Local Area Banks.",
+      "**Basic Approach (BA-CVA):** Offers Full BA-CVA (recognizes eligible hedges) and Reduced BA-CVA (no hedge recognition).",
+      "**Simplified Threshold:** Banks with non-centrally cleared derivatives up to **₹10 trillion** can use simplified approach (CVA capital req = 100% counterparty credit risk capital req).",
+      "**Counterparty Risk Weights:** Sovereigns: 0.5% (Investment Grade) and 2% (others); Financial Sector: 5% (IG) and 12% (others)."
     ],
-    "rows": [
-      [
-        "Andras Baka",
-        "President of Hungary",
-        "Elected President of Hungary (Capital: Budapest)."
-      ]
-    ]
-  }
-},
+    "staticGk": "CVA: Credit Valuation Adjustment measures counterparty credit risk in derivative transactions.",
+    "trap": "⚠️ **Exemption Trap:** SFBs, Payments Banks, and LABs are EXCLUDED from the new CVA capital framework."
+  },
   {
-  "id": "ca_2026_08_13_lebanon_abolishes_death_penalty",
-  "secId": "sec6",
-  "title": "Lebanon Becomes 1st Country in Arab World to Abolish Death Penalty",
-  "date": "2026-08-13",
-  "hook": "Lebanon abolished death penalty, replacing it with life imprisonment with aggravated hard labour.",
-  "bullets": [
-    "**Historic Reform:** First Arab world country to abolish death penalty, replacing it with life imprisonment."
-  ],
-  "staticGk": "Lebanon Capital: Beirut. Currency: Lebanese Pound.",
-  "trap": "≠ **First Arab Country:** Lebanon."
-},
-  {
-  "id": "ca_2026_08_13_fitch_ratings_india_bbb_minus",
-  "secId": "sec3",
-  "title": "Fitch Ratings Affirms India's Sovereign Rating at 'BBB-' with Stable Outlook",
-  "date": "2026-08-13",
-  "hook": "Fitch Ratings affirmed India's sovereign rating at 'BBB-' with stable outlook, citing robust growth and fiscal stability.",
-  "bullets": [
-    "**Sovereign Rating:** Affirmed at **'BBB-' with Stable Outlook**."
-  ],
-  "staticGk": "Big Three Credit Rating Agencies: S&P, Moody's, Fitch.",
-  "trap": "≠ **Rating Grade:** BBB- (Investment Grade)."
-},
-  {
-  "id": "ca_2026_08_13_deesa_desert_night_safari_gujarat",
-  "secId": "sec4",
-  "title": "CZA Approves Asia's 1st Desert-Themed Drive-Through Night Safari at Deesa, Gujarat",
-  "date": "2026-08-13",
-  "hook": "Central Zoo Authority approved Asia's 1st desert-themed drive-through night safari at Deesa in Banaskantha district, Gujarat.",
-  "bullets": [
-    "**Safari Project:** Asia's 1st desert-themed drive-through night safari approved at **Deesa, Banaskantha district, Gujarat**."
-  ],
-  "staticGk": "CZA: Central Zoo Authority statutory body under Wildlife Protection Act 1972.",
-  "trap": "≠ **Location:** Deesa, Banaskantha, Gujarat."
-},
-  {
-  "id": "ca_2026_08_13_dy_chandrachud_russia_arbitrator",
-  "secId": "sec5",
-  "title": "Former CJI D Y Chandrachud Appointed Arbitrator by Russia in Oschadbank Dispute",
-  "date": "2026-08-13",
-  "hook": "Former CJI D Y Chandrachud appointed by Russia as arbitrator in investment treaty dispute with Ukrainian bank Oschadbank.",
-  "bullets": [
-    "**Arbitrator Appointment:** Former CJI D Y Chandrachud appointed arbitrator by Russia in Oschadbank treaty dispute."
-  ],
-  "staticGk": "D Y Chandrachud: 50th Chief Justice of India.",
-  "trap": "≠ **Appointing Country:** Russia.",
-  "miniGrid": {
-    "headers": [
-      "Appointee / Official",
-      "New Position & Organization",
-      "Key Context & Details"
+    "id": "ca_2026_08_09_rbi_g_sib_leverage_buffer",
+    "secId": "sec1",
+    "title": "RBI Draft Aligns Leverage Ratio Regime with Basel 2017 Standards; Prescribes G-SIB Leverage Buffer",
+    "date": "2026-08-09",
+    "hook": "RBI draft directions align leverage ratio norms with Basel 2017, introducing leverage buffer for G-SIB branches in India from April 1, 2027.",
+    "bullets": [
+      "**Minimum Leverage Ratio:** Retained at **4% for D-SIBs** and **3.5% for all other banks**.",
+      "**G-SIB Branches:** Foreign branches of G-SIBs must maintain **3.5% minimum leverage ratio + applicable G-SIB leverage buffer**.",
+      "**Derivative Calculation:** Uses replacement cost + potential future exposure, multiplier generally **1.4x**."
     ],
-    "rows": [
-      [
-        "D Y Chandrachud",
-        "Arbitrator for Russia",
-        "Appointed arbitrator by Russia in Oschadbank investment treaty dispute."
+    "staticGk": "D-SIBs in India: State Bank of India (SBI), HDFC Bank, ICICI Bank.",
+    "trap": "≠ **Ratio Floor:** D-SIBs floor is 4.0%; Non-D-SIB commercial banks floor is 3.5%."
+  },
+  {
+    "id": "ca_2026_08_09_sebi_unclaimed_mf_dividends",
+    "secId": "sec2",
+    "title": "SEBI Report: Unclaimed Mutual Fund Amounts Reach ₹3,811 Crore as of March 2026",
+    "date": "2026-08-09",
+    "hook": "Unclaimed mutual fund dividends rose 15.7% to ₹2,689 crore, bringing total unclaimed MF pool to ₹3,811 crore.",
+    "bullets": [
+      "**Unclaimed Breakdown:** Unclaimed dividends rose 15.7% to **₹2,689 crore**; unclaimed redemption fell 0.5% to **₹1,122 crore**.",
+      "**Total Unclaimed Pool:** Stood at **₹3,811 crore** as of March 31, 2026.",
+      "**Remedial Measures:** Centralised nominee reporting with KRA, DigiLocker access, and 'Niveshak Shivir' drive by SEBI + IEPFA."
+    ],
+    "staticGk": "IEPFA: Investor Education and Protection Fund Authority under Ministry of Corporate Affairs.",
+    "trap": "⚠️ **Direction Trap:** Unclaimed dividends INCREASED by 15.7%, whereas unclaimed redemption DECREASED by 0.5%."
+  },
+  {
+    "id": "ca_2026_08_09_rbi_psl_fcnr_nre_swap",
+    "secId": "sec1",
+    "title": "RBI Directions: USD-INR Swap Facility Introduced for Fresh FCNR(B) Funds; Excluded from ANBC",
+    "date": "2026-08-09",
+    "hook": "RBI introduced USD-INR swap facility for 3-5 year FCNR(B) deposits and excluded fresh FCNR(B)/NRE deposits from ANBC calculation.",
+    "bullets": [
+      "**Swap Facility Tenor:** US Dollar-Rupee swap facility for fresh FCNR(B) dollar deposits with tenor of **3 to 5 years**.",
+      "**CRR/SLR Exemption:** Temporary CRR/SLR relief on fresh FCNR(B) (8 June - 30 Sept 2026) and NRE term deposits (19 June - 30 Sept 2026, 3+ yrs).",
+      "**ANBC Exclusion:** Advances against eligible fresh FCNR(B)/NRE deposits excluded from Adjusted Net Bank Credit (ANBC) for PSL calculation."
+    ],
+    "staticGk": "ANBC: Adjusted Net Bank Credit forms the baseline for computing Priority Sector Lending (PSL) targets.",
+    "trap": "≠ **ANBC Cap:** Excluded amount cannot exceed eligible fresh FCNR(B)/NRE deposits."
+  },
+  {
+    "id": "ca_2026_08_10_sebi_isin_limit_debt",
+    "secId": "sec2",
+    "title": "SEBI Proposes Raising Annual ISIN Limit for Private Debt Securities from 14 to 17",
+    "date": "2026-08-10",
+    "hook": "SEBI proposed expanding annual ISIN limit maturing in a FY from 14 to 17 to ease NBFC refinancing pressure.",
+    "bullets": [
+      "**ISIN Limit Breakdown:** Plain-vanilla debt ISINs increased from **9 to 12**; Structured/FRBs/ZCBs/Tier-II ISIN limit remains **5**.",
+      "**Large Issuer Flexibility:** Once 12 ISINs reach **₹15,000 crore**, 1 additional ISIN permitted per further **₹3,000 crore** outstanding.",
+      "**Mandatory Listing Relief:** Removed requirement to mandatorily list all outstanding unlisted NCDs issued on/after Jan 1, 2024.",
+      "**Exclusion:** Sovereign/Government-serviced EBR bonds excluded from ISIN limits."
+    ],
+    "staticGk": "ISIN: International Securities Identification Number (12-character alphanumeric code).",
+    "trap": "⚠️ **Limit Allocation:** Plain vanilla ISIN limit expanded (9->12), but structured debt ISIN limit remained UNCHANGED at 5."
+  },
+  {
+    "id": "ca_2026_08_10_nse_authorised_person_rules",
+    "secId": "sec2",
+    "title": "NSE Introduces Tighter Net Worth & Deposit Norms for Authorised Persons (APs)",
+    "date": "2026-08-10",
+    "hook": "NSE revised rules for Authorised Persons, prescribing minimum net worth of ₹5L for individuals and ₹25L for partnerships/LLPs.",
+    "bullets": [
+      "**Net Worth Norms:** Minimum net worth set at **₹5 lakh for individuals** and **₹25 lakh for partnerships/LLPs/companies**.",
+      "**Broker Deposit:** APs must maintain minimum deposit of **₹1 lakh** with stock broker.",
+      "**Mandatory Disclosures:** APs must disclose bank/demat accounts, websites, NISM certifications, and social media handles."
+    ],
+    "staticGk": "NSE Founded: Nov 27, 1992. HQ: Mumbai. MD & CEO: Ashishkumar Chauhan.",
+    "trap": "≠ **Net Worth Discriminator:** Individual APs (₹5L) vs Corporate/LLP APs (₹25L)."
+  },
+  {
+    "id": "ca_2026_08_10_paul_merchants_fema_ad2",
+    "secId": "sec2",
+    "title": "Paul Merchants Secures Perpetual RBI AD Category-II License Under FEMA Norms 2026",
+    "date": "2026-08-10",
+    "hook": "RBI granted Paul Merchants a perpetual Authorised Dealer Category-II (AD-II) license under FEMA Regulations 2026.",
+    "bullets": [
+      "**License Status:** Perpetual AD Category-II (AD-II) status granted under FEMA Regulations 2026.",
+      "**Permitted Scope:** Non-trade current account transactions (excluding gifts/donations) and foreign trade transactions up to **₹25 lakh per transaction**."
+    ],
+    "staticGk": "FEMA: Foreign Exchange Management Act 1999 (Adjudicated by RBI / Enforcement Directorate).",
+    "trap": "⚠️ **Transaction Cap:** Foreign trade remittance capped at ₹25 lakh per transaction under AD-II."
+  },
+  {
+    "id": "ca_2026_08_10_indusind_stock_broking_subsidiary",
+    "secId": "sec2",
+    "title": "RBI Approves IndusInd Bank to Set Up Wholly Owned Stock Broking Subsidiary",
+    "date": "2026-08-10",
+    "hook": "IndusInd Bank received RBI approval to establish a wholly owned stock broking subsidiary and infuse equity capital.",
+    "bullets": [
+      "**Regulatory Clearance:** RBI approved establishment of wholly owned stock broking subsidiary with equity infusion.",
+      "**Corporate Governance:** IndusInd Bank MD & CEO: Rajiv Anand; HQ: Mumbai."
+    ],
+    "staticGk": "IndusInd Bank Founder: S.P. Hinduja (1994). HQ: Mumbai.",
+    "trap": "≠ **Subsidiary Ownership:** 100% wholly owned subsidiary."
+  },
+  {
+    "id": "ca_2026_08_10_kotak_hybrid_home_loan",
+    "secId": "sec2",
+    "title": "Kotak Mahindra Bank Launches Hybrid Home Loan with 65-Month Fixed Rate Lock",
+    "date": "2026-08-10",
+    "hook": "Kotak Bank launched hybrid home loan combining fixed and floating rates with fixed interest lock up to 65 months.",
+    "bullets": [
+      "**Fixed Rate Lock:** Borrowers can lock interest rates for up to **65 months** before transitioning to floating rate.",
+      "**Product Structure:** Combines fixed and floating rates for salaried and self-employed borrowers across India."
+    ],
+    "staticGk": "Kotak Mahindra Bank MD & CEO: Ashok Vaswani; Chairman: Chandra Sekar Rajan; Founder: Uday Kotak.",
+    "trap": "≠ **Lock Period:** 65 months (approx 5.4 years) rate lock."
+  },
+  {
+    "id": "ca_2026_08_10_gift_city_nri_mf_fund",
+    "secId": "sec2",
+    "title": "Wealth Company Launches Category III AIF in GIFT City for NRI Mutual Fund Investments",
+    "date": "2026-08-10",
+    "hook": "Wealth Company launched Category III AIF ('Wealth Company IFSC FoF') in GIFT City IFSC for NRIs to invest in Indian MFs and ETFs.",
+    "bullets": [
+      "**Fund Vehicle:** 'The Wealth Company IFSC FoF' registered as open-ended **Category III Alternative Investment Fund (AIF)**.",
+      "**Regulator & Manager:** Managed by Wealth Company Asset Management IFSC branch registered with **IFSCA**."
+    ],
+    "staticGk": "IFSCA Headquarters: GIFT City, Gandhinagar, Gujarat. Chairman: K. Rajaraman.",
+    "trap": "⚠️ **AIF Category:** Registered specifically as Category III AIF (Fund of Funds)."
+  },
+  {
+    "id": "ca_2026_08_10_ifc_225cr_ndr_smart_spaces",
+    "secId": "sec6",
+    "title": "World Bank's IFC to Invest ₹225 Crore ($23 Million) in NDR Smart Spaces Warehousing",
+    "date": "2026-08-10",
+    "hook": "International Finance Corporation (IFC) to invest ₹225 crore ($23M) equity in NDR Smart Spaces for Grade A warehousing across MH, TN, UP.",
+    "bullets": [
+      "**Equity Investment:** IFC investing **₹225 crore (~$23 million)** in NDR Smart Spaces Pvt Ltd.",
+      "**Infrastructure Focus:** Developing Grade A warehousing and logistics infrastructure in **Maharashtra, Tamil Nadu, and Uttar Pradesh**."
+    ],
+    "staticGk": "IFC Established: July 20, 1956. Members: 186 countries. HQ: Washington D.C. Parent: World Bank Group.",
+    "trap": "≠ **Member Count:** IFC has 186 member countries (World Bank IBRD has 189)."
+  },
+  {
+    "id": "ca_2026_08_10_mithila_makhana_export_australia",
+    "secId": "sec6",
+    "title": "GI-Tagged Mithila Makhana Exports from Bihar to Australia Supported by APEDA",
+    "date": "2026-08-10",
+    "hook": "First consignment of GI-tagged Mithila Makhana exported from Darbhanga, Bihar to Australia with APEDA support.",
+    "bullets": [
+      "**Export Route:** Exported from **Darbhanga, Bihar** to **Australia**.",
+      "**Nodal Support:** Facilitated by APEDA (Agricultural and Processed Food Products Export Development Authority)."
+    ],
+    "staticGk": "APEDA: Statutory body under APEDA Act 1985 (Ministry of Commerce). Chairman: Abhishek Dev. HQ: New Delhi.",
+    "trap": "≠ **Nodal Ministry:** APEDA comes under Ministry of Commerce and Industry (NOT Agriculture)."
+  },
+  {
+    "id": "ca_2026_08_11_boss_scam_warning_i4c",
+    "secId": "sec4",
+    "title": "I4C Issues Warning Against 'Boss Scam' WhatsApp CEO Impersonation Trojan Fraud",
+    "date": "2026-08-11",
+    "hook": "Indian Cyber Crime Coordination Centre (I4C) issued advisory against 'Boss Scam' WhatsApp Web takeover Trojan malware.",
+    "bullets": [
+      "**Fraud Mechanism:** WhatsApp CEO impersonation fraud installing Trojan malware on Windows devices via malicious files.",
+      "**Nodal Platform:** National Cyber Crime Reporting Portal (NCRP) operating under MHA/I4C (National Helpline **1930**)."
+    ],
+    "staticGk": "I4C: Nodal cybercrime agency under Ministry of Home Affairs (MHA). HQ: New Delhi.",
+    "trap": "⚠️ **Helpline Number:** Cybercrime national helpline is 1930."
+  },
+  {
+    "id": "ca_2026_08_11_govt_notifies_11_evisa_ports",
+    "secId": "sec4",
+    "title": "Government Notifies 11 Additional Ports for e-Visa Entry, Taking Total to 88 Ports",
+    "date": "2026-08-11",
+    "hook": "Center notified 11 new international ports (9 land ports + 2 airports), expanding e-visa entry ports to 88 across India.",
+    "bullets": [
+      "**New Additions:** 11 ports = 9 land ports + 2 airports (**Bhopal and Tirupati**).",
+      "**Total e-Visa Ports:** Reached **88 ports** (37 Airports + 38 Seaports + 13 Land Ports)."
+    ],
+    "staticGk": "Nodal Ministry: Ministry of Home Affairs (Bureau of Immigration).",
+    "trap": "≠ **Airport Additions:** The 2 new airports notified are Bhopal and Tirupati."
+  },
+  {
+    "id": "ca_2026_08_11_mmdr_amendment_bill_2026",
+    "secId": "sec4",
+    "title": "Govt Introduces MMDR Amendment Bill 2026 in Lok Sabha; Removes 50% Captive Sales Ceiling",
+    "date": "2026-08-11",
+    "hook": "Mines and Minerals Amendment Bill 2026 introduced in Lok Sabha, removing 50% sales cap on captive mines and expanding NMET.",
+    "bullets": [
+      "**Captive Mine Ceiling Removed:** Bill removes 50% ceiling on annual mineral sales by captive mines after meeting end-use requirements.",
+      "**Trust Expansion:** Renames NMET to **National Mineral Exploration and Development Trust** to fund mine development.",
+      "**Lease Extension:** Composite licence extended up to 30%; mining lease up to 10%; one-time extension for deep-seated minerals (>200m depth)."
+    ],
+    "staticGk": "Amends: Mines and Minerals (Development and Regulation) Act, 1957.",
+    "trap": "⚠️ **Depth Threshold:** Deep-seated minerals defined as minerals found >200 meters below land surface."
+  },
+  {
+    "id": "ca_2026_08_11_nabl_mobile_food_testing_scheme",
+    "secId": "sec4",
+    "title": "India Launches 1st Accreditation Scheme for Mobile Food Testing Laboratories by NABL",
+    "date": "2026-08-11",
+    "hook": "NABL under Quality Council of India (QCI) launched India's first accreditation scheme for mobile food testing labs.",
+    "bullets": [
+      "**Program Framework:** Integrated Assessment Programme launched by NABL (Quality Council of India constituent).",
+      "**NABL Governance:** HQ: New Delhi; Chairperson: Dr. Sandip Shah."
+    ],
+    "staticGk": "QCI: Autonomous body attached to Department for Promotion of Industry and Internal Trade (DPIIT).",
+    "trap": "≠ **NABL Nodal:** NABL is a constituent board of QCI (DPIIT)."
+  },
+  {
+    "id": "ca_2026_08_11_pm_vbry_women_enrolment",
+    "secId": "sec4",
+    "title": "PM-VBRY Enrolment Update: Women Account for 28.56% of 9.99 Million First-Time Employees",
+    "date": "2026-08-11",
+    "hook": "PM Viksit Bharat Rozgar Yojana enrolled 9.99M first-time employees (2.85M women = 28.56%). Maharashtra led registrations.",
+    "bullets": [
+      "**Enrolment Stats:** Of 9.99M first-time workers, **2.85 million were women (28.56%)** vs 7.14M men.",
+      "**Top 3 States:** (1) Maharashtra, (2) Karnataka, (3) Tamil Nadu.",
+      "**Scheme Outlay:** Implemented Aug 1, 2025 to July 31, 2027 with **₹99,446 crore** outlay."
+    ],
+    "staticGk": "PM-VBRY: Nodal Ministry of Labour and Employment.",
+    "trap": "≠ **Outlay & Period:** 2-year implementation period with ₹99,446 crore outlay."
+  },
+  {
+    "id": "ca_2026_08_11_fao_food_price_index_july",
+    "secId": "sec6",
+    "title": "FAO Food Price Index Hits 3-Year High of 131.1 Points in July 2026",
+    "date": "2026-08-11",
+    "hook": "UN FAO Food Price Index reached 3-year high at 131.1 points in July 2026.",
+    "bullets": [
+      "**Index Benchmark:** FAO Food Price Index reached **131.1 points** in July 2026.",
+      "**UN FAO Profile:** HQ: Rome, Italy; Established: Oct 16, 1945; Director-General: Qu Dongyu."
+    ],
+    "staticGk": "World Food Day: Celebrated annually on October 16 (FAO founding day).",
+    "trap": "≠ **FAO HQ:** Rome, Italy (NOT Geneva or Vienna)."
+  },
+  {
+    "id": "ca_2026_08_11_colombia_74_earthquake",
+    "secId": "sec6",
+    "title": "Magnitude 7.4 Earthquake Strikes Western Colombia in Chocó Region",
+    "date": "2026-08-11",
+    "hook": "Magnitude 7.4 earthquake struck western Colombia near San José del Palmar in the Pacific Ring of Fire.",
+    "bullets": [
+      "**Seismic Event:** Magnitude 7.4 earthquake struck **San José del Palmar, Chocó region, Colombia** on Aug 11, 2026.",
+      "**Tectonic Context:** Colombia is situated along the seismically active Pacific Ring of Fire."
+    ],
+    "staticGk": "Capital of Colombia: Bogotá. Currency: Colombian Peso.",
+    "trap": "≠ **Tectonic Zone:** Pacific Ring of Fire."
+  },
+  {
+    "id": "ca_2026_08_10_digilocker_aaeri_verify_mou",
+    "secId": "sec4",
+    "title": "NeGD DigiLocker Signs MoU with AAERI to Launch 'AAERI Verify' Credentials Platform",
+    "date": "2026-08-10",
+    "hook": "MeitY's NeGD (DigiLocker) partnered with AAERI to launch 'AAERI Verify' for authenticating Australian education credentials.",
+    "bullets": [
+      "**MoU Partners:** National e-Governance Division (NeGD, MeitY) + Association of Australian Education Representatives in India (AAERI).",
+      "**Objective:** Launch 'AAERI Verify' knowledge-sharing platform for credential verification."
+    ],
+    "staticGk": "DigiLocker: Key initiative under Digital India Programme (MeitY).",
+    "trap": "≠ **Partner Country:** Australia (AAERI)."
+  },
+  {
+    "id": "ca_2026_08_10_mospi_isi_gdp_nowcasting",
+    "secId": "sec3",
+    "title": "MoSPI Partners with IDEAS & ISI Kolkata to Develop Desktop GDP Nowcasting Software",
+    "date": "2026-08-10",
+    "hook": "MoSPI partnered with IDEAS Foundation and ISI Kolkata to develop desktop GDP Nowcasting software tool.",
+    "bullets": [
+      "**Collaboration:** MoSPI + IDEAS Foundation + Indian Statistical Institute (ISI Kolkata).",
+      "**Deliverables:** Desktop-based GDP Nowcasting tool and harmonized health/nutrition NSS indicator framework."
+    ],
+    "staticGk": "ISI Kolkata Founder: Prasanta Chandra Mahalanobis (National Statistics Day June 29).",
+    "trap": "≠ **Institute Name:** IDEAS (Institute of Data Engineering, Analytics and Science Foundation)."
+  },
+  {
+    "id": "ca_2026_08_10_everest_rocket_engine_astrobase",
+    "secId": "sec10",
+    "title": "Astrobase Space Technologies Unveils EVEREST, India's 1st Private 800 kN FFSC Rocket Engine",
+    "date": "2026-08-10",
+    "hook": "Astrobase Space Technologies unveiled EVEREST, India's 1st privately developed 800 kN Full-Flow Staged Combustion rocket engine in Bengaluru.",
+    "bullets": [
+      "**Engine Specifications:** EVEREST 800 kN Full-Flow Staged Combustion (FFSC) rocket engine.",
+      "**Location & Support:** Bengaluru, Karnataka; supported under IN-SPACe Technology Adoption Fund."
+    ],
+    "staticGk": "IN-SPACe HQ: Ahmedabad, Gujarat. Chairman: Pawan Kumar Goenka.",
+    "trap": "≠ **Engine Type:** Full-Flow Staged Combustion (FFSC) 800 kN engine."
+  },
+  {
+    "id": "ca_2026_08_11_indo_us_eod_exercise_2026",
+    "secId": "sec6",
+    "title": "Indian Navy & US Navy Conduct 8th Explosive Ordnance Disposal (EDO) Exercise 2026",
+    "date": "2026-08-11",
+    "hook": "8th edition of joint Explosive Ordnance Disposal (EDO) exercise conducted between Indian Navy and US Navy.",
+    "bullets": [
+      "**Exercise Details:** 8th Explosive Ordnance Disposal (EDO) & Salvage Exercise between Indian Navy and US Navy.",
+      "**Historical Track:** Joint salvage exercises conducted between India and US since 2005."
+    ],
+    "staticGk": "Other India-US Navy Exercises: Malabar, Tiger Triumph, PASSEX.",
+    "trap": "≠ **Edition:** 8th edition of EDO exercise."
+  },
+  {
+    "id": "ca_2026_08_11_dirac_medal_2026_deepak_dhar",
+    "secId": "sec8",
+    "title": "Prof. Deepak Dhar Awarded Prestigious 2026 ICTP Dirac Medal for Statistical Mechanics",
+    "date": "2026-08-11",
+    "hook": "Professor Deepak Dhar (UP) awarded the 2026 ICTP Dirac Medal for contributions to statistical mechanics.",
+    "bullets": [
+      "**Awardee:** Prof. Deepak Dhar (from Uttar Pradesh) shares 2026 Dirac Medal with Bernard Derrida, Marc Mézard, and Haim Sompolinsky.",
+      "**About Dirac Medal:** Awarded annually on Paul Dirac's birthday (August 8) by ICTP Italy (Prize $5,000)."
+    ],
+    "staticGk": "ICTP: Abdus Salam International Centre for Theoretical Physics, Trieste, Italy (Instituted 1985).",
+    "trap": "≠ **Prize Money:** US $5,000."
+  },
+  {
+    "id": "ca_2026_08_11_rahul_navin_director_ed",
+    "secId": "sec5",
+    "title": "Rahul Navin Appointed Director of Enforcement Directorate (ED)",
+    "date": "2026-08-11",
+    "hook": "Rahul Navin officially appointed Director of Enforcement Directorate (ED).",
+    "bullets": [
+      "**Official Designation:** Director of the Enforcement Directorate (ED).",
+      "**Nodal Agency:** ED operates under Department of Revenue, Ministry of Finance."
+    ],
+    "staticGk": "ED Enforcement: PMLA 2002 and FEMA 1999. HQ: New Delhi.",
+    "trap": "≠ **Agency Ministry:** ED is under Ministry of Finance (NOT MHA).",
+    "miniGrid": {
+      "headers": [
+        "Appointee / Official",
+        "New Position & Organization",
+        "Key Context & Details"
+      ],
+      "rows": [
+        [
+          "Rahul Navin",
+          "Director of Enforcement Directorate (ED)",
+          "Appointed Director of ED under Ministry of Finance."
+        ]
       ]
-    ]
+    }
+  },
+  {
+    "id": "ca_2026_08_11_bimal_patel_itlos_judge",
+    "secId": "sec5",
+    "title": "Bimal N Patel Appointed Judge of International Tribunal for Law of Sea (ITLOS)",
+    "date": "2026-08-11",
+    "hook": "Dr. Bimal N Patel appointed Judge of ITLOS at Hamburg, Germany.",
+    "bullets": [
+      "**Appointed Position:** Judge of the International Tribunal for the Law of the Sea (ITLOS).",
+      "**Headquarters:** ITLOS HQ located in **Hamburg, Germany**."
+    ],
+    "staticGk": "ITLOS Established: UNCLOS 1982 convention. HQ: Hamburg, Germany.",
+    "trap": "≠ **HQ Location:** Hamburg, Germany (NOT The Hague or Geneva).",
+    "miniGrid": {
+      "headers": [
+        "Appointee / Official",
+        "New Position & Organization",
+        "Key Context & Details"
+      ],
+      "rows": [
+        [
+          "Bimal N Patel",
+          "Judge of ITLOS",
+          "Appointed Judge of ITLOS (HQ: Hamburg, Germany)."
+        ]
+      ]
+    }
+  },
+  {
+    "id": "ca_2026_08_11_ashwani_bhatia_niva_bupa",
+    "secId": "sec5",
+    "title": "Ashwani Bhatia Appointed Chairman of Niva Bupa Health Insurance",
+    "date": "2026-08-11",
+    "hook": "Former SEBI Whole-time Member Ashwani Bhatia appointed Chairman of Niva Bupa Health Insurance.",
+    "bullets": [
+      "**Appointed Position:** Chairman of Niva Bupa Health Insurance.",
+      "**Background:** Former Whole-time Member at SEBI and MD at State Bank of India."
+    ],
+    "staticGk": "Niva Bupa: Standalone Health Insurer regulated by IRDAI.",
+    "trap": "≠ **Entity Type:** Standalone Health Insurance Company.",
+    "miniGrid": {
+      "headers": [
+        "Appointee / Official",
+        "New Position & Organization",
+        "Key Context & Details"
+      ],
+      "rows": [
+        [
+          "Ashwani Bhatia",
+          "Chairman of Niva Bupa",
+          "Appointed Chairman of Niva Bupa Health Insurance."
+        ]
+      ]
+    }
+  },
+  {
+    "id": "ca_2026_08_11_asian_junior_weightlifting_2026",
+    "secId": "sec10",
+    "title": "India Wins Gold & Silver Medals at Asian Junior Weightlifting Championships in Tashkent",
+    "date": "2026-08-11",
+    "hook": "Tomchou Meetei won Gold (266kg) and Gurunaidu Sanapathi won Silver (265kg) in Men's 60kg at Asian Junior Weightlifting.",
+    "bullets": [
+      "**Men's 60kg Category:** Tomchou Meetei won **Gold** (266 kg); Gurunaidu Sanapathi won **Silver** (265 kg).",
+      "**Men's 65kg Category:** Maharajan Arumugapandian won **Silver**.",
+      "**Women's 45kg Category:** Titli Maji won **Silver**."
+    ],
+    "staticGk": "Venue: Tashkent, Uzbekistan.",
+    "trap": "≠ **Gold Winner:** Tomchou Meetei won Gold in Men's 60kg."
+  },
+  {
+    "id": "ca_2026_08_11_ashmita_chaliha_korea_masters",
+    "secId": "sec10",
+    "title": "Ashmita Chaliha Wins Korea Masters 2026 Women's Singles Title",
+    "date": "2026-08-11",
+    "hook": "Ashmita Chaliha won her 1st BWF World Tour title at Korea Masters 2026, defeating China's Han Qian Xi.",
+    "bullets": [
+      "**Champion:** Ashmita Chaliha (India) won **Women's Singles** (1st BWF title), defeating Han Qian Xi (China)."
+    ],
+    "staticGk": "Sport: Badminton (BWF World Tour Super 300).",
+    "trap": "≠ **First Title:** Ashmita Chaliha's maiden BWF World Tour title."
+  },
+  {
+    "id": "ca_2026_08_11_tarun_chugh_highest_paid_ceo",
+    "secId": "sec5",
+    "title": "Bajaj Life's Tarun Chugh Emerges as Highest-Paid Life Insurance CEO in FY26 (₹33.66 Cr)",
+    "date": "2026-08-11",
+    "hook": "Tarun Chugh (MD & CEO Bajaj Allianz Life) was highest-paid life insurance executive in FY26 with ₹33.66 crore remuneration.",
+    "bullets": [
+      "**Remuneration:** Tarun Chugh received **₹33.66 crore** in FY2025–26.",
+      "**Designation:** MD & CEO of Bajaj Allianz Life Insurance."
+    ],
+    "staticGk": "IRDAI Salary Guidelines apply to private life insurance CEOs.",
+    "trap": "≠ **Remuneration:** ₹33.66 crore."
+  },
+  {
+    "id": "ca_2026_08_12_india_6th_largest_gdp",
+    "secId": "sec3",
+    "title": "India 6th-Largest Economy Globally with $3.92 Trillion Nominal GDP in FY26: IMF Outlook",
+    "date": "2026-08-12",
+    "hook": "According to IMF April 2026 World Economic Outlook, India ranked 6th-largest global economy in FY26 with nominal GDP of $3.92 trillion.",
+    "bullets": [
+      "**Nominal GDP Ranking:** India stood as world's **6th-largest economy in 2025-26** with nominal GDP of **$3.92 trillion** (Source: IMF April 2026 WEO).",
+      "**PSB Asset Quality:** Gross NPAs of Public Sector Banks fell to **₹2,45,634 crore** (GNPA ratio declined to **1.93%**) as of March 31, 2026.",
+      "**DEA Fund Unclaimed Deposits:** Total unclaimed deposits in Depositor Education and Awareness (DEA) Fund reached **₹86,917.08 crore** as of June 30, 2026.",
+      "**Bank Breakdown:** Public: SBI (₹20,040 cr), PNB, Canara Bank; Private: ICICI Bank (₹2,278 cr), HDFC Bank, Axis Bank."
+    ],
+    "staticGk": "Unclaimed Deposits: Savings/current accounts inoperative for 10 years or term deposits unclaimed 10 years post-maturity.",
+    "trap": "≠ **GNPA Ratio:** PSB Gross NPA ratio fell below 2% to 1.93% in FY26."
+  },
+  {
+    "id": "ca_2026_08_12_govt_disinvestment_asset_monetisation_fy26",
+    "secId": "sec4",
+    "title": "Govt Mops Up ₹45,306 Crore from Disinvestment & Asset Monetisation in FY26",
+    "date": "2026-08-12",
+    "hook": "Government combined mop-up from disinvestment and asset monetisation reached ₹45,306 crore in FY26, exceeding RE of ₹33,837 crore.",
+    "bullets": [
+      "**FY26 Receipts:** Combined mop-up stood at **₹45,306 crore** in FY26 (exceeding Revised Estimate of ₹33,837 crore).",
+      "**FY27 Target:** Government budgeted **₹80,000 crore** under Miscellaneous Capital Receipts for FY27."
+    ],
+    "staticGk": "DIPAM: Department of Investment and Public Asset Management (Ministry of Finance).",
+    "trap": "⚠️ **Budgeted Target:** FY27 budget target set at ₹80,000 crore."
+  },
+  {
+    "id": "ca_2026_08_12_cbdc_food_subsidy_dbt",
+    "secId": "sec1",
+    "title": "Chandigarh & Dadra Nagar Haveli Become First UTs to Launch CBDC Food Subsidy Transfers",
+    "date": "2026-08-12",
+    "hook": "PMGKAY food subsidy delivery fully digitized via Digital Rupee (e₹) tokens in Chandigarh and Dadra & Nagar Haveli.",
+    "bullets": [
+      "**First UTs:** Chandigarh and Dadra & Nagar Haveli launched CBDC-based Direct Benefit Transfer (DBT) for food subsidies under PMGKAY.",
+      "**Digital Token System:** Beneficiaries receive Digital Rupee (e₹) tokens for food grain purchases."
+    ],
+    "staticGk": "CBDC: Central Bank Digital Currency issued by Reserve Bank of India under RBI Act 1934.",
+    "trap": "≠ **First UTs:** Chandigarh and Dadra & Nagar Haveli."
+  },
+  {
+    "id": "ca_2026_08_12_sebi_municipal_debt_timelines",
+    "secId": "sec2",
+    "title": "SEBI Relaxes Financial Results Submission Timelines for Listed Municipal Debt Securities",
+    "date": "2026-08-12",
+    "hook": "SEBI amended Municipal Debt Securities Regulations 2015, extending half-yearly results timeline to 60 days and annual results to 90 days.",
+    "bullets": [
+      "**Revised Timelines:** Half-yearly unaudited results extended to **60 days** (from 45 days); Annual audited results extended to **90 days** (from 60 days).",
+      "**Face Value Norms:** Private placement municipal debt securities face value set at **₹1 lakh or ₹10,000**.",
+      "**Escrow Mechanism:** Introduced 2-step escrow account mechanism for pooled finance SPVs requiring 1 year interest obligation buffer."
+    ],
+    "staticGk": "Amends: SEBI (Issue and Listing of Municipal Debt Securities) Regulations, 2015.",
+    "trap": "⚠️ **Timeline Shift:** Half-yearly (45->60 days); Annual (60->90 days)."
+  },
+  {
+    "id": "ca_2026_08_12_sebi_fpi_non_agri_commodity_derivatives",
+    "secId": "sec2",
+    "title": "SEBI Proposes Wider FPI Participation in Non-Agricultural Commodity Derivatives",
+    "date": "2026-08-12",
+    "hook": "SEBI proposed allowing FPIs in non-agri index derivatives and physically settled contracts with 2-tier safeguard mechanism.",
+    "bullets": [
+      "**Expanded Scope:** FPIs allowed in non-cash-settled and physically settled non-agricultural commodity derivatives.",
+      "**Two-Tier Safeguard:** Voluntary exit before delivery period; automatic position transfer to designated Trading Member (TM/TCM) as backstop.",
+      "**Settlement Rules:** Transferred position executed at settlement price; TM/TCM given **2 trading days** to align position limits."
+    ],
+    "staticGk": "SEBI Commodity Derivatives: FPI participation first allowed in cash-settled contracts in 2022.",
+    "trap": "≠ **Position Transfer Limit:** TM/TCM allowed up to 2 trading days to bring positions within limit."
+  },
+  {
+    "id": "ca_2026_08_12_sebi_bullion_etf_vault_norms",
+    "secId": "sec2",
+    "title": "SEBI Proposes Expanding Vault Managers Regulations to Cover All Bullion Products",
+    "date": "2026-08-12",
+    "hook": "SEBI proposed expanding Vault Managers Regulations 2021 from EGRs to physical bullion underlying ETFs and derivatives.",
+    "bullets": [
+      "**Regulatory Expansion:** Vault Managers Regulations 2021 expanded from Electronic Gold Receipts (EGRs) to physical bullion underlying all SEBI products.",
+      "**Objective:** Establish unified vaulting framework across EGRs, bullion ETFs, and bullion derivatives."
+    ],
+    "staticGk": "EGR: Electronic Gold Receipts traded on stock exchange platform.",
+    "trap": "≠ **Framework Scope:** Covers EGRs, Bullion ETFs, and Bullion Derivatives."
+  },
+  {
+    "id": "ca_2026_08_12_sebi_retail_fo_losses_fy26",
+    "secId": "sec2",
+    "title": "SEBI Measures Curtail Retail Equity F&O Net Losses to ₹91,685 Crore in FY26",
+    "date": "2026-08-12",
+    "hook": "SEBI F&O rationalisation measures reduced aggregate retail equity derivative losses from ₹1,11,788 crore to ₹91,685 crore in FY26.",
+    "bullets": [
+      "**Loss Reduction:** Net retail losses in equity derivatives curtailed from **₹1,11,788 crore to ₹91,685 crore** in FY26.",
+      "**Unique Individual Traders:** Unique retail traders declined to **78.60 lakh**.",
+      "**Key Reform Measures:** Weekly index derivative rationalisation, higher contract sizes, upfront option premium, removal of expiry day calendar spreads."
+    ],
+    "staticGk": "F&O Reforms: Introduced under SEBI Master Circular on Equity Derivatives.",
+    "trap": "⚠️ **Loss Figures:** Total retail F&O net loss stood at ₹91,685 crore in FY26."
+  },
+  {
+    "id": "ca_2026_08_13_rbi_draft_interest_rate_directions_2026",
+    "secId": "sec1",
+    "title": "RBI Issues Draft Interest Rate Directions 2026: Mandates Benchmark Linkage & Quarterly Reset Cap",
+    "date": "2026-08-13",
+    "hook": "RBI draft Interest Rate Directions 2026 mandate benchmark linkage for fixed/floating loans and cap floating reset frequency at 3 months.",
+    "bullets": [
+      "**Benchmark Linkage:** All loans must link to internal or external benchmark + risk-based spread; no loan below benchmark.",
+      "**Floating Reset Cap:** Floating rate benchmark reset frequency chosen by lender, capped at **max once every 3 months**.",
+      "**Agri Loans Reset:** Reset linked to crop season, capped at **max 12 months**.",
+      "**MCLR Rule:** Commercial banks, RRBs, Tier 3/4 UCBs with deposits >**₹1,000 crore** continue using MCLR internal benchmark.",
+      "**Mandatory External Benchmark:** Mandatory for floating personal and MSME loans by commercial banks."
+    ],
+    "staticGk": "MCLR: Marginal Cost of Funds based Lending Rate introduced in April 2016.",
+    "trap": "≠ **Reset Cap:** Floating loan reset max once every 3 months; Agri loan reset max 12 months."
+  },
+  {
+    "id": "ca_2026_08_13_sebi_commodity_stress_testing_zscore",
+    "secId": "sec2",
+    "title": "SEBI Lowers Commodity Derivatives Stress-Testing Z-Score Limit to 5",
+    "date": "2026-08-13",
+    "hook": "SEBI lowered Z-score limit for stress testing in commodity derivatives market from 10 to 5 under Core SGF framework.",
+    "bullets": [
+      "**Z-Score Threshold:** Lowered from **10 to 5** to ease compliance for market participants under Core Settlement Guarantee Fund (Core SGF).",
+      "**Historical Window:** Uses mean and sigma of returns over Margin Period of Risk (MPOR) across **15 years**."
+    ],
+    "staticGk": "Core SGF: Core Settlement Guarantee Fund maintained by Clearing Corporations.",
+    "trap": "≠ **Threshold Reduction:** Z-score reduced from 10 to 5 (15-year MPOR window)."
+  },
+  {
+    "id": "ca_2026_08_12_polymer_banknotes_field_trials",
+    "secId": "sec1",
+    "title": "Govt Approves Introduction of 1 Billion Polymer Banknotes Each of ₹10 and ₹20 for Field Trials",
+    "date": "2026-08-12",
+    "hook": "Center approved field trials of 1 billion pieces of ₹10 and 1 billion pieces of ₹20 polymer banknotes under RBI Act Section 25.",
+    "bullets": [
+      "**Polymer Trial Volumes:** 1 billion pieces of **₹10** and 1 billion pieces of **₹20** polymer banknotes for field trials.",
+      "**Statutory Provision:** Approved by Central Government under **Section 25 of the RBI Act, 1934**."
+    ],
+    "staticGk": "RBI Act Section 25: Design, form, and material of banknotes recommended by Central Board and approved by Central Govt.",
+    "trap": "⚠️ **Section Trap:** Polymer banknote design approval falls under Section 25 of RBI Act 1934."
+  },
+  {
+    "id": "ca_2026_08_12_jacob_diamond_rbi_vault",
+    "secId": "sec1",
+    "title": "184.75-Carat Historic Jacob Diamond Retained in Reserve Bank of India Vaults in Mumbai",
+    "date": "2026-08-12",
+    "hook": "Historic 184.75-carat Golconda-origin Jacob Diamond, once owned by 6th Nizam of Hyderabad, preserved in RBI Mumbai vaults.",
+    "bullets": [
+      "**Diamond Details:** 184.75-carat Golconda diamond offered to 6th Nizam of Hyderabad (Mir Mahboob Ali Khan).",
+      "**Location:** Kept securely in Reserve Bank of India vaults in Mumbai."
+    ],
+    "staticGk": "Golconda Diamonds: World famous mines in Andhra Pradesh/Telangana (Koh-i-Noor, Hope Diamond, Jacob Diamond).",
+    "trap": "≠ **Carat Weight:** 184.75 carats."
+  },
+  {
+    "id": "ca_2026_08_12_nps_e_shramik_pfrda_gig_workers",
+    "secId": "sec2",
+    "title": "PFRDA NPS e-Shramik Model Enables Flexible Contributions for Gig & Platform Workers",
+    "date": "2026-08-12",
+    "hook": "PFRDA NPS e-Shramik Platform Service Partner model allows joint or single contributions for gig workers with no fixed minimum/maximum limit.",
+    "bullets": [
+      "**Target Group:** Gig workers and platform workers providing services through digital platforms.",
+      "**Flexible Contribution:** No fixed minimum or maximum contribution prescribed; follows NPS Corporate Model structure."
+    ],
+    "staticGk": "PFRDA: Pension Fund Regulatory and Development Authority. Chairperson: Sivasubramanian Ramann.",
+    "trap": "≠ **Contribution Cap:** NO minimum or maximum contribution limit prescribed."
+  },
+  {
+    "id": "ca_2026_08_12_fssai_hfss_school_limits",
+    "secId": "sec4",
+    "title": "FSSAI Proposes New Classification Limits for High-Fat, Sugar & Salt (HFSS) Foods in Schools",
+    "date": "2026-08-12",
+    "hook": "FSSAI proposed HFSS thresholds for school foods: Solid (>4.2g fat, >3g sugar, >0.625g salt per 100g); Liquid (>1.5g fat, >2g sugar, >0.175g salt per 100ml).",
+    "bullets": [
+      "**Solid Foods (per 100g):** Fat >4.2g, Sugar >3g, Salt >0.625g.",
+      "**Liquid Foods (per 100ml):** Fat >1.5g, Sugar >2g, Salt >0.175g."
+    ],
+    "staticGk": "FSSAI Statutory Body under Food Safety and Standards Act, 2006 (Ministry of Health and Family Welfare).",
+    "trap": "⚠️ **Threshold Units:** Solid (per 100g) vs Liquid (per 100ml)."
+  },
+  {
+    "id": "ca_2026_08_12_nba_abs_mustard_proceeds",
+    "secId": "sec4",
+    "title": "National Biodiversity Authority Releases ₹15.52 Crore ABS Proceeds from Mustard Genetic Resources",
+    "date": "2026-08-12",
+    "hook": "National Biodiversity Authority (NBA) released ₹15.52 crore Access and Benefit Sharing proceeds from mustard genetic resources.",
+    "bullets": [
+      "**ABS Disbursement:** Released **₹15.52 crore** in Access and Benefit Sharing (ABS) proceeds.",
+      "**NBA Profile:** Statutory body established Oct 1, 2003 under Biological Diversity Act 2002 (MoEFCC). HQ: **Chennai, Tamil Nadu**."
+    ],
+    "staticGk": "NBA Headquarters: Chennai, Tamil Nadu (MoEFCC).",
+    "trap": "≠ **HQ Location:** Chennai, Tamil Nadu (NOT New Delhi)."
+  },
+  {
+    "id": "ca_2026_08_12_gramin_gyan_setu_app",
+    "secId": "sec4",
+    "title": "HM Amit Shah Launches 'Gramin Gyan Setu' App to Integrate Libraries in Gandhinagar",
+    "date": "2026-08-12",
+    "hook": "Union Home Minister Amit Shah launched Gramin Gyan Setu app to integrate library network in Gandhinagar, Gujarat.",
+    "bullets": [
+      "**App Objective:** Integrates rural libraries across Gandhinagar Lok Sabha constituency in Gujarat.",
+      "**National Library Day:** Celebrated on **August 12** (birth anniversary of S.R. Ranganathan, father of library science in India)."
+    ],
+    "staticGk": "S.R. Ranganathan: Father of Library Science in India (Colon Classification system).",
+    "trap": "≠ **National Library Day:** August 12."
+  },
+  {
+    "id": "ca_2026_08_12_sanchar_mitras_itu_youth_envoys",
+    "secId": "sec4",
+    "title": "DoT Selects Three Sanchar Mitras as ITU Generation Connect Youth Envoys",
+    "date": "2026-08-12",
+    "hook": "Department of Telecommunications selected 3 Indian Sanchar Mitras as ITU Generation Connect Youth Envoys (GCYE).",
+    "bullets": [
+      "**Selected Envoys:** (1) Ankit Kumar Pal, (2) Manish Kumar Mandal, (3) Susmita Sain.",
+      "**Sanchar Mitra Role:** Engages youth in telecom awareness, digital safety, and telecom fraud prevention."
+    ],
+    "staticGk": "ITU (International Telecommunication Union) HQ: Geneva, Switzerland (Established 1865).",
+    "trap": "≠ **Selection Body:** Department of Telecommunications (DoT)."
+  },
+  {
+    "id": "ca_2026_08_12_msme_dpiit_gi_products_mou",
+    "secId": "sec4",
+    "title": "Ministry of MSME Signs MoU with DPIIT to Accelerate Global Market Access for GI Products",
+    "date": "2026-08-12",
+    "hook": "MoU signed between MSME Ministry and DPIIT to commercialize Indian Geographical Indication (GI) products and strengthen ODOP.",
+    "bullets": [
+      "**MoU Signatories:** Ministry of Micro, Small and Medium Enterprises (MSME) + Department for Promotion of Industry and Internal Trade (DPIIT).",
+      "**Objective:** Accelerate global market access for GI products and strengthen One District One Product (ODOP) ecosystem."
+    ],
+    "staticGk": "GI Registry: Located in Chennai, Tamil Nadu (under DPIIT).",
+    "trap": "≠ **Registry HQ:** Chennai, Tamil Nadu."
+  },
+  {
+    "id": "ca_2026_08_12_bhashini_niti_aayog_mou",
+    "secId": "sec4",
+    "title": "Digital India BHASHINI Division & NITI Aayog Partner for 'BHASHINI for Seva' Initiative",
+    "date": "2026-08-12",
+    "hook": "DIBD and NITI Aayog partnered for voice-first AI solutions supporting 36 Indian text and 23 Indian voice languages.",
+    "bullets": [
+      "**Initiative:** 'BHASHINI for Seva / Sanchalan' for multilingual citizen-centric service delivery.",
+      "**Language Support:** Supports **36 Indian text languages, 23 Indian voice languages, and 35 international languages**."
+    ],
+    "staticGk": "BHASHINI: National Language Translation Mission under MeitY.",
+    "trap": "≠ **Language Counts:** 36 text, 23 voice, 35 international languages."
+  },
+  {
+    "id": "ca_2026_08_12_bofa_jio_credit_49_percent_deal",
+    "secId": "sec7",
+    "title": "Bank of America Subsidiary Acquires 49.9% Stake in Jio Credit for ₹18,268 Crore ($1.9B)",
+    "date": "2026-08-12",
+    "hook": "NB Holdings Corp (wholly owned subsidiary of Bank of America) acquiring 49.9% stake in Jio Credit for ₹18,268.22 crore.",
+    "bullets": [
+      "**Deal Valuation:** NB Holdings (BofA) acquiring **49.9% stake** in Jio Credit (Jio Financial Services lending arm) for **₹18,268.22 crore ($1.9 billion)**.",
+      "**Jio Financial Alliances:** Allianz Group (50:50 Reinsurance JV) and BlackRock (50:50 Asset Management JV)."
+    ],
+    "staticGk": "Jio Financial Services Chairman: K.V. Kamath.",
+    "trap": "≠ **Stake Percentage:** 49.9% stake for ₹18,268.22 crore."
+  },
+  {
+    "id": "ca_2026_08_12_nasa_isro_artemis_accords_moon_base",
+    "secId": "sec10",
+    "title": "NASA Invites ISRO to Join Moon Base Programme Under Artemis Accords Framework",
+    "date": "2026-08-12",
+    "hook": "NASA invited ISRO to join its Moon Base programme. India joined Artemis Accords in 2023 as 27th signatory (70 members currently).",
+    "bullets": [
+      "**Global Invitation:** NASA invited ISRO to participate in its Moon Base exploration programme.",
+      "**Artemis Membership:** India signed Artemis Accords as **27th country in 2023**; total current membership reached **70 countries**."
+    ],
+    "staticGk": "ISRO Established: Aug 15, 1969. HQ: Bengaluru. Chairman: Dr. V. Narayanan.",
+    "trap": "≠ **India Signatory Order:** 27th country (out of 70 current members)."
+  },
+  {
+    "id": "ca_2026_08_12_india_nuclear_power_100gwe_target_2047",
+    "secId": "sec10",
+    "title": "India Targets 100 GWe Nuclear Capacity by 2047 & 5 Operational Indigenous SMRs by 2033",
+    "date": "2026-08-12",
+    "hook": "India set target to expand nuclear power capacity to 100 GWe by 2047 and operationalize 5 Small Modular Reactors (SMRs) by 2033.",
+    "bullets": [
+      "**Nuclear Capacity Target:** Increase India's nuclear power capacity to **100 GWe by 2047**.",
+      "**SMR Target:** Operationalize at least **5 indigenous Small Modular Reactors (SMRs) by 2033**.",
+      "**Three-Stage Program:** Stage I (PHWRs natural uranium), Stage II (Fast Breeder Reactors plutonium), Stage III (Thorium utilization)."
+    ],
+    "staticGk": "Father of Indian Nuclear Programme: Dr. Homi J. Bhabha.",
+    "trap": "≠ **Target Years:** 100 GWe by 2047; 5 SMRs by 2033."
+  },
+  {
+    "id": "ca_2026_08_12_exercise_udara_shakti_2026",
+    "secId": "sec6",
+    "title": "Indian Air Force & Royal Malaysian Air Force Conduct Exercise Udara Shakti 2026",
+    "date": "2026-08-12",
+    "hook": "Joint air exercise Udara Shakti 2026 conducted between Indian Air Force (IAF) and Royal Malaysian Air Force at Subang Air Base.",
+    "bullets": [
+      "**Participants:** Indian Air Force (IAF) and Royal Malaysian Air Force (RMAF).",
+      "**Venue:** Subang Air Base, Malaysia."
+    ],
+    "staticGk": "Other India-Malaysia Exercises: Harimau Shakti (Army), Samudra Laksamana (Navy).",
+    "trap": "≠ **Exercise Domain:** Air Force exercise (held at Subang Air Base)."
+  },
+  {
+    "id": "ca_2026_08_12_barclays_hurun_valuable_family_businesses",
+    "secId": "sec8",
+    "title": "2026 Barclays Hurun Report: Top 300 Indian Family Businesses Worth ₹138 Lakh Crore",
+    "date": "2026-08-12",
+    "hook": "Barclays Hurun India report values top 300 family businesses at ₹138 lakh crore ($1.46T), adding ₹4,076 crore/day since 2024.",
+    "bullets": [
+      "**Total Valuation:** Top 300 family businesses worth **₹138 lakh crore ($1.46 trillion)** (equivalent to 18th largest global economy).",
+      "**Top 5 Families:** (1) Ambani family (₹25.82 lakh crore), (2) KM Birla family, (3) Jindal family, (4) Bajaj family, (5) Mahindra family.",
+      "**HQ Cities:** Mumbai (95 HQs), NCR, Kolkata.",
+      "**Women-Led Leaders:** Priya Agarwal Hebbar (Hindustan Zinc ₹4.45L cr), Roshni Nadar Malhotra (HCL ₹2.91L cr)."
+    ],
+    "staticGk": "Barclays Private Clients Hurun India Most Valuable Family Businesses List 2026.",
+    "trap": "≠ **Rank 1 Family:** Ambani family (₹25.82 lakh crore)."
+  },
+  {
+    "id": "ca_2026_08_12_sangeet_natak_akademi_awards_2026",
+    "secId": "sec8",
+    "title": "President Murmu Confers Sangeet Natak Akademi Fellowships & Awards on 115 Artists",
+    "date": "2026-08-12",
+    "hook": "President Droupadi Murmu conferred Sangeet Natak Akademi Fellowships (7 artists) and Puraskar awards for 2024-25 on 115 artists.",
+    "bullets": [
+      "**Fellowship Winners (7):** Ramlal Bareth, A V Anand, Rita Ganguly, Puru Dadheech, Chittaranjan Jyotishi, Pasumarthi Rattaiah Sarma, Sudharani Raghupathy.",
+      "**Prize Cash:** Akademi Fellowship (₹3 lakh + Tamrapatra); Akademi Award (₹1 lakh + Tamrapatra)."
+    ],
+    "staticGk": "Sangeet Natak Akademi Instituted: 1952 (National Academy of Music, Dance and Drama).",
+    "trap": "≠ **Fellowship Cash:** ₹3 lakh for Fellowship; ₹1 lakh for Award."
+  },
+  {
+    "id": "ca_2026_08_12_ram_nath_kovind_autobiography",
+    "secId": "sec8",
+    "title": "Former President Ram Nath Kovind Pens Autobiography 'Triumph of the Indian Republic'",
+    "date": "2026-08-12",
+    "hook": "Autobiography of 14th President of India Ram Nath Kovind titled 'Triumph of the Indian Republic: My Life, My Struggles' released.",
+    "bullets": [
+      "**Autobiography Title:** 'Triumph of the Indian Republic: My Life, My Struggles' by Ram Nath Kovind (14th President of India).",
+      "**Sridevi Biography:** 'Empress: The Definitive Biography of Sridevi' authored by Dhiraj U. Kumarr."
+    ],
+    "staticGk": "Ram Nath Kovind: 14th President of India (2017–2022).",
+    "trap": "≠ **Author:** Self-autobiography of 14th President Ram Nath Kovind."
+  },
+  {
+    "id": "ca_2026_08_12_black_necked_crane_festival_ladakh",
+    "secId": "sec10",
+    "title": "Ladakh Hosts First-Ever Black-Necked Crane Festival at Changthang Cold Wildlife Sanctuary",
+    "date": "2026-08-12",
+    "hook": "Ladakh hosted 1st Black-Necked Crane Festival at Changthang Cold Wildlife Sanctuary, sole breeding ground in India.",
+    "bullets": [
+      "**Festival Event:** First-ever Black-Necked Crane Festival held in Ladakh.",
+      "**Breeding Ground:** Changthang Cold Wildlife Sanctuary (Tsokar, Hanle wetlands at 2500-5000m altitude) is the **only breeding place in India**.",
+      "**State Bird:** Black-Necked Crane is the official state bird of UT Ladakh."
+    ],
+    "staticGk": "State Animal of Ladakh: Snow Leopard; State Bird: Black-Necked Crane.",
+    "trap": "≠ **Exclusive Breeding Site:** Changthang Cold Wildlife Sanctuary is the ONLY breeding site in India."
+  },
+  {
+    "id": "ca_2026_08_12_andras_baka_president_hungary",
+    "secId": "sec5",
+    "title": "Andras Baka Elected President of Hungary",
+    "date": "2026-08-12",
+    "hook": "Andras Baka elected President of Hungary.",
+    "bullets": [
+      "**Appointed Position:** President of Hungary.",
+      "**Country Capital & Currency:** Capital: Budapest; Currency: Hungarian Forint (HUF)."
+    ],
+    "staticGk": "Hungary Capital: Budapest. Currency: Forint.",
+    "trap": "≠ **Office:** President of Hungary.",
+    "miniGrid": {
+      "headers": [
+        "Appointee / Official",
+        "New Position & Organization",
+        "Key Context & Details"
+      ],
+      "rows": [
+        [
+          "Andras Baka",
+          "President of Hungary",
+          "Elected President of Hungary (Capital: Budapest)."
+        ]
+      ]
+    }
+  },
+  {
+    "id": "ca_2026_08_13_lebanon_abolishes_death_penalty",
+    "secId": "sec6",
+    "title": "Lebanon Becomes 1st Country in Arab World to Abolish Death Penalty",
+    "date": "2026-08-13",
+    "hook": "Lebanon abolished death penalty, replacing it with life imprisonment with aggravated hard labour.",
+    "bullets": [
+      "**Historic Reform:** First Arab world country to abolish death penalty, replacing it with life imprisonment."
+    ],
+    "staticGk": "Lebanon Capital: Beirut. Currency: Lebanese Pound.",
+    "trap": "≠ **First Arab Country:** Lebanon."
+  },
+  {
+    "id": "ca_2026_08_13_fitch_ratings_india_bbb_minus",
+    "secId": "sec3",
+    "title": "Fitch Ratings Affirms India's Sovereign Rating at 'BBB-' with Stable Outlook",
+    "date": "2026-08-13",
+    "hook": "Fitch Ratings affirmed India's sovereign rating at 'BBB-' with stable outlook, citing robust growth and fiscal stability.",
+    "bullets": [
+      "**Sovereign Rating:** Affirmed at **'BBB-' with Stable Outlook**."
+    ],
+    "staticGk": "Big Three Credit Rating Agencies: S&P, Moody's, Fitch.",
+    "trap": "≠ **Rating Grade:** BBB- (Investment Grade)."
+  },
+  {
+    "id": "ca_2026_08_13_deesa_desert_night_safari_gujarat",
+    "secId": "sec4",
+    "title": "CZA Approves Asia's 1st Desert-Themed Drive-Through Night Safari at Deesa, Gujarat",
+    "date": "2026-08-13",
+    "hook": "Central Zoo Authority approved Asia's 1st desert-themed drive-through night safari at Deesa in Banaskantha district, Gujarat.",
+    "bullets": [
+      "**Safari Project:** Asia's 1st desert-themed drive-through night safari approved at **Deesa, Banaskantha district, Gujarat**."
+    ],
+    "staticGk": "CZA: Central Zoo Authority statutory body under Wildlife Protection Act 1972.",
+    "trap": "≠ **Location:** Deesa, Banaskantha, Gujarat."
+  },
+  {
+    "id": "ca_2026_08_13_dy_chandrachud_russia_arbitrator",
+    "secId": "sec5",
+    "title": "Former CJI D Y Chandrachud Appointed Arbitrator by Russia in Oschadbank Dispute",
+    "date": "2026-08-13",
+    "hook": "Former CJI D Y Chandrachud appointed by Russia as arbitrator in investment treaty dispute with Ukrainian bank Oschadbank.",
+    "bullets": [
+      "**Arbitrator Appointment:** Former CJI D Y Chandrachud appointed arbitrator by Russia in Oschadbank treaty dispute."
+    ],
+    "staticGk": "D Y Chandrachud: 50th Chief Justice of India.",
+    "trap": "≠ **Appointing Country:** Russia.",
+    "miniGrid": {
+      "headers": [
+        "Appointee / Official",
+        "New Position & Organization",
+        "Key Context & Details"
+      ],
+      "rows": [
+        [
+          "D Y Chandrachud",
+          "Arbitrator for Russia",
+          "Appointed arbitrator by Russia in Oschadbank investment treaty dispute."
+        ]
+      ]
+    }
   }
-}
 ];

@@ -1,4 +1,4 @@
-﻿const QUANT_CHAPTERS = [
+const QUANT_CHAPTERS = [
   {
     "icon": "📐",
     "id": "qsec1",
@@ -10,102 +10,72 @@
           [
             "Square (side a)",
             "a²",
-            "4a; diagonal = a√2"
+            "Perimeter = 4a | Diagonal = a√2",
+            "Area = ½ × (Diagonal)²"
           ],
           [
             "Rectangle (l, b)",
             "l × b",
-            "2(l+b); diagonal = √(l²+b²)"
+            "Perimeter = 2(l+b) | Diagonal = √(l²+b²)",
+            "Max area for fixed perimeter is a Square"
           ],
           [
-            "Triangle (b, h)",
-            "½ × b × h",
-            "Equilateral: (√3/4)a²; Heron's: √[s(s-a)(s-b)(s-c)]"
+            "Equilateral Triangle (a)",
+            "(√3 / 4) a²",
+            "Perimeter = 3a | Height h = (√3 / 2) a",
+            "Inradius r = a/(2√3) | Circumradius R = a/√3"
           ],
           [
-            "Circle (r)",
-            "πr²",
-            "Circumference = 2πr; π ≈ 22/7 or 3.14"
-          ],
-          [
-            "Parallelogram (b, h)",
-            "b × h",
-            "Perimeter = 2(a+b)"
-          ],
-          [
-            "Rhombus (d1, d2)",
-            "½ × d1 × d2",
-            "Perimeter = 4a"
-          ],
-          [
-            "Trapezium (a, b, h)",
-            "½(a+b) × h",
-            "—"
-          ],
-          [
-            "Regular hexagon (a)",
-            "(3√3/2)a²",
-            "Perimeter = 6a"
+            "Circle (radius r)",
+            "π r²",
+            "Circumference = 2π r",
+            "Area of semi-circle = ½ π r²"
           ]
         ],
-        "title": "1.1 2D Shape Formulas",
+        "title": "1.1 2D Shape Formulas & Applications",
         "subId": "qsec1-1",
         "headers": [
           "Shape",
-          "Area",
-          "Perimeter / Other"
+          "Area Formula",
+          "Perimeter / Diagonal Formula",
+          "Key Exam Relationship"
         ]
       },
       {
         "type": "table",
         "rows": [
           [
-            "Cube (a)",
+            "Cube (side a)",
             "a³",
-            "TSA = 6a²; diagonal = a√3"
+            "LSA = 4a²",
+            "TSA = 6a² | Diagonal = a√3"
           ],
           [
-            "Cuboid (l,b,h)",
-            "l × b × h",
-            "TSA = 2(lb+bh+hl); diagonal = √(l²+b²+h²)"
+            "Cylinder (radius r, height h)",
+            "π r² h",
+            "CSA = 2π r h",
+            "TSA = 2π r (h + r)"
           ],
           [
-            "Cylinder (r,h)",
-            "πr²h",
-            "CSA = 2πrh; TSA = 2πr(h+r)"
+            "Right Cone (r, h, slant l)",
+            "⅓ π r² h",
+            "CSA = π r l  (where l = √(r²+h²))",
+            "TSA = π r (l + r)"
           ],
           [
-            "Cone (r,h,l)",
-            "⅓πr²h",
-            "l = √(r²+h²); CSA = πrl; TSA = πr(l+r)"
-          ],
-          [
-            "Sphere (r)",
-            "(4/3)πr³",
-            "4πr²"
-          ],
-          [
-            "Hemisphere (r)",
-            "(2/3)πr³",
-            "CSA = 2πr²; TSA = 3πr²"
-          ],
-          [
-            "Prism",
-            "base area × h",
-            "2×base + perimeter×h"
-          ],
-          [
-            "Pyramid",
-            "⅓ × base area × h",
-            "LSA = ½ × perimeter × slant"
+            "Sphere (radius r)",
+            "(4/3) π r³",
+            "Surface Area = 4π r²",
+            "TSA = 4π r²"
           ]
         ],
-        "title": "1.2 3D Shape Formulas",
+        "title": "1.2 3D Solid Formulas & Worked Methods",
         "subId": "qsec1-2",
         "headers": [
-          "Solid",
-          "Volume",
-          "Surface Area"
+          "Solid Shape",
+          "Volume Formula",
+          "Curved Surface Area (CSA)",
+          "Total Surface Area (TSA) & Diagonal"
         ]
       },
       {
