@@ -81,13 +81,12 @@ const QUANT_CHAPTERS = [
       {
         "type": "bullets",
         "items": [
-          "**Frustum of cone** (R, r, h, slant l): Volume = (πh/3)(R²+r²+Rr); l = √(h²+(R−r)²); CSA = π(R+r)l; TSA = π(R+r)l + πR² + πr²",
-          "**Cone on cylinder** (ice-cream/tent): Volume = πr²h_cyl + ⅓πr²h_cone",
-          "**Hemisphere on cylinder**: Volume = πr²h + (2/3)πr³; CSA = 2πrh + 2πr²",
-          "**Sphere inscribed in cube** (side a): sphere radius = a/2; sphere vol / cube vol = π/6",
-          "**Cylinder with hole bored through**: Remaining volume = πh(R²−r²); adds inner CSA = 2πrh"
+          "**Frustum Volume Formula:** $V = \\frac{\\pi h}{3}(R^2 + r^2 + R r)$ | Slant Height $l = \\sqrt{h^2 + (R-r)^2}$",
+          "**Frustum Surface Area:** $\\text{CSA} = \\pi (R+r) l$ | $\\text{TSA} = \\pi (R+r) l + \\pi R^2 + \\pi r^2$",
+          "**Sphere Inscribed in Cube Shortcut:** Sphere radius $r = a/2$ $\\rightarrow$ $\\frac{\\text{Volume of Sphere}}{\\text{Volume of Cube}} = \\frac{\\pi}{6} \\approx 0.524$",
+          "📝 **Worked Example (Frustum Volume Method):** A frustum bucket has top radius $R = 20\\text{ cm}$, bottom radius $r = 10\\text{ cm}$, and height $h = 15\\text{ cm}$. Find its volume.\n*Method:* Recognize Frustum $\\rightarrow$ Substitute $R=20, r=10, h=15 \\implies V = \\frac{\\pi \\times 15}{3} (20^2 + 10^2 + 20\\times 10) = 5\\pi (400 + 100 + 200) = 3,500\\pi \\approx 10,995.5 \\text{ cm}^3$."
         ],
-        "title": "1.3 Frustum & Combined Solids",
+        "title": "1.3 Frustum & Combined Solids (Formulas & Method Worked Examples)",
         "subId": "qsec1-3"
       },
       {
@@ -155,15 +154,12 @@ const QUANT_CHAPTERS = [
       {
         "type": "bullets",
         "items": [
-          "**CI−SI difference (2 yrs)**: P(R/100)²; (3 yrs): P(R/100)²[(R/100)+3]",
-          "**Successive % change**: net% = a+b+(ab/100), negative for decrease",
-          "**Inverse % trick**: if A is x% more than B, B is [x/(100+x)]×100% less than A",
-          "**Time-work LCM method**: assume total work = LCM of given days; efficiency = total work/days taken",
-          "**Alligation cross-diagram**: cheaper & dearer at ends, mean in middle, ratio = cross-difference",
-          "**Faulty weight/dishonest dealer**: Profit% = (true wt − false wt)/false wt × 100",
-          "**Fraction-to-% table**: 1/3=33.3%, 1/4=25%, 1/5=20%, 1/6=16.67%, 1/7=14.28%, 1/8=12.5%, 1/9=11.11%, 1/11=9.09%, 1/12=8.33%"
+          "**2-Year CI − SI Difference Shortcut:** $D_2 = P \\left(\\frac{R}{100}\\right)^2$",
+          "**3-Year CI − SI Difference Shortcut:** $D_3 = P \\left(\\frac{R}{100}\\right)^2 \\left(\\frac{300 + R}{100}\\right) = D_2 \\times \\frac{300+R}{100}$",
+          "**Equal CI Installment Equation:** For annual installment $x$: $P = \\frac{x}{\\left(1 + \\frac{R}{100}\\right)} + \\frac{x}{\\left(1 + \\frac{R}{100}\\right)^2}$",
+          "📝 **Worked Example (2-Year CI-SI Difference Method):** If the difference between CI and SI on a principal for 2 years at 10% per annum is ₹250, find the Principal.\n*Method:* Recognize 2-Year CI-SI Diff $\\rightarrow$ $250 = P \\left(\\frac{10}{100}\\right)^2 = P \\times \\frac{1}{100} \\implies P = ₹25,000$."
         ],
-        "title": "2.2 Shortcuts & Tricks",
+        "title": "2.2 Arithmetic Shortcuts & CI-SI Difference Worked Methods",
         "subId": "qsec2-2"
       },
       {
