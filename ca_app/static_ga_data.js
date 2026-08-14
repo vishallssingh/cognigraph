@@ -10,9 +10,9 @@ const STATIC_GA_CHAPTERS = [
         "title": "Part 1: Regulatory & Apex Bodies (RBI, SEBI, IRDAI, PFRDA, IFSCA)",
         "type": "table",
         "headers": [
-          "Person",
-          "Position",
-          "Entity",
+          "Person (Appointee)",
+          "Position / Designation",
+          "Entity / Institution",
           "Effective Date",
           "Predecessor / Status",
           "Key Background Details"
@@ -77,9 +77,9 @@ const STATIC_GA_CHAPTERS = [
         "title": "Part 2: Public Sector Banks (PSB) & Financial Intermediaries",
         "type": "table",
         "headers": [
-          "Person",
-          "Position",
-          "Entity",
+          "Person (Appointee)",
+          "Position / Designation",
+          "Entity / Institution",
           "Effective Date / Term",
           "Predecessor / Status"
         ],

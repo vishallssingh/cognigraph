@@ -139,7 +139,7 @@ const CA_NOTES_DATA = [
       "Floor price fixed at **₹382 per share**.",
       "Centre currently holds 96.5% stake in LIC."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Metric / Component",
@@ -174,7 +174,7 @@ const CA_NOTES_DATA = [
       "Moody's Ratings assigned a first-time rating of **Baa2 / P-2** with 'Stable' outlook to RBL Bank.",
       "Incorporates 2-notch uplift for affiliate support from Emirates NBD Bank."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "HSBC India Composite PMI (July 2026): Manufacturing at 53.5 & Services at 53.3",
@@ -203,7 +203,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "OPEC+ agreed to increase crude oil production by **188,000 barrels per day (bpd)** starting September 2026 (HQ: Vienna, Austria)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "India Expands Crude Oil Sourcing Base to 41 Countries",
@@ -217,7 +217,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "India expanded its crude oil sourcing base to **41 countries** (up from 27 countries earlier) to enhance energy import security."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "RBI Streamlines Supervisory Framework by Consolidating 64 Master Directions",
@@ -395,7 +395,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "RBI published draft guidelines proposing to harmonise and standardise the regulatory framework on **interest rates on advances** across all Regulated Entities (banks, NBFCs, UCBs, AIFIs) to ensure transparent rate resets."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "SEBI Mulls Depository Receipts (DRs) Against REIT and InvIT Units",
@@ -409,7 +409,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Markets regulator SEBI proposed allowing REITs and InvITs to issue Depository Receipts (DRs) in foreign jurisdictions to attract foreign capital."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "SEBI Imposes ₹1.48 Crore Penalty & 1-Year Market Bar on ZEEL Promoters",
@@ -423,7 +423,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "SEBI imposed total ₹1.48 cr penalty on ZEEL, Punit Goenka, and Subhash Chandra; 1-year market bar on promoters."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "K Rajaraman Granted Extension as Chairman of IFSCA",
@@ -437,7 +437,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "K Rajaraman granted extension as Chairman of IFSCA beyond July 31, 2026 till age 65 (HQ: GIFT City)."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -465,7 +465,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Monisha Chakraborty appointed ED at RBI overseeing Foreign Exchange Dept & Financial Markets Regulation Dept."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -493,7 +493,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Prasanta Mahapatra appointed Executive Director at markets regulator SEBI."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -521,7 +521,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "TRAI launched revamped MyCall app for 1-5 star call quality ratings and call drop reporting."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "India-Maldives Real-Time Payment Corridor Goes Live via Favara and UPI Integration",
@@ -612,7 +612,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Shivalik Small Finance Bank completed acquisition and merger of Delhi-based ManiBhavnam Home Finance India Pvt Ltd for **₹109 crore** (Shivalik SFB HQ: Noida)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "PNB MetLife Launches 360 Health Saving Plan (ULIP)",
@@ -626,7 +626,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "PNB MetLife India Insurance Company Ltd launched the **PNB MetLife 360 Health Saving Plan**, a health-focused Unit-Linked Insurance Plan (ULIP)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "NCDEX Launches 'NCDEX Nidhi' Mutual Fund Transaction Platform",
@@ -640,7 +640,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "National Commodity and Derivatives Exchange Ltd (NCDEX) launched **'NCDEX Nidhi'**, an API-first mutual fund transaction platform for rural FPO integration."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Karnataka Bank Launches 'KBL Finsurance' Platform",
@@ -654,7 +654,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Karnataka Bank launched digital portal **'KBL Finsurance'** (powered by SprintMoney) to streamline insurance lead tracking across branches."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "HDFC Bank Launches 'Max for Seniors' and 'Max for Her' Savings Account Variants",
@@ -668,7 +668,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "HDFC Bank launched **'Max for Seniors'** and **'Max for Her'** savings account variants with auto-sweep and accidental death cover on debit card up to **₹3.19 crore**."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "SBI General Insurance Launches Motor Campaign 'Chuniye Bharosa, Apno Sa'",
@@ -682,7 +682,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "SBI General Insurance launched motor insurance film campaign *\"Chuniye Bharosa, Apno Sa\"* featuring actor **Pankaj Tripathi**."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "WSFx GlobalPay Secures RBI AD Category II License under FEMA 2026",
@@ -696,7 +696,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "WSFx Global Pay Limited received RBI Authorised Dealer Cat-II license under FEMA for trade remittances up to **₹25 lakh**."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "ICICI Lombard Celebrates 25th Anniversary on August 3, 2026",
@@ -710,7 +710,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "ICICI Lombard General Insurance Company Limited celebrated its **25th foundation anniversary** on August 3, 2026."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Glaw Lake in Arunachal Pradesh Designated India's 101st Ramsar Site",
@@ -773,7 +773,7 @@ const CA_NOTES_DATA = [
       "Nodal Ministry: Ministry of Health and Family Welfare (MoHFW).",
       "Implementing Agency: NOTTO (under Directorate General of Health Services / DGHS)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "PM Inaugurates ₹5,000 Crore Alluri Sitarama Raju International Airport at Bhogapuram, AP",
@@ -787,7 +787,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "PM inaugurated **₹5,000 crore** Alluri Sitarama Raju International Airport at Bhogapuram in Vizianagaram district, Andhra Pradesh."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Largest Dhimsa Dance Enters Guinness World Records in Andhra Pradesh",
@@ -801,7 +801,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Over 13,000 tribal women performed Dhimsa dance at Bhogapuram AP, entering Guinness World Records (origin Koraput Odisha / Araku Valley AP)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "US and India Collaborate on $528K AI Project for Precision Agriculture",
@@ -815,7 +815,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "US NSF awarded **$528,137** research grant for joint project with MeitY for AI-powered soybean breeding (2026-2029)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Ladakh Notifies 23 Heritage Sites as Protected Monuments",
@@ -843,7 +843,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "PM Modi launched 100-week-long campaign spearheaded by MY Bharat under Ministry of Youth Affairs & Sports."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Pacific Nation Nauru Officially Changes Name to Republic of Naoero",
@@ -857,7 +857,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Nauru officially changed its name to **Republic of Naoero** (3rd-smallest country by population after Vatican City & Tuvalu; Currency: Australian Dollar)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Istanbul, Türkiye to Host 49th Session of UNESCO World Heritage Committee in 2027",
@@ -871,7 +871,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "49th session of UNESCO WHC will be held from June 27 to July 7, 2027 in **Istanbul, Türkiye**."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Nathan Thomas Becomes World's Youngest Male Professor at Age 18",
@@ -885,7 +885,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Nathan Thomas (18 yrs 346 days) became world's youngest male professor in Florida, US, breaking a 300-year-old Guinness record."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "MoRTH Proposes Two-Wheeled Road Ambulances under Central Motor Vehicles Rules",
@@ -899,7 +899,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "MoRTH published draft amendments to Central Motor Vehicles Rules 1989 introducing two-wheeled road ambulances."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Mandatory Vehicle-to-Vehicle (V2V) Communication Fitment Mandated from Oct 1, 2028",
@@ -913,7 +913,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "MoRTH proposed mandatory fitment of V2V communication systems for all L, M, N category vehicles manufactured on or after **October 1, 2028** (DoT allocated 5.875–5.925 GHz band)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "India Crosses 5 Lakh Aadhaar-Verified Organ Donation Pledges; Ranks 3rd Globally",
@@ -927,7 +927,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "India crossed 5 lakh Aadhaar-verified organ donation pledges; ranks **3rd globally** in organ transplants conducted annually (after US & China)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "India's GI Ecosystem Surpasses 800 Registered Products; UP Leads Nationally",
@@ -941,7 +941,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Ministry of Textiles announced India has over 800 registered GI products (**UP leads with 81 tags**, followed by TN with 76 and Maharashtra with 55)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Static GK One-Liners (Umling La Pass & Srisailam Project)",
@@ -956,7 +956,7 @@ const CA_NOTES_DATA = [
       "**Umling La Pass:** Known as the highest motorable mountain pass in the world (Ladakh, India).",
       "**Srisailam Dam Project:** Built across Krishna River on the border of Andhra Pradesh and Telangana."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Varsha Ashok Aglawe Appointed 54th DG of Geological Survey of India — First Woman Head in 176 Years",
@@ -1030,7 +1030,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Ministry of Ayush signed MoU with IndiaAI Mission to promote AI adoption across traditional medicine research and diagnosis."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Rooftop Solar System Capacity",
@@ -1060,7 +1060,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Air Marshal Sandeep Thareja appointed Director General Armed Forces Medical Services (DGAFMS)."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -1088,7 +1088,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Air Marshal Tejpal Singh appointed Deputy Chief of the Air Staff (DCAS)."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -1116,7 +1116,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Vice Admiral AN Pramod appointed Deputy Chief of Naval Staff (DCNS)."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -1144,7 +1144,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Vishwesh Negi appointed Ambassador of India to the Islamic Republic of Iran."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -1172,7 +1172,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Willie Walsh (former IATA chief) appointed Chief Executive Officer of IndiGo."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -1200,7 +1200,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Ministry of Textiles organized GI & Beyond 2.0 Summit in New Delhi to showcase GI handloom exports."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Andhra Pradesh Partners with IIT Tirupati and UNSW Sydney for Solar CoE",
@@ -1214,7 +1214,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "AP Government partnered with IIT Tirupati and UNSW Sydney to establish a Centre of Excellence for Solar Manufacturing at IIT Tirupati."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Bharat Electronics Limited Partners with Esri India for GeoAI",
@@ -1228,7 +1228,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "BEL signed MoU with Esri India to collaborate on defence GIS mapping, location intelligence, and GeoAI."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "C-DAC & GSI MoU for AI and HPC Geoscience Exploration",
@@ -1270,7 +1270,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Greater Visakhapatnam Municipal Corporation (GVMC, AP) signed MoU with **Government of Moscow, Russia** for smart mobility and urban transport technology transfer."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "ICAR Develops India's First Complete Pigeonpea Genome ('Asha' Variety)",
@@ -1349,7 +1349,7 @@ const CA_NOTES_DATA = [
       "15-year-old **Tanvi Sharma** won maiden BWF World Tour title defeating Vietnam's Nguyen Thuy Linh.",
       "Milestone: **First Indian woman to win the title since Saina Nehwal in 2008**."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "COAS Launches Indigenous Xtreme Weather Grade (XWG) Diesel for -42°C Operation",
@@ -1363,7 +1363,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Chief of the Army Staff General Dhiraj Seth launched indigenously developed XWG Diesel remaining fluid down to **-42°C** for high-altitude operations."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "ICAR-NIHSAD Bhopal Develops Indigenous African Swine Fever (ASF) Vaccine",
@@ -1377,7 +1377,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "ICAR-NIHSAD in Bhopal, MP developed India's 1st homegrown African Swine Fever vaccine (launched by Agri Minister Shivraj Singh Chouhan)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "25 Years of Himalayan Chandra Telescope (HCT) in Hanle, Ladakh",
@@ -1405,7 +1405,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "IAF conducted 3rd edition of Counter-UAS Exercise ROTOR CLAP-III at Pokhran Field Firing Range, Rajasthan."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "2027 ICC Men's Cricket World Cup to be Co-Hosted Across 12 Venues in South Africa, Zimbabwe & Namibia",
@@ -1419,7 +1419,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "12 venues across **South Africa, Zimbabwe, and Namibia** will co-host the 2027 ICC Men's ODI Cricket World Cup."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Bonn Open 2026 Tennis Doubles Championship",
@@ -1433,7 +1433,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Ramkumar Ramanathan & Vijay Sundar Prashanth won Men's Doubles title at Bonn Open 2026."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Washington Open 2026 Tennis Championship",
@@ -1447,7 +1447,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Alexandra Eala (Philippines) became 1st Filipino player to win a WTA Tour-level singles title; Taylor Fritz (USA) won Men's Singles."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "BWF Para World Circuit 2026 in Brazil",
@@ -1461,7 +1461,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Biri Takar (Arunachal Pradesh) won Gold in Men's Doubles and Bronze in Men's Singles."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Tour de France Femmes Cycling Milestone",
@@ -1475,7 +1475,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Harshita Jakhar (19) became 1st Indian woman cyclist to feature in Tour de France Femmes (Switzerland)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "AI Super Apps Concept Explained",
@@ -1490,7 +1490,7 @@ const CA_NOTES_DATA = [
       "AI Super Apps combine multiple digital services (payments, shopping, messaging, healthcare, and mobility) within a single AI-driven conversational interface.",
       "Operate using platform-based network effects and integrated digital identity frameworks."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "World Bank World Development Report 2026: The Promise of Artificial Intelligence",
@@ -1569,7 +1569,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Report Title: *\"A Livable Future: Tackling Extreme Heat for Jobs and Growth in South Asia's Cities\"* ($194B/247B hrs lost in India, 66% agriculture, $1.6T cooling market by 2040)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "IEA Projects Critical Mineral Demand Surge Through 2040 Requiring $750B Investment",
@@ -1583,7 +1583,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "International Energy Agency report projecting **$750 billion** investment required by 2040 under STEPS for copper and lithium (IEA HQ: Paris)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Kroll India's Celebrity Brand Valuation 2025",
@@ -1597,7 +1597,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "**Shah Rukh Khan** claimed #1 position as India's most powerful celebrity in 2025 ($177.9 million brand value), Ranveer Singh #2, Virat Kohli #3."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Tamil Nadu Wins 'Best State' Award for Organ Donations in NOTTO Report 2025-26",
@@ -1611,7 +1611,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Tamil Nadu won 'Best State' award (266 deceased donors); Delhi ranked #1 in total transplants (4,564)."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Award Title",
@@ -1639,7 +1639,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Book Title: *\"Bringing the Cheetah Back to India: How Diplomacy Made Conservation's Big Mission Possible\"* authored by Prashant Agrawal."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Onam Harvest Festival Celebrated in Kerala",
@@ -1653,7 +1653,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Primary annual harvest festival of Kerala celebrating mythical King Mahabali."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Aadi Perukku Monsoon Festival Celebrated in Tamil Nadu",
@@ -1668,7 +1668,7 @@ const CA_NOTES_DATA = [
       "Aadi Perukku (also known as Aadi18) is a traditional water and monsoon festival celebrated on the 18th day of the Tamil month of Aadi.",
       "Expresses gratitude to Mother Nature and the Cauvery River for sustaining agriculture and life."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "12th National Handloom Day Observed on 7th August",
@@ -1738,7 +1738,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Promotes voluntary organ donor registration via NOTTO."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Date & Event",
@@ -1766,7 +1766,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Raises global awareness for clouded leopard conservation (Meghalaya state animal)."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Date & Event",
@@ -1795,7 +1795,7 @@ const CA_NOTES_DATA = [
       "📌 **Core Policy Directives & Scope:**\nWWW Day marks Tim Berners-Lee's creation at CERN in 1989.",
       "💰 **Financial Outlays & Operational Rules:**\n"
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Date & Event",
@@ -1825,7 +1825,7 @@ const CA_NOTES_DATA = [
       "Organised globally by the International Ranger Federation (IRF) in collaboration with The Thin Green Line Foundation.",
       "National Handloom Day is observed annually on August 7 to commemorate the launch of the Swadeshi Movement in 1905."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Date & Event",
@@ -1870,7 +1870,7 @@ const CA_NOTES_DATA = [
       "Stockpiling Norms: Stockpiling permitted only against confirmed export orders (speculative stockpiling strictly prohibited).",
       "Supplier Protection: Payments to Indian sellers cannot be contingent upon receipt of payment from overseas buyers."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "India's SEZ Exports Rise 11.8% to ₹16.36 Lakh Crore (.28 Billion) in FY26",
@@ -1885,7 +1885,7 @@ const CA_NOTES_DATA = [
       "Top Exporting State: Gujarat recorded highest SEZ exports worth ₹4,05,595 crore.",
       "Followed By: Karnataka (₹2,69,004 crore), Maharashtra (₹2,43,422 crore), and Tamil Nadu (₹2,12,288 crore)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Senior Citizens & Women File ₹7,769.63 Crore Financial Cyber Fraud Complaints in 2025",
@@ -1901,7 +1901,7 @@ const CA_NOTES_DATA = [
       "Administrative Nodal Office: Indian Cybercrime Coordination Centre (I4C) under Ministry of Home Affairs (MHA), New Delhi.",
       "Reporting System: Citizen Financial Cyber Fraud Reporting and Management System (CFCFRMS) launched in 2021."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "PPF Scheme 2019 Restricts Fresh Accounts for NRIs; Existing Accounts Valid for 15-Year Tenure",
@@ -1917,7 +1917,7 @@ const CA_NOTES_DATA = [
       "Existing NRI Accounts: Accounts opened prior to becoming NRI can continue until completing original 15-year tenure (no extension allowed post-maturity).",
       "Deposit Caps: Minimum ₹500, Maximum ₹1.5 lakh per financial year via NRO account."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Cabinet Approves ₹23,731 Crore GOBARdhan Bioenergy Scheme (FY27 to FY36)",
@@ -1932,7 +1932,7 @@ const CA_NOTES_DATA = [
       "Scheme Name: Galvanizing Organic Bio-Agro Resources Dhan (GOBARdhan).",
       "Total Financial Outlay: ₹23,731 crore for 10-year implementation (FY 2026-27 to FY 2035-36)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "RBI Flags El Niño Weather Risks to Agriculture and Food Inflation",
@@ -1946,7 +1946,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Macro Impact: Below-normal rainfall reduces crop production, driving consumer food price inflation."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "EPFO Highlights 3-Year Inactivity Window for Inoperative Provident Fund Accounts",
@@ -1962,7 +1962,7 @@ const CA_NOTES_DATA = [
       "Interest Accrual: Retiring before age 55 allows interest accrual until age 58.",
       "Unique Identifiers: EPF Member ID is 22-digit alphanumeric; UAN is permanent 12-digit universal ID."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Rajya Sabha Clears ₹54,067 Crore Appropriation Bill 2026 under Article 114",
@@ -1976,7 +1976,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Constitutional Mandate: Article 114 mandates parliamentary approval before withdrawing funds from Consolidated Fund of India (CFI)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "EXIM Bank Named Nodal Implementing Agency for Export Credit Interest Subvention Scheme",
@@ -1991,7 +1991,7 @@ const CA_NOTES_DATA = [
       "Implementation Date: Effective 1 April 2026.",
       "Operational Role: Manages pre- and post-shipment export credit interest subvention claims."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "RBI Proposes On-Tap UCB Licenses for Credit Co-ops with ₹10,000 Crore Deposit Base",
@@ -2006,7 +2006,7 @@ const CA_NOTES_DATA = [
       "📌 **Core Policy Directives & Scope:**\nOperational Track Record: Minimum 10 years operations required.\nCapital Thresholds: Deposit base ≥ ₹10,000 crore, Net worth ≥ ₹300 crore (as of March 31).",
       "💰 **Financial Outlays & Operational Rules:**\nInitial Eligibility: Restricted to societies registered under Multi-State Cooperative Societies Act 2002.\nPrudential Conditions: CRAR ≥ 12%, Net NPA ≤ 3%, individual shareholding cap of 5%."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Regulators Consider Bringing Insurance Surety Bonds Under RBI's CRILC Database",
@@ -2020,7 +2020,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "CRILC Scope: Database maintained by RBI monitoring aggregate borrower credit exposures of ₹5 crore and above."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "India Tops World in IPO Count, Ranks 3rd in Funds Raised (SEBI Annual Report FY26)",
@@ -2035,7 +2035,7 @@ const CA_NOTES_DATA = [
       "Public Shareholding Timeline: Largest listed companies given up to 10 years to reach mandatory 25% minimum public shareholding.",
       "Pre-IPO ESOPs: Founders permitted to retain pre-IPO Employee Stock Option Plans."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "SEBI Flags ₹87,124 Crore as Difficult-to-Recover Dues in FY26 (Up 12%)",
@@ -2050,7 +2050,7 @@ const CA_NOTES_DATA = [
       "SEBI Fee Revenue: Total fee income rose 10% to ₹2,563 crore (stock exchange regulatory fees generated ₹1,349 crore).",
       "Investor Protection Fund (IPF): Fund balance rose to ₹965 crore; investor education spend stood at ₹2.25 crore."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "RBI Classifies Tata Sons as Upper-Layer NBFC (NBFC-UL) under Scale-Based Regulation",
@@ -2067,7 +2067,7 @@ const CA_NOTES_DATA = [
       "Standalone Assets: Tata Sons standalone assets exceed ₹2 lakh crore (₹2 trillion).",
       "Asset Layer Caps: Base Layer (<₹1,000 cr), Middle Layer (≥₹1,000 cr), Upper Layer (≥₹1 lakh cr)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "SEBI Proposes REITs & InvITs Investment in Under-Construction Third-Party Assets",
@@ -2082,7 +2082,7 @@ const CA_NOTES_DATA = [
       "📌 **Core Policy Directives & Scope:**\nExposure Norms: Allows minority non-controlling stakes within existing exposure limits.",
       "💰 **Financial Outlays & Operational Rules:**\nCooling-off Period: Proposed reduction from 12 weeks to 8 weeks for illiquid privately placed InvITs."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "RBI Issues Technology-Based Loan Recovery Norms & Phone Lock Restrictions (Effective Jan 1, 2027)",
@@ -2100,7 +2100,7 @@ const CA_NOTES_DATA = [
       "Mandated Exemptions: Banks CANNOT disable incoming calls, SMS, or emergency SOS functions.",
       "Compensation Penalty: Restoration required within 1 hour post-payment; bank delay penalty of ₹250/hour capped at loan amount."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "SEBI Revamps Securities Lending Scheme, Launches Setu Portal & Bond Tokenisation Pilot",
@@ -2115,7 +2115,7 @@ const CA_NOTES_DATA = [
       "Setu Portal: Centralized online compliance and registration portal for SEBI-regulated intermediaries.",
       "Tokenisation Pilot: Corporate bond tokenisation using Distributed Ledger Technology (DLT)."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Home Minister Receives ₹22.90 Crore Dividend from REPCO Bank for FY26",
@@ -2143,7 +2143,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Transaction Cap: Up to ₹25 lakh per trade remittance transaction."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Standard Chartered Obtains IFSCA Nod for GIFT City Wealth Management Services",
@@ -2173,7 +2173,7 @@ const CA_NOTES_DATA = [
       "Reliance Brands Limited partnered with US shapewear brand SKIMS (co-founded by Kim Kardashian) for exclusive Indian retail distribution.",
       "First SKIMS flagship store planned for Mumbai in late 2026."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Niyo Forex Secures Expanded Perpetual AD-II Foreign Exchange Licenses from RBI",
@@ -2188,7 +2188,7 @@ const CA_NOTES_DATA = [
       "Niyo Forex received perpetual Authorised Dealer Category-II (AD-II) foreign exchange licence from RBI.",
       "Enables Niyo to offer cross-border travel card issuance and foreign currency exchange services directly."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Pawan Hans Partners with Norway's Noemi Aerospace for Electric Seaplanes",
@@ -2346,7 +2346,7 @@ const CA_NOTES_DATA = [
     "bullets": [
       "Baldeo Purushartha appointed Senior Adviser to ED at ADB; Satyajit Mohanty appointed Representative of India at ICAO Council."
     ],
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "miniGrid": {
       "headers": [
         "Appointee / Official",
@@ -2829,7 +2829,7 @@ const CA_NOTES_DATA = [
       "Himalayan Serow: Dalhousie, HP (IUCN: Near Threatened, CITES Appendix I).",
       "Mullaperiyar Dam: Masonry gravity dam in Thekkady, Idukki, Kerala."
     ],
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "title": "Maharashtra Approves ₹45-Crore Eco-Nature Park with India's 1st AI Bird Monitoring Centre at Thane Creek",
@@ -2884,7 +2884,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": null,
     "tier": "Tier B+",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "Department of Expenditure works under Ministry of Finance.",
     "id": "note-sec1-152",
     "bullets": [
@@ -2946,7 +2946,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": "Routes Tier-II and Tier-III regional passengers through major hub airports for seamless international connections.",
     "tier": "Tier A",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "Air India CEO: Tewolde Gebremariam | Ministry of Civil Aviation.",
     "id": "note-sec1-156",
     "bullets": [
@@ -3003,7 +3003,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": "Protects judicial dignity against selective, decontextualized social media video clipping.",
     "tier": "Tier A",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "Supreme Court sanctioned judge strength: 38 (including CJI) | Article 124(1).",
     "id": "note-sec2-158",
     "bullets": [
@@ -3051,7 +3051,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": "Grants 207.63 sq. km. critical mineral exploration block in Navatala-Devigarh to CMPDI.",
     "tier": "Tier A",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "CMPDI is a Central PSU subsidiary of Coal India Ltd | Rajasthan CM: Bhajan Lal Sharma.",
     "id": "note-sec1-161",
     "bullets": [
@@ -3067,7 +3067,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": "Accelerates solar, wind, and Battery Energy Storage Systems (BESS) buildout backed by ALTÉRRA fund.",
     "tier": "Tier A",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "Brookfield Asset Management HQ: Toronto/New York | CEO: Bruce Flatt.",
     "id": "note-sec1-162",
     "bullets": [
@@ -3241,7 +3241,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": null,
     "tier": "Tier B+",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "RBI Governor: Sanjay Malhotra (26th) | 4 Deputy Governors.",
     "id": "note-sec2-173",
     "bullets": [
@@ -3533,7 +3533,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": "Retrieval-Augmented Generation (RAG) AI assistant trained on 36,000 Supreme Court judgments assists judges.",
     "tier": "Tier A",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "MoS Law & Justice: Arjun Ram Meghwal | Developed under eCourts Mission Mode Project Phase-III.",
     "id": "note-sec2-188",
     "bullets": [
@@ -3760,7 +3760,7 @@ const CA_NOTES_DATA = [
     "interviewQ": null,
     "hook": "Finances 3 Ultra-Super Critical units of 800 MW each at Meja, Uttar Pradesh.",
     "tier": "Tier A",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "REC Chairman & MD: Jitendra Srivastava | PFC CMD: Parminder Chopra.",
     "id": "note-sec1-199",
     "bullets": [
@@ -3929,7 +3929,7 @@ const CA_NOTES_DATA = [
     "staticGk": "ADB HQ: Manila, Philippines | President: Masato Kanda | Karnataka CM: Siddaramaiah / D.K. Shivakumar.",
     "tier": "Tier A",
     "hook": "Strengthens public education system by establishing 500 integrated public schools across Karnataka.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec1-206"
   },
   {
@@ -4040,7 +4040,7 @@ const CA_NOTES_DATA = [
     "staticGk": "Tamil Nadu CM: M. K. Stalin | Capital: Chennai.",
     "tier": "Tier A",
     "hook": "Finances India's 1st urban ring-main solution for resilient water distribution in Chennai.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec1-211"
   },
   {
@@ -4124,7 +4124,7 @@ const CA_NOTES_DATA = [
     "staticGk": "POWERGRID Maharatna CPSE HQ: Gurugram, Haryana | JBIC HQ: Tokyo, Japan.",
     "tier": "Tier A",
     "hook": "Finances Khavda-Nagpur high-voltage direct current (HVDC) transmission infrastructure in India.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec1-215"
   },
   {
@@ -4217,7 +4217,7 @@ const CA_NOTES_DATA = [
     "staticGk": "CBIC works under Department of Revenue, Ministry of Finance.",
     "tier": "Tier B+",
     "hook": null,
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec1-219"
   },
   {
@@ -4316,7 +4316,7 @@ const CA_NOTES_DATA = [
     "staticGk": "Moody's Corporation HQ: New York, US.",
     "tier": "Tier B+",
     "hook": null,
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec1-223"
   },
   {
@@ -4361,7 +4361,7 @@ const CA_NOTES_DATA = [
     "staticGk": "Odisha CM: Mohan Charan Majhi | IFC HQ: Washington D.C.",
     "tier": "Tier A",
     "hook": "Develops pipeline of 20 infrastructure projects under Transaction Advisory Services Agreement.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec1-226"
   },
   {
@@ -4376,7 +4376,7 @@ const CA_NOTES_DATA = [
     "staticGk": "IFSCA Chairman: K. Rajaraman | HQ: GIFT City, Gandhinagar, Gujarat.",
     "tier": "Tier A",
     "hook": "Mandates pre-rating sharing with issuers to correct factual errors before credit rating publication.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec2-227"
   },
   {
@@ -4390,7 +4390,7 @@ const CA_NOTES_DATA = [
     "staticGk": "MSDE Minister: Jayant Chaudhary (MoS I/C).",
     "tier": "Tier B+",
     "hook": null,
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec2-228"
   },
   {
@@ -4420,7 +4420,7 @@ const CA_NOTES_DATA = [
     "staticGk": "IIT Delhi Director: Rangan Banerjee | Microsoft CEO: Satya Nadella.",
     "tier": "Tier A",
     "hook": "Democratizes AI access and nurtures deep-tech startups across non-metro hubs.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec2-230"
   },
   {
@@ -4572,7 +4572,7 @@ const CA_NOTES_DATA = [
     "staticGk": "OECD HQ: Paris, France.",
     "tier": "Tier B+",
     "hook": null,
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec2-239"
   },
   {
@@ -4680,7 +4680,7 @@ const CA_NOTES_DATA = [
     "staticGk": "SEBI HQ: Mumbai | Regulates stockbrokers under SEBI (Stock Brokers) Regulations.",
     "tier": "Tier A",
     "hook": "Mandates direct demat payout followed by auto-pledge in Client Unpaid Securities Pledgee Account.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec2-246"
   },
   {
@@ -4746,7 +4746,7 @@ const CA_NOTES_DATA = [
     "staticGk": "National Pension System (NPS) regulated by PFRDA since 2003.",
     "tier": "Tier A",
     "hook": "Chaired by Dinesh Khara (NPS Trust Chairman) to scale global pension fund inflows under NPS.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec2-249"
   },
   {
@@ -4807,7 +4807,7 @@ const CA_NOTES_DATA = [
     "staticGk": "NSDC HQ: New Delhi | Works under Ministry of Skill Development.",
     "tier": "Tier A",
     "hook": "Unveils rural business development initiative on NABARD's 45th Foundation Day.",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "id": "note-sec2-253"
   },
   {
@@ -5629,7 +5629,7 @@ const CA_NOTES_DATA = [
     "secId": "sec2",
     "hook": "Unified regulator combining RBI, SEBI, IRDAI, and PFRDA powers for IFSC regions.",
     "date": "2026-07-01",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "tier": "Tier A",
     "id": "note-sec2-291",
     "title": "Static GK: International Financial Services Centres Authority (IFSCA) Mandate & Governance",
@@ -7258,7 +7258,7 @@ const CA_NOTES_DATA = [
     "date": "2026-07-02"
   },
   {
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "staticGk": "EIL CMD: Atul Gupta | Critical Minerals include Lithium, Cobalt, Nickel, Neodymium.",
     "hook": "CSIR-IMMT designated Centre of Excellence for critical minerals processing (lithium, cobalt, REEs).",
     "tier": "Tier A",
@@ -7386,7 +7386,7 @@ const CA_NOTES_DATA = [
     "title": "Mission Senehjori Launched to Transform Assam Muga Silk Sector by 2028",
     "interviewQ": null,
     "secId": "sec1",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "date": "2026-06-01",
     "hook": "MDoNER Minister Jyotiraditya Scindia launches initiative to position Assam Muga silk in global luxury markets.",
     "bullets": [
@@ -7457,7 +7457,7 @@ const CA_NOTES_DATA = [
     "title": "India Becomes World's 2nd-Largest Solar Market Crossing 155 GW Capacity",
     "interviewQ": null,
     "secId": "sec1",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "date": "2026-06-04",
     "hook": "Overtakes US in annual solar additions as total solar capacity grows 5,370% since 2014.",
     "bullets": [
@@ -7536,7 +7536,7 @@ const CA_NOTES_DATA = [
     "title": "EPF Deposit Interest Rate Retained at 8.25% for FY26 (3rd Consecutive Year)",
     "interviewQ": null,
     "secId": "sec2",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "date": "2026-06-08",
     "hook": "Central Board of Trustees ratifies 8.25% interest rate on provident fund deposits.",
     "bullets": [
@@ -7614,7 +7614,7 @@ const CA_NOTES_DATA = [
     "title": "RBI Eases FPI G-Sec Investment Norms & Merges General/Long-Term Limits",
     "interviewQ": null,
     "secId": "sec2",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "date": "2026-06-12",
     "hook": "Removes short-term, security-wise, and concentration limits for FPIs under General Route.",
     "bullets": [
@@ -7630,7 +7630,7 @@ const CA_NOTES_DATA = [
     "title": "RBI Recognises 'Sahamati' as Self-Regulatory Organisation for Account Aggregator Ecosystem",
     "interviewQ": null,
     "secId": "sec2",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "date": "2026-06-13",
     "hook": "Sahamati becomes official SRO for NBFC-Account Aggregator network powering consent-based data sharing.",
     "bullets": [
@@ -7808,7 +7808,7 @@ const CA_NOTES_DATA = [
     "title": "RBI Revamps Lead Bank Scheme: Mandates 1 Exclusive LDM Per District",
     "interviewQ": null,
     "secId": "sec1",
-    "trap": null,
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall.",
     "date": "2026-06-22",
     "hook": "Formalises Block Level Bankers' Committee (BLBC) as credit planning foundation.",
     "bullets": [
@@ -7969,7 +7969,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-409",
     "title": "Logistics Port Performance Index (LPPI) FY25 & 4 Digital Modules Launched by DGS",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -7985,7 +7985,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-410",
     "title": "AM/NS India Approved as 1st Anchor Partner Under ₹60,000-Cr PM-SETU Scheme",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8001,7 +8001,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-411",
     "title": "VYOMA Innovation Challenge Launched for Offline & Multilingual Voice AI Solutions",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8033,7 +8033,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-413",
     "title": "Maruti Suzuki Launches India's 1st Flex-Fuel Car 'Wagon R' (E20 to E100)",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8049,7 +8049,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-414",
     "title": "CCEA Approves 4 Major Highway Corridors Worth ₹24,200 Crore Under PM GatiShakti",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8065,7 +8065,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-415",
     "title": "India's 1st Model Border Village Foundation Laid at Chumur (Ladakh) Under VVP",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8097,7 +8097,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec2-417",
     "title": "DGFT Mandates Import Licensing for 4 Specific Silver Categories",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8145,7 +8145,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-420",
     "title": "Consumer Affairs Prescribes 9 Standard Pack Sizes for Edible Oils",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8177,7 +8177,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-422",
     "title": "ICAR Launches AI-Based 'Oilseeds Kisaan Mitra' WhatsApp Chatbot (+91 4024598180)",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8225,7 +8225,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-425",
     "title": "BIS Publishes IS 20201:2026 Standard for Community Seed Bank Management",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8257,7 +8257,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec1-427",
     "title": "MNRE Launches 'Green Hydrogen Certification Portal of India (GHCI)' &  Startup Support",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [
@@ -8305,7 +8305,7 @@ const CA_NOTES_DATA = [
     "tier": "Tier A",
     "id": "note-sec2-430",
     "title": "DFS Launches 'Common Landing Portal for Unclaimed Financial Assets' (PSBA)",
-    "trap": null
+    "trap": "⚠️ **Regulatory Compliance Trap:** Ensure exact compliance dates, institutional ceilings, and penalty provisions are verified during recall."
   },
   {
     "bullets": [

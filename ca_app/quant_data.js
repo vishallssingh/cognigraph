@@ -81,7 +81,7 @@ const QUANT_CHAPTERS = [
       {
         "type": "bullets",
         "items": [
-          "**Frustum Volume Formula:** $V = \\frac{\\pi h}{3}(R^2 + r^2 + R r)$ | Slant Height $l = \\sqrt{h^2 + (R-r)^2}$",
+          "**Frustum Volume Formula & Method:** $V = \\frac{\\pi h}{3}(R^2 + r^2 + R r)$ | Slant Height $l = \\sqrt{h^2 + (R-r)^2}$",
           "**Frustum Surface Area:** $\\text{CSA} = \\pi (R+r) l$ | $\\text{TSA} = \\pi (R+r) l + \\pi R^2 + \\pi r^2$",
           "**Sphere Inscribed in Cube Shortcut:** Sphere radius $r = a/2$ $\\rightarrow$ $\\frac{\\text{Volume of Sphere}}{\\text{Volume of Cube}} = \\frac{\\pi}{6} \\approx 0.524$",
           "📝 **Worked Example (Frustum Volume Method):** A frustum bucket has top radius $R = 20\\text{ cm}$, bottom radius $r = 10\\text{ cm}$, and height $h = 15\\text{ cm}$. Find its volume.\n*Method:* Recognize Frustum $\\rightarrow$ Substitute $R=20, r=10, h=15 \\implies V = \\frac{\\pi \\times 15}{3} (20^2 + 10^2 + 20\\times 10) = 5\\pi (400 + 100 + 200) = 3,500\\pi \\approx 10,995.5 \\text{ cm}^3$."
@@ -424,7 +424,7 @@ const QUANT_CHAPTERS = [
       {
         "type": "bullets",
         "items": [
-          "**Handshake & Tournament Formula:** Total handshakes/matches among $n$ people = ${}^n\\text{C}_2 = \\frac{n(n-1)}{2}$.",
+          "**Handshake & Tournament Formula & Method:** Total handshakes/matches among $n$ people = ${}^n\\text{C}_2 = \\frac{n(n-1)}{2}$.",
           "**Circular Permutation:** Arrangements of $n$ distinct items in a circle = $(n-1)!$.",
           "📝 **Worked Example (Handshake Formula Method):** 10 persons attend a conference and each person shakes hands with every other person once. Find total handshakes.\n*Method:* Recognize Handshake pattern $\\rightarrow$ Apply $\\frac{n(n-1)}{2} = \\frac{10 \\times 9}{2} = 45\\text{ handshakes}$."
         ],
