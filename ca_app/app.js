@@ -1092,133 +1092,156 @@ document.addEventListener("DOMContentLoaded", () => {
     renderMasterWhosWhoTable();
   };
 
-  // Render Centralized Master Living "Who's Who & Appointments Directory" Table (Part 7)
+  // Render Centralized Master Living "Who's Who & Appointments Directory" Table (Matching Ideal Chapter 1 Schema)
   function renderMasterWhosWhoTable() {
     notesFeed.innerHTML = "";
 
-    // 1. Gather all appointment notes (excluding pure static GK entries like NATO/ASEAN founding)
-    let allApptNotes = CA_NOTES_DATA.filter(n => {
-      const titleLower = n.title ? n.title.toLowerCase() : "";
-      const isStaticGkOnly = titleLower.includes("static gk:") || titleLower.includes("founding &") || titleLower.includes("32-nation alliance");
-      if (isStaticGkOnly) return false;
+    const masterList = [];
 
-      return n.secId === "sec5" || titleLower.includes("appoint") || titleLower.includes("sworn in") || titleLower.includes("takes charge") || titleLower.includes("dg of") || titleLower.includes("chairman of") || titleLower.includes("president of") || titleLower.includes("md & ceo");
-    });
-
-    // 2. Timeframe Filter (Default: Last 90 Days)
-    if (apptTimeframeFilter === "90days") {
-      const targetDateStr = (DASHBOARD_DATA && DASHBOARD_DATA.targetDate) ? DASHBOARD_DATA.targetDate : "2026-08-24";
-      const targetDate = new Date(targetDateStr);
-      const cutoff90 = new Date(targetDate.getTime() - (90 * 24 * 60 * 60 * 1000));
-      allApptNotes = allApptNotes.filter(n => new Date(n.date) >= cutoff90);
+    // 1. Extract static GA Chapter 1 baseline appointments
+    if (typeof STATIC_GA_CHAPTERS !== "undefined") {
+      const ch1 = STATIC_GA_CHAPTERS.find(c => c.id === "ch1");
+      if (ch1 && ch1.subsections) {
+        ch1.subsections.forEach(sub => {
+          if (sub.type === "table" && sub.rows) {
+            sub.rows.forEach((r, idx) => {
+              masterList.push({
+                id: `static_ch1_${sub.subId}_${idx}`,
+                person: r[0],
+                position: r[1],
+                entity: r[2],
+                date: r[3],
+                predecessor: r[4] || "-",
+                details: r[5] || r[4] || "-",
+                category: "financial",
+                priority: "HIGH",
+                source: "Static GA Anchor"
+              });
+            });
+          }
+        });
+      }
     }
 
-    // 3. Category Tagging & Category Filter
-    allApptNotes = allApptNotes.filter(n => {
-      const titleLower = (n.title || "").toLowerCase();
-      const bulletText = (n.bullets ? n.bullets.join(" ") : "").toLowerCase();
-      const combined = titleLower + " " + bulletText;
+    // 2. Extract dynamic 2026 person-level appointments from CA_NOTES_DATA
+    const nonPersonKeywords = ["mou", "conference", "summit", "adopts", "partners", "hosts", "sign", "agrees", "platform", "zone", "corridor", "facility", "project", "initiative", "policy"];
 
+    CA_NOTES_DATA.forEach(n => {
+      const titleLower = (n.title || "").toLowerCase();
+      if (nonPersonKeywords.some(k => titleLower.includes(k))) return;
+
+      const hasApptKeyword = titleLower.includes("appoint") || titleLower.includes("sworn in") || titleLower.includes("takes charge") || titleLower.includes("granted extension") || titleLower.includes("reappointed") || n.secId === "sec5";
+      if (!hasApptKeyword) return;
+
+      let person = n.title;
+      let pos = "Official Position";
+      let entity = "Government / Org";
+      let context = n.bullets && n.bullets[0] ? n.bullets[0] : "";
+
+      if (n.miniGrid && n.miniGrid.rows && n.miniGrid.rows[0]) {
+        const p = n.miniGrid.rows[0][0];
+        const r = n.miniGrid.rows[0][1];
+        const c = n.miniGrid.rows[0][2];
+        if (p && !nonPersonKeywords.some(k => p.toLowerCase().includes(k)) && p.length < 35) {
+          person = p;
+          pos = r || pos;
+          context = c || context;
+        } else {
+          return;
+        }
+      } else if (n.title.includes(" Appointed ")) {
+        const partsApp = n.title.split(" Appointed ");
+        person = partsApp[0].replace(/^(RBI|SEBI|IRDAI|IFSCA|CCI|Government|Center)\s+/, '').trim();
+        pos = partsApp[1].trim();
+      } else if (n.title.includes(" Appoints ")) {
+        const partsPts = n.title.split(" Appoints ");
+        person = partsPts[1].trim();
+      } else {
+        return;
+      }
+
+      if (person.length > 35) return;
+
+      // Determine category & priority
+      const combined = (person + " " + pos + " " + context).toLowerCase();
       let cat = "corporate";
-      if (n.secId === "sec1" || n.secId === "sec2" || combined.includes("rbi") || combined.includes("sebi") || combined.includes("irdai") || combined.includes("ifsca") || combined.includes("bank") || combined.includes("cvc") || combined.includes("gsi")) {
+      if (combined.includes("rbi") || combined.includes("sebi") || combined.includes("irdai") || combined.includes("ifsca") || combined.includes("bank") || combined.includes("cvc") || combined.includes("gsi")) {
         cat = "financial";
       } else if (combined.includes("un") || combined.includes("nato") || combined.includes("world bank") || combined.includes("imf") || combined.includes("cop17") || combined.includes("ambassador")) {
         cat = "intl";
       }
 
-      n._apptCat = cat;
-
-      // Assign Exam Priority Tag
+      let prio = "LOW";
       if (combined.includes("rbi") || combined.includes("sebi") || combined.includes("irdai") || combined.includes("cvc") || combined.includes("gsi") || combined.includes("director general") || combined.includes("governor")) {
-        n._apptPriority = "HIGH";
+        prio = "HIGH";
       } else if (combined.includes("bank") || combined.includes("executive director") || combined.includes("chairman")) {
-        n._apptPriority = "MED";
-      } else {
-        n._apptPriority = "LOW";
+        prio = "MED";
       }
 
-      if (apptCategoryFilter === "all") return true;
-      return cat === apptCategoryFilter;
+      masterList.push({
+        id: n.id,
+        person: person.trim(),
+        position: pos.trim(),
+        entity: entity.trim(),
+        date: n.date,
+        predecessor: context.includes("succeeding") ? (context.match(/succeeding\s+([A-Z][a-zA-Z\s]+)/i)?.[0] || "-") : "-",
+        details: context,
+        category: cat,
+        priority: prio,
+        source: "2026 Monthly Note"
+      });
     });
 
-    // Sort by date descending (latest first)
-    allApptNotes.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    // 3. Apply Timeframe Filter
+    let filteredList = masterList;
+    if (apptTimeframeFilter === "90days") {
+      const targetDateStr = (DASHBOARD_DATA && DASHBOARD_DATA.targetDate) ? DASHBOARD_DATA.targetDate : "2026-08-24";
+      const targetDate = new Date(targetDateStr);
+      const cutoff90 = new Date(targetDate.getTime() - (90 * 24 * 60 * 60 * 1000));
+      filteredList = masterList.filter(item => {
+        if (item.source === "Static GA Anchor") return true;
+        return new Date(item.date) >= cutoff90;
+      });
+    }
 
-    activeCountEl.textContent = `${allApptNotes.length} appointments`;
+    // 4. Apply Category Filter
+    if (apptCategoryFilter !== "all") {
+      filteredList = filteredList.filter(item => item.category === apptCategoryFilter);
+    }
+
+    activeCountEl.textContent = `${filteredList.length} appointments`;
 
     const seenRoles = new Set();
-    const rowsHtml = allApptNotes.map(n => {
-      let person = n.title;
-      let role = "Official Appointment";
-      let context = n.bullets && n.bullets[0] ? n.bullets[0] : "";
-      
-      if (n.miniGrid && n.miniGrid.rows && n.miniGrid.rows[0]) {
-        person = n.miniGrid.rows[0][0] || n.title;
-        role = n.miniGrid.rows[0][1] || "Official Appointment";
-        context = n.miniGrid.rows[0][2] || context;
-      }
-
-      if (person === role || person.length > 35) {
-        let parts;
-        if (n.title.includes(" Appointed ")) {
-          parts = n.title.split(" Appointed ");
-          person = parts[0].replace(/^(RBI|SEBI|IRDAI|IFSCA|CCI|Government|Center)\s+/, '').trim();
-          role = parts[1].trim();
-        } else if (n.title.includes(" Granted ")) {
-          parts = n.title.split(" Granted ");
-          person = parts[0].trim();
-          role = parts[1].trim();
-        } else if (n.title.includes(" Takes Charge ")) {
-          parts = n.title.split(" Takes Charge ");
-          person = parts[0].trim();
-          role = parts[1].trim();
-        }
-      }
-
-      // Highlight predecessor changeover info
-      let predecessorHtml = "";
-      if (context.toLowerCase().includes("succeeding") || context.toLowerCase().includes("replaces")) {
-        const predMatch = context.match(/(succeeding|replaces)\s+([A-Z][a-zA-Z\s]+)/i);
-        if (predMatch) {
-          predecessorHtml = `<br><span class="health-badge health-amber" style="font-size: 0.68rem; margin-top: 4px; display: inline-block;">↩ ${predMatch[0]}</span>`;
-        }
-      }
-
-      const roleKey = (role + person).toLowerCase().replace(/[^a-z0-9]/g, '');
+    const rowsHtml = filteredList.map(item => {
+      const roleKey = (item.position + item.person).toLowerCase().replace(/[^a-z0-9]/g, '');
       const isLatest = !seenRoles.has(roleKey);
       seenRoles.add(roleKey);
 
-      const isBm = bookmarkedIds.includes(n.id);
-
-      // Priority Badge Color
       let priorityClass = "health-grey";
-      if (n._apptPriority === "HIGH") priorityClass = "health-red";
-      else if (n._apptPriority === "MED") priorityClass = "health-amber";
+      if (item.priority === "HIGH") priorityClass = "health-red";
+      else if (item.priority === "MED") priorityClass = "health-amber";
 
-      // Optional Exam Angle
-      let examAngleHtml = n.hook ? `<div style="font-size: 0.8rem; color: var(--accent-gold); margin-top: 4px; font-weight: 500;">💡 Exam Angle: ${parseMarkdown(n.hook)}</div>` : "";
+      let predecessorBadge = item.predecessor && item.predecessor !== "-" ? `<br><span class="health-badge health-amber" style="font-size: 0.68rem; margin-top: 4px; display: inline-block;">↩ ${item.predecessor}</span>` : "";
 
       return `
         <tr>
-          <td style="font-weight: 600; white-space: nowrap;">
-            ${formatSubtleDate(n.date)}
+          <td style="font-weight: 700; color: var(--color-active); width: 18%;">
+            <strong>${parseMarkdown(item.person)}</strong>
+            ${isLatest ? '<span class="badge-count" style="background: var(--color-mastered); color: #fff; font-size: 0.65rem; margin-left: 4px;">ACTIVE</span>' : ''}
+          </td>
+          <td style="font-weight: 600; width: 22%;">${parseMarkdown(item.position)}</td>
+          <td style="font-weight: 600; color: var(--accent-blue); width: 18%;">${parseMarkdown(item.entity)}</td>
+          <td style="font-size: 0.85rem; white-space: nowrap; width: 12%;">
+            ${formatSubtleDate(item.date)}
             <br>
-            <span class="health-badge ${priorityClass}" style="font-size: 0.65rem; margin-top: 4px; display: inline-block;">${n._apptPriority} PRIORITY</span>
+            <span class="health-badge ${priorityClass}" style="font-size: 0.65rem; margin-top: 4px; display: inline-block;">${item.priority}</span>
           </td>
-          <td style="font-weight: 700; color: var(--color-active); width: 22%;">
-            <strong>${parseMarkdown(person)}</strong>
-            ${isLatest ? '<span class="badge-count" style="background: var(--color-mastered); color: #fff; font-size: 0.65rem; margin-left: 4px;">ACTIVE 2026</span>' : ''}
-            ${predecessorHtml}
+          <td style="font-size: 0.85rem; color: var(--text-muted); width: 15%;">
+            ${parseMarkdown(item.predecessor)}
+            ${predecessorBadge}
           </td>
-          <td style="font-weight: 600; width: 30%;">${parseMarkdown(role)}</td>
-          <td style="font-size: 0.88rem; color: var(--text-muted);">
-            ${parseTrapAndStaticGK(context)}
-            ${examAngleHtml}
-          </td>
-          <td style="text-align: center; width: 8%;">
-            <button class="btn-bookmark ${isBm ? 'bookmarked' : ''}" onclick="toggleBookmark('${n.id}')" title="Bookmark Appointment">
-              ${isBm ? '★' : '☆'}
-            </button>
+          <td style="font-size: 0.85rem; color: var(--text-muted);">
+            ${parseTrapAndStaticGK(item.details)}
           </td>
         </tr>
       `;
@@ -1229,10 +1252,10 @@ document.addEventListener("DOMContentLoaded", () => {
     masterCard.innerHTML = `
       <div class="note-header" style="border-bottom: 2px solid var(--color-active); padding-bottom: 12px; margin-bottom: 16px;">
         <div>
-          <h2 class="note-title" style="font-size: 1.3rem;">🤝 Appointments Master Directory (Living Consolidated Table)</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Single living master table combining all official appointments across June, July, August 2026 & Static GA into one updated reference directory.</p>
+          <h2 class="note-title" style="font-size: 1.3rem;">👔 Appointments Master Directory (Ideal Static Baseline Format)</h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Clean living directory containing 100% human official appointments (RBI, SEBI, IRDAI, PSBs & Apex Bodies) matching the Chapter 1 schema.</p>
         </div>
-        <span class="badge-count" style="background: var(--color-active); color: #fff; font-size: 0.9rem; padding: 6px 14px;">${allApptNotes.length} Appointments</span>
+        <span class="badge-count" style="background: var(--color-active); color: #fff; font-size: 0.9rem; padding: 6px 14px;">${filteredList.length} Appointments</span>
       </div>
 
       <!-- Filter Bar for Appointments Table (Part 7) -->
@@ -1240,8 +1263,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
           <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">Sector Category:</span>
           <button onclick="setApptCategoryFilter('all')" class="toggle-chip ${apptCategoryFilter === 'all' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">All Categories</button>
-          <button onclick="setApptCategoryFilter('financial')" class="toggle-chip ${apptCategoryFilter === 'financial' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🏛️ Financial & Banking</button>
-          <button onclick="setApptCategoryFilter('corporate')" class="toggle-chip ${apptCategoryFilter === 'corporate' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🏢 Corporate & Industry</button>
+          <button onclick="setApptCategoryFilter('financial')" class="toggle-chip ${apptCategoryFilter === 'financial' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🏛️ Regulatory & Banking</button>
+          <button onclick="setApptCategoryFilter('corporate')" class="toggle-chip ${apptCategoryFilter === 'corporate' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🏢 Corporate Bodies</button>
           <button onclick="setApptCategoryFilter('intl')" class="toggle-chip ${apptCategoryFilter === 'intl' ? 'active' : ''}" style="padding: 4px 10px; font-size: 0.8rem;">🌐 International</button>
         </div>
         <div style="display: flex; align-items: center; gap: 8px;">
@@ -1255,11 +1278,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <table class="mini-grid-table" style="width: 100%; margin: 0;">
           <thead>
             <tr>
-              <th>Date & Priority</th>
-              <th>Appointee / Official</th>
-              <th>New Designation & Organization</th>
-              <th>Key Context & Exam Angle</th>
-              <th>Action</th>
+              <th style="width: 18%;">Person (Appointee)</th>
+              <th style="width: 22%;">Position / Designation</th>
+              <th style="width: 18%;">Entity / Organization</th>
+              <th style="width: 12%;">Effective Date</th>
+              <th style="width: 15%;">Predecessor / Status</th>
+              <th>Key Context & Details</th>
             </tr>
           </thead>
           <tbody>
