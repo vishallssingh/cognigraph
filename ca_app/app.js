@@ -652,6 +652,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (activeMonth === "2026-08") label = "📅 August 2026";
     else if (activeMonth === "2026-07") label = "📅 July 2026";
     else if (activeMonth === "2026-06") label = "📅 June 2026";
+    else if (activeMonth === "2026-05") label = "📅 May 2026";
+    else if (activeMonth === "2026-04") label = "📅 April 2026";
+    else if (activeMonth === "2026-03") label = "📅 March 2026";
+    else if (activeMonth === "2026-02") label = "📅 February 2026";
+    else if (activeMonth === "2026-01") label = "📅 January 2026";
+    else if (activeMonth === "preset_exam_window") label = "🎯 Last 6 Months";
     toggleMonthBtn.innerHTML = `${label} <span id="monthChevron">▼</span>`;
 
     // Update active class on month drawer buttons
@@ -787,7 +793,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "2026-08": "August 2026",
       "2026-07": "July 2026",
       "2026-06": "June 2026",
-      "2026-05": "May 2026"
+      "2026-05": "May 2026",
+      "2026-04": "April 2026",
+      "2026-03": "March 2026",
+      "2026-02": "February 2026",
+      "2026-01": "January 2026"
     };
     return monthsMap[monthKey] || monthKey;
   }
